@@ -1,0 +1,2230 @@
+From b.greene@analyticsengines.com Fri Oct  2 04:53:37 2015
+Received: from int-mx14.intmail.prod.int.phx2.redhat.com
+	(int-mx14.intmail.prod.int.phx2.redhat.com [10.5.11.27])
+	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
+	id t928rbVB030636 for <libvirt-users@listman.util.phx.redhat.com>;
+	Fri, 2 Oct 2015 04:53:37 -0400
+Received: from mx1.redhat.com (ext-mx01.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.25])
+	by int-mx14.intmail.prod.int.phx2.redhat.com (8.14.4/8.14.4) with ESMTP
+	id t928ra6p008680
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256
+	verify=NO)
+	for <libvirt-users@redhat.com>; Fri, 2 Oct 2015 04:53:37 -0400
+Received: from emea01-am1-obe.outbound.protection.outlook.com
+	(mail-am1on0085.outbound.protection.outlook.com [157.56.112.85])
+	by mx1.redhat.com (Postfix) with ESMTPS id 684A5157743
+	for <libvirt-users@redhat.com>; Fri,  2 Oct 2015 08:53:30 +0000 (UTC)
+Received: from AM2PR02MB0609.eurprd02.prod.outlook.com (10.161.233.11) by
+	AM2PR02MB0610.eurprd02.prod.outlook.com (10.161.233.12) with Microsoft
+	SMTP Server (TLS) id 15.1.280.20; Fri, 2 Oct 2015 08:53:25 +0000
+Received: from AM2PR02MB0609.eurprd02.prod.outlook.com ([10.161.233.11]) by
+	AM2PR02MB0609.eurprd02.prod.outlook.com ([10.161.233.11]) with mapi id
+	15.01.0280.021; Fri, 2 Oct 2015 08:53:25 +0000
+From: Ben Greene <b.greene@analyticsengines.com>
+To: "libvirt-users@redhat.com" <libvirt-users@redhat.com>
+Thread-Topic: virsh with OSX and virtualbox
+Thread-Index: AQHQ/O/MSC7H/y2IwkyIknzwrkyRWQ==
+Date: Fri, 2 Oct 2015 08:53:25 +0000
+Message-ID: <40EB4020-BF39-484E-AD31-1BF6918770FD@analyticsengines.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: spf=none (sender IP is )
+	smtp.mailfrom=b.greene@analyticsengines.com; 
+x-ms-exchange-messagesentrepresentingtype: 1
+x-originating-ip: [81.137.67.60]
+x-microsoft-exchange-diagnostics: 1; AM2PR02MB0610;
+	5:2e6ILwSO9Ega+Ta4V8RnGsgw0Gx/l0GoOanlo4+Homli3/8Bt3/P0+yXCZF3mYPlnFFswJioCl6EsLAvh/Iz9un54ncSp2jgRTpT++GKR5oZE0Q6jmGeOSVHNPpUPO95K2FLAVKOfgo2tNLYfmRv/g==;
+	24:S+bQa18Q2KZdLjlle+08doUhJ5dm9T/88Dxmcr3l5SAE0TvsdHmtC6j0gbJ3NMN4y7zZHVG3dySGvloVe1a4z7qDkMen+AmPkd6pI/ezp9k=;
+	20:VNNNQmlRROZ2OuJpUQgskwKIDwMe9l4FdpYlo9cH38nqS209jzFkUhTDL+bDoWz4t968MhXMEigx3xrG+4Nerw==
+x-microsoft-antispam: UriScan:;BCL:0;PCL:0;RULEID:;SRVR:AM2PR02MB0610;
+x-microsoft-antispam-prvs: <AM2PR02MB06103457F919607D54F5FB74EC4B0@AM2PR02MB0610.eurprd02.prod.outlook.com>
+x-exchange-antispam-report-test: UriScan:;
+x-exchange-antispam-report-cfa-test: BCL:0; PCL:0;
+	RULEID:(601004)(2401047)(5005006)(520078)(8121501046)(3002001);
+	SRVR:AM2PR02MB0610; BCL:0; PCL:0; RULEID:; SRVR:AM2PR02MB0610; 
+x-forefront-prvs: 0717E25089
+x-forefront-antispam-report: SFV:NSPM;
+	SFS:(10009020)(199003)(51234002)(189002)(377424004)(2501003)(83716003)(92566002)(106356001)(16236675004)(2900100001)(33656002)(46102003)(87936001)(57306001)(5008740100001)(575784001)(105586002)(11100500001)(68736005)(86362001)(82746002)(10400500002)(102836002)(106116001)(50986999)(77096005)(40100003)(5002640100001)(5007970100001)(2351001)(107886002)(229853001)(97736004)(64706001)(5004730100002)(122556002)(81156007)(4001540100001)(101416001)(62966003)(77156002)(36756003)(5001960100002)(450100001)(189998001)(5001860100001)(5001830100001)(66066001)(110136002)(50226001)(104396002)(559001)(579004);
+	DIR:OUT; SFP:1101; SCL:1; SRVR:AM2PR02MB0610;
+	H:AM2PR02MB0609.eurprd02.prod.outlook.com; FPR:; SPF:None;
+	PTR:InfoNoRecords; A:1; MX:1; LANG:en; 
+received-spf: None (protection.outlook.com: analyticsengines.com does not
+	designate permitted sender hosts)
+spamdiagnosticoutput: 1:23
+spamdiagnosticmetadata: NSPM
+Content-Type: multipart/alternative;
+	boundary="_000_40EB4020BF39484EAD311BF6918770FDanalyticsenginescom_"
+MIME-Version: 1.0
+X-OriginatorOrg: analyticsengines.com
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Oct 2015 08:53:25.3084 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 861f81d7-c1ff-445c-b861-5a0f983c5b47
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM2PR02MB0610
+X-RedHat-Spam-Score: 0.688  (BAYES_50, DCC_REPUT_13_19, HTML_MESSAGE,
+	RCVD_IN_DNSWL_NONE, RCVD_IN_MSPIKE_H2, SPF_HELO_PASS,
+	SPF_PASS) 157.56.112.85 mail-am1on0085.outbound.protection.outlook.com
+	157.56.112.85 mail-am1on0085.outbound.protection.outlook.com
+	<b.greene@analyticsengines.com>
+X-Scanned-By: MIMEDefang 2.68 on 10.5.11.27
+X-Scanned-By: MIMEDefang 2.75 on 10.5.110.25
+X-loop: libvirt-users@redhat.com
+X-Mailman-Approved-At: Fri, 02 Oct 2015 12:49:19 -0400
+Subject: [libvirt-users] virsh with OSX and virtualbox
+X-BeenThere: libvirt-users@redhat.com
+X-Mailman-Version: 2.1.12
+Precedence: junk
+List-Id: "Discussions for users,
+	administrators & application developers with the libvirt library"
+	<libvirt-users.redhat.com>
+List-Unsubscribe: <https://www.redhat.com/mailman/options/libvirt-users>,
+	<mailto:libvirt-users-request@redhat.com?subject=unsubscribe>
+List-Archive: <https://www.redhat.com/archives/libvirt-users>
+List-Post: <mailto:libvirt-users@redhat.com>
+List-Help: <mailto:libvirt-users-request@redhat.com?subject=help>
+List-Subscribe: <https://www.redhat.com/mailman/listinfo/libvirt-users>,
+	<mailto:libvirt-users-request@redhat.com?subject=subscribe>
+X-List-Received-Date: Fri, 02 Oct 2015 08:53:37 -0000
+
+--_000_40EB4020BF39484EAD311BF6918770FDanalyticsenginescom_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+I have freshly installed Virtualbox (5.04) and have installed libvirt (1.2.=
+19) using brew.
+
+When i attempt to run virsh it does not work with the following outputs.
+
+# virsh -c vbox:///session
+error: failed to connect to the hypervisor
+error: internal error: unable to initialize VirtualBox driver API
+
+Any pointers on what to try next or where to investigate to get more info.
+
+Has anyone got virsh working successfully with OSX and Virtualbox.
+
+
+I also ran the same command with more logging:
+
+Foyil:~ bengreene$ LIBVIRT_DEBUG=3D1 virsh -c vbox:///session
+2015-10-02 08:52:11.874+0000: 18446744073709551615: info : libvirt version:=
+ 1.2.19
+2015-10-02 08:52:11.874+0000: 18446744073709551615: debug : virGlobalInit:3=
+89 : register drivers
+2015-10-02 08:52:11.874+0000: 18446744073709551615: debug : virRegisterConn=
+ectDriver:691 : driver=3D0x1007121d8 name=3DTest
+2015-10-02 08:52:11.874+0000: 18446744073709551615: debug : virRegisterConn=
+ectDriver:702 : registering Test as driver 0
+2015-10-02 08:52:11.874+0000: 18446744073709551615: debug : virRegisterConn=
+ectDriver:691 : driver=3D0x100713e00 name=3DVMWARE
+2015-10-02 08:52:11.874+0000: 18446744073709551615: debug : virRegisterConn=
+ectDriver:702 : registering VMWARE as driver 1
+2015-10-02 08:52:11.874+0000: 18446744073709551615: debug : virRegisterConn=
+ectDriver:691 : driver=3D0x1007144f8 name=3DESX
+2015-10-02 08:52:11.874+0000: 18446744073709551615: debug : virRegisterConn=
+ectDriver:702 : registering ESX as driver 2
+2015-10-02 08:52:11.874+0000: 18446744073709551615: debug : virRegisterConn=
+ectDriver:691 : driver=3D0x100712c10 name=3Dremote
+2015-10-02 08:52:11.874+0000: 18446744073709551615: debug : virRegisterConn=
+ectDriver:702 : registering remote as driver 3
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virEventRegiste=
+rDefaultImpl:261 : registering default event implementation
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virEventPollAdd=
+Handle:115 : Used 0 handle slots, adding at least 10 more
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virEventPollInt=
+erruptLocked:723 : Skip interrupt, 0 0
+2015-10-02 08:52:11.876+0000: 18446744073709551615: info : virEventPollAddH=
+andle:140 : EVENT_POLL_ADD_HANDLE: watch=3D1 fd=3D4 events=3D1 cb=3D0x10050=
+c74e opaque=3D0x0 ff=3D0x0
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virEventRegiste=
+rImpl:231 : addHandle=3D0x10050afa3 updateHandle=3D0x10050b296 removeHandle=
+=3D0x10050b3da addTimeout=3D0x10050b528 updateTimeout=3D0x10050b6f6 removeT=
+imeout=3D0x10050b879
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virEventPollAdd=
+Timeout:230 : Used 0 timeout slots, adding at least 10 more
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virEventPollInt=
+erruptLocked:723 : Skip interrupt, 0 0
+2015-10-02 08:52:11.876+0000: 18446744073709551615: info : virEventPollAddT=
+imeout:253 : EVENT_POLL_ADD_TIMEOUT: timer=3D1 frequency=3D-1 cb=3D0x100490=
+c0c opaque=3D0x7fff5f774900 ff=3D0x0
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virConnectOpenA=
+uth:1339 : name=3Dvbox:///session, auth=3D0x100711ff0, flags=3D0
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virThreadJobSet=
+:99 : Thread 18446744073709551615 is now running job vshEventLoop
+2015-10-02 08:52:11.876+0000: 18446744073709551615: info : virObjectNew:202=
+ : OBJECT_NEW: obj=3D0x7f9cda600b10 classname=3DvirConnect
+2015-10-02 08:52:11.876+0000: 18446744073709551615: info : virObjectNew:202=
+ : OBJECT_NEW: obj=3D0x7f9cda600c20 classname=3DvirConnectCloseCallbackData
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virEventRunDefa=
+ultImpl:305 : running default event implementation
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virEventPollCle=
+anupTimeouts:526 : Cleanup 1
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virEventPollCle=
+anupHandles:575 : Cleanup 1
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virEventPollMak=
+ePollFDs:401 : Prepare n=3D0 w=3D1, f=3D4 e=3D1 d=3D0
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virEventPollCal=
+culateTimeout:338 : Calculate expiry of 1 timers
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virEventPollCal=
+culateTimeout:371 : No timeout is pending
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : do_open:1132 : =
+name "vbox:///session" to URI components:
+  scheme vbox
+  server <null>
+  user <null>
+  port -1
+  path /session
+
+2015-10-02 08:52:11.876+0000: 18446744073709551615: info : virEventPollRunO=
+nce:641 : EVENT_POLL_RUN: nhandles=3D1 timeout=3D-1
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : do_open:1179 : =
+trying driver 0 (Test) ...
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : do_open:1194 : =
+driver 0 Test returned DECLINED
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : do_open:1179 : =
+trying driver 1 (VMWARE) ...
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : do_open:1194 : =
+driver 1 VMWARE returned DECLINED
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : do_open:1179 : =
+trying driver 2 (ESX) ...
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : do_open:1194 : =
+driver 2 ESX returned DECLINED
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : do_open:1179 : =
+trying driver 3 (remote) ...
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : remoteConnectOp=
+en:1176 : Auto-spawn user daemon instance
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : doRemoteOpen:79=
+2 : proceeding with name =3D vbox:///session
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : doRemoteOpen:80=
+1 : Connecting with transport 1
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : doRemoteOpen:89=
+3 : Proceeding with sockname /Users/bengreene/.cache/libvirt/libvirt-sock
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virFileFindReso=
+urceFull:1692 : Resolved 'libvirtd' to '/usr/local/Cellar/libvirt/1.2.19/sb=
+in/libvirtd'
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virFileMakePath=
+Helper:2571 : path=3D/Users/bengreene/.cache/libvirt mode=3D0700
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virNetSocketNew=
+:226 : localAddr=3D0x7fff5f774330 remoteAddr=3D0x7fff5f7742a0 fd=3D7 errfd=
+=3D-1 pid=3D0
+2015-10-02 08:52:11.876+0000: 18446744073709551615: info : virObjectNew:202=
+ : OBJECT_NEW: obj=3D0x7f9cda700730 classname=3DvirNetSocket
+2015-10-02 08:52:11.876+0000: 18446744073709551615: info : virNetSocketNew:=
+277 : RPC_SOCKET_NEW: sock=3D0x7f9cda700730 fd=3D7 errfd=3D-1 pid=3D0 local=
+Addr=3D127.0.0.1;0, remoteAddr=3D127.0.0.1;0
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virFileClose:10=
+3 : Closed fd 6
+2015-10-02 08:52:11.876+0000: 18446744073709551615: info : virObjectNew:202=
+ : OBJECT_NEW: obj=3D0x7f9cda7005c0 classname=3DvirNetClient
+2015-10-02 08:52:11.876+0000: 18446744073709551615: info : virNetClientNew:=
+327 : RPC_CLIENT_NEW: client=3D0x7f9cda7005c0 sock=3D0x7f9cda700730
+2015-10-02 08:52:11.876+0000: 18446744073709551615: info : virObjectRef:296=
+ : OBJECT_REF: obj=3D0x7f9cda7005c0
+2015-10-02 08:52:11.876+0000: 18446744073709551615: info : virObjectRef:296=
+ : OBJECT_REF: obj=3D0x7f9cda700730
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virEventPollInt=
+erruptLocked:727 : Interrupting
+2015-10-02 08:52:11.876+0000: 18446744073709551615: info : virEventPollAddH=
+andle:140 : EVENT_POLL_ADD_HANDLE: watch=3D2 fd=3D7 events=3D1 cb=3D0x10062=
+471b opaque=3D0x7f9cda700730 ff=3D0x100624768
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virKeepAliveNew=
+:199 : client=3D0x7f9cda7005c0, interval=3D-1, count=3D0
+2015-10-02 08:52:11.876+0000: 18446744073709551615: info : virObjectNew:202=
+ : OBJECT_NEW: obj=3D0x7f9cda700910 classname=3DvirKeepAlive
+2015-10-02 08:52:11.876+0000: 18446744073709551615: debug : virEventPollRun=
+Once:651 : Poll got 1 event(s)
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virKeepAliveNew:=
+218 : RPC_KEEPALIVE_NEW: ka=3D0x7f9cda700910 client=3D0x7f9cda7005c0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollDis=
+patchTimeouts:433 : Dispatch 1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virObjectRef:296=
+ : OBJECT_REF: obj=3D0x7f9cda7005c0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:479 : Dispatch 1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virObjectRef:296=
+ : OBJECT_REF: obj=3D0x7f9cda600c20
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:493 : i=3D0 w=3D1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virObjectNew:202=
+ : OBJECT_NEW: obj=3D0x7f9cda600ed0 classname=3DvirNetClientProgram
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virEventPollDisp=
+atchHandles:507 : EVENT_POLL_DISPATCH_HANDLE: watch=3D1 events=3D1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virObjectNew:202=
+ : OBJECT_NEW: obj=3D0x7f9cda600e00 classname=3DvirNetClientProgram
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virObjectNew:202=
+ : OBJECT_NEW: obj=3D0x7f9cda600e30 classname=3DvirNetClientProgram
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCle=
+anupTimeouts:526 : Cleanup 1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virObjectRef:296=
+ : OBJECT_REF: obj=3D0x7f9cda600ed0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCle=
+anupHandles:575 : Cleanup 2
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virObjectRef:296=
+ : OBJECT_REF: obj=3D0x7f9cda600e00
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventRunDefa=
+ultImpl:305 : running default event implementation
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virObjectRef:296=
+ : OBJECT_REF: obj=3D0x7f9cda600e30
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCle=
+anupTimeouts:526 : Cleanup 1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : doRemoteOpen:10=
+10 : Trying authentication
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCle=
+anupHandles:575 : Cleanup 2
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollMak=
+ePollFDs:401 : Prepare n=3D0 w=3D1, f=3D4 e=3D1 d=3D0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virNetMessageNe=
+w:46 : msg=3D0x7f9cda600d10 tracked=3D0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollMak=
+ePollFDs:401 : Prepare n=3D1 w=3D2, f=3D7 e=3D1 d=3D0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCal=
+culateTimeout:338 : Calculate expiry of 1 timers
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCal=
+culateTimeout:371 : No timeout is pending
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virEventPollRunO=
+nce:641 : EVENT_POLL_RUN: nhandles=3D2 timeout=3D-1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virNetMessageEn=
+codePayload:376 : Encode length as 28
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virNetClientSend=
+Internal:1950 : RPC_CLIENT_MSG_TX_QUEUE: client=3D0x7f9cda7005c0 len=3D28 p=
+rog=3D536903814 vers=3D1 proc=3D66 type=3D0 status=3D0 serial=3D0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virNetClientCal=
+lNew:1903 : New call 0x7f9cda600f00: msg=3D0x7f9cda600d10, expectReply=3D1,=
+ nonBlock=3D0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virNetClientIO:=
+1712 : Outgoing message prog=3D536903814 version=3D1 serial=3D0 proc=3D66 t=
+ype=3D0 length=3D28 dispatch=3D0x0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virNetClientIO:=
+1771 : We have the buck head=3D0x7f9cda600f00 call=3D0x7f9cda600f00
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virEventPollUpda=
+teHandle:152 : EVENT_POLL_UPDATE_HANDLE: watch=3D2 events=3D0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollInt=
+erruptLocked:727 : Interrupting
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollRun=
+Once:651 : Poll got 1 event(s)
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollDis=
+patchTimeouts:433 : Dispatch 1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:479 : Dispatch 2
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:493 : i=3D0 w=3D1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virEventPollDisp=
+atchHandles:507 : EVENT_POLL_DISPATCH_HANDLE: watch=3D1 events=3D1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCle=
+anupTimeouts:526 : Cleanup 1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCle=
+anupHandles:575 : Cleanup 2
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventRunDefa=
+ultImpl:305 : running default event implementation
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCle=
+anupTimeouts:526 : Cleanup 1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCle=
+anupHandles:575 : Cleanup 2
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollMak=
+ePollFDs:401 : Prepare n=3D0 w=3D1, f=3D4 e=3D1 d=3D0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollMak=
+ePollFDs:401 : Prepare n=3D1 w=3D2, f=3D7 e=3D0 d=3D0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCal=
+culateTimeout:338 : Calculate expiry of 1 timers
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCal=
+culateTimeout:371 : No timeout is pending
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virEventPollRunO=
+nce:641 : EVENT_POLL_RUN: nhandles=3D1 timeout=3D-1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virNetMessageDe=
+codeLength:151 : Got length, now need 36 total (32 more)
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virNetClientCall=
+Dispatch:1122 : RPC_CLIENT_MSG_RX: client=3D0x7f9cda7005c0 len=3D36 prog=3D=
+536903814 vers=3D1 proc=3D66 type=3D1 status=3D0 serial=3D0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virKeepAliveChe=
+ckMessage:377 : ka=3D0x7f9cda700910, client=3D0x7f9cda7005c0, msg=3D0x7f9cd=
+a700640
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virNetMessageCl=
+ear:57 : msg=3D0x7f9cda700640 nfds=3D0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virNetClientIOE=
+ventLoopPassTheBuck:1419 : Giving up the buck 0x7f9cda600f00
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virNetClientIOE=
+ventLoopPassTheBuck:1433 : No thread to pass the buck to
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virEventPollUpda=
+teHandle:152 : EVENT_POLL_UPDATE_HANDLE: watch=3D2 events=3D1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollInt=
+erruptLocked:727 : Interrupting
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virNetClientIO:=
+1801 : All done with our call head=3D0x0 call=3D0x7f9cda600f00 rv=3D0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollRun=
+Once:651 : Poll got 1 event(s)
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollDis=
+patchTimeouts:433 : Dispatch 1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:479 : Dispatch 1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virNetMessageFr=
+ee:74 : msg=3D0x7f9cda600d10 nfds=3D0 cb=3D0x0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:493 : i=3D0 w=3D1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virNetMessageNe=
+w:46 : msg=3D0x7f9cda500170 tracked=3D0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virEventPollDisp=
+atchHandles:507 : EVENT_POLL_DISPATCH_HANDLE: watch=3D1 events=3D1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCle=
+anupTimeouts:526 : Cleanup 1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virNetMessageEn=
+codePayload:376 : Encode length as 32
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCle=
+anupHandles:575 : Cleanup 2
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virNetClientSend=
+Internal:1950 : RPC_CLIENT_MSG_TX_QUEUE: client=3D0x7f9cda7005c0 len=3D32 p=
+rog=3D536903814 vers=3D1 proc=3D60 type=3D0 status=3D0 serial=3D1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventRunDefa=
+ultImpl:305 : running default event implementation
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virNetClientCal=
+lNew:1903 : New call 0x7f9cda500260: msg=3D0x7f9cda500170, expectReply=3D1,=
+ nonBlock=3D0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCle=
+anupTimeouts:526 : Cleanup 1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virNetClientIO:=
+1712 : Outgoing message prog=3D536903814 version=3D1 serial=3D1 proc=3D60 t=
+ype=3D0 length=3D32 dispatch=3D0x0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCle=
+anupHandles:575 : Cleanup 2
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virNetClientIO:=
+1771 : We have the buck head=3D0x7f9cda500260 call=3D0x7f9cda500260
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollMak=
+ePollFDs:401 : Prepare n=3D0 w=3D1, f=3D4 e=3D1 d=3D0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virEventPollUpda=
+teHandle:152 : EVENT_POLL_UPDATE_HANDLE: watch=3D2 events=3D0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollMak=
+ePollFDs:401 : Prepare n=3D1 w=3D2, f=3D7 e=3D1 d=3D0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCal=
+culateTimeout:338 : Calculate expiry of 1 timers
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCal=
+culateTimeout:371 : No timeout is pending
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virEventPollRunO=
+nce:641 : EVENT_POLL_RUN: nhandles=3D2 timeout=3D-1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollInt=
+erruptLocked:727 : Interrupting
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollRun=
+Once:651 : Poll got 1 event(s)
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollDis=
+patchTimeouts:433 : Dispatch 1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:479 : Dispatch 2
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:493 : i=3D0 w=3D1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virEventPollDisp=
+atchHandles:507 : EVENT_POLL_DISPATCH_HANDLE: watch=3D1 events=3D1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCle=
+anupTimeouts:526 : Cleanup 1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCle=
+anupHandles:575 : Cleanup 2
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventRunDefa=
+ultImpl:305 : running default event implementation
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCle=
+anupTimeouts:526 : Cleanup 1
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCle=
+anupHandles:575 : Cleanup 2
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollMak=
+ePollFDs:401 : Prepare n=3D0 w=3D1, f=3D4 e=3D1 d=3D0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollMak=
+ePollFDs:401 : Prepare n=3D1 w=3D2, f=3D7 e=3D0 d=3D0
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCal=
+culateTimeout:338 : Calculate expiry of 1 timers
+2015-10-02 08:52:11.877+0000: 18446744073709551615: debug : virEventPollCal=
+culateTimeout:371 : No timeout is pending
+2015-10-02 08:52:11.877+0000: 18446744073709551615: info : virEventPollRunO=
+nce:641 : EVENT_POLL_RUN: nhandles=3D1 timeout=3D-1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetMessageDe=
+codeLength:151 : Got length, now need 32 total (28 more)
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virNetClientCall=
+Dispatch:1122 : RPC_CLIENT_MSG_RX: client=3D0x7f9cda7005c0 len=3D32 prog=3D=
+536903814 vers=3D1 proc=3D60 type=3D1 status=3D0 serial=3D1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virKeepAliveChe=
+ckMessage:377 : ka=3D0x7f9cda700910, client=3D0x7f9cda7005c0, msg=3D0x7f9cd=
+a700640
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetMessageCl=
+ear:57 : msg=3D0x7f9cda700640 nfds=3D0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetClientIOE=
+ventLoopPassTheBuck:1419 : Giving up the buck 0x7f9cda500260
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetClientIOE=
+ventLoopPassTheBuck:1433 : No thread to pass the buck to
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virEventPollUpda=
+teHandle:152 : EVENT_POLL_UPDATE_HANDLE: watch=3D2 events=3D1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollInt=
+erruptLocked:727 : Interrupting
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetClientIO:=
+1801 : All done with our call head=3D0x0 call=3D0x7f9cda500260 rv=3D0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetMessageFr=
+ee:74 : msg=3D0x7f9cda500170 nfds=3D0 cb=3D0x0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : doRemoteOpen:10=
+36 : Trying to open URI vbox:///session
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollRun=
+Once:651 : Poll got 1 event(s)
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetMessageNe=
+w:46 : msg=3D0x7f9cda500150 tracked=3D0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollDis=
+patchTimeouts:433 : Dispatch 1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:479 : Dispatch 1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetMessageEn=
+codePayload:376 : Encode length as 56
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:493 : i=3D0 w=3D1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virNetClientSend=
+Internal:1950 : RPC_CLIENT_MSG_TX_QUEUE: client=3D0x7f9cda7005c0 len=3D56 p=
+rog=3D536903814 vers=3D1 proc=3D1 type=3D0 status=3D0 serial=3D2
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virEventPollDisp=
+atchHandles:507 : EVENT_POLL_DISPATCH_HANDLE: watch=3D1 events=3D1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetClientCal=
+lNew:1903 : New call 0x7f9cda700440: msg=3D0x7f9cda500150, expectReply=3D1,=
+ nonBlock=3D0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCle=
+anupTimeouts:526 : Cleanup 1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetClientIO:=
+1712 : Outgoing message prog=3D536903814 version=3D1 serial=3D2 proc=3D1 ty=
+pe=3D0 length=3D56 dispatch=3D0x0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCle=
+anupHandles:575 : Cleanup 2
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetClientIO:=
+1771 : We have the buck head=3D0x7f9cda700440 call=3D0x7f9cda700440
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventRunDefa=
+ultImpl:305 : running default event implementation
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virEventPollUpda=
+teHandle:152 : EVENT_POLL_UPDATE_HANDLE: watch=3D2 events=3D0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCle=
+anupTimeouts:526 : Cleanup 1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCle=
+anupHandles:575 : Cleanup 2
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollMak=
+ePollFDs:401 : Prepare n=3D0 w=3D1, f=3D4 e=3D1 d=3D0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollMak=
+ePollFDs:401 : Prepare n=3D1 w=3D2, f=3D7 e=3D1 d=3D0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCal=
+culateTimeout:338 : Calculate expiry of 1 timers
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCal=
+culateTimeout:371 : No timeout is pending
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virEventPollRunO=
+nce:641 : EVENT_POLL_RUN: nhandles=3D2 timeout=3D-1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollInt=
+erruptLocked:727 : Interrupting
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollRun=
+Once:651 : Poll got 1 event(s)
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollDis=
+patchTimeouts:433 : Dispatch 1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:479 : Dispatch 2
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:493 : i=3D0 w=3D1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virEventPollDisp=
+atchHandles:507 : EVENT_POLL_DISPATCH_HANDLE: watch=3D1 events=3D1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCle=
+anupTimeouts:526 : Cleanup 1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCle=
+anupHandles:575 : Cleanup 2
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventRunDefa=
+ultImpl:305 : running default event implementation
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCle=
+anupTimeouts:526 : Cleanup 1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCle=
+anupHandles:575 : Cleanup 2
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollMak=
+ePollFDs:401 : Prepare n=3D0 w=3D1, f=3D4 e=3D1 d=3D0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollMak=
+ePollFDs:401 : Prepare n=3D1 w=3D2, f=3D7 e=3D0 d=3D0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCal=
+culateTimeout:338 : Calculate expiry of 1 timers
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCal=
+culateTimeout:371 : No timeout is pending
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virEventPollRunO=
+nce:641 : EVENT_POLL_RUN: nhandles=3D1 timeout=3D-1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetMessageDe=
+codeLength:151 : Got length, now need 208 total (204 more)
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virNetClientCall=
+Dispatch:1122 : RPC_CLIENT_MSG_RX: client=3D0x7f9cda7005c0 len=3D208 prog=
+=3D536903814 vers=3D1 proc=3D1 type=3D1 status=3D1 serial=3D2
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virKeepAliveChe=
+ckMessage:377 : ka=3D0x7f9cda700910, client=3D0x7f9cda7005c0, msg=3D0x7f9cd=
+a700640
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetMessageCl=
+ear:57 : msg=3D0x7f9cda700640 nfds=3D0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetClientIOE=
+ventLoopPassTheBuck:1419 : Giving up the buck 0x7f9cda700440
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetClientIOE=
+ventLoopPassTheBuck:1433 : No thread to pass the buck to
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virEventPollUpda=
+teHandle:152 : EVENT_POLL_UPDATE_HANDLE: watch=3D2 events=3D1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollInt=
+erruptLocked:727 : Interrupting
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetClientIO:=
+1801 : All done with our call head=3D0x0 call=3D0x7f9cda700440 rv=3D0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollRun=
+Once:651 : Poll got 1 event(s)
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollDis=
+patchTimeouts:433 : Dispatch 1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetMessageFr=
+ee:74 : msg=3D0x7f9cda500150 nfds=3D0 cb=3D0x0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:479 : Dispatch 1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virObjectUnref:2=
+59 : OBJECT_UNREF: obj=3D0x7f9cda600ed0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:493 : i=3D0 w=3D1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virObjectUnref:2=
+59 : OBJECT_UNREF: obj=3D0x7f9cda600e00
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virEventPollDisp=
+atchHandles:507 : EVENT_POLL_DISPATCH_HANDLE: watch=3D1 events=3D1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virObjectUnref:2=
+59 : OBJECT_UNREF: obj=3D0x7f9cda600e30
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCle=
+anupTimeouts:526 : Cleanup 1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetClientClo=
+seInternal:695 : client=3D0x7f9cda7005c0 wantclose=3D0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCle=
+anupHandles:575 : Cleanup 2
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetClientMar=
+kClose:638 : client=3D0x7f9cda7005c0, reason=3D3
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventRunDefa=
+ultImpl:305 : running default event implementation
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virEventPollRemo=
+veHandle:186 : EVENT_POLL_REMOVE_HANDLE: watch=3D2
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCle=
+anupTimeouts:526 : Cleanup 1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCle=
+anupHandles:575 : Cleanup 2
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollMak=
+ePollFDs:401 : Prepare n=3D0 w=3D1, f=3D4 e=3D1 d=3D0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollMak=
+ePollFDs:401 : Prepare n=3D1 w=3D2, f=3D7 e=3D1 d=3D0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCal=
+culateTimeout:338 : Calculate expiry of 1 timers
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCal=
+culateTimeout:371 : No timeout is pending
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virEventPollRunO=
+nce:641 : EVENT_POLL_RUN: nhandles=3D2 timeout=3D-1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollRem=
+oveHandle:199 : mark delete 1 7
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollInt=
+erruptLocked:727 : Interrupting
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetClientIOE=
+ventLoopPassTheBuck:1419 : Giving up the buck 0x0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollRun=
+Once:651 : Poll got 1 event(s)
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetClientIOE=
+ventLoopPassTheBuck:1433 : No thread to pass the buck to
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollDis=
+patchTimeouts:433 : Dispatch 1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virNetClientClo=
+seLocked:654 : client=3D0x7f9cda7005c0, sock=3D0x7f9cda700730, reason=3D3
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:479 : Dispatch 2
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virObjectUnref:2=
+59 : OBJECT_UNREF: obj=3D0x7f9cda700730
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:493 : i=3D0 w=3D1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virObjectRef:296=
+ : OBJECT_REF: obj=3D0x7f9cda7005c0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virEventPollDisp=
+atchHandles:507 : EVENT_POLL_DISPATCH_HANDLE: watch=3D1 events=3D1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virKeepAliveStop=
+:310 : RPC_KEEPALIVE_STOP: ka=3D0x7f9cda700910 client=3D0x7f9cda7005c0
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:493 : i=3D1 w=3D2
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virObjectUnref:2=
+59 : OBJECT_UNREF: obj=3D0x7f9cda700910
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:496 : Skip deleted n=3D1 w=3D2 f=3D7
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virObjectUnref:2=
+61 : OBJECT_DISPOSE: obj=3D0x7f9cda700910
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCle=
+anupTimeouts:526 : Cleanup 1
+2015-10-02 08:52:11.878+0000: 18446744073709551615: info : virKeepAliveDisp=
+ose:230 : RPC_KEEPALIVE_DISPOSE: ka=3D0x7f9cda700910
+2015-10-02 08:52:11.878+0000: 18446744073709551615: debug : virEventPollCle=
+anupHandles:575 : Cleanup 2
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virObjectUnref:2=
+59 : OBJECT_UNREF: obj=3D0x7f9cda7005c0
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virEventPollClea=
+nupHandles:588 : EVENT_POLL_PURGE_HANDLE: watch=3D2
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virObjectUnref:2=
+59 : OBJECT_UNREF: obj=3D0x7f9cda7005c0
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virObjectUnref:2=
+59 : OBJECT_UNREF: obj=3D0x7f9cda700730
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virObjectUnref:2=
+59 : OBJECT_UNREF: obj=3D0x7f9cda7005c0
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virObjectUnref:2=
+61 : OBJECT_DISPOSE: obj=3D0x7f9cda700730
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virObjectUnref:2=
+59 : OBJECT_UNREF: obj=3D0x7f9cda7005c0
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virNetSocketDisp=
+ose:1157 : RPC_SOCKET_DISPOSE: sock=3D0x7f9cda700730
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virObjectUnref:2=
+61 : OBJECT_DISPOSE: obj=3D0x7f9cda7005c0
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virNetClientDisp=
+ose:606 : RPC_CLIENT_DISPOSE: client=3D0x7f9cda7005c0
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virObjectUnref:2=
+59 : OBJECT_UNREF: obj=3D0x7f9cda600c20
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virObjectUnref:2=
+59 : OBJECT_UNREF: obj=3D0x7f9cda600ed0
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virObjectUnref:2=
+61 : OBJECT_DISPOSE: obj=3D0x7f9cda600ed0
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virObjectUnref:2=
+59 : OBJECT_UNREF: obj=3D0x7f9cda600e00
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virObjectUnref:2=
+61 : OBJECT_DISPOSE: obj=3D0x7f9cda600e00
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virObjectUnref:2=
+59 : OBJECT_UNREF: obj=3D0x7f9cda600e30
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virObjectUnref:2=
+61 : OBJECT_DISPOSE: obj=3D0x7f9cda600e30
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virFileClose:10=
+3 : Closed fd 8
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virFileClose:10=
+3 : Closed fd 6
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virNetMessageCl=
+ear:57 : msg=3D0x7f9cda700640 nfds=3D0
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : do_open:1194 : =
+driver 3 remote returned ERROR
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virObjectUnref:2=
+59 : OBJECT_UNREF: obj=3D0x7f9cda600b10
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virFileClose:10=
+3 : Closed fd 7
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virObjectUnref:2=
+61 : OBJECT_DISPOSE: obj=3D0x7f9cda600b10
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virEventRunDefa=
+ultImpl:305 : running default event implementation
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virObjectUnref:2=
+59 : OBJECT_UNREF: obj=3D0x7f9cda600c20
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virEventPollCle=
+anupTimeouts:526 : Cleanup 1
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virObjectUnref:2=
+61 : OBJECT_DISPOSE: obj=3D0x7f9cda600c20
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virEventPollCle=
+anupHandles:575 : Cleanup 1
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virEventPollMak=
+ePollFDs:401 : Prepare n=3D0 w=3D1, f=3D4 e=3D1 d=3D0
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virEventPollCal=
+culateTimeout:338 : Calculate expiry of 1 timers
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virEventPollCal=
+culateTimeout:371 : No timeout is pending
+error: 2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virEventP=
+ollRunOnce:641 : EVENT_POLL_RUN: nhandles=3D1 timeout=3D-1
+failed to connect to the hypervisor
+error: internal error: unable to initialize VirtualBox driver API
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virFileMakePath=
+Helper:2571 : path=3D/Users/bengreene/.cache/libvirt/virsh mode=3D0755
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virEventPollInt=
+erruptLocked:727 : Interrupting
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virEventPollAddT=
+imeout:253 : EVENT_POLL_ADD_TIMEOUT: timer=3D2 frequency=3D0 cb=3D0x1004936=
+20 opaque=3D0x0 ff=3D0x0
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virEventPollRun=
+Once:651 : Poll got 1 event(s)
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virEventPollDis=
+patchTimeouts:433 : Dispatch 2
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virEventPollDisp=
+atchTimeouts:456 : EVENT_POLL_DISPATCH_TIMEOUT: timer=3D2
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:479 : Dispatch 1
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virEventPollDis=
+patchHandles:493 : i=3D0 w=3D1
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virEventPollDisp=
+atchHandles:507 : EVENT_POLL_DISPATCH_HANDLE: watch=3D1 events=3D1
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virEventPollCle=
+anupTimeouts:526 : Cleanup 2
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virEventPollCle=
+anupHandles:575 : Cleanup 1
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virThreadJobCle=
+ar:124 : Thread 18446744073709551615 finished job vshEventLoop with ret=3D0
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virEventPollRemo=
+veTimeout:305 : EVENT_POLL_REMOVE_TIMEOUT: timer=3D2
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virEventPollInt=
+erruptLocked:723 : Skip interrupt, 0 123145302839296
+2015-10-02 08:52:11.879+0000: 18446744073709551615: info : virEventPollRemo=
+veTimeout:305 : EVENT_POLL_REMOVE_TIMEOUT: timer=3D1
+2015-10-02 08:52:11.879+0000: 18446744073709551615: debug : virEventPollInt=
+erruptLocked:723 : Skip interrupt, 0 123145302839296
+Foyil:~ bengreene$
+
+
+--_000_40EB4020BF39484EAD311BF6918770FDanalyticsenginescom_
+Content-Type: text/html; charset="us-ascii"
+Content-ID: <136E643FB84601498DE4E3AAF6771629@eurprd02.prod.outlook.com>
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+</head>
+<body style=3D"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-lin=
+e-break: after-white-space;" class=3D"">
+I have freshly installed Virtualbox (5.04) and have installed libvirt (<spa=
+n style=3D"font-family: Menlo; font-size: 11px;" class=3D"">1.2.19) using b=
+rew.</span>
+<div class=3D""><span style=3D"font-family: Menlo; font-size: 11px;" class=
+=3D""><br class=3D"">
+</span></div>
+<div class=3D""><font face=3D"Menlo" class=3D""><span style=3D"font-size: 1=
+1px;" class=3D"">When i attempt to run&nbsp;virsh it does not work with the=
+ following outputs.</span></font></div>
+<div class=3D""><font face=3D"Menlo" class=3D""><span style=3D"font-size: 1=
+1px;" class=3D""><br class=3D"">
+</span></font></div>
+<div class=3D"">
+<div style=3D"margin: 0px; font-size: 11px; line-height: normal; font-famil=
+y: Menlo;" class=3D"">
+# virsh -c <a href=3D"vbox:///session" class=3D"">vbox:///session</a></div>
+<div style=3D"margin: 0px; font-size: 11px; line-height: normal; font-famil=
+y: Menlo;" class=3D"">
+error: failed to connect to the hypervisor</div>
+<div style=3D"margin: 0px; font-size: 11px; line-height: normal; font-famil=
+y: Menlo;" class=3D"">
+error: internal error: unable to initialize VirtualBox driver API</div>
+</div>
+<div style=3D"margin: 0px; font-size: 11px; line-height: normal; font-famil=
+y: Menlo;" class=3D"">
+<br class=3D"">
+</div>
+<div style=3D"margin: 0px; font-size: 11px; line-height: normal; font-famil=
+y: Menlo;" class=3D"">
+Any pointers on what to try next or where to investigate to get more info.<=
+/div>
+<div style=3D"margin: 0px; font-size: 11px; line-height: normal; font-famil=
+y: Menlo;" class=3D"">
+<br class=3D"">
+</div>
+<div style=3D"margin: 0px; font-size: 11px; line-height: normal; font-famil=
+y: Menlo;" class=3D"">
+Has anyone got virsh working successfully with OSX and Virtualbox.</div>
+<div style=3D"margin: 0px; font-size: 11px; line-height: normal; font-famil=
+y: Menlo;" class=3D"">
+<br class=3D"">
+</div>
+<div style=3D"margin: 0px; font-size: 11px; line-height: normal; font-famil=
+y: Menlo;" class=3D"">
+<br class=3D"">
+</div>
+<div style=3D"margin: 0px; font-size: 11px; line-height: normal; font-famil=
+y: Menlo;" class=3D"">
+I also ran the same command with more logging:</div>
+<div style=3D"margin: 0px; font-size: 11px; line-height: normal; font-famil=
+y: Menlo;" class=3D"">
+<br class=3D"">
+</div>
+<div style=3D"margin: 0px; font-size: 11px; line-height: normal; font-famil=
+y: Menlo;" class=3D"">
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">Foyil:~ bengree=
+ne$ LIBVIRT_DEBUG=3D1 virsh -c
+<a href=3D"vbox:///session" class=3D"">vbox:///session</a></div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.874&#43;0000: 18446744073709551615: info : libvirt version: 1.2.19</di=
+v>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.874&#43;0000: 18446744073709551615: debug : virGlobalInit:389 : regist=
+er drivers</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.874&#43;0000: 18446744073709551615: debug : virRegisterConnectDriver:6=
+91 : driver=3D0x1007121d8 name=3DTest</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.874&#43;0000: 18446744073709551615: debug : virRegisterConnectDriver:7=
+02 : registering Test as driver 0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.874&#43;0000: 18446744073709551615: debug : virRegisterConnectDriver:6=
+91 : driver=3D0x100713e00 name=3DVMWARE</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.874&#43;0000: 18446744073709551615: debug : virRegisterConnectDriver:7=
+02 : registering VMWARE as driver 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.874&#43;0000: 18446744073709551615: debug : virRegisterConnectDriver:6=
+91 : driver=3D0x1007144f8 name=3DESX</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.874&#43;0000: 18446744073709551615: debug : virRegisterConnectDriver:7=
+02 : registering ESX as driver 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.874&#43;0000: 18446744073709551615: debug : virRegisterConnectDriver:6=
+91 : driver=3D0x100712c10 name=3Dremote</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.874&#43;0000: 18446744073709551615: debug : virRegisterConnectDriver:7=
+02 : registering remote as driver 3</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virEventRegisterDefaultImp=
+l:261 : registering default event implementation</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virEventPollAddHandle:115 =
+: Used 0 handle slots, adding at least 10 more</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virEventPollInterruptLocke=
+d:723 : Skip interrupt, 0 0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: info : virEventPollAddHandle:140 :=
+ EVENT_POLL_ADD_HANDLE: watch=3D1 fd=3D4 events=3D1 cb=3D0x10050c74e opaque=
+=3D0x0 ff=3D0x0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virEventRegisterImpl:231 :=
+ addHandle=3D0x10050afa3 updateHandle=3D0x10050b296 removeHandle=3D0x10050b=
+3da addTimeout=3D0x10050b528 updateTimeout=3D0x10050b6f6
+ removeTimeout=3D0x10050b879</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virEventPollAddTimeout:230=
+ : Used 0 timeout slots, adding at least 10 more</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virEventPollInterruptLocke=
+d:723 : Skip interrupt, 0 0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: info : virEventPollAddTimeout:253 =
+: EVENT_POLL_ADD_TIMEOUT: timer=3D1 frequency=3D-1 cb=3D0x100490c0c opaque=
+=3D0x7fff5f774900 ff=3D0x0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virConnectOpenAuth:1339 : =
+name=3D<a href=3D"vbox:///session" class=3D"">vbox:///session</a>, auth=3D0=
+x100711ff0, flags=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virThreadJobSet:99 : Threa=
+d 18446744073709551615 is now running job vshEventLoop</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: info : virObjectNew:202 : OBJECT_N=
+EW: obj=3D0x7f9cda600b10 classname=3DvirConnect</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: info : virObjectNew:202 : OBJECT_N=
+EW: obj=3D0x7f9cda600c20 classname=3DvirConnectCloseCallbackData</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virEventRunDefaultImpl:305=
+ : running default event implementation</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virEventPollCleanupTimeout=
+s:526 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virEventPollCleanupHandles=
+:575 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virEventPollMakePollFDs:40=
+1 : Prepare n=3D0 w=3D1, f=3D4 e=3D1 d=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virEventPollCalculateTimeo=
+ut:338 : Calculate expiry of 1 timers</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virEventPollCalculateTimeo=
+ut:371 : No timeout is pending</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : do_open:1132 : name &quot;=
+<a href=3D"vbox:///session" class=3D"">vbox:///session</a>&quot; to URI com=
+ponents:</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">&nbsp; scheme v=
+box</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">&nbsp; server &=
+lt;null&gt;</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">&nbsp; user &lt=
+;null&gt;</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">&nbsp; port -1<=
+/div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">&nbsp; path /se=
+ssion</div>
+<div style=3D"margin: 0px; line-height: normal; min-height: 13px;" class=3D=
+""><br class=3D"">
+</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: info : virEventPollRunOnce:641 : E=
+VENT_POLL_RUN: nhandles=3D1 timeout=3D-1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : do_open:1179 : trying driv=
+er 0 (Test) ...</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : do_open:1194 : driver 0 Te=
+st returned DECLINED</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : do_open:1179 : trying driv=
+er 1 (VMWARE) ...</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : do_open:1194 : driver 1 VM=
+WARE returned DECLINED</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : do_open:1179 : trying driv=
+er 2 (ESX) ...</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : do_open:1194 : driver 2 ES=
+X returned DECLINED</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : do_open:1179 : trying driv=
+er 3 (remote) ...</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : remoteConnectOpen:1176 : A=
+uto-spawn user daemon instance</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : doRemoteOpen:792 : proceed=
+ing with name =3D
+<a href=3D"vbox:///session" class=3D"">vbox:///session</a></div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : doRemoteOpen:801 : Connect=
+ing with transport 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : doRemoteOpen:893 : Proceed=
+ing with sockname /Users/bengreene/.cache/libvirt/libvirt-sock</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virFileFindResourceFull:16=
+92 : Resolved 'libvirtd' to '/usr/local/Cellar/libvirt/1.2.19/sbin/libvirtd=
+'</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virFileMakePathHelper:2571=
+ : path=3D/Users/bengreene/.cache/libvirt mode=3D0700</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virNetSocketNew:226 : loca=
+lAddr=3D0x7fff5f774330 remoteAddr=3D0x7fff5f7742a0 fd=3D7 errfd=3D-1 pid=3D=
+0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: info : virObjectNew:202 : OBJECT_N=
+EW: obj=3D0x7f9cda700730 classname=3DvirNetSocket</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: info : virNetSocketNew:277 : RPC_S=
+OCKET_NEW: sock=3D0x7f9cda700730 fd=3D7 errfd=3D-1 pid=3D0 localAddr=3D127.=
+0.0.1;0, remoteAddr=3D127.0.0.1;0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virFileClose:103 : Closed =
+fd 6</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: info : virObjectNew:202 : OBJECT_N=
+EW: obj=3D0x7f9cda7005c0 classname=3DvirNetClient</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: info : virNetClientNew:327 : RPC_C=
+LIENT_NEW: client=3D0x7f9cda7005c0 sock=3D0x7f9cda700730</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: info : virObjectRef:296 : OBJECT_R=
+EF: obj=3D0x7f9cda7005c0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: info : virObjectRef:296 : OBJECT_R=
+EF: obj=3D0x7f9cda700730</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virEventPollInterruptLocke=
+d:727 : Interrupting</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: info : virEventPollAddHandle:140 :=
+ EVENT_POLL_ADD_HANDLE: watch=3D2 fd=3D7 events=3D1 cb=3D0x10062471b opaque=
+=3D0x7f9cda700730 ff=3D0x100624768</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virKeepAliveNew:199 : clie=
+nt=3D0x7f9cda7005c0, interval=3D-1, count=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: info : virObjectNew:202 : OBJECT_N=
+EW: obj=3D0x7f9cda700910 classname=3DvirKeepAlive</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.876&#43;0000: 18446744073709551615: debug : virEventPollRunOnce:651 : =
+Poll got 1 event(s)</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virKeepAliveNew:218 : RPC_K=
+EEPALIVE_NEW: ka=3D0x7f9cda700910 client=3D0x7f9cda7005c0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollDispatchTimeou=
+ts:433 : Dispatch 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virObjectRef:296 : OBJECT_R=
+EF: obj=3D0x7f9cda7005c0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:479 : Dispatch 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virObjectRef:296 : OBJECT_R=
+EF: obj=3D0x7f9cda600c20</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:493 : i=3D0 w=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virObjectNew:202 : OBJECT_N=
+EW: obj=3D0x7f9cda600ed0 classname=3DvirNetClientProgram</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virEventPollDispatchHandles=
+:507 : EVENT_POLL_DISPATCH_HANDLE: watch=3D1 events=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virObjectNew:202 : OBJECT_N=
+EW: obj=3D0x7f9cda600e00 classname=3DvirNetClientProgram</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virObjectNew:202 : OBJECT_N=
+EW: obj=3D0x7f9cda600e30 classname=3DvirNetClientProgram</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCleanupTimeout=
+s:526 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virObjectRef:296 : OBJECT_R=
+EF: obj=3D0x7f9cda600ed0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCleanupHandles=
+:575 : Cleanup 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virObjectRef:296 : OBJECT_R=
+EF: obj=3D0x7f9cda600e00</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventRunDefaultImpl:305=
+ : running default event implementation</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virObjectRef:296 : OBJECT_R=
+EF: obj=3D0x7f9cda600e30</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCleanupTimeout=
+s:526 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : doRemoteOpen:1010 : Trying=
+ authentication</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCleanupHandles=
+:575 : Cleanup 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollMakePollFDs:40=
+1 : Prepare n=3D0 w=3D1, f=3D4 e=3D1 d=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virNetMessageNew:46 : msg=
+=3D0x7f9cda600d10 tracked=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollMakePollFDs:40=
+1 : Prepare n=3D1 w=3D2, f=3D7 e=3D1 d=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCalculateTimeo=
+ut:338 : Calculate expiry of 1 timers</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCalculateTimeo=
+ut:371 : No timeout is pending</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virEventPollRunOnce:641 : E=
+VENT_POLL_RUN: nhandles=3D2 timeout=3D-1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virNetMessageEncodePayload=
+:376 : Encode length as 28</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virNetClientSendInternal:19=
+50 : RPC_CLIENT_MSG_TX_QUEUE: client=3D0x7f9cda7005c0 len=3D28 prog=3D53690=
+3814 vers=3D1 proc=3D66 type=3D0 status=3D0 serial=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virNetClientCallNew:1903 :=
+ New call 0x7f9cda600f00: msg=3D0x7f9cda600d10, expectReply=3D1, nonBlock=
+=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virNetClientIO:1712 : Outg=
+oing message prog=3D536903814 version=3D1 serial=3D0 proc=3D66 type=3D0 len=
+gth=3D28 dispatch=3D0x0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virNetClientIO:1771 : We h=
+ave the buck head=3D0x7f9cda600f00 call=3D0x7f9cda600f00</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virEventPollUpdateHandle:15=
+2 : EVENT_POLL_UPDATE_HANDLE: watch=3D2 events=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollInterruptLocke=
+d:727 : Interrupting</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollRunOnce:651 : =
+Poll got 1 event(s)</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollDispatchTimeou=
+ts:433 : Dispatch 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:479 : Dispatch 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:493 : i=3D0 w=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virEventPollDispatchHandles=
+:507 : EVENT_POLL_DISPATCH_HANDLE: watch=3D1 events=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCleanupTimeout=
+s:526 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCleanupHandles=
+:575 : Cleanup 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventRunDefaultImpl:305=
+ : running default event implementation</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCleanupTimeout=
+s:526 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCleanupHandles=
+:575 : Cleanup 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollMakePollFDs:40=
+1 : Prepare n=3D0 w=3D1, f=3D4 e=3D1 d=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollMakePollFDs:40=
+1 : Prepare n=3D1 w=3D2, f=3D7 e=3D0 d=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCalculateTimeo=
+ut:338 : Calculate expiry of 1 timers</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCalculateTimeo=
+ut:371 : No timeout is pending</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virEventPollRunOnce:641 : E=
+VENT_POLL_RUN: nhandles=3D1 timeout=3D-1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virNetMessageDecodeLength:=
+151 : Got length, now need 36 total (32 more)</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virNetClientCallDispatch:11=
+22 : RPC_CLIENT_MSG_RX: client=3D0x7f9cda7005c0 len=3D36 prog=3D536903814 v=
+ers=3D1 proc=3D66 type=3D1 status=3D0 serial=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virKeepAliveCheckMessage:3=
+77 : ka=3D0x7f9cda700910, client=3D0x7f9cda7005c0, msg=3D0x7f9cda700640</di=
+v>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virNetMessageClear:57 : ms=
+g=3D0x7f9cda700640 nfds=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virNetClientIOEventLoopPas=
+sTheBuck:1419 : Giving up the buck 0x7f9cda600f00</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virNetClientIOEventLoopPas=
+sTheBuck:1433 : No thread to pass the buck to</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virEventPollUpdateHandle:15=
+2 : EVENT_POLL_UPDATE_HANDLE: watch=3D2 events=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollInterruptLocke=
+d:727 : Interrupting</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virNetClientIO:1801 : All =
+done with our call head=3D0x0 call=3D0x7f9cda600f00 rv=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollRunOnce:651 : =
+Poll got 1 event(s)</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollDispatchTimeou=
+ts:433 : Dispatch 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:479 : Dispatch 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virNetMessageFree:74 : msg=
+=3D0x7f9cda600d10 nfds=3D0 cb=3D0x0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:493 : i=3D0 w=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virNetMessageNew:46 : msg=
+=3D0x7f9cda500170 tracked=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virEventPollDispatchHandles=
+:507 : EVENT_POLL_DISPATCH_HANDLE: watch=3D1 events=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCleanupTimeout=
+s:526 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virNetMessageEncodePayload=
+:376 : Encode length as 32</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCleanupHandles=
+:575 : Cleanup 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virNetClientSendInternal:19=
+50 : RPC_CLIENT_MSG_TX_QUEUE: client=3D0x7f9cda7005c0 len=3D32 prog=3D53690=
+3814 vers=3D1 proc=3D60 type=3D0 status=3D0 serial=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventRunDefaultImpl:305=
+ : running default event implementation</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virNetClientCallNew:1903 :=
+ New call 0x7f9cda500260: msg=3D0x7f9cda500170, expectReply=3D1, nonBlock=
+=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCleanupTimeout=
+s:526 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virNetClientIO:1712 : Outg=
+oing message prog=3D536903814 version=3D1 serial=3D1 proc=3D60 type=3D0 len=
+gth=3D32 dispatch=3D0x0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCleanupHandles=
+:575 : Cleanup 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virNetClientIO:1771 : We h=
+ave the buck head=3D0x7f9cda500260 call=3D0x7f9cda500260</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollMakePollFDs:40=
+1 : Prepare n=3D0 w=3D1, f=3D4 e=3D1 d=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virEventPollUpdateHandle:15=
+2 : EVENT_POLL_UPDATE_HANDLE: watch=3D2 events=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollMakePollFDs:40=
+1 : Prepare n=3D1 w=3D2, f=3D7 e=3D1 d=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCalculateTimeo=
+ut:338 : Calculate expiry of 1 timers</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCalculateTimeo=
+ut:371 : No timeout is pending</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virEventPollRunOnce:641 : E=
+VENT_POLL_RUN: nhandles=3D2 timeout=3D-1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollInterruptLocke=
+d:727 : Interrupting</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollRunOnce:651 : =
+Poll got 1 event(s)</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollDispatchTimeou=
+ts:433 : Dispatch 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:479 : Dispatch 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:493 : i=3D0 w=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virEventPollDispatchHandles=
+:507 : EVENT_POLL_DISPATCH_HANDLE: watch=3D1 events=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCleanupTimeout=
+s:526 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCleanupHandles=
+:575 : Cleanup 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventRunDefaultImpl:305=
+ : running default event implementation</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCleanupTimeout=
+s:526 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCleanupHandles=
+:575 : Cleanup 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollMakePollFDs:40=
+1 : Prepare n=3D0 w=3D1, f=3D4 e=3D1 d=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollMakePollFDs:40=
+1 : Prepare n=3D1 w=3D2, f=3D7 e=3D0 d=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCalculateTimeo=
+ut:338 : Calculate expiry of 1 timers</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: debug : virEventPollCalculateTimeo=
+ut:371 : No timeout is pending</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.877&#43;0000: 18446744073709551615: info : virEventPollRunOnce:641 : E=
+VENT_POLL_RUN: nhandles=3D1 timeout=3D-1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetMessageDecodeLength:=
+151 : Got length, now need 32 total (28 more)</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virNetClientCallDispatch:11=
+22 : RPC_CLIENT_MSG_RX: client=3D0x7f9cda7005c0 len=3D32 prog=3D536903814 v=
+ers=3D1 proc=3D60 type=3D1 status=3D0 serial=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virKeepAliveCheckMessage:3=
+77 : ka=3D0x7f9cda700910, client=3D0x7f9cda7005c0, msg=3D0x7f9cda700640</di=
+v>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetMessageClear:57 : ms=
+g=3D0x7f9cda700640 nfds=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetClientIOEventLoopPas=
+sTheBuck:1419 : Giving up the buck 0x7f9cda500260</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetClientIOEventLoopPas=
+sTheBuck:1433 : No thread to pass the buck to</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virEventPollUpdateHandle:15=
+2 : EVENT_POLL_UPDATE_HANDLE: watch=3D2 events=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollInterruptLocke=
+d:727 : Interrupting</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetClientIO:1801 : All =
+done with our call head=3D0x0 call=3D0x7f9cda500260 rv=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetMessageFree:74 : msg=
+=3D0x7f9cda500170 nfds=3D0 cb=3D0x0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : doRemoteOpen:1036 : Trying=
+ to open URI
+<a href=3D"vbox:///session" class=3D"">vbox:///session</a></div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollRunOnce:651 : =
+Poll got 1 event(s)</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetMessageNew:46 : msg=
+=3D0x7f9cda500150 tracked=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollDispatchTimeou=
+ts:433 : Dispatch 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:479 : Dispatch 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetMessageEncodePayload=
+:376 : Encode length as 56</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:493 : i=3D0 w=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virNetClientSendInternal:19=
+50 : RPC_CLIENT_MSG_TX_QUEUE: client=3D0x7f9cda7005c0 len=3D56 prog=3D53690=
+3814 vers=3D1 proc=3D1 type=3D0 status=3D0 serial=3D2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virEventPollDispatchHandles=
+:507 : EVENT_POLL_DISPATCH_HANDLE: watch=3D1 events=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetClientCallNew:1903 :=
+ New call 0x7f9cda700440: msg=3D0x7f9cda500150, expectReply=3D1, nonBlock=
+=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCleanupTimeout=
+s:526 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetClientIO:1712 : Outg=
+oing message prog=3D536903814 version=3D1 serial=3D2 proc=3D1 type=3D0 leng=
+th=3D56 dispatch=3D0x0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCleanupHandles=
+:575 : Cleanup 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetClientIO:1771 : We h=
+ave the buck head=3D0x7f9cda700440 call=3D0x7f9cda700440</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventRunDefaultImpl:305=
+ : running default event implementation</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virEventPollUpdateHandle:15=
+2 : EVENT_POLL_UPDATE_HANDLE: watch=3D2 events=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCleanupTimeout=
+s:526 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCleanupHandles=
+:575 : Cleanup 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollMakePollFDs:40=
+1 : Prepare n=3D0 w=3D1, f=3D4 e=3D1 d=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollMakePollFDs:40=
+1 : Prepare n=3D1 w=3D2, f=3D7 e=3D1 d=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCalculateTimeo=
+ut:338 : Calculate expiry of 1 timers</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCalculateTimeo=
+ut:371 : No timeout is pending</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virEventPollRunOnce:641 : E=
+VENT_POLL_RUN: nhandles=3D2 timeout=3D-1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollInterruptLocke=
+d:727 : Interrupting</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollRunOnce:651 : =
+Poll got 1 event(s)</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollDispatchTimeou=
+ts:433 : Dispatch 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:479 : Dispatch 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:493 : i=3D0 w=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virEventPollDispatchHandles=
+:507 : EVENT_POLL_DISPATCH_HANDLE: watch=3D1 events=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCleanupTimeout=
+s:526 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCleanupHandles=
+:575 : Cleanup 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventRunDefaultImpl:305=
+ : running default event implementation</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCleanupTimeout=
+s:526 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCleanupHandles=
+:575 : Cleanup 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollMakePollFDs:40=
+1 : Prepare n=3D0 w=3D1, f=3D4 e=3D1 d=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollMakePollFDs:40=
+1 : Prepare n=3D1 w=3D2, f=3D7 e=3D0 d=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCalculateTimeo=
+ut:338 : Calculate expiry of 1 timers</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCalculateTimeo=
+ut:371 : No timeout is pending</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virEventPollRunOnce:641 : E=
+VENT_POLL_RUN: nhandles=3D1 timeout=3D-1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetMessageDecodeLength:=
+151 : Got length, now need 208 total (204 more)</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virNetClientCallDispatch:11=
+22 : RPC_CLIENT_MSG_RX: client=3D0x7f9cda7005c0 len=3D208 prog=3D536903814 =
+vers=3D1 proc=3D1 type=3D1 status=3D1 serial=3D2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virKeepAliveCheckMessage:3=
+77 : ka=3D0x7f9cda700910, client=3D0x7f9cda7005c0, msg=3D0x7f9cda700640</di=
+v>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetMessageClear:57 : ms=
+g=3D0x7f9cda700640 nfds=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetClientIOEventLoopPas=
+sTheBuck:1419 : Giving up the buck 0x7f9cda700440</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetClientIOEventLoopPas=
+sTheBuck:1433 : No thread to pass the buck to</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virEventPollUpdateHandle:15=
+2 : EVENT_POLL_UPDATE_HANDLE: watch=3D2 events=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollInterruptLocke=
+d:727 : Interrupting</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetClientIO:1801 : All =
+done with our call head=3D0x0 call=3D0x7f9cda700440 rv=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollRunOnce:651 : =
+Poll got 1 event(s)</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollDispatchTimeou=
+ts:433 : Dispatch 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetMessageFree:74 : msg=
+=3D0x7f9cda500150 nfds=3D0 cb=3D0x0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:479 : Dispatch 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virObjectUnref:259 : OBJECT=
+_UNREF: obj=3D0x7f9cda600ed0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:493 : i=3D0 w=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virObjectUnref:259 : OBJECT=
+_UNREF: obj=3D0x7f9cda600e00</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virEventPollDispatchHandles=
+:507 : EVENT_POLL_DISPATCH_HANDLE: watch=3D1 events=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virObjectUnref:259 : OBJECT=
+_UNREF: obj=3D0x7f9cda600e30</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCleanupTimeout=
+s:526 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetClientCloseInternal:=
+695 : client=3D0x7f9cda7005c0 wantclose=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCleanupHandles=
+:575 : Cleanup 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetClientMarkClose:638 =
+: client=3D0x7f9cda7005c0, reason=3D3</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventRunDefaultImpl:305=
+ : running default event implementation</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virEventPollRemoveHandle:18=
+6 : EVENT_POLL_REMOVE_HANDLE: watch=3D2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCleanupTimeout=
+s:526 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCleanupHandles=
+:575 : Cleanup 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollMakePollFDs:40=
+1 : Prepare n=3D0 w=3D1, f=3D4 e=3D1 d=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollMakePollFDs:40=
+1 : Prepare n=3D1 w=3D2, f=3D7 e=3D1 d=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCalculateTimeo=
+ut:338 : Calculate expiry of 1 timers</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCalculateTimeo=
+ut:371 : No timeout is pending</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virEventPollRunOnce:641 : E=
+VENT_POLL_RUN: nhandles=3D2 timeout=3D-1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollRemoveHandle:1=
+99 : mark delete 1 7</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollInterruptLocke=
+d:727 : Interrupting</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetClientIOEventLoopPas=
+sTheBuck:1419 : Giving up the buck 0x0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollRunOnce:651 : =
+Poll got 1 event(s)</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetClientIOEventLoopPas=
+sTheBuck:1433 : No thread to pass the buck to</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollDispatchTimeou=
+ts:433 : Dispatch 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virNetClientCloseLocked:65=
+4 : client=3D0x7f9cda7005c0, sock=3D0x7f9cda700730, reason=3D3</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:479 : Dispatch 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virObjectUnref:259 : OBJECT=
+_UNREF: obj=3D0x7f9cda700730</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:493 : i=3D0 w=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virObjectRef:296 : OBJECT_R=
+EF: obj=3D0x7f9cda7005c0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virEventPollDispatchHandles=
+:507 : EVENT_POLL_DISPATCH_HANDLE: watch=3D1 events=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virKeepAliveStop:310 : RPC_=
+KEEPALIVE_STOP: ka=3D0x7f9cda700910 client=3D0x7f9cda7005c0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:493 : i=3D1 w=3D2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virObjectUnref:259 : OBJECT=
+_UNREF: obj=3D0x7f9cda700910</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:496 : Skip deleted n=3D1 w=3D2 f=3D7</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virObjectUnref:261 : OBJECT=
+_DISPOSE: obj=3D0x7f9cda700910</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCleanupTimeout=
+s:526 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: info : virKeepAliveDispose:230 : R=
+PC_KEEPALIVE_DISPOSE: ka=3D0x7f9cda700910</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.878&#43;0000: 18446744073709551615: debug : virEventPollCleanupHandles=
+:575 : Cleanup 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virObjectUnref:259 : OBJECT=
+_UNREF: obj=3D0x7f9cda7005c0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virEventPollCleanupHandles:=
+588 : EVENT_POLL_PURGE_HANDLE: watch=3D2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virObjectUnref:259 : OBJECT=
+_UNREF: obj=3D0x7f9cda7005c0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virObjectUnref:259 : OBJECT=
+_UNREF: obj=3D0x7f9cda700730</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virObjectUnref:259 : OBJECT=
+_UNREF: obj=3D0x7f9cda7005c0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virObjectUnref:261 : OBJECT=
+_DISPOSE: obj=3D0x7f9cda700730</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virObjectUnref:259 : OBJECT=
+_UNREF: obj=3D0x7f9cda7005c0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virNetSocketDispose:1157 : =
+RPC_SOCKET_DISPOSE: sock=3D0x7f9cda700730</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virObjectUnref:261 : OBJECT=
+_DISPOSE: obj=3D0x7f9cda7005c0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virNetClientDispose:606 : R=
+PC_CLIENT_DISPOSE: client=3D0x7f9cda7005c0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virObjectUnref:259 : OBJECT=
+_UNREF: obj=3D0x7f9cda600c20</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virObjectUnref:259 : OBJECT=
+_UNREF: obj=3D0x7f9cda600ed0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virObjectUnref:261 : OBJECT=
+_DISPOSE: obj=3D0x7f9cda600ed0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virObjectUnref:259 : OBJECT=
+_UNREF: obj=3D0x7f9cda600e00</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virObjectUnref:261 : OBJECT=
+_DISPOSE: obj=3D0x7f9cda600e00</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virObjectUnref:259 : OBJECT=
+_UNREF: obj=3D0x7f9cda600e30</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virObjectUnref:261 : OBJECT=
+_DISPOSE: obj=3D0x7f9cda600e30</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virFileClose:103 : Closed =
+fd 8</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virFileClose:103 : Closed =
+fd 6</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virNetMessageClear:57 : ms=
+g=3D0x7f9cda700640 nfds=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : do_open:1194 : driver 3 re=
+mote returned ERROR</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virObjectUnref:259 : OBJECT=
+_UNREF: obj=3D0x7f9cda600b10</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virFileClose:103 : Closed =
+fd 7</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virObjectUnref:261 : OBJECT=
+_DISPOSE: obj=3D0x7f9cda600b10</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virEventRunDefaultImpl:305=
+ : running default event implementation</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virObjectUnref:259 : OBJECT=
+_UNREF: obj=3D0x7f9cda600c20</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virEventPollCleanupTimeout=
+s:526 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virObjectUnref:261 : OBJECT=
+_DISPOSE: obj=3D0x7f9cda600c20</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virEventPollCleanupHandles=
+:575 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virEventPollMakePollFDs:40=
+1 : Prepare n=3D0 w=3D1, f=3D4 e=3D1 d=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virEventPollCalculateTimeo=
+ut:338 : Calculate expiry of 1 timers</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virEventPollCalculateTimeo=
+ut:371 : No timeout is pending</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">error: 2015-10-=
+02 08:52:11.879&#43;0000: 18446744073709551615: info : virEventPollRunOnce:=
+641 : EVENT_POLL_RUN: nhandles=3D1 timeout=3D-1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">failed to conne=
+ct to the hypervisor</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">error: internal=
+ error: unable to initialize VirtualBox driver API</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virFileMakePathHelper:2571=
+ : path=3D/Users/bengreene/.cache/libvirt/virsh mode=3D0755</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virEventPollInterruptLocke=
+d:727 : Interrupting</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virEventPollAddTimeout:253 =
+: EVENT_POLL_ADD_TIMEOUT: timer=3D2 frequency=3D0 cb=3D0x100493620 opaque=
+=3D0x0 ff=3D0x0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virEventPollRunOnce:651 : =
+Poll got 1 event(s)</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virEventPollDispatchTimeou=
+ts:433 : Dispatch 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virEventPollDispatchTimeout=
+s:456 : EVENT_POLL_DISPATCH_TIMEOUT: timer=3D2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:479 : Dispatch 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virEventPollDispatchHandle=
+s:493 : i=3D0 w=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virEventPollDispatchHandles=
+:507 : EVENT_POLL_DISPATCH_HANDLE: watch=3D1 events=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virEventPollCleanupTimeout=
+s:526 : Cleanup 2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virEventPollCleanupHandles=
+:575 : Cleanup 1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virThreadJobClear:124 : Th=
+read 18446744073709551615 finished job vshEventLoop with ret=3D0</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virEventPollRemoveTimeout:3=
+05 : EVENT_POLL_REMOVE_TIMEOUT: timer=3D2</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virEventPollInterruptLocke=
+d:723 : Skip interrupt, 0 123145302839296</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: info : virEventPollRemoveTimeout:3=
+05 : EVENT_POLL_REMOVE_TIMEOUT: timer=3D1</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">2015-10-02 08:5=
+2:11.879&#43;0000: 18446744073709551615: debug : virEventPollInterruptLocke=
+d:723 : Skip interrupt, 0 123145302839296</div>
+<div style=3D"margin: 0px; line-height: normal;" class=3D"">Foyil:~ bengree=
+ne$&nbsp;</div>
+<div class=3D""><br class=3D"">
+</div>
+</div>
+</body>
+</html>
+
+--_000_40EB4020BF39484EAD311BF6918770FDanalyticsenginescom_--
+
+º7‹¿‡È¥cáèm:œq¶çOı(™EVèÌĞ¬/Ë8¢r6»^¯D³ŞÖ¥,R¬²ot~EC¿p‰˜•ß<yW@xàù3ÚëúË±;CŒĞZb=ÿÜ²øùôín^´qëGf|{çs‹ºÁ'Â¿²y‰ÛvÆ¿3Îş @v#¦vì› øY‘•_fV|	ÂdéD€Ä‡~@ıAsåéÛúŞ¶ ÃÉ¨Q½X”QĞMÉå3‚(şÏºôSyŒqÚÍ.qüs°–$Œ(Æ=‹ÅW¹øö8ì@³Q†Ç„ÅèOâ°Ë»¾ ôıÔœ4DtMQÊš~•šV1J!«ê…5VYZ„¯Ğöa.„°f¡–hÃ’¬(¦ú©C /7Ø!b÷'n‰YL\ÈiMü\8Ó› †kqûBÆâí?Ei³b	 Š|šÕtàƒù’ÃT”Òâñû*J©ŠÂŠÒŠÜo¨Pd®BW^U`MüL…ú±
+%UQ:P¡üS+ÔTÅŠúOUh\…z€^ê^U~GEzÍåTè{UF='“4ÌÄu–P¤;’!§Á$Ì°öG‰lªäµ?M”BšRf¯¡=‡G_d§Ôó4âï4N‹oÀøMni$Á-K°ÊG1‹e>Åób†eıx«Yczó%›3‡«^„ØØÜD1>K·yØİq‰…<5q@Cj£çºš…*±’ µøÅÌˆÛƒ›.{ö²5Ùìš¥â\ Ogü°˜<ĞÔ~bÅÉ!>~BÆ šx-oô‰p¥üÅ8;qĞø~<Á	R²™ùSÚ0£®CW[ÕÅ€ÌƒKşàîĞ´œcOçıÆs°@l;/ŠÚ.>“„*f2„ÑÆ·ÒJdi6[,Ønˆp%Äî»›ó´ÍpÕG‚ptc}Gœ×àD·[3g;D¼ÍCÀáu|›÷Wºï½éeÄÃ–k	‡6Ú4ÆyFãgÉb±N"Ô„ òÔÂ«2wqbE«C!²Ñ’%®ÍkÔC&¥–…KRù´¿Ò4Á>¶½R…Ï8€ûè0‚•–óq>·`H
+xkî·½Ï¡}×y¤^òöËÛ¤â-DGé/oò©ÅÖßğ\¶àf#û9Ø€®­ÒÄZ‚Ë3‘ô·Öp¬°ËÙX§'£våß¦Æú-ò[Ş¡ Æ[ˆÇ{iÿâ[¢4
+B´Az˜8AÀpì9ñ1ÃH¬©g@¥…´‹ğş)’`hö¦'ïv¶¿­ş!‚ßÇ‘†ÜsÎCLfL'´‡Xbà†qÚ¦Ô£NÚZ¨ŸŞH9µmœİHhÎï˜Qé„tHê&Ü4Ç	ÎñÀ
+‘-÷l†á°r{×<¤	ç»Å«JsÛÑjü©AQf88¼.ogÂ›;0Nx3'
+üV¥ø9ñ‘¨z/c,4½Yş†.õmìÍñ3è9üj€E¼ˆ¡äYà#lö¦7”?şÑğo8Õ58‘3y4Y‚’/|Â9(Ú]÷?%ÿbtøô¦t>ñhåøeA"‘uü²»Nù€lïª»	#´pxáÙó*îD‹œ­8‰cb-9Fç)¹><HHÓ§j6Û—ÀuÛÍKc2™éºğ2ó7ıdĞ„•*Î°iU³Z3Œfuxqİrü¡a°³Ùè\hù™Ó¸ØÌÖÓÑYw´•;}òõy{í×Ÿª#Í^3áº5¬F7ÅxÑ2ıã„ÖÕÆsEÿ¾q(+c6o]Og¥Amn÷Ô\-*ª“pz5\=ªşÅ,‚Á7^¯—¯æ¬åÕ¸ıp4Ær'ÛŸO-ù¹P§õå¤qmÃ«B`º­(1»ÉS«wáÄëÒRØt:“Á€9´{k)·ë¬Ù+4É³İwk£ÖÃ¢Ôé®ú§L'ÆøIVæõÒÌuİï·¬Ñqé%	…~†OÕÀ{l®×ùmõ=ßÊÓÉ1§£o’A©¾i{Ùüõf¾\>ÌNëŠÿt4&cY ·»öGÖÙ¢ÉêÜi}ş…S½4°¡™}¸mßø·ëZévê4WÖ…æÏ×xÖ5K¹"Ã¹`Ó{µZìÇ¶Òğ;]õ´Ú-éÉüÔèäÊ»Uåü²_Ş[K}ãØSõ;¡×…çúê:Û¼6†£¹0¹)üŞìÁŞû­Ei<xåâë‡+¶lú¡7´Æ0¿ù~3/ÒFIÛ˜ƒá†x·øÄ¾O[ëÕT8]¬»r+)”çW‹¬Ö¬:scªLCzQjG³^7¶pöÖ•ŠPÉæ²³-×ÌËúGLû¤âbÿŒèÓÒú  ‹ ò9V µWksâÆıìù][u\ñI<Š½16x¡l.bÉÖ5HÌZÒh5#lòëÓ#á5~ÆIİ«–„º{NŸ~ú<“1,å4óµÈ4ÍÏÔI±„[ËØü•Ù>ñ.NìCÏiyv\Ûi	¸XóĞƒ…±%MãÇ¶ğ!f"²ÒL†æÅJW7®•ñpÅ´È˜ìU^-_P¨a9åÖ¾î“½ù"¡´²+Íç±PA©Êo«VZ–S³ZÕò¶×B¯ ç¦c²'BĞíŞé í~¶íºÓta!38ºÏ„9	i°rm®nvŒ¿ı•ì!1†C!äj×mû!?èï=t9°ëûO8BönI°-·µeáõêV½ZŞ¦¡å®m»m·››5º.dr<úk§êûÃu‘®xvÜí÷èÄïĞNÏwMúîlDı~§ÖªÃ\huŒ¿‘=T‹ÍñÅ%â|‚Ó]
+á2ø03+øÒ²­6¦ŠÛ¶n³å!ëc©ôBÜìÒàÒà¶Zg¶[oÿØSÀ®Á/6^Pù0=ÛŞ$  ‡˜‘X•Şˆ¡n5Ûˆ½Â“5dÊi¡~ôT©ÆwvŞî/œ?â÷õ>EN7§_úòœ+OyR+<qĞ÷q B¦u:5©,™æÊŠ4T¾<ıá6L$æ*Ö)TŞÅÜ¸l[Tº|.X²¿_d¥Ó‰’ü¿Æ‘ÃÕoÿ&(/º’`š~Ë•‰È3^íæ'æ(ü_p~¦ƒä4éGÁè;Ã›+­S¯ZıÁb•L¥÷l`É9ºèÁÅÖÇS‰<a
+¶^Ÿ
+–’yp¼äVÂõ[ÒEß½§ÓûĞ«·ï¥÷P$\yP³Éˆ+Å–œºz.el-ÇvêS§f7l‡ºÆIŠ…·“®d$bN?–½ÆÇ²É™L4Ç¶6İ¤ˆBc'¬b±ˆäWV,S\çŠ2q'š±D-xF{I C‘,=8ÄV„$É¸PÖŠ¦ĞaôğdÉ³;(U°K/.¦cj }¼{ 8Ûü€tÑÎOô`ˆVkØK¡ò((ûhÒ|§ƒ±¤ÁÂ´2}*#ù§ˆ"VmXøòÙqp~ ƒùÜ´š³&¶åNšFüŸ¿ºÚ¨Zµ&TŞ÷§£á†ùŠÃ;\I,³Æ–WëM­×Û¶uè€Ï,[5bÂÃ>ÓÔOYLı@fÈ§ma[…Êiç÷?kØĞïuº½Éì|r9šuçç½Iïb:ë^:ƒÿ€ìMÎ>vgƒ‹Y÷Âÿ4œ/?€?>Ÿõ{ÃËÙ¸ãûåkù4MÆ³QgzÖGãFõ?\Œ;¿×9öf“Ş°óû>ì´çG}pçÙ{øño»úì,I°jN7Œ£^—/X²×j¶@&p·G¼${ØØ‘5ã…1¥ÓjÍÏç¦^=ørOä+,p,ãî¤%¤b-5|“óbË…º‚u éSÎ“)NVş‚ıÏt„†ĞÓ»jq-Çr\2Î°§…<	Pı[\aM*MØâŞtq3Ê•‘VÅ™…U
+c‘ TÆ´ÌüÓNL£$„¼œ8ø¡h~zÅoa™{Æ²Í²w¿¹íîDåù•ÏU‰9Â:25¢°H®¯¯wD«qéRU¦ædU½gó-=2Zz÷>ĞŒÏ¹Ò;ôü¦Júó»c·@:Y°Âÿ<V
+<<½Ô}àI'|îó(}Fø%Ì+TÛZğ_Ï™Ù$D²ÿÒv(ÃÎepÜIúÂ,Ønhx‚Gò€¦uğ\µ•°T­¤¦AÆÑvm 4”f€˜k†ù+A¥< Xì`år\]³Ì8vë\UÄ8[TÕhQÔ²¾òÚİêR™D‚/˜Í±ğ!‘ÔHš‘NVVPyàˆZäQ´9Nô+¤ G,¸E5*”¸w¾–8—1häp¹KeŠ’~^kş’9Íq½0àB‰#çy+ÁKV°”Ú#§FJ=Ïü»dÃ¾ò,“™÷÷h+7ßÚH7€©EPê•‚?£äÏ >3ÜJ{®I·ŒêmÄ‹È–Q	é$!*^º„]ôJ•£L¯ÄÆ1)æÑU±§É”á6¢Á\~±ú/bb¶½^Ê¦2“ˆ‰Õ+¤é
+§î•àU*éR},$ËI%&cÌ c ƒ2çE‹Å†¬n™†ìƒ‚góëBeÂ#¸¾.Ybß.u„¿ z/îÂ  ‹ <V ­WÛrÛÈ}¾¢ã‡˜t ï´.Ö…–¸±V²H;vmm¹†À„``` Šû5yİ÷|Aüc9PhK
+í	 §/§Ïœ¼LUD%şÊUD*ÖÖ<¥HŸ.<MN›ìŞĞÅÿ¹¶Ó1®¤'ƒéiÎKƒX›Ñ­c[ø‰ ´’Tù|a%Ë[×J¥¿ÚòTdìÔ~Ø–~ƒQÇrËmı^7vfk
+ƒLg¶c%ù,
+2¯\*o¿]Zë[NËê7Ë¯:­½¤Ñä|ziì>éÁèèê×é™mw[í>ÍUJ»a0»	Rmæ™L³)±•kÎpy[q¾ÿÜØ0F…Áa@îá1í¶mêİÊ)»Å¹ßcğ@!ÆÎ¶åö6(ü8‚CÛj7Ë¯G`„¶Óîôæ¥*Ş›¾šÜ8ÍÉäÕM‹¼ YÊtïäld^MÍÃÑÄítÍÓãssrvØê·ièl÷Œ,æë½_/ç˜V!¤ŸD°ÊÊZõâ·k¹í–åô,Ç¾Cèk¼/U¦çÁm Bı'ƒ^ç°ÿÒí·ş‡|§È×¥¿ÙøPíÍô¸^ÉYlå¼I¡Q–Ã@«U/Ñ¸í~Ëu
+Ô*9är ãÑdZ7¦jH¥k¼3/Ï.Í‹4X±ĞA¼0'^$zHö0õJÎ,ã||>2ß–=’cÙÆ1Ò• ×tÈ!i0²™„"ˆŸ“·i&õŞ›éK³o—Š8›ËÔÅòhH}ğÁ8ëÿK)ÆK@1¤½ƒÂçÁëƒ_ö[{‡ƒ”¿Ú‘<Ø£İoUißÇæ•LÂµÉ ìvºÎÈœØVÛîãßà…ÊzÍ@f2öd«¶o{Røİ^«?˜Ë×ÛİAG
+¯ízóÙ`;ÂÎã^Ïe–‰…4Ç'{nÛ}×÷®èù]1óûB
+×™w}9è¸_{}gNdìËtø€ÖoĞDópT‡t¥òØ÷ò™„3nWÓ¶V®¤&´9ID„ª(·¬n¿OÏ=£ÚÑáûÑäÃ`Ğ »_ø9¹|ùálôêâÃåádR^¿Œé‡«Ëç‡Óã3Ø^¿=©ÓÖnª2ØØyôÑÃMB±ˆcé›Gë!1ÕNä\Är‘/©˜îÕı{¶½nÅ–EÆ¡RÉwØ?Ég¥Ç0ß¶Ì~§×¹Ì4ø‘˜©\Ó'O­\š¡¤,øCDİĞ:’2Bıäw÷Ú9„e÷;ÉµËqËjà3Ñğ<¾6^a¨˜cˆÃ“L¯<ËŠ<Xy
+¯èˆğ£ †U*´J3ú+‰$	OpÆäËª–¥é¥¼K‹¿S‘®Ÿ€¹[™VçVÿMœå³r0CZ»K­“lØl®V«Ši3*Kjª¤Àª¹ås‰î²…VÃ­f*?1¼x²²{ù}ØM"‡©·„V>„(¾^®f=ÅÒ‡ÒxñMÍg2L1ş^ÎK,Ûx˜ü8f|tâ¹ú?€VìYäq7`ÌÇÖù2Eñ1ŒW²¸o:¶	3ÇÚ¬72¦‰·\I_`Ğç?DÿûŸCcŸ.â­Î°ÕnĞ/ŸÿL?ÿ+’´JÂÂÌØß§qL
+Li¥R?k¶0i)n$¨d¼ouíSE~ŠœxVZ„ÔiòE¯Ñ>%3]™å‡J•ÒåÇ9%åi‹ˆúdw‘ñ1çƒÓq ¹V±mÂÇ ğÑ«øT}t~À‡c³¶sïzô¨÷aNácPñáütná£‚‡ãş´ûp+xàœ\ñÑûmöÑéT|´¿ø`7µiÑl†
+
+†W	p¢Ó¢]p‚fŞ,HÍ,½?ïõèÔªoŒç”©ëk]’ñ·Ô…ô%Š¼é½Ì,z¯rèl¦)
+KM±DH­ í‹<•Äb¿Âã[¾¢`NoÏ3äàC¡Ã5eZ¤Ú`‚–#ÌVÜT)¦‰¹ÍQˆe`º¤ÒB¾ŠŸr"A|Mã§aÈN™ö¢¶1­D¬Ë0Æ3Î`L9O8U¾ÁD§*È}D˜ä:\#À÷®Ë±ÀFŠçA# O‹Û¤#á]çIÛV[#ŠÀİ(Á8[‰õ¦ÖYaÍ(_qµZ\ËÂ»ğt^í»ÊáIªtŠ—ŠÖ$oû¬ã2Ó8FqßŠ
+Ä-Õ°1Nëe#Æ¨6äMéı¾ÀµÊŸ2 ²uLv.ıF,+ËùS?Ä3îé”…Òl{„»ä%…ºx*YW—d÷À=ßXû
+wc•{ÌÅAÜÇa"5ÕL³\\ol¼>ÍxàSÂMbŸ'­Üà„·¹VŒ¼gìoeêK <“QÂ,_,ÖTã®ÃĞd6%ÒÃ«zsO„èHÆ–*}VÍë:::ºEç^j3æ {R®zB×rÍúZ †N¤²Äa3÷<Ø¬ F\T	¦’ñ³Mÿf¾o…Y¬Vå^2¾Â3ab«3àt¦ªn
+‚¬ŠÀ»6!¨SJşÀQ0³Œb@´štŠ…âÙ½6Ì=_c'òAGà° À W­ù`Æõ,0r³ê[º›ªŸd”o_l‹–cí6»(^›«‚u¦V`nÚ P-8iè“ˆ¶QroI!kø—Épÿ1Åır$Òôj|Î·XAÊ½Gª’S%p0 gñZ‰Y-™.7K²mfÈ»,‚j$‰Âá®CÅ„n¹’ÖÂÚ°÷î)şztş¦.›å¬MëV1Ëí5#À;Bï“ğ<	p²Ş˜ÅÖ’A1ÊeÌ9|òqF)4ËcGqlx¸ñ…esœUèWŠ½ğQÍÀÊ‹¿7@¬.~ëÀ—ÂÚèd°A–Õò^ïşbh£qwÔ0Œÿ 9*ÀÒ•  ‹ ıiV ­WíRÛJı¢+[µ¬%ëÃ6¶/„p.¾Á&›­Ô-j$,I£hF€ïÓìßûŸ`ób{F2``s·ÖI==§OŸî¿/EF_8şòw_Dšd"WVTÒßyH§"§C=ìxC»O®ítsğäš‡CŠôÒ$WfvëØşÉX’ZE)B}cñ­k•<Œ™²‘›?lKŸaÔµÇr½_·ŒAi"•´«¨ü,‘A³”ß~¿t³o9Õo7—-ºITLãéÉìÌØHBRƒñ8îÏ/l·78‰’vÒÄ¿NJeV’—òŞ)c¹U)0¾]qşö'cÄ´4+šMÈ=¦İ±íÇü Ş5t€lWcàà‰@Œ;lËí-Yøq5«Ón.ÏĞÀ@ƒÓµ‘›k„ˆ|wv<½vÚÓéñµGARÄ¼Ü=<›çÓ‘9OİnÏüùàÄœ¼~‡üDÉ]<36°<‰»;Î'8]¥ş ƒ«ªÜ\½ù<p-·ãYÎ¶åØÛK†ó}&¤Š’ÛUñï¿ï\Ïì{îÿ¸SîÑ_l|hóbv°µ0Ö@/1´šxô@ày[u&Æ]oûĞsÆ½ƒ§6êÕu±‘«7:Og[ÆLé9¸Æ'óìèÌ<-“y’3•äss”I¡†dË M\'““±ù±IúË6 —C_³EÁ‡¤ Év‘²$ÿ‰‚˜•’«İ‹Ù{³ÿ`W²\F¼4Çy Bl4¤>a2…õÿ%ã=¨Òî^ísïÃŞ/»ŞîhPêË~'ã{»´ó}[zkLróœéÂÔ$ìt#Ûî»a8pÙvØc~Øgœ¹NÔù ëúƒõµçpyp‰¥Ğ8{Û^ñnĞ‰ìŞ ËYĞ	ÛÑã¥;İ3v‡¶Õ±ûø¼SLXLÕ¯şŠ.%›ssrş ÏCÙ~èõ£A×ë1‡m÷º¾Ï{]Şé÷Ö—~2§<y9|¢cP‚9š#5C:U•Ï‘_ç¼m[«ç<<bÊœ,ƒ0D‰TyV§? 7oŞĞæşèãéå`Ğ¢éÙûË£ññéåÙh:mnëÿŒÙåùÙåÉhvpÓóƒ‡xvq>Ù?¾Ü?>=øëøp‹Ö
+s­}ŸJ7"XóĞÜ_I‹öG,Ÿ“kõú$rz/ÙnwWlu?…q*DñBM+ÿ4— èóšÙ¯ô¡âR¡r$1_TŠ¾âÆ¥(I9Éä7N˜Hq†\`£}Îó)±jO%,{¨I×r,Ç5ÎJô•P«Y¯ò+ãóÉœ Í¼:Ä ¬¤¬qèV{E6X˜%9¬J¦D)éÏÄŠ"M¦SÈ¯y*
+X6-QÅü–¾–¬\¼B2Ö®Àfÿ‹\V¾Dcñk'VªÃvûææfÅ´5!µEQsÕ^óù@w´…ÃµfÉ¿jzWèÙ“M2v«‡m—@Fe£ë>‚5woVëÎŒ¥OÁx÷]ÌG<-1~	sŒeKÓçLŸB’<ÿÒV(ûdÖ8îF•ù\¯îÜd|ã˜×ÏMÇ6õyĞºÛ-úåÛïå·eœ}ûşÕ¿ÿ94Œ·oiv>9¡DRÎ¡[5-¡–‡Ø˜"Y°€k(&c~Ê-šÅË%²®#íH.¤âÉª(Ô¹™Š˜òÜqknmµˆåáı[İã“‹Í×’&íS
+KXnYÚÏ)Š‡>ğ¬Ò›bQUhT,x¡j¸-ZˆŠĞ=ˆ£&xI<×¨êâQe¬µ£mUQ#ç¡â–Î°.B¹%%Jì‹ğ-Ã˜Å,¿’M'NUEÑ²]Ô4hğ‰\Ÿ#[˜Ÿ¤œ•Ø<7i\r*ĞHĞfÊLÁÌ‹”ƒN~‹	³¦MĞĞõ‡†V„VR-@.¯u…üym»×vœ6hàÆ¬ó`ê3‰y™óÊD2°›é/ *}tXÆŞ×~Ù³Ûk×¬éu_A¶9×‚4™H&‚Õ³ñ„‡8X´ã
+/U…xº@>#…ğ¥E¡ùĞDnx˜¨»û@äQ2oZ­Îa¯–(Ñ2V¼ª‰õ…P.¨Ş¯u—¤P€Ñ\(ºå4Û<R{¸špÒM²é™Ic¾”ëÜÀM€#2nuV¯ÑùÙBÖ"ÎT…„5jÖEšS2!)¦§¥(Ñ•s£&	I.Y†Œ¢)×Ä×‹ÌfŠ”:N-´UGIÒ€ªD´|lèS%K¡»	€å¯]AFãw¹ü¦WKêö¿º´*!I£*ÿv¦‹¢F¼¨c³n³´aÿh‹|Hzò:$°×ùK‚+ìj¬‘Dtç·UO+İ9©lœ¦P¾fÂ¢#qƒU6&*’
+Éˆˆèm»PIV‹!ˆ96¾ÑÅcäqE¥K9òƒ™º¬±¨éÖÍï&æ5tQÖ‰<MØ¦ŠKQÍc1U,M«@´FE®›’¤T€&ï%Ô™oÕ©¿k"Ë4ZŒ²i*<ƒ”ù§¥yMm2Úú îÑÏÉ>m:Ş6¾xzøVà/ÀĞiÃLkóÂ$Ã —I^ÓWËŞ›§hOs®m4£MOÖdèFÚTQÆtËäyóİE¿@N”¢ÊHÆe’_àQ¾P±VOÑ¹Àb,ª4„áŞÊ;Hª~Zgkï¾O†i’q7Tã?~”6D™  ‹ ÚtV ­VmSIşÌüŠ>?Üiû, jV$±W©”5ììÄİ™ÍÌ,h~ıõìbÄ×Ê¥²fûåé§ŸîáHÉR®~GSÃØ‚¹…Ï,†O‘ 	AĞ­ïàÔı $g,b|Áâ.Ì¬#ÆÉnßÅå©›+Û/nÜÔ]Åâ„7’©mş²-|A£Ğ·ŞøºEjÓÛ
+ ¸y1Í¸*WvóÔu³ã·ãUo[°ä&Áx49%5ƒÙM&æ½ï·ı0„™T°—òé‚+ãš)ıÎfÊ¨pc&7kÁßì’³mY±äXBîéqü¦ï?æë}€!#~Ëb¿çà™BHíßmø+~AKCÓmzÕÛ4ˆ¾ß¨7ë-ìÍKçRìONÆ‹ÀOˆx0µßœ³qÏéÆõ°å¼?9ãa¯ÑiÂ”½g¤†î|v»ÿñâ|†Óu
+á?2¸Èüc‹Åî¯	t³¬íàK+t;n6Üv°âë1û§R›¿Y§cHG¯µÓ>èuÂß–àÛğ·/Ø<Ÿn=.!eÕúzm¨á‘Ó®;­¦„u'hø®¡Y>Kİ—ÚµŒşÂÌ Úu·ÕÄÚê¨ê;1¼DÌsEöl•áQç`€ {¿ß¤FÕ$Øô'[d"»°
+6È+!É2Ñ…>Ÿó¬2|¸qŞÓšÎ™sÜïÂ^Ø
+íf?tCd5ğı–}jX÷EˆáJGçÁéÍ™0]É<M©ºı2vá„‹ân:­«VsÔ¢Ûè¸ş¼gÑµôê6eà¤6I
+35å*öĞ¢áúdt<8Õ¼t!À“C)¦q&·9â28Í^R.v!J¨ÒÌìfætîíz†è"’1ó.´q–È¥sÆâ!5Î8§™3¤Âp¾ÛŞ	 6zÿÆW¡¿“«³Ó«Qor8Äƒ³Ã‹ş6©Ÿœ\œ|:ü0èoÁú,ÀãIYHjŸ>Ó™KÄB…`±sp‹\bı}6£b¨ÊH÷ëú5Ûöº­İjhœJ™ÿÔĞÕq1ıÆ"là—&_AÈ‹‡•Â¿³¬ ‰óZ'ò€11ÁÅÅ^‰{éŒ°l\ó÷ÄÑrƒ:9U8»1º+Ä59A:œcå>^<…¶Öº¼8Ê¨È=3.ĞJQ#•†?æyÊ#p,7FS™£e…Ö$ìçÈà»¢êvƒÔÎÍú•Så?º˜êHñ)ÂÚKŒÉu×ó–Ëåš©—U%y2·™µ÷ æºg-Œì>xà(ö½`Ú¬ÑóVW´ï÷iW@z*Jp³½‚V³WŞv5¡ës0Ş=©yÈÒüã×0'è¶Š0şuÎ¬è¹˜Éÿ´5Ê.Çİuà¼´¸ÂŸ ¾r iºMÀ1$tÁ€¢VŒI,Ùó[±ã­ÏÔŒF¬Ô"Ö@ç¸Iàb¤ABØÏ(?
+gÃÁ	iÁ”jüI7ìA”=!‘¶â9|¸yå¡§ÇÅ˜êš‘Vß«93’à/Iá¶­’m‹®Û0-Â¥ú˜qadE”€%Veå<Ä”È¥õm®aáãèàÄn£?.¿*wà=«¡jXŠlŠÀåŒÈr|K©Í#½åZº†T·R0ÿÊ?’Eƒ–³§¹Dò cwáŸ'b£_b,ÁE`}ukËÂ#œksvçwG×ˆŸàyI.æ˜Q›^¡•7åÂr!¢«U¿@*#šZ"»áŞ¬Îl®áüì„àfû9ş€XJ…ÂIp™–Ğ6Æ†ª2‹mÇ:¡×l£bb‚×úBğË„£x+[¾<7tš2Ë²ÂÒò.¤
+IãÚ>ˆ]×J!sW®­Å”!L+%¡›)r@L×hAˆã Y]îä”–ûÎ?UÒ…îÂİ Ş_,ŞÒ#Ÿqz€ÏÊ6D…ªÄŒˆ¬ÂQf
+w)¶xÕ¨ÌÊBÎˆM€Ø•*CîUÉâ¢Ú¼o	ùï€ÔFÛ  ‹ î¢V µV[sÚF~F¿âL:xê]$q±­Ø®1àÀ0AÄI“É0‹´ÀÆH«hW`÷×÷,ÂãKÓNË0IçòïÜö*•Ì¾ÈÈBL–"Õ$S<UÉ‚ÅœÎ"ó+Ó|â!\œ
+~½JÍ³«àÚNÕò€‹%=˜["Ö$ºslŠ"&4Iehnh2¿siÊÃ9Ó4‘U(ş´,|E¡*uê–¿X…É=,„ÒÊvh’M"¡‚\•ß=U-S§LKùå VBÏ¡å÷F« BĞ'­ÎmµñÁvË5·S™Âéc&Œ'¤fÚ œßí?k˜CÃŠ!Ç²¥‡ØÛŞçã}„!#ö‘Á¾åà™@¬Â	6-;~ACC…VJùå–_ì²íÚ'˜›%†.d|6êúK§äûİe‘ÌyzÖl·ÈĞ¯“zËw«5ò®Ñ#~»^>®ÀDhu†Ï¬ª‹éıYÿq>Ãé.…ğÜ¯Ìâşƒ¯Ç6=ÁRqOèCµì³>JOÅİ.> N¥RwöåUÓ®ıàÇkàeøÕÆ?ûğM9BÚG½F²[@±u'"¨ĞÚ	¢/òxÉ2ád­~ú\³F[;çë8¾DÃò-AGƒ¹y,/…òL$®íUª^µ†‘¸OS2ÍˆëTˆ)Æ`Æ4Wt¡¡øõùI`"Ş˜«H'P|q²M(6ùD°øà`]—N}gÖÌ—xùIy=”õ{¦LF^ˆj71[œ˜˜ ğ¿àüL:ñwh’ÁÈ;Ã›s­¯Tú‹Å’5’Ş‹‰µ®0Dú›/ÙBd1Spº‰úb­@•ÌÒ€#à§1×çVc÷/oDh?*ï®ˆ¹òÀq­WŠÍ8é4=Œ\Êˆ-Çv*#×.».©–+	¶ŞN¹b>¦<åq`Œìi9e»j;Ä­VŸhõDÄÉM>£Ğ9µ­†Œ5Çq8ºO»Æ	ZÂñ[æ,U\ŸeŠ0±MY¬Ğ;iÅE<óàGRßÑZY+bøEš—‹O·PjÒïÄ4@Úxõ@q¶#øI&õzô ‹–Ê8ƒ¡ø$•hÒ¼'U¤b1šyÅüC,¬T¥xóÙqpï ïÙÜ×Æ5çõ$YğO|ò^èRµ|DË5(¾ozİC,[ïxp+±¥s¬^ªÔ(Z¯œØôÈŸMY*6jÄ‡m¦‰Ÿ°ˆøL‘O›Ú' ÅËúï-\µ¡İª7[ÃñÕğº7nv®®ZÃV4n^÷ê¾h†›æ¸Ó7ûş§î¸{ıéüÁÕ¸İê^ußÏoó£ñp0îÕG67Š¨ÿ±?¨ıVı²Û[İúï°3ÖŸLÏwVaÿåßÎLŒÙXc¯]Ş{ĞëôZM>eñ\Z;ÃöüñšìÑ®¬YÓ(Œ%¼Ò¡~61]îÁYşúHìLq¥ã¹KKHÄRjø.'ëJ(Ô-,Ã Í_rp+óW||&=4„Ñn;Æ¥Å–¤8CÓ}|Ïâ[ìf¥I‡ã›&ª2e¤ÕÚçÚ*&†…‘ˆQ*eZ¦
+~†¥'¦QBï*|±›zÎ`™kÊÒû7VáñXÜ=Oåş?Æ*›¨ „ujúDa£¬V«ÑR”‡T’‰ñ¬Jl#ĞS#¡¥÷èIùŒ+½CÏo*OÁY¶u»ROƒ9îŠ—A°\`ß{®=XÏ‚ga\<‰¹ÍÉÂ¯a£ÚÆ‚ÿóœ™3ˆˆ§ò? m‡2œ^ÇÃ‚%¯l‘Íé?–õòv¢”Ã*¸ˆ=Ë:‡¶\A(¡ƒ'	iXÿ¦3&|]eX“ZàŠ6­q16‹yªb–¨9ŞÈ˜ÿfYHä
+{%9®nz‡y¥¾ÁpGB¡!âš½1k#¡¨ñcå+¦Ø›s<Êd¦~,¨ŠdçÉ@®\`qh)ÍR\áè‡BGÇM¦ÄÍ 
+ÃêÁA$"o™é"îË`¼é!ì"¹ÅŞÛ0eYÖŸ<¹zh·  ‹ (ïV µXiWÛHıŒ~Eµ§O&é ]Ş„íñ‚™Ø`	LNY*£mÑâ…9ıßç=ÙÆ6„tÏ K¥zKİzïÖ5İ8ôIÓ{š2'n}Ê=É†Á‘›‘S;%j‘¨†©é¦nMQ‹Â9³Ÿ2Ç$4æA*úsU—à&7âĞÁ)rçš3Ç¥)zöŞ¾z.ù¢*RQRUI+ıñNØ/d—&Š*EÙØç‰½4eóoMßV$ˆP‘—ïÈŒ§.éXƒÑPØãI«İã“ëÃ¾¢*%XÛ$ŒIÍãã)S1KXœ|ÀH>¤,Åİù–óÆ°Àì#*²GTEyŠ¬w';H0PÊ˜ûƒg"ì­AP$]]¡ğzC2äåÇ0x)ÀP­”ao¦°tõQßšª²eõ§:±yä²¸ŞîuÄs«)6;–V,‰G­hõšzÅ c&uöÀœOõ“SÈóL·!$?‹ ¬Sô&Š8)êÒmŞzl¹Â^ pšR•*EIS‹RQ_A÷t#†a’Nø|‹ 2†¦7[Êa·­e-•|-:y¯Ày{1j½ÛZVò„¹%c£bPHB½ZÔË%Cƒ	’şWB«yh`,cèa{ôNh<†íâ·M³˜™dZW­Ç	—ÂŞ»3Î™#¯>ˆSd‚[¬¨ğ_Õ¡üİ:nŠ™†f’ï˜šp‡é³$¡·LäésŸ‰«r2í0Hmºˆ˜°g¦nÌ¨#òÀaóÇwn30ïc·ş¯î©{r×jÏÇƒÅ¤ç_Çr¦}bÙEYU¯•A`%İl1¾¾éí°õû¹wÇü¹_tŞ{<lgş°Øõ¯ÓP>:¼Õ¯2_d3M¬ÏÓæ™ç±öõœÎ‹Gr”}Jñõ]4öÔãa¥—Ì®+Ã£ÍñG—‹™òPv³Ûøú«Õ—G½è²}¦^VÒ÷rçücëzúà\UJ®<2´ğÎ½öÚŸš¬t5im&QeÜi‹»”İÍîg•¯QTJîKg‘Bg½hT9:©r<my‘Î¯Š£^õz¢¹§ĞŠAy~uî8›#5>+·&‹ÊÇ»°ØùÜwâá{å³Üõâé|z~7«œöVûrxÙ7Š'Ê$ÈJGGƒø{ïËŸ[­ÃÊggüy$åımwæUŠ'>}8;ı¤zêÉbr|vx6¹_øWöYz^X_#IÏ­ë¡ú@‹—Ângõºp%îT00’Z5$UÑ¥jy·'SÕÕr©R©”fwc˜S2Œª®ªjT+Ï2ès…û„z¡Ï†-òÖ(‰ª.ªĞñÔI @)•nc‰|1JyBÀêcÏ'~I›3m«Ó›˜¬=U_Õ4İ(Î8äZ‘0	—·<|tIW~ÔˆO¹SÒÖ¼Ùim1§ªUÖÌ	M·dN“á÷İw0Qv0ébë‘Âã[FFçvÔ;ÄÂ(4¿—z[÷["ÑòØZ8L>¬zû¸ÎÕÕQ•r¹ôkµLÛÖ”_í²R-%å×¹ßÁñ #~ZQ Q%Eh­z}<`?óRÑ8•©—²¸	v›9Ì‡Æ‹zA„ŸúÍ	œ‹C˜v1ñW½QÔ6„®t¥ÃV÷P14¥ ìp
+i:ÑJ÷¤Üñ/.ü³Y«g{İù ßŒ†XËëLú+Ö1	óòwz4­ˆú¢e‡H•¢"j•·‡ÍëuSTöI»Õº9ï/FÍªÁ Ğëu|tÒiïàÓ§fÿ¸½z“ßß4/öI÷¼Ó4û7İóÓÁ>éı›AÇ²šG0<o}jßŸÜ´O¬ËşMÿôrŸ¬‡Öğøcç¦§3tÙKkØ½6-ëÙ9ô^<5wf	{/M{¡® Ì&Ámn³	 I4©T!a@6ºí{sËÛsQŞÀd/#“¼T«‚µ:mÈ—) 1ÌÄ!Ç$a)I]F¨™ò„9dJ½Œ‘pB£Ôz Tx<R,P›ı¡FĞ±ì;ñ¯Ä  ºpS×š¤Jª&c`*‡6˜ßeÁ½Ğ)qÚ T³g'¹ÒÌ½Â¦QÇçÌŠiÆ	yChyÜ†6 X6e^ÁÌ%aá’ViágıQöv»z[£.ã_p>'vÌÇVÍMÓ(1ey6›mM•ıå’ä0ÂÈ‰¼ã³‰Öpœõ;/Ä˜}ÍX’nÁóûJÔ³MØU"ÍØv¡»_N‚.'<¾´F•¦Ï¥ñá›5÷˜½0ù{9»`¶ò`½3üšÀƒIø? m²+1Ïc}ø‰/0ôJe¢b†A¹<!ğŸ.©UDn%+MµwV ‘A_M¯Oˆ;9ò(€­m—ÆĞsõB–ˆ4±9/lfÇ4H&,;:<¸5I<AèqB=oŸD8&3@Ç†?l\{çiã"ƒPÒeNS8±ˆ•‚ÎT£hn¨û!ÊÓÜ;’b/›<lF>–™2ÜÌ[eq&,‘@
+	Á;æÃ‚À’ÊC Ê9X`¥Ô¾)ÍÀó–5s¹í6Ï1Jò¸SB‰ÎsÁZ„S'-¡Â”‹!g°> 5H4H“’ˆ¦àp’à¸v$.»µ^2ÌâÆ~¡–£Õ(,£Œ ¡q)§`Í|L‡æO.M0"ñîG^¾H¿`é2¡<õ €GÂÇÜãéÓpé”‘$ƒœ Ğ2“ßÑb¥I„¿]]nê{?]\_³Ò£–NÇ„ú!sßsZ×Û…,ÌÄv™OÑçv&á$¡DÌ©ïH]XÎ¿?7œL`ŸV«Ù«¬faìll|´A’Y™If9Õ,ÍdMQĞ‰2Tó&Ñ-c$¨™.şòè\>ï´D\»¡5”Q£æ³”‚N…8â±<Y}CŸ›= ‹õ&èíÇ]Xy¨Ï`øˆ,?Ä¶]Ö‹ —°`¢jàéí„£Òƒó™Ã3ÿ8JÒ…Çµ_DQ#]p@@!ÀÁ˜Fä7Yø0A+YØûÏêŞçŞÂ,´¨?9%šº(—ˆĞ·"Wb"Ñá× %ø„çƒ?_vÔ¢x¤ò]@° ‚óÆ+\@²¡G“'>T_}â–iá¢Ÿ®3’Ix‚ôÔèñí'‡O7Ù§ñ-LÅöP½áƒ8ÓªLÂ&‹ÒüÆé%ü™ Å”ÍĞ½|Õ…ıB­$&øÇ›äGáÌ
+î÷IÁ¨=(‡0pŠùa—…1ĞY­b£†^›c  xÀêú9§Yä|î€åÎ§<áĞ¦Ïøïß7:?Œƒíı(Rçx³Öˆn¬@}ùNØÍ8æiş­èU.-.‡‡x×‚úÆ‡&^Špivñ®µ~<lã¥KZĞM…Ç]{ı‚Lşf‹îO!³ƒš#¯-µ¼³üÃ‹‰b2¨‡d„çÛëêaù¾Z…3|W²éàƒÍÿ}
+/#‰5Ñr#üš*ê[áXAÏ…·@BˆP\!ÅY â U°Èw¬¤jØu¤\ÕVİ·Úòòr¼ª,_o?C¬Ê'î0„¹=ÓD±Q“7Üù…OÈ-HÈ•TÿhÔàthµĞL\Á×’|)	™Bò99û¦h@îøtª¢•
+DMk¿|aÃ'`˜¹÷è"}±ë<î£§QAŠÑ<ä*Ş—Æ3ñååù5Á¿‚q§O°à)¶|ºz\2C£(öOÈmäµèq|»÷á‚’Gë 'â…ÕXëÔÚ8n¼	ÆIt€w¯“¬uE+ÎÿiİŠFp_şxE7¨_ÁÏÏ*X4}FÄÖ…ÉØ§H=Q´ua­ißü£¢©åƒ]e[Ğj[Şêí7^z°Ô¸onÓƒı7(òp0GÇ–CkÙ[¶„/ºûÚw™ÇÖ:~N?5_©bhˆ¨õW,7øÀ[¨U¸byc­§ØZ?¡A7	ÿÀÀÁ  ‹ }%V ´[kw¢H·şœú¬şpÎô›Öp‘DíÉ;£¨¨QŒ¢¢Ìš•Å-€‚Ğ‚·üú³5Á;&}²ÚV±¨Ú—g?{Wm­L=—Í‚Ğ±Õ¹=ÿ6]ÅvÒ\mz¢¥…•#(*ÏdóÌ=A“‹:†fØsCÏ¯øn{¦Ü%E¦áEt³?õtü&í[K:=5tK	ñŒèæÄc‰`›¦¨4Íüûİ¨+Â±ƒ0 ©´?S];ĞÖ·ËÃ[ÿÈ¦)&½[?}'vhe±Ù}F7¶N„¹zESzK’d³ÙÜO¬ç¬$Öë÷¡mŠÌä¾º şÎb ¨D2X”•È…n¶:‘iúa£Trƒ`­2éÌİúé„VíI34Ë€©çÆ4°½Éc·!Î©;QlÌB³}Ë˜>–ªåTG,¤
+e‘fïS<×L‰Õ“ÍªpİÀíöëêQh}¿ŞB GÊWÈÔk†N›g:ÆZƒ€ah2—Î²iš&Ózcš}C?{Aøj/ãš‹h^Ìf²t¡\z¨üD7‡¢²‘¨qKÂñG¯Ë}	ëøŠö:Ï­gÅ“â9áBàå²Y*›c20 Í››ÌnæN‘xîçR÷;*=ÕÀœ¶9QÂÙÔÈóGê'¡<N%X
+Øö'¡=NGYúİæù'¡?¾ŞO\@RğÂ«ZºylÙ|èå5-ÌÔ‘¡…ù©ñjL‰fy×vÔÆãy×Å4R¶nòš7	 Y¸òŸ„j=Ş>pÌ(WÖ8ƒle9w:èV–L{ÎVY£é·|Ên
+ÃIµ]^<ÂòêcÓÛwY¾óÚZÉnh˜…Æ6PËš¦k9‰}-4õbI²{s²'ÊƒWR5ùÒ]Áu¤j‡5†|İšÉÔ_µ€aå»Ü“_$¥Ç<°³Ê˜fÍ_«êkNİ_ó¢ñÔ›í;^o8ÍBs¢w¤WÚœní2`Úö˜Ûñí¸roxÏ‚rO6'ÇuÅlïŞµ@I²ÌsO¡æÖªcEÌv?Û]ğ%i¤ß—uYE7ŞBìŒ¨Ãô‹¿?Ó˜ôÅö}.Órï*R…g3%µ”f£B§8åå“VxbšËûdÜÎªíª%;|İı£}§ş’:¡®ÜU¸_Å,ÛR–}ï)3|ëÜ*ó ÛîÊFû©/?x½Ó£†³'è’—]¶²O«nˆnµo>>¢Aj‘@÷÷æTúÜÅåÔ½w§“ËÑ,ûà+j†ÊdXx{Ï$Ã4“g3yŠÜé^Ì*Á, şø‡¦) Mà'–gößïXœÀıôG^ˆ…_À3ŞèÀeîI2›{ |UÃë¦A*—&3i6“&ö))Moé¨ÌÅ‰¢³[B‚XY\»ƒÇ÷ÓÊ‘¹İÄs„¶ry–ÊÓ,pAh«‚CŠøv4û}#ş<zı¿¨ëÁ=OJ`­Ÿà,ÅU¦¡µ‚ñcmıæïÒú/˜ù=F‰?±I1ÉäØûË°â±¹èæcÃ‚GÓ|ÎŞ³™¿C#p”t|êAêyj{S;\å	ŞU• UCE³òÄÄCML	ı%TšDÍ/ÔJ²ä¨KÑyÎ#3¹¸¢Ü†9ºÀyÂ9¡íƒzwŠS`7@æo6Ñ•éêñ[
+ş_H’z û=ÃP&KÑÙMß?P/øóoÔõª¦D_qS¢æa¤Ód&şóâbaX_rì¢Äq/òs¯ûB1/T. ±¾ˆ5^(—~ ›è]¿Ğ¨•6ŸD¯_
+½D¥S.7µÆK¥Ójş ªİfã¥YÅ_†;\¿ôR^J‚(5^-é±½ÔŸkOå—*spIjÀâsåå¹ Š?ˆîËS¡ùM\i	]¸–İô:µbã¥ØhqOåÒwb'¯LŒ;£ĞÍ©a§9 3*“‰¡§Š …f­Y.¯ÊÄ³Şg	¨â>J©scîccq‰ƒÏóóÄfÍÔ, 8Åà8-O<şÕëVRÙ¿Š©¼cë®³Ò[RÖlIÏcÃå¦3ñ!œI5çÖ¶~ñK8‘}Í¦e =Ü×s§pq0å±‰ÅÜüÖèıjÙëÔä“v¨G›4c
+ÿ_$nò(Ñş³3î_^¶úßf¾ïMC¢ß$¼×WÇ„êxÚfqíÌT4ŒI¨Ì8c«Aª	s•ÉGPÒi`[=O‹uLy(Å'cÔ c¤j@ÍßJPèÎ<: ^½)Í
+¶Qt×À¨©zÓ€øBñ}ÇÖ (Á…º17Ï‡‘k®-c+~B´~Û7Ì³Dë÷&PgÚÔVA¬?­0ôƒüİİb±ˆ½s×*İy>^9¸Û™;ñO<Ê–RSã×ÌØqø_›¢æqö±ìFÂT³€kN¡¬ì¯¾¾Wpë11ş>Ğ¹j8ş‰Áçd¶à¶Íbr›aÈÛ“Wï7-f²A*’c›ŞS§R!û^ÁÃB]Ëø§¬‰>…™Ø’°I‰˜#Ğ…•J¥’ı^	aàï(öÒäÊi`„ß¢ÿö1tªLH™©òDót{bBA¤Æ}!‘›"]ySª¥qÅ’ÂWÂá N*Õñ}©í“ğ~¦¬Š¬ÊôLİí¯±ê’àÕxy®ÙEKŒ<¨™ê`l"mĞw4¦ã«tnön&fÌÖmÖµ‹,UÆµjg^«ÈÜì«|ÿÍ ¾’%Òºı‘JC•ãj¦æö-™£æHu—,L²|xX)p#LÜ6‡ ©Ü&Ÿ”AÛ¬ñKg(µMÏšı1iÊ®ÈU,Ú²$ÌUÉ™É«â
+áÕRn¦VÇpCÿMçŠ£!Z¯¼aUT~9×™æZê‰îÔª:¨¶\£YK«
+
+Ènn…"¸Eô¡J×É!¬²VË™™º£Jı™ÎW‚ß±t¾:Ÿ×––êÂdxÁ*fSl¿z ÒÂé\b’ fS“ú¡.‚$Í<uìcG’sER]ß>·fµª0CÃAt„|îa©&ùÔáûXÂ@[-Íí™ÃAÓüPù¤³OiU\é;S$v‚`Fr8è8X°ˆ^t4Üî’ ºå¼OBGFk|ãÁûìÜSoÁâ`O¯)4Àƒ,ÁˆHGYCÚw÷°š3½ZŸ«\QêŠE<HîhePS¸â›êVmÍuahè|/DX°Më<–5eŞySa!KM jÇjDëåL'Ô¸€vÒææG…ÊÀ·öEAİº€+1­Ö£`jò>ñŠšc<â÷ "ÆÕ¿Àû ñcçR¤Ñf/!†¶aCÂ8£|c£RÓ.„©ãktøv,ÆCqé*ÒÒys¤:(@úAƒ^ÎU¦€EÍ4"DS>Øb%KuK£{óh±Rmı¹ë„òj;q‚#CÄï+$Âñ5Ä*”"õß†t¾cdÇ5t`˜¼BÊ"ed°)Ö•šfC¤ÆPcL‘ÆáªHË|9ˆâ®KÎuZ4hŠR¹ ;·hHX]
+6LÒ·Àm0‘ÓŞÖŸ³>Â¨ŞÎ¼Qx®Î…Š­ºÔ%ÇÑhÁ¹äo…†À}Cw9ÒáÖ&I±ë±—"š—¤ÂB¡s€»-jÜCI „bh ù$ãÓò nCÜbã/e‰¢S|×¢!M&Ößj&J"ş)é÷À´½±Il…«X­@kûPö5¶‰›¤c—°ƒci…µ[÷^æû…:ÎN°GŞ¥È	c€ˆj®T¸&OÖÚ /Øë ˆ?–F â‘°ÂĞ€Ì¹ g¥2=s¸š]8»èDğ®¶Á±›˜E68ë½ûWXm$¡b’|šEĞ>ì±}‹ Kìä,‚öi$i‚V‡	íg˜ä	F;H0h?Ã|%Ál aşVhd¾¼9B
+½µÉZTìúÈK‘GO‡Î±ÈAñ¼·‘Šã_ÍiBh‡óé
+Hˆ/CV¯aãWuĞ£1üV {—]›µ×[ º•ÈñØ
+	`vÌ#]—PbaEñµje¤2ğµØzíÕÇˆò-)Q¢ëíu,`·:‚â8VkE‰7„DbÉ|…Bğãª»!É«$Ùíoû#xÉ³–°ÉZèTÚº
+°b,	Ÿ(â9ƒ>çt%¶èsÎ@ç‹ßñUÔ„.HÂ^CM(iñ»¿-jr¿5”ûR£ßQ²o¥Fïb‹—÷F—¤F1±—_-P"c'ØÑa©QBc¯’H.¥¯k²W>c’f/t¶†í®Úl S»«ihË›û»Ïl6OºåÕ†W¤@€FÌ¸½˜ƒÂÙä±›;"Ç€Í>™<~èÚäÑâNoy®Ş"¶¸Ó[t&y°×nyPBÊNä´eÍÏl¼NÕ´Àéç·g)ê£tÿ<³Æ(êmc³¯m¾âR£cbGÒX©Ñ	±ÉÏät­±…3Y}ÂØ'7ºèw$ß­ÔHH˜Æ’H@lúwlÂpC¿k©ùÕ3³8”âÀ¿¢	İşjèæ¢nÅ±c}L ;”ëËƒåÿ÷Fl)ì˜ˆ²Ñï87Û›”=7ë–mƒ>i³ãjùSggØ®è˜a›öE
+?–Í ´«óçˆ×äTÔì6?µ-lv÷¦èóõÅÜ¬U@&ü÷»—'³-RCg¤Âó¶9¨Ò,©H,%‹c3É§§RÍG¸ç†ãvã¦%)p®3Û4·¤®¸ÀmI¬¶©3u{0²‘XŒ€5ş½D€°´/`Ê™«“ç‘Y«E«5gQÓ4ê†á€Ö˜~ ãĞ¡-Gµ×Bl$]éRÆD¸/YãË¦Ûj|Ïkq¸ÕÖ‡kp× <à
+·i™šÙL@;¥ÙÅ9 ø­¹Ë­¥„ØÄ}ÍŒßˆ©{®»k®&½·¨c[Ñqsu…Ï5f¸s
+*¬àu4¡V­Ï‡îÒQ;5®`âÜTk·Y{ {2¨„Õ&ı™êâEX3|a9 ¶µoaĞĞíE]UyİUºãË“qÄØÇÛCI˜âf¤HoˆÅ%:Rû{Cº2›EÙ)6¹F§Aí¹ìÊL„{¢¯Oİ¬	êFÒ£wf'T¸½Íªp} PGàÌz±ºS«ößäM'Ç+ŠÄS1V€@ÔÖ5 k±šGË/X íú4&GÛÙH‡8UiÙUyŒ=YMæózVàìµàámüj®½X§`2p`=J¶ˆÿüQnövúé[{ÔÖ6›kn;;ï@†bqİajÀ¶à c• V-®Tº€C0vš:lÂÖ'ËE
+oÈ¶Ô´ß=ÃfÑ&ñ=zq¤ğX=j™Ë'±°éVÃ`·Ü*ğ9¨/®ƒ\ssAÔúŞjê£Ë'í ^W'•Ï…b/²S<ÛĞUÏi;ééj	}ºÈãû3™éxñnºĞÒˆè'f‚9d,K77“â‚Nu?Ó@´ v¢ó‡İç“pö`'f‚Ø±2A±NàvÒOµp1"PRH$Ùµ  “@b‹”ğèİ®G‹èÑ¾Á†¶‹Íç4Ù´=T9Z,Ÿ¯C œãîlEtÄx‡²ƒâË•Ğ^àÛ ÏH°F[ÎÈ{\.
+iÏJĞLd‚-ØÑQ´'8³=C;uÚ}¿»s /¶tÑeÏwív†ÿĞ'£{ü÷aÓß¾9A€±ÓÏƒF×à9şÛ‰ÍV¼Ä™¯BâX7ã?t-®Îóº– “ÌGğ£ëé§}2øQ"	20:-AïjŞÁ™`9¿”„Õ—s€–,œ«7Z% )›4ÜÎõ’2ğ{{òìqô¥¢¹ÉírúLQwÊÆè Ù®O¤¾X†vË‰Ç©¼’'õéÕSnG~W—¢è_ÃÄ=ñ0ÿÍùïkìÚ¼xXyI²ıtw©Ï´'ÀørãïJĞuœov¡$EJÔNÀÆèdAœàÔxßè€Vö r¿¡ı~ÛWøıMëÖnèâ9Æúp7¿Û"n'¹šßĞçã2µÏoèú³ŒòÉÍú-ßoÙ‡F’6ÛEhö×¡±=SCï_IÏÒG¿–~Ò‡gA°²Æ]¬ª7éBfó¥´÷­óı’ıÃşr|úN%á“¤xù…gRİÆ>Éöè[N<R¸\şFáÅ¼)p‰Hñ¤3ğ^}¥TßS„øÈwg¾ÚœAñîÌ§š3ø”yóC5„Ïık¥ÚbÛ\Ñğù?·Ó¹™+pÍ4àiáğvw)6¿­c£¦,€4~É®›1'~Œ·6C$LôKÉŞŞ[.N J¾Ê±#•&!£ÛË+xs_+‡ÜŞ1Û´eÁÀ¨ÁÂ$eœ#ZvaÕÄFï–ğx–­Q‚Ï{ê›g"eª¼ÿH¸SiÊR¤Åw#`P©ƒ¶’€ç|°ÍCíğGÅp­o#•¯L17õ˜¾­¸ı‘^òÌÛ»¯UÂ@‘êkdcĞÿ¿æ®¶«mdIï_¡aöÉ¹8±l“áMÌÀL	0I`Ï~-a+èÅ#É8æŞıïûTwëÕ’,Ùœİ½sŒ,u?]UıTuW©ó¥<¿9l2A.äùl|?ºmÚÎ‡6w{ç§xÉ,›8Àğw§ıÓkõ&qÛ©–åDµ“ ŒÙÕËmµ÷å¯öˆıù|Ô»|ôÏ&*æiŒæË™Ò»uÄ´7Çİ¡¾…"~ôFôf%†EÔµ·g“’ú0zå2 £…|Îh†Ğî¶Ç™öşlwzA³³]2‘1ëœ†””†Í=ÓœìŸ©êàœÖN˜è0:°Å×gzÿ’€@Ñıhn¾İj(ÚşúDb€ù<,C-¥ˆ®í{şãØ6o«³u™ ºƒfMÈ‡2†x°s/„<t¯'w¯ô.§§¿ÄSÑØ'š£S1*ïqFì&ÊàğL¬vŒwØÁ´úá.ozó?0aÜ÷'Ç××©_ÿ<Gî~â/’Âæ¦ìÒêıüóæ¸= ñ}’Ur®‰,Xš‚
+Œïæ³P¿ÿH<Ë‘õ?<Œó‹	Ï»•ä—d¶•ŞKŒ01šóÈÈ9£ü[4~úsïœÒ{®W2eS˜“<IYCz•ÔCéIæ“AÓIŞ ‹tñ2-¥S¯VöF\èÑNDrÕpNîË;PØŸìÖñ„r("ógQÅ‹:ùû­
+¦K~XéQXXZ.ısãiè”Şß|€•«ÛıóS•QG´;ä9`Çs¾Òb?As”Ñ$Í÷°Lğ½ŞÉ	¼R—†HÙW9ƒù0¡î9•CÓ;ÛOÆ|6ºèds1?öî¾âSË„3îŸOÆ9ÏÆGW‡ç¸û%cÍt÷g9uóºÑ´÷Ï¾Gü™çEY2~QFİıŒ¯DÏ£Ä Å,ù´}×ùÉ_º½û¶ıˆû)[İaeU½07›'–ùOx©gªq”ê@Ê•İfSÙ—ÒG–­Ó»KÁ}÷ öç§§şt´ŞCÓÄÖ,j~Ğ½ïpù„”\vÜ$N:ÿ8SÇQj7ŸÁRßO¤ˆ;½§à§_Ä6Î¿Îã!J…Dï%J€ÆËĞËx¬óÒSˆRŒ‚=Óìwzi›†Ó"®3dı&İÓQò2öè™´•2‰wr7L5wØ¹Gàrö2²â¡ôêr ¼J‚ª%Œg¡˜#·(Óƒ)ÚeO‡³ìØ "ñ2;¬|W%Y¢ƒdj	‹Ë¸(ğgĞ¥}ŸcÍğr	r&T€ÆaÙb c±wõÅ½%Psÿpëä}ÓøeĞÏ|áˆÉB°??º²âíı,ü$? ¯¿}im‹±‘ğ‘_ K¸ÄIÔÁıÙÎ;&ç#æENåñêEÃ¼íG(>‰€òê£f‘cåïŸƒs¬Ò:wE`ØÛTÀ ½‘hy‰ÁBªGr]3ºñQØ7ŞÁE·¨6o(ø¶û¨»ß–ÓËÉ¯Äõ\c¶,è àyüF½èŸ… ÷!¡dÄÏé(te"v½ÌsG&²Ãá>8aä#øûşYƒg©B™Ä©OXs:æB©ÊÅ”ğËà‹Z©Íg(Ê¦hH.pÑN‡çÒ¹`è³tÄ•çG0~h/ÛqE˜N*·¯)òvu.+Ìç+ç~Nágq CsøU¢` sf@T÷#6)“¡>œa×¦FBª°¡ùÈ•FÚıöEìqÜîğxƒõcş„ËçÛÏG^5§Âº¶Èùk§ıèç9rh®úÃù.ï{’1<LÑÚõA?ùít†kÚ:gˆŒCÇnv„ÈßS/4ÖÄ·ÜPØ&cÔÈáÁØÔÃÇu…Nki™O­'­û~#}lŞ†"£/Š  1º.0áÜ61Wş¥ĞIA­±iÆ!Àµ½¯ü7?7ˆÃÁ÷î,·ÒKíÉÏ}EcòÒÀC:œŒ_•×lóÍ´ßl›5$ºx ²V`=C6trÓ$Ü—t´eÙó=eóÒú^à=„Ê~nZÊ_ıM`÷lÏßSüÑàU{K¡ÿ¿Ş/Â{ğ–F¤1óğà­u|¨µë	ãè.¾â?Î­ßÜA0Ùç.	’˜Ä#Ñljl¿õbß}ø8òéx±–D;³à§gû‡òøµß4Æ;ŒOaÛ“HŞrpôW8ÖİGeîM•'ÓŸ+Ît8æ')ÁFf¦¯8s…ŸªcÁ$İ½Ôs?İı•’Ä¿AñƒCíCO;ŞÑvÚÓ>œjÇ'Úî‘bCfJèÑÑQ–mó 4e`=–©øøºå¹öüàí Õ]Ò“Æ
+ûR“B W†z`–57 14ñ7a…ŠĞU‚¯Pw¥ZÑX‘^*‡˜ Ut:ÍÊ¶½Y@ÓXNg9ÙÏLe¦»!Á\}Œ½«2İ¢‹Ş Ô-—~µ\}ÓÁ\ÕmÅĞC]ÊiçDw:=Kë•:¾+¾ãoÓ™¶,g¤Èëlñß¤Ãˆ¤èÎØóA	,P‚å¾Iaj±0E÷ù¸Å³rôQ;Péllò1ˆü©ë’ô‚PÍ©Xc
+21}:‰Ÿí%£»éĞ/~XÜòn•M4vøJ}M=¨ÈÑ‡c:ãŒXÏ÷lEª+³¯ÁÀU<å#ºÛßPœˆ‡øCÊ\‡]‰Sksc_|Æª1²wqEíÁbÅGanâ³`.ñ9şùZŞ˜¦eŸÒãÇx_3aÜâŠK\Ù(4¤ø[ñïÉ´¸vüµkîo
+‰p+bl£Ã„.[z ®?ÿLnQÅÇVË°‚Ç`bÅïO†¾E³
+Í¾É[gj¿¥CùZx¸%µåcf“]¾åíĞ7o`¬éöøü‹.èğ,Ö0úÏ†&™† -9µvtg	hV;İYn¶v}Ğİhˆ«É:İå aª«Ë:æU»×Ì@4V»×Ü@àşa§(4‡¢‡©Wñ9§±*™.X/b£ìóé§1…–ÒLàµè|äğq€o#RßM$Ci=ˆŸ½Y§¼ÿ2ôQ'ÙÄ}Û‡l.ß 8ùÆäc§İ·&œŞK,Ó0m343j†ÓÎòÑäq©ß‰Æé×ûÊj¿Aö«ãÈÙĞhµ9½lÏS5¤—íòyóW3z)éñİ:şG‚ÖÚY×ÿHĞÔÖRYÿ^4x¢ZÖ¿×PnMÿ³wß±†ÿÙÉ€Æ²jEY/9pÕ¡òåÎ1Í9ÕT~ÁŒˆÈ“¶*©¼‘k¬ş:DNs¨¡«È[\Lä°Õ:T^‹ÈOÔ§Ğn5‘£­´_<?Ë•ãèUãÈ£€ËqôªqäQh¬ˆÇWslË-rycÇö.²¯µljNi¬
+Goí.­ôCyk·l­7çAgô¨¶×òlğCQt×şß\Z©Ë„u×Vêò!ÆøR‹+UcË…5awZÜ­JH÷&Ö
+9Ä+º7ŠMB†Fî-±¥Ä§Õ^ª”ú7i_üO™‹q­¸J[ˆ™š­UÊÅ9M×*¹`1&Rß¯D¥ñq‘¼–ãØYÀ‘G\5qì,àÈ£Àz¨ÇîRyğCË8½¶VÄ³½ª‡Koµ—!©d¯—ÚR»‰¯]‹½bØ|c»x£İ!øÚRàM·‡4¶·È.–a_«Ê{aµ¬±57ãR°9e¯¼\¦Ø7|õ2üãºÛq1:ÕŠjy¹TÌ´`NM½œà‰µ½wsàÂØ‘ËíYå-o7G>í¶äø·˜CêKìÉEqºú¦œÚIá@[k-^Ôd[öÕIùâVÄ&”®ná;–"©»¼]¶]yïLzÆXš‘o˜Ãe:zıôÚŠrÈk§ç4¿<=Ç³õ]JÕït
+>°ª/}øÿİÒ+JùçCÛ”¹yˆÔr§æk‘ê­2)aPpf/”ñµA¨/”ñõl8/”ñõ±­iRş¢ÈÈĞ^u’;Æ˜¤øsê‡–Ëú_/·¢òL~eæ[¡É«ªbßD½¸NüKåVåıóÅ!"ß.êK²•8^/ÒÉÕ›øf0µóè…Q€l
+«GdK¼Ì)Ú™º¢G™6½ÚQÆŞÔWpEm+´Q(~é´ãë]ùQHäxŠç¾ŞâFÈò78‚Z¢L)Ò»Åá÷8è¸:F6_H¨¥TW3¸ªëf~)2«â¾5VªÁn¢Áo&/Fq=ú—íğ7ñ½m:)R ]ŞSi?BPR=‘4VĞ„­¼S‰KaÔ¸t¥X™ÙŠ¨^bT˜X²jf+–Ø ÿt²ÆhXŸ	)øŠEJ.”@µB¼0ÊñëaWøl\“è„tFÿ:j¶jL–Ñœ§FxÍSÔfö“ıë‘*N9Ñş‘µ-’¾ÆÒ3ªr>eäı!»aj'jNTqiQ©ÒèWÍ±¢ò0Áp{K|èp¬»#3HKSaÕ“%KI3–mıY“¶e0aMé’_¦},©Vä„Ew[DÓùÈ« àdşkì´+<ß+ïñuAuWí~¨¦Pö´¼&±HH©†©2´h0‚B=Lïl­£ ˜‹ç0mÌfÓ¶@®XØ+*z-İ¨/H¦‚©$ëïT}b5­dÕX^Ó…E‰å•…)£ÖXc¬XÄ—ŒFc/Ç!vb/Çy>ôX+x¶QÅQ‡ˆiÅ(®pn¯+¥XF°û5¥”<V]SJ‰Œİ¯\İh›î(Lİ£±šd¤Q£o-GE¥A¢ÅlÊdı->Œ±tÍLVQat'º!äº¥GyÈİÈ|‹£¦œ»K Ëò—uò…1dŞVƒÒÆÈ=‚¬±Õä\”+Ì”¦\¾“Z M<˜MdwO¨€ïšÆ©‰Ô¾é²m°¼}D³ÊC—nÖ˜‹ô°Æš¢Ho.İ+AÑÉ¡X^fR:WjH‚J`—)«®ı£­,’’Á:öÏ··Wç™4ä¨°Ï,Ë°%“ö]}È	İ¯È3A’ÿ•ôµÏüƒ,ªr^&Ë\Å wš›†ÆR wÖ3ÊSCjÔXSc¬‚LÕ}IJ©.)%™è¥g% 5Ö«AU¤””Õ¨d.A±½€aY%`éô.e«ê xWC«B±X±Q%	Ğı’Y[Ÿ8x8‘ÜµXúÖ€8À»/CĞTE^—í––½-chµ]4µ/CÑªZ·ş¢t:6É¶µ&Ic6–Ã^w¡ ®¾RĞØ²rîú4X×z4MZANÔÿr†„‹â
+<åíwÖäéİ$šXÙ[ìfµ+…ó…µSôšb™™^/§]0qk¨£öä]9bR‹–ÀÕÏ‘†±l\É [‰ø
+—ÀaÖ%¾ŞÿÅÂ]]cå"jgŠxbe¶¼ºTÖµj· ûRØ/qÄT÷å›el]1‡³uª†©dË¡>[ÓFÚ2ïX—(£ÔP™‡\-º¯(ªÉ”T[UgÁ_É”½(’[Ãq¨ÙUFz¨%ï·$ußup¤§`Ûœob–ï£—¦¿ŠÎÑØB^%JÏE=—¤¬Ó2<9´$—.Û¨*ÚĞX³²ª¢Ö°l£"õ§±†eIfªPÈTltÚ¢#I™%Şct1Nä«)Ó q5é»4%3Q†0	=è9Ï7,W÷ç-oN¦¡êşÈåoåuQ!ÓĞ¦’UŞÔ·lBĞŒğèDš2»Â/N<~[ûßêÎ†BGòd®P2îÚ²B*á Ê–9«øæÄS…ÊÂY4¿dJ­&§ hL¤ú¢óv“ûÉ¸f–!1•ŸÏ¡H*ÑM¿b:n{ÆFER\R7cu¹ì1–üÁ>™²¯Ë£ë³ş'šQ"W{zõé¶uztÙÿx·G#2tW—Woú÷øh’·÷c„¶5 K…ÿ9ºe¿Ó‹+MÄÏLn8Rg%ÅLÊ˜¤±²#“$ˆ2«Ú<K¼Ç]ü3h•wx¶e(¿oŸôŞŸ‚80ªı‰nğ£¥ºô›Ò:ÑŸ\«ŸŞ¿ï:İ_÷ÏÎo÷²jE^m}üp]JË­ƒié†úØsôı“«W×{Ğc›ÿo_9>:ùóìúê¯Oï÷”_Íú/iûøêööê2×áíÕg~e#¡èÃS’#;”²Ñ•±o>i[vèí=ÅKÿôMc¬‡¤ºø&%>|‰ô¨çŠßŞ#K5İiÃc`¹¹âº·½}âÖÛ§Ü”)´¤2#@²’IvprR9VÑ ÈW^'7D@?ÜWÊ[ÓÀôƒ‚Çå7òqğD¾s`ëfæIqé`A´7ÓÁsÊÁˆ0çÄöŸ™®şKÖuw“Ê½&ÏÉÉò™tÑl?’Wöğ«Ã+W¹š[ÊÕ0TÔî–BºTt|nïuw÷¶w.•´wÚí-%­
+ÅÊ€Cô¸5¤	í·\stp˜b/bşı’»Iè*Ç…çÖVám™k§}HÜ;±M:ºÉğHªE!’î˜Šcb0²Z*‡µp‰
+tÅ÷fo$¼şC¶ñÀsL Õ˜2Öjşuâ¹†iğjÄù¦o*¦ÅËªÓ  àÆú“I·º^h©Àjl©V5†OÎ›åÃ#ñ‰ëËí/¥Ï¾¢ÁJ­¼‚˜JíƒÌ:oèP|òåÃå_É¸üF}­„^TjR«GÑ¨+u\VdSH‡´Ï‡X§9eùXi…œy¤¯„¾±.VÔD…oÒğ·"°ã¨üS(?úVn{¼=Ó§bS_˜•8îl`ÚŞlßøe^›üĞ9àŒc@%cé>ájK{¥Î'¸ptlÀCXÔ¿ÆGİ§cÄ|²wQ€¼0öÆ£%Ii,³pUfÿ¨<@´¿ÈÉÙz+Eg¦âš±Š%aõ¸†"åÂ¾¨,P–A½D“ª
+\6¥ @S÷Ii}ØÄ£ëÍ¶”ÍTg›ÑlŸ›¡2BÜ®#6•[8s5VˆÊÌ,ŸL@FE°éäàK±ÊÇÄˆü%~Ò{(€ i¢h"G¯¤OÑ‹¤?/˜c”³Bä«Z‹ŸLhcÌMÙìj£`†[¶Íçar£dè¼ë¨ì7˜F$tÇLL6òJ 8úœ³k®n•ŸU8,%’(ÌÉ+
+d™[ª}îÈsUÉ\ÎÀÕ&7²oÚœâŞ \&èÌÌ-~€Ÿ·Iµ÷QÎùC‡¦ÛîN‰eÇ˜ÂI)u¢³Š)ÊR“”–Q.­È¿š›7ŠÍœ6•‰oá§õD÷!ZÑù¬ÁÃ›&ŞM¶šªOJ’)Àô†_´¡iÂ‹KP®R!8ä ÷ÑòaM±ô8f
+ öâñæşÊŸò›î·Z
+p‰¾ÔÜuqµ#®Ö`11˜Pôix5ğèç?»£ÂU.¦Húá&¦eZ´ü2Ó…½‡\sB¸^FÕa,‚åãµz™FílæÎíÜLÕóÓ÷ÒúøÁ¬ä7CÍlg¼îÜ1Ã±gÀ/ æ-¾°(?ÙÅÉ ¥¦GÅ½xÊoÂ·Ñy~6F/Ôo\Œœét‹Şe€ø"¾Œã±©•¸x0l>X­î“¦ø\z½…¤»°õUeK·co:CQŠ(Š‚h´8„Q¡E¶™ÍLmƒŞgH d[«|ëæ(öªâ£J±'>ÂZ&À~¢7* kûIj¤í?rÆ »ALñ…RŞê‹À€,²Ş>Š•zrU®óäşŠÆÀ¢â:?Ûù€o}Xó€îV‹±ÿÛ…E®  ‹ $%V ­Wks¢Êı,¿¢k>Üš©	ÈKr†ˆFQ#j§N¥Zh…„W ñ1¿şîV3ÑLœ;5çR–`³Ÿk¯½»meI„f8›“øÛ<ÂA(¸°b'1ê»I:’”º$Ö•’E©Â‰K‚ñêhÆ4ƒ˜òÑJÔxØ(§Yâ±Bê¯d!#)³È•>ÿ¶,ú[…Š I‚,ÿó…+M×(rš‹’Ó(Èİ­*Yı¬úY$EĞÊÛÛ´¨š=p¥ÀCT¿j›Óæ\”uQ×Ñ,ÉĞYLAFù"'YşyŠp,”Eè¯öŒŸŸr% æ„¡ÂÀa€¼ÁÃ‹ª(¾Ç'ZIÑAÈÅş†Á‰p¥WDAyEá÷d0¨‚ZŞŞ>†_õD©¦@Ğ¥ÏH=HbcÔuRÙqº¹Aê“Ì°ÚM~è˜¼ÙtäJ•¿lØ¼Ó6MEÓ€æ¬q%Pfk£×‡8?ÀtBtÁê!O>HD~&ÕTa$ólS<ö “#­ôQx·Cï}-INgÁj8ÕjE¹hˆI»hüI:5–TC_E¸Ğçñ¨ñe/)VÆÄ[hòÖ-óÊœÂBÈ¢¨T+RU	AüßâÆ7ƒ²Æ|¬ÑÎºî@É‚yŒi‘‘:ZÒ)ÂF–c>÷1Ôï¹FFB¼"^yw?Eñcœ"(³(ÁGR |#
+"Âï(S÷0%õˆä9>ğêy1}".­³êÕiRw“˜ .]§´§ î•“ñ‹4®İ<M¾_j‰\±&qR¥qG½¥Õ°h_êO÷¸:+n¦a´ºc%]Éş÷{«ã¶MùÚ¿½^Å$¸ĞoıVÛÖ‹ëF4¸yxp›]wĞO[
+ñWeı&ë_E^ox}ùÌ•tK×W…÷<L¢›öº•h/sq]zÒssÕuÔæøN}è¥ƒe>ˆÓç¯w--¿qs;ÅÔI'aüÔ~z€ŠøIôõå†öıikuµtã‡Fp?P•ñíİ„Ô´‡Ñ÷‡[úÊÓšïvçny±ş>kLnbYWÅŠş¬_.m®´îšêˆŞWS/Ñ´Â«¢vë]¦îGrÕs&¾=};rGišÏC¥a7×ÖÚ‘¯q¬Œî¯ñóåìjnq¥•]Çª'-Ú5û…šZåjåëì%™Ëº{;vúÊğnŞ‘Õyş4•‹aÙO®[ò?Šµ±ŒÖ¢Ô­d\é~é.ƒ³;v“ŸìJŠ$`ß@Z˜C’X¸©ú!w‰¤*Q&kº¢+à.$Y1µ"×ÔªTÑù}4:·l­°õ½S¥
+~¡ZİúlFƒãÄ?4e1f›7Y6oìu;V5ÌŞí]ë™<ˆµn*­º÷†ü5XNs­¯[^{d÷3²î]¢Õœeqfz®ùmÓ&?šåœk1â£+µ6+:ûi‡=çFIëm®±kš4MEEHƒg´ŒCJ2hd@èM“"öp¶6DQÂ’¤JÓ¸gµŠ&Vd¹¦)š<ÛÔÑkcÊ;)xÇMØú|aŞ7ÇŠx‚Ø„xt:—½¦µû11»ƒçGs|Â•ZÃfÓ6;İÇÖ°oŸ@1ìî£İtó²y‚†‰õØé=Z=ç¶ûØíß‚Âëší:×ÍÇ¶kÎ õ80ç:ÓÇGı¡W:*øÎw3câñk`ğÜ"3Ï‘,T5çœ·ÃÆ¯dkû²lOá0IÒ_ÑÙMBô÷È?('!¬C¬æ>òa'B)ÉàhÃú/Ó„Ä#Ø~É/ìßñ6d	‡•·Æ•h<™dĞE‰]P*âg®§¾MõÉ‚ãS±u³9şl¬BU°1He˜&Yşƒpš†Tƒ´=² aæÛ.¤>y‹İ3 á'®t¸Uíœ¶şÇ1ì¹›SëÌ§4Íëåòr¹Ü-GÛ”ÊIÊ<çå›çè“€}åàŸ‘—‚ät¿v‘Q¼¹İbf®èoŞ{ßj³s¨~Æ·Ÿrn“0="ü«˜}PÛYp~3vvâYò m²;~Çë`æÕÚƒ0\Çó¿K‡Â¸œ†8ˆá0âã,'ÔZ¼Æqf0rÖ9%QÌ}– Z&EèŸ	¢	šg8>è$¶ˆ‘K2
+¦¹‰t ‹8XpR¤¹€:1ğ9ÈYá(	#wFPÀÜú\¶rè“ï'vÎ™''áØÛİXC.Câ±Æ¢›†óĞÅ(OÂbÓH„#hÿ¿â9r¯)<0@;Yîi³ğ¡T¯½VŞ¨TÛËÙ@‚”,ã¬„äï¤à¿Á"ğÄ¹FK¼f¦Îƒp° ¹s›ø<Áá_\C2Ç™Ó`»yup¼ÛÀş¤š>Â÷Åü!uÊg$ã›±›x€D½	r¥üÁÓpÜ™,d†b}
+iöéüÏ™`pï¹€şœ÷ÆôoÙ`p{|@ÿ’,Í-#Œ†l˜"CğülšŸ•7Oìë·™bpG¹²gîõc?n»ğÊ0öâ=Év1oµ7ßÿ‹v<ÏqÿTÁ  ‹ ­L%V ­W]sÚJ}öüŠ.oÕÆx‘¬Ø¹l¯¹1‰ËàÜleS®A‚4ÃÎŒÀäáşöí‘p äzSK¹
+4êé9}útOûBŠfŒŸ~ZÙBNa 8|5¸Gà6§øMğ×'7,dÉ‚ELÌ¦„k+»w]d4Ií¹‘y°çñ½gKÅTÛ¡ÈÈŞÁ«má‹ëØ¾–^ãk…ìW&J+Çµçù8KTXne÷O·´m·n·kåW–‰á|8]“½$}ôûûz.gã·ı:L„„ã4/©­\1©NÍIåv®Âø~Ëù»·d‰©V9†=–ÓpœÇü`¼;è2rà´öÏBöHpìº·fáõv£V~½@CãÇñ|s³ÀĞÁOFWÃ…[¯u“yÌäÉÙå¹u3ìXó¡ç7­öÖğ²So7`œhu‚kd·'“ÕÉ‡ˆóN·)„ÿ‘Á1UI”ä™ıC›O—¾¸ş‘í9u»ÙÂ¿5[¹¿JO’ûm2 ¹èz§Ószn»İûôS ÷á~ààvÔ«lÅ€8‰`¥Z†hA .f£R¤çÂuš×÷ÜçØò¿ÔJ¶ààülT!Ÿ­áœfV/fáŒIëS™Í ÌjG)ªTÂ¡n7lÜ€^–ãYN«XåOĞ=8»b–ğğØ¥+¦†¡, Ç6±>¼jªsÀQeN,ÒKö¤suu7º¹ÎÏp¹z{Óï^İu¯>öŞã‚ñã>Nø’moØJEHÓ)Ã<{-wÙî:Ç/sû8ÍÍN£Õu}§ñ+
+}óAp¾a#&=Á5Ã­æH’Æª®ÍSšğ·ÆT*¦On‡VgØë÷ßÓz2ªO&©X²h³UR®&˜ÂsŠ(áÓ ZXfäŒjtùÀÈòÀş{ÆáìM'Kàöáx»µ¿##ÀKÑ“C¹L™Õ?à8¤­1uüºÏ&^İm5™?©;õ:uœzËsÇìôq®ŞM01ìÜ'äÏ±:S1€‘ó(ÌÇş(·×\[=n½aÑ%ÕkU•RóŒDàğºïÚNn®ïQïozŸÎª0¼¾¸»î‡U²·#°
+ìô…g´¾÷¹ÃğBÊ9‹¬î
+ó8cÊ§ˆ³Ù6å´¹¹~fÛÚ¶5S!æ?IÌ0c!Ò÷eÇä+ìOB†=]@(ğ8ÔşÔ1ƒu(‰rıwã#lèì'‡|¶è¯¿°=Ìë‘k‰U1âöo9Ÿ‘+¼'­>íş^È¹2Öª¸P¯˜
+e	G+Iµ
+şt>O“j´„ÈtøTY§ï–ù–T®öÉŞn•n_Ååù·\åcÊdŒ°c­ç*¨Õ–Ëå–i-+Cª‰¹9YÕv|¾C ÇÆB‹`ç…%Ùrla[ôü¦Êœä›c×@:2Œ±‡½‚–O/w›–…[Ÿƒqú$æK–Î_0şæ·­=_Ï™™†>ÿÒ¶(ûl8¿õBw[_­f00×¹Lª@ÓÔ¸ç\ç`î\Òše˜[¬,ş”i@@*†¥3³Xè‹|B9M»âŞ¶m <S7øİ]bU¼A!"dˆQ¥Œ«€)„>1÷ÁŸ[;µBX˜…Z­¦X!úb6%LJMïµø`Šc“œ¦°~Î9§ÌØcÕè„¦ÉwÔIäJBçºOˆõKB>ˆe2s“ŠI+¡‚>HF# c‘ë×µ 1]0¸,Kü
+M~°‡c†€ûzÜÇîÇªåB%+ÌİRÔÉöÔ®n1"ŒS%p¸Á|c‹#ÜÉò˜¼a;‘LeC0~1\èÂqHf:¾ï`â‹<ÏóïßS¦ cHBHe¡FZ"Áßh˜q±,÷oÈÑÏ8T±ÈÓè°mÏP3f6"Ôl„­ğ@ÓøBŠ±L™Š®Êˆ—ì‡:-$kªËLI1‹…3{Ôp ÈÉ_…ı"bàÂ€e#¡)då§^w\·Ùv`Öı7ßØ\HÆLZá|î7]ï‘ŞÇÑƒ~¦ƒ÷×–M'ÔE?ƒ+ ¿uÔØ±êsúÈZ-§Ş|êé€rÁ+Áƒ+¯Õl?ëiË?øOÆSOLÎÚÂèxMçYO»VóÈßaà–³Ej#¯`'Àm+ò;Å×_/¶>7b˜
+15m¦ŠzB- Şx‘k,À¹ÕğypkYB¦;E¨‘1—í‰Q?p…o«EÿŠQ–f¡TgxÏ²¨Š¯™2²5Âƒ0eT¢‹ƒó¢¢ˆ9k +²œÌ€ılİÈÍœS‹äÂt9;ÖYjth¼ô±k`í­ƒ(ü×Ï.QèEåEq›™×® ô×íàG<g,úQLù¬(_ãi2qö5¨`%rÈÌ3àtø£ø'8#ê*¦G[BşîôÈ›¯  ‹ Ù%V ­WkWâÊıLÿŠ¾óá¬qiH<ÃSĞà DÏ:‹Õ$ÍË¤ÃÃ_+„QœQÇsîe’tWuUíÚÕ]tãĞÇ‰W„9.$Ñ·¥O\7axœRüİdX±(×ÄbMTàYRĞˆšÔ]Q«†íLİço¤;å(­ì…œÌÇÔrËVD…¯Ÿ–ÅI"¯ğ’ÄË•¿Pa±Å›°D”ø(]ønbæªtó«êW•—Š¼*ä·#¼v™ƒ;Æ`<D×Â¬zY.*#Ê¢Z‘°Æ¸î¹‹•3.Mhœ|Ë,ù$àS–yèl?;E æ$C%GR^àáÄ’(şŒÄûÊ;p0K™ï/¼*ü AäeuÂçÌ`(ñ%!¿½ÃD¥*\›„î†6Ö•$†¾*bÓkí^‡®Ñ1d¥Ì·œÑkÕ^¸,Ñ`@İµ·ÚÕwğóL!ÄÿAˆ“[»"gK•_†áÒ£yˆïÍ t²XåU…—%™‡¹=z?çb&Ìv7‡àÀiµÚ­Šøü›XÊ»XJøX„ş:·"/Ö®éyåÜff2³I(«ª"WJğâïMÂàKÕÓrqgº0V2ÓÃöøµ/û.w–Æ´†WštŠ‰'„K¹;Å¦Sl¨%ìï§ØÒw‚S)%¸¤"ĞßÑ|×§Ü.5‹0Zói’%å\«–¤‹{j²Z–¹kf0
+¤eÛˆ‚öÂÑªôÜf–<ŞØ±R²l×~8Ş8ŞC÷UèèÉM.ÓidŠúµ•h™†¶6/›ú­×©ø]ŸÜ6fõ¡ßÓµ¿±–÷w]éºº,úÂ“ÒÛÌÆ—OÍ§Æ+UÙ\˜‹°ØÙ Bk½ˆ™^yñÚ’½’ ’Ù¼ˆ'ÖÖ¼;¾o^‘ªìöt:ièJç¶Û0šQz“Zq5µíÊÈ¾nØw¨Ğ©‘Ì‚G;pdB'[]8ËçÃ‘rÕ
+º-•Qú}x?~Â›F‘İ¥Z~2§ÂFúS«ÚVïz¨°Ê=ê$]½±½ŸÙ0Ÿ$cİ›K›İ*Easıx»n>µfÛ°Ù¢b´é&O‘³J·#£X–ÊƒaWG:#òl¥FQ(Vã¦·2İñmÀ6-ã‘İ´.£ÇòÓíªóÔ¿|2c}M¯K÷ç×~{r‘,VãË~»qŒ
+Ş£¿Ö44è:ÜtŸR,ûfÜ+ÎÂ$©ğÍ.é5uÅeEU+rE]»Ø±aÇ))E¨@Ü-A?ÇÔ_VK¼«••Ü`o<~šõ-'‹{ŞöÛ5\o5Ú[½¼·‹ò…ÓĞ.Èåß]E¥ÅC‡»^+ÎäúbxsÛ[Ì–z±íjËo»y®”3ÔÍX‡û×ß>[ÏĞ8¬á÷*µö%3†’©a?õ˜ë0xŒÆPÆ€Ñ)^„i`‘x«‰¢D$É”ËªT¶Äª]­ŠŠ,«E±X¥»,Z=Â8#">g˜a¶p -€‚¿6·c®ˆ'¸İjÍGád<—Šs©
+°kÌşùU§}‚
+»·iCï·÷3»çycr‚»£NgĞèëóîèûàr4Ğçƒa4Î; 8jMÛóşÕ¼}eÜèsıûÍ	ş140†ıËÎ¼WüeèFMcØ†q„_ïäïŸ¯åPá]Áw³2„HP‹kn<Pmj“`‰e¾¬â0À/MÉG²å@6;»AØÃèƒ”û]ÿõJäoL²ğ(&4Ùu*Ë”&–kRŒáh¦¬9ã42/…È@E¡a•fÑÀõû4x@:t<\
+ïKZ«4É¤sƒ»U!Äòİ ¤bÂÂ8Á`Ek!T‹®¨F ™*sè·²{4ı‚
+¯²Ã¦*·?	àìHÌØ]€[u‡±(©	Âz½>ü<$!Œ2Ë‰ğjÍ3p´IÀ¹ój‚‹éc†Ü<î*-}1»w¤›ÔØûN\àgë¹vÖS€ê[n|û%æõ¢w„?òÙµı
+Æç1ËúZ7°ÃÿhÍ¸?6o.ßyßk‹²>qÜ‡×ë=A{,DqhV'”i“q—Sê¹'¨®±âş›Õ‚§ƒ?q’‚[Ã	NR80c–ìd¾± ´)˜QšAƒ’O¹†ÖÛYÂ@`aÀ%q°I"²p=—¹ C¼$Ä–›€cÛ\+SF6İuZG<¾qh ^ËBõıhr†ë )ÀMxB,ÜÕÌÆ÷°íz€(ù8Í£I3Qº“™xÜg’±Ãã âPƒkDã8ŒkíıÍæGÙ—{	Ü…”Së`u+yËı–üÉÈïßÓ€n" ,²$Ã ¡&€şŸ“`‡ùŞÏù}‹IØ4æ:Zn°¬áÇ4Û\ƒcPÕ-w	‰µbû‹Çâ/gÙ@ş4©/â³º°{ù=_4ôIÆàO0FC¿á~‹3xçp‘ 'lëÑ,*ş !ÆÙÄw½mÍƒæMzòüôåìş`ÖKvŠ³ŒrÏ/ÂË4,vZ2g™µÿ‡°Ø÷4Ùñf ‡¡½Ïà0ÿˆÅµ­ÏQ9'Ì389wê–†à¶#ùÁèî÷w¤ç8„şEdšøs  ‹ Æû%V ­VmSÛ8şŒ~ÅN?e;vBp6ŞzB)½N?(¶É'É	™éÜo¿•œ„—^o¦ÌØ±vW»Ï>ûÈGJ Ï”¢bÈ>*–¤Ôø1¾».\Äj¨FAˆÏá&¹b1ãc–D0°¾\oô6||Qù¹’‰ıãçéCÍ_D$koÙ¾…¿é‡¡_Ûú¾AÖúSÈ¸6:ı¼è¸KWöğÜõmËë~«ZŞ6`ÂM
+‡½îõ%Yã	˜í?[7áÖ— ÖØÚªÃ@*ØÉxÌ•ñ
+Í”şhwQáÆf˜>,ß{OÖ˜ŠE¥'Ü\Àã xŠÏrfã\„^Ó7k>ég×›~ÓÇÅYÅ¿–-¹á7ªåíÅ’?O·AØlÕëØ‡1–É¥Ø½>ëÃj¯w6®CÌó”©İÎÉ¡wÕk{íÃ^m³ét½ŞI»Şj@Ÿ½‹ïÈºóÁt÷übã=üjXô‚ÕvT¢Í¼B´:B¤"xÓ¡‚³.}ØŸ1òì¼@Î=r-#øDGœÁUC&`çnà>TÎ¨Ë´¦Cæv"Ø±Û†A-Zõ`³å·ÃF3l®½b¦˜ˆ™Fûƒöù—Û£{öW°u–‡g_wkïø¤¯[Ûƒó“ëî…bÓóOEĞ9(¡ÚIÜşè¶^Nà´{èİ”`Gú9Â0ìëõ4GXò·šg”‹÷§Tifv3ğZv®s©¹q¸È¸`äTxW,Ï¦á·äùyïµ=A·0¦âğÕğÖ‚æ-¯l[¯S!XâíOÑKë°6j~³RÀbdÑ6“2`u°–´à şÉb¯èß±s¹BŒ¾­˜}Í2\Ã|«SH¥63…¢`aÖ¸÷>câÉÌ~²Ç­×ÅòqÌı©ù¡ÖÈ¥ÂN,"¸+Ä=Y€ı?z†"â&ÖÕª(ssjãR©5šŒ¸@+ETş šç©í5$lÌ2‰eér˜MÊæµØ»¢jú†¬­
+—ÿlÿÏB}+ŞÇZvRcrU«“ÉdÉ´:*q¨ÊÜî¬«+1÷0Ñkad´²à)öwÁ´Y*úƒ.û¶[,¶%ÒVqŠ-{=	Z<İ½ô¾Ä£ëKi<Çü„eù+Æ?Ë9E·Y„Ş¯cf
+.ò7€¶Ù­çò˜$ŞkÚrJ[C¥Å‹])*Î Ü®”FÔ@Fa…›—İR“+«Ê9QÃ“=hk Ğ›jÃFÚËì¬À)Ld‘%È½{FÂ¿2vö%…˜)ƒj†ÁnºHtêPş€æ²Èµ§™Ì5°:Ê3fi­p»qŠŠ¨Æ\ã„8ÆßtµÍ©²_9¨t€ŠdÙØÅƒ˜fKìP7L¸=h™nˆNP/·Ä£¡å¼»eıådÉßšOZµTìö:ÑVã°¬‘ğ×‘L?±ÄzÌ†ÙNaB§6£šgS 1FÁñÖi	ÀPÒì!_eUˆgË%t¹Ìî¹! ,‘†³í|©†Ug~jFÙëË¥iD.3L…ÀfWP4'(0ØWƒ4„)f¡S.Ïzk‡öyÆ«#a<{à¶{F°CÒöbÂ1Şˆ"!ğìBısğY·¡å¸5­ ÕeA¹âc±¡ëJ	Ï¦‚iæv”Ò±-\Ii|B¹ûçFçi>ÚP„]™[¦Ø¨®£6Iæ°b‚äÊŞÌ,Œû&ÓŒÙÀŒÆiYÊºvQğ£KaêŠcv¸n·\2CQëÄRp]1š¬/ªÑ˜%r:.”²[Ìúøôz™­s¶ĞÖgÿtµlÏ£tØ~ªÖ	9Cª<%Ê‡xÑ¼ÍóÇ}û¹Ë“,h`Åj€GÉ½rb•§ÒH]MænUˆ~,E["¬\³ ×ÌŞ%‹_VÊ9­D£…‘ı‚gÉR¼å@3³r*ı8ÇïlËÖ*l~OrCP1ãŒy®†C>V1fşPÈsñ†æŞ‹ØF#ÿÊ\¡dã  ‹  &V ­VÙr£È}îúŠ
+?ÜèYl’lInyÖbIÖfmŠE
+C–¯ŸÚİro·ï!BEVæÉ“™§xˆ¨ı½GØY>EÄttÆ°6O~2–,T›ÕFS¸…ÿbM‰AÜ”˜Mle{İ€•ı£Ğàà¯»FÔÌn¸Ğ9JÜWèİûß¶ÅŠWãD‘“¤¿> wÛöÜ˜Å‚È…ÉÖwc£ØJßo}_çÄ
+Wç‹Ÿøà2k³á|ŒŞ¹&fÇzpëŒ©^¯W°E#üÑs·©±r“(ş”Eòõ€KX†Ğ9^8¿¿Cï€˜ëŒ•‚±ö•²P„où98Dg9q5tÏ¤w€ßgùUªœ(5¸ÛúçŸ,Å*Wå‹Ÿ§Xk«‚(HU	xO!-—­ù`–Šül6H+ØpC‡D-Y›Iµ›ò¬+ã­ËâÜ`0w­SkôôáéŞ|—.¤ğãdÇ4f–{¼.ÉH¢ r¸5EÔä[Mªµ;ü]8QÈÃÕpI¿W´ÙüRuFšÿÍ=@¼&êE›
+şƒ†¿GsÚÄ}İw	~Ğ#›øãÎÊÿ|²óräFCÇºMÊ=µ‰?f1Å,R½Új\G­VªÕO¯$Ü7‰H`Œy´\=ìÉF¸„âq°nI%÷°ëOUuçÃ§ˆœFıDP5+
+"Ù4äOyÜËè½¡V^Õlb‘BF qæ§ñ¹!äËÇ®óû.Ân…vXª%…¾bÔ ^ëJC¸ãsØ¥³$"WwxK“ÀÔ£Sëª»uCİÉËèiæøW_¢ªnÒØe97ğÜ€ ^P’Ğ;•3>ÿ•¬Ÿ¡cÊ2‚A1Æx´Aªp"~¨–…JY”> Uyfèd]nŸÀ¨R‰¥6–¸›:¦şª)`ëQ6ñÛÉ¿+ÅøÅÃY²İĞLó?ß˜ı…câÁ3	«±ƒè~’T++[±Û„s˜>ò‹«ò úZo‰A1Ğ8‚‘3³¶jâ]ìÑ «Üƒ	¼‚zI&W¶Üë5z§›¾€U¤3Åø?ø¢ğØ$)ñ( Œ!ay…•ıFĞWèİ[‘¼ÔÄ"şs'ÛØˆÜ-Àúè0ÆM?¦¼_¤ÄÓ0‹óo|ŞĞ™£Í7ÊyIHÌ.èù#.JĞJ¾†ıDØÿ9½0ø6z±;Ó*Øú#Ÿ¾Ë¹K¼ğ'Æ¿ÂìÀ¶Ïf¿ÏYv,¹EÿÒ.([•s¯*^ş‰°
+õ/g\¡rù[UøFŠœÍ|èÁp‡GbÅŠËzl¸î]Öœ¾ÎZ–GÄü¥œ § ipc×aAl‚Ü‹µñ°8‰®ßŠ÷D4Ñ½cÏN1#~ŒåË9¸Æ=| ‰gB—ï	fÛ‘¼™ÕlQÇ‰äîC˜(%	Ü#XÓ$Œ9Ü`dÜ“£î‡Éæ'"ØÍâ:@E”º1Œb>Z‹aˆ®Û×ÊµŠá,º´ÍİaPk˜?,ZğJcê%ù°ö°îƒÄä=Øè_³Ø% 4°.¶g@?¼4_h4´”gªI©ºG÷*%ñ7vpR¤®I *œíú)sFôØõNX7ÀhHìÉÛT÷ş /(×5¬ÃGV…
+1è¿<ÛWUqôIG#Ë\áz{—a3‚Œ8Œg¹>Ñ,S’oÍÜ)(×éÑe×¹Eö€àÆ"UËjö® éX¶'‡xph^¼€!„ù
+5Õ#—&YöÁ>.ğú®í RU”…ÉËç²&B¿êçt8Ù¼nxœÃ|ïç‹$£Œ¥à¢øÁ—æ‰ø²\ø‚WšDØbXDHê ÌeòŸ‡Hàèp
+˜?{ù?ÂÖëÜŞé­­G·ƒiµ>‡ùİmÉÒÉ ÄwÎ¶ÕÕd¡î¼{Šw)”µºŸ[L8_î‹ÉëAÅôÁßÿÛ…îß¨Î$-+T¦zß<»<%ïÿ/Ñüùúé›ÑtŸ´®¾,p iW™G¸ÚZ§7ÂãÎÏz‘<jù:úr†w‚dÜÁ©„;émYk+²ÜiOúË¾-·e™ö5Ù¶a}ÿPİšö°:‘ÕEh¼M^e`¥½ÃFS‚¦ƒñÃºg¯»KË<×¦»ÁnZTcU,Mxq¦©şlÜX’Á4v¶Æ»=¢êJ®÷Çãsô()èeKä}oÓlwi»TM‚I˜®,'™õ§D]%®­F•Åìa9W·ÄÛthWÓzsÃc¼:t:§JíXs×B¿½/MQçí‡iw3Ñ
+Í dC;˜Z³Ç¶³÷:Š¦twnpkuõŸ*HK·A8›Ô§Fu’N+¦|£+w˜H#S¼=Wü©&i/}:V§ıÒ£½“«´=Oüpòòû§6šJ©²<NW«Æjı¬”nÂ£­	J§W3hÚîuˆ^Rıaº{6:´O+ùYµ†îù¸NC4İhà·2	¥oªÚa"l{îÍ9]Ö¦³j©ç•ív?ÜˆÆ­òÈ„íy“P	…°ÓAT`ÁóŞˆt©œ¤OjÄ|LoJ¥ºıÒgüiÙØlÉzì†Òba˜]ï9|Z7‘·^2Š”µOƒµ¸—t­æ+‹ó²+?U§{I–Öóy-h»ÅøE©’uHÙj§¬']ÿ¥X»¨?ŸöÏšª-Ú2mÌ“ö¢3lt§Š°œ5^¶İ)sÌ]oräÕŠ•†llXu{`lÛ%û¥Q±,Şîqe2:?ÔÙÛíÓıx [^‚¦´©Öó¦cÉµQßøÊlş 6Ë´²Û«z± èfá]h¯×ôS§Ó¹Ùl'Ôª<µ_Š±ĞFê†âS˜­ş5ôê7“  ‹ é &V ­VkSÛ:ıŒÅNïÌ˜"¿òhp	åZhI› ´~Pl%V±%W’2Ó¹¿ı®ì’B{{gê	X‘Îíí®òRÉFL)*&l_±$¥Æqî¢dğ.6úà7£VµZ8ZÎ9‹Ÿ²$‚±µåÂü6ğ]ä”gn¡db¿¸Ezº÷ŒÎÆæocá3‚Zn¸aãË–³1šCÆµÑ~àå(ç:®MÙíCÓÍ4ÜW¿¶`ÆM
+ÇÃşÅÀÙà	˜7o&c~¸ó,hÁX*ØÍøhÊ•!¥fJïÛr*ÜÒXÓÛò½çÎ
+³mU©ÅAŠ;yˆßôıõYõlZˆ€´IĞ
+]šë7ÚnÛÅÅEÄ¿¯–¹é6½úõxÈªx…Îî„Ïğ¦&—¢{q6œŞpx6m@Ì‹”©nïä˜œÈÁñ0lµÉ«£>4:Mq£»8çl 9Ï»oßm=‡ÿR£G‹AíT¨ú¢^¢R<éQÁYùvIÎ=çBF0 jJMÊa·XŒ\¡‹ıI¥U…ê3­é„‘Ó^»vßÀ}¿Ó
+ñ ^ÍvĞ^c=gc¦˜ˆ™FüÑAo~Ö]=í5Â×éA÷5}ói¨>½-š£›còñê}+½|ÿzğáãÉèzrÖèñîd¿ÚzÕÓş1¹ªÕ p}çH
+Ãğ`/æêb0½"£\<‡8¥J3Ó-Í˜tîp=®©¹©¸È¸`Î© ç¬ÈæÄªğGü¼ÄÄ'Ü0‚~iŒ`õ…MØ´¢¿Cş–sM†1‚%äp0­ÇÆx2ºíH÷5‹ØLÊ"‚õÊZiGñ/‡åè+‹Ñ—sÔèóì0AGÊtU¼“’iƒû2&.0ƒÙ/x¯ICÆÚ¾?“ĞÜ t
+«6±GÁ×RÜ8÷ÿ¬<ÃÎANkƒ-ªÔv‹ÚËÊ•mgƒ&9ˆRÔH¥áo E‘ñ˜Úó…„MY&DÖlR¶ŒÅ¾Uó'ÎÆz·rì)t9Ò±â#Œe75¦Ğ‘çÍf³¨—×:x²°;kosİµ#£µ¢Ø7+÷JĞ/t}Vİò~Û…#*N±şÜ	Z~Ü½¶H	ğ¨5?aYñğ¯|NÑlÁ0ü}ÍìıÀÅXşÑV$»&•ËÛƒü¬qvîÚ+>óN@_Ší
+ìl× Šã òøôùÌ÷·ïÛåLI¤vöà„oÛÿr‰„ÓG®ú/ƒ£Á%è²(¤2ºÂlbÖ‚‡wRìÅEiA²”Ö‹\ ^0Îè'D¨‡N!¦ñÛbh¦%$Øß2:¯­¬1’Œ5¥b[.|H™@Ïh’àôîb^ãÑ¾¼»)\7²ª˜Û<ƒ1ÏP74Ì¡¬£ÂÅX!˜U˜«¾§ğ(ªæ»Ro#¬À’ayKeEÂÏÂ÷ÚÜ3yaÿ\Üç/ñàY²²K"1Dıàq¼È™4[~/»-0)f•ÕÄq>Ê«Éñ~ ZE.ìI›O¡®`¤YJ±å8 6…1ƒ‰èJ5ñğLsjj¿ÜÔäÙ_,c9¶||ƒoBU‚Mªîw!à|–LË~WıŞ¨"‰}-Öm­Œ±“İ¨ªVŠT©½diæAô}…mÅ/X{¤wÏ_UÖ^æª2Zc£¥‘£’gÉ
+ß*Ñ¦™m8n\ào;+È?	Ö¿|CEĞãŒ‘*†G)ï¢˜2w"dÎ*¾‰¹!S[6ç_A¥œW  ‹ b
+&V ­WYwÚJ~~Eæœ‰ƒvÖÄ\ƒÙ³Ûwî™£¥…’ZV·ÀğpûT#â%q2™œÑ‹Pwu-_U}Õ´b `ãcv0Â«Û®ÁDÖ¦	F·CªŒä|EÓ*ª¿•¼0Æö¶Ø® ‡ŸõB–E„áùb›ˆ‘û¤Š/…g¿,‹şTd1/‚¤ªÿu.|0÷È÷(£²"F‰xÔJâ§ï•DEKRú:G;¹¨9NGÂÏF¬Ü//µP–‹j)£/¾gn½˜åŠczÅ-F(&Œ{è>½R^ı,| `²•%ÿONÖeù[|v.6˜÷¢O,Ã·	Ä¢3Ÿ¦‹ŠZ‹¥S„¿Qu)}½bo°”•‚¬h€ûÂòHx9L¶Š4™¶²¼ÈÅñe­9Qó…Ü¤SC¦Çè%| ÷œıåÍíùOÂ•¿Bx?Ø¡Ìñ²) dpR‘eùüè®RnÕõbS–õügô9Eáæ”2ºUYFg×ÍÉô\hWş›°Ğ{44bnôÓ·1$ü‚¯
+SRA™>Qãc-0ceĞ—¯Ö„Q‘Ä«ª0Ä”+œë6*è7©pCeMSÊb»©kº~õƒ*@ãà‡¦ lEÓóZ;ª¦8ïh²¦²¬UÅÄW;l³şÊXwØÌÍÓÜU"ÊÂ5	†2™î#?H|æED½UˆíÏ(ğ öÕe´ŠrÔ5 —@¨"F,â_fŒ(òA€:é(§–Ä8ó™$	m#Ş_f–Û~Ëj_ßÖH^›™‹EæÙjÃ£ Âîx¡ï…Xè†¹1ü}£÷;AÎ rµè‡L%ŒI
+4¾ª‰
+:|õœ¬åõ\Xæ&–B¹ú™vŒp…T±PB$D/„²>!Q½mëWLtmıds’˜kl7c€øÏ7b¡ŒŞch1‚,î@áÁOæbäBJâ­GIœê‡Sè/üCËÜ”Ó¼äXàaCSÙ¼r*h„a ””ëBe VB¹4=r×QkVø`Ø‚Tl0SôOô*ÙÈÆ[ìğ¦TÁı=¹Åß1ä=#|xKƒ¯Y/µ?ibR+öLpë‹ËXD+’´Ûí^‰JA’D"n™JotVÁÑ/\‚‘Ê›\ŒLÙ+xş i.“³'Gj±ååüØ	#øÖzzš³}Ï«ïbî`?úğÏ|váØIÃä×1ãƒÇò ídËÜÑ¯<ûuÊåç) ¹Ü·Lğı0˜¾RäÅF–kÄC²hÎ –ç}æÅìÒñÉÛ?¥á6DCf¾(ålêÁ¬UòÅŠVÓY“EoÙí€ÚpE¨v¼,2|_Dhf&!K9†%Æp u,MºÂxÔE;oø"ï¡:@Ã¯“'QÄ{öA]:ø#4À‹\è(R0'TcBØ•CˆI*ÿã¤6g¡-_$‰âc‹/-BÇ1‰+è¨ãY¦>CÃG§ï$4LóĞåÌ3|ï€Ñ‹çÈ!·1ªºà°àş†>"ÎA‚ö 2¶TQ°aû„¦œÈjÅqaÉ@ƒpRêQ†ø ñ¬Ä7bnc$±³ˆrÿa{GÂöı£ò ±\s5¡ÀCt.w‹=ÇÒÓ:¡ì„`Şe€x 	D0¹L{/P`0®ÁÕ\K1¢{
+9F@„ÏQF!Ş=‡ÿ¤(ÕÜo=<ã7d—M½<y6±(ê¢62`z²Ï¡új8¤NXÓäÒ—´¼Ğ'CçàOG/…êIeftîñˆqD#^È2€ĞWböU¹®”kƒ¡!x™à¯…ãã×±°a6Äç€{=I3ô1M7Wllñ1û5è./T£äpğ1$	§YöN!är  ,ö±"6!Ù¥ÍÃµFØøD]’øö'¡
+Sz-²Áü$øìŞƒA>Å,Œ(ÆåëÔØ§vø#˜ƒFæ=-T9Wr’ái6kslM¥¬Ëè˜–³|enˆ‘‚†8˜¨ƒ
+JM“¥P’Ñ¦ş¯ğE¦cÎ'ÜœòEıf®*öWğèzA†»Ç+™šÅø\ªùbY³Ótïåx±(k…ïOŸ!	ÏA‡Z,”ŞÕq’8©)éïèp \‡&«ù]©ÄÑB9ÿ&ÒYˆ·ÅxñP^ï	Õ?$ÿâ8ÿ~+uCé!+Î²Y¨È4SÈNt½’›Ñr8@ÜÍ´º89ÛĞÏ\p*Ù¯åµ‡İì‘¾](:¾ÖJˆáJ„¬l‚)/J^VĞN>6bPqÖ<6·uò ú-½¸ñid~š¹ü¶*Ùñ–S¼è²ÀG<¥ì}dmÜ]8ŸM¯Zá‘ø¨ÏÛNòBhÀ×!æÀL-7éµÎ¡`<®\›Ü±”Xù721zînşa€ãÙcF`:ò÷¿ÿ·úğõ­éô;Í®Ş^«¿u™ù…kÅÿ¥|F¡àËÌó‚W×O½ÙîŞ Q{„&İöMm:7Ó‚{¾[·ÃdÔF[U¼»®U¯5ë×µZ»~×[ôV®ÕH¯Y[9»¨´ié¦-±áHR“ÑŠíêë¡®Éswêtë›ÈÁŠp/Fã§‘×}¨Ì/Šat®©Múpßy4'çávlÉ{¹d¬”±=|¬7ok¾š˜‹'Ó
+ì~Zè÷Ú¤×h^÷5ªĞ‹[©¥Îî§8ÿ@ïÜÜj×‡î¼>VZÒhİÕÖO1^Ï";Ñîæpk$å^»t1Ï—wa¿GÔATk5úÁ‰m¥Ók9³Û‰×ïGõÅÁw÷†V|ìm¬[Í“útÕô…bww¨7H¯:š¢­;7øfÄV„W<ªë;e½Ş/’aÛéÜ=İsï…¨İY^`ÁŞû}[V7æ ¹Ùì[²‰FévÓğ¥Æv’÷í© /BmÖˆ£ıãC2s5NJ³'õb&Œ
+ƒşÊU‹ú ‘Ìé©Şı¢/i»İº4ê®â®4
+KoŸ×kmİßú^szSXíòõ’ÓŸÍ„hFz²s]k‘>´®-mK¥Âì¡œ<JËÖ6)ËËñÖ(.óºÕgó‡‹¡?Ğ£{»!Ù†¡®·Â\Z—e…¬ÔbgøùñÓrÑ?úOisˆÌûÉ İé9É½_?Ôã]¸ee±‘‡c;rt!	T´šzq=m4ïÍ†û0[¶‚=±š÷~S¿n\sî”wíşx~Šy*³‰ª‡®Ôß¸³Î…0™oJ»9‰‹:­İ5ú7u+Ú÷÷‹~o­ÒÄ¼&úí<IÚë;SÃÖğ¢Ís…•Ã®GFOÁ[³a¤¯Â}|«İopØ¹
+—Ëk¶Eó¦ñ^S¼Ó…|õ?;=5ş  ‹ Íd&V ­WksÚJılıŠYoÕú±HHˆwbÇøS1‰ËØIneo¥FÒ Š¥®F2&ö·ïi6àG’Í.q
+$õtŸ>ıÔi¦Rv#äÁ7•kGecvUö!ÌYÍe×mtºn¿½†u)BßŠ¨ËFt(–¹Ş¹?R'Î4S]8ÓÉ]ÍÉD4á¹ªÔÚØşeYöÅs†ãyN­öçµÌYë\»3-‚4Ö¡9*îİn;ï´«æk‡Íâ|ÂN†ƒ«k#XŞywz×>¹n«ßF*c¯“8¸³Ü.´ÈôYJ¹tŠœNîV”ï¿²6@L…X1äx%=¶[wİÇü¤wŞ:@&š„}ÉÁ3X÷$¸ï.Xøu‰†ºS¯š¯çih½õACÍó›[¸+¹wu>¼õªÃáù­ÏÂx:ÙŞñÙ‰}9ìÙ½“a­Ñ´ßìáYÏo×Yçz÷¬Gó½÷€óNW)d/1ØzÁ€ë8Š‹ÔyÈÍí§·¾xSs}§ÙÂß‚­ÇÜ_(â»U2¸hÕêGß<ôNë¿¾Q‚o²ºø°íë«£ ãH*ÆC2ëÖvÊè´{GÏkÔÜ—Éj²ØöÉñÕÎcÊf"(³ci0Q!O&°
+¦j-ÇÅ?oÁÒËğuÚ:lyõ“ŞÊÀ_Ã5èNì&µºÌs\ëHÉ\ ‹¯æSÑe9¿:Mx,_±pÂ3-ò½ë¡İõû¯,ªÎ”ç{£DÍD´<šq©G"³Od¨¢X»¬…L´y•?f‚ .Û|'$;Şê¥A¦ n“½^í~ûÖ•ê²ÏòX²w‰È¿s	$Fzc.VsÂêKûRL“¹M‡^“MÏ­¹nÇ÷½óö¤î×ë³‰ày"æû 
+á·î6ü†Õ|¯Õ‘ïú>w]uˆƒÇ‘Ü·6~ja ´æca÷a!ª·¼vĞ	Â†ßÕİ¶ÛuD#Bv†õg,|¶‡‚Üí®MëYj÷Æˆ@—]ªBFaöÉ¯zš5^ŠèŒçöpÊS{ªñ–ë±İİ]¶}ØûãdøµÓ©°û_øyyñuĞ»::ÃõåÑÇã
+^œ~½è‡kãú²xşõğüÃÑ»“ã¶VåO3×Úø‰Àã0ÃÕK)"ûp€#[ÅˆË1«9Í6S’-çĞd[«²Ô®!œ(5í²—:‰uşàá°¾‰x}_ÖÄşd›#ğ-ĞÂğ Ïñ3Ÿ6AMe·±VÙ& 
+!¯Ğ¿Å}¶P†i·,ÒéÕ¬‹-%¢<í²o…¼±Î1í>:Ìæ1æo¡IZ—ó³ÔŠXñ(%¤2«L³0>&qÈsH²HÜŠDŸ6M…ğ.`ÑwÆ³ù&r{éêä5ö¯¥.fq X¯'y>Õİju6›­ˆVSãRUMÉ²®®éÜĞ×$‘«îÚ;Bç+ô¼Ñ&{ÅÒìH/'h¸/ƒàFà±usšú+>ãà‰Ïg"™¾ ü#Ì[hş:g´üÄr¤ş¤­PöÙ.qÜO)û¥NİxØ¤ğ±¬²¼o{®1·ÑõıÊ3]y–)¨³öäJVJ…^§b”òœ¹~·Ñêú‹™¶Şı4ì³³¸Âx’8Œ]…ÌF3·ò\¤H'T;jm,rô„ÍTvC7)¥éøG0SğäPİ9Ã Q±B
+ÏPŠ[È~ğÄ&(!ui’şgJå#¥u×ı÷ßÊíİÒjµªEYoåLò"Ëúó/t‚i¬‰"“<¹¿.$AGP¶yÌ“ø»Xñ€E‚•±ŞEßÀ¤¿O„~±+25ZWl®@¿P¨sĞ(¢7Œ]Q¥«ñ˜xBàrh€¢…òX3©r6¥ †EÂ³«¾*¢
+Óä	Ï”Ü‚_"IJõiNXŠ¹BŠ$‘»#N®4ºzğÆto¶Ã¢ĞÏƒ”!¬Î˜C‡V©€1 Ä»…^ …µŒé¹FäºÜƒoàKŠÙ	®:–õ‡*¶€LÉGª¤À¤è3æ$1Ô‡qJq&ÌÅvëXsÇìnÖ‡Œ‡É
+… },ô4ÎE‰“XÇÚÍd<ÊçlE&t…õ·Ò’JlJ‘É	+FæÆ#˜ŸÉqÆ#“¨à«Kçˆ?ª'™—îj]bG/i´0TšÒ*!¿
+,gdTÃmÄõC½œ&Ì
+"XŸä“–ßXÖât£ËÀıÍ²l”eQBÙ¿õ¹¯˜÷jV1q&‚©PÃ08T‘¿<(éüÊ¬4ÁQä‰)	¦HÙn 0åÄnie©“”,Ôn"âheå!™8SE³£KâÏ;••rS¤V«ğF @¦D EV^—-ã2ÛAD“Ù[¦PHuÈ5¬ïxŞC"ÍÊ’ÚgÓâû÷D€ja*$^8bÛì2©šn¤š™FDúÀÕVvõ„‚¶Kš°¼Ü ÙÜ:ÄÈ1‡Qî!Â-Dªé¾æscb&(ñÑ©G’"´¼S‰<¼yhu^§î²2LÛ
+Û|¯"Á<6é•B¾w™ùø¾ëyÍ¶Ënÿ%—2§™0}ÚÇ[g£éÕ=Çİ«À§^oºØãVdzÈŞ[£¢ÑêÔ×õ%7O—
+Z-×o>=¿Í¥’;¥–Z«Ù~VËBf¡/ËOµŒ£ÅwkM÷Y-F¦ÄÒì4Öü½–â6sÊ*ãĞêSºñCèÏ{Şÿ·rëKÊ±Rcšfè6”H4™/ªÉş8`ŸçŒ ›Ì£!••òĞ )}Ÿ|s<¯”İp‚”¤&¤À)0"%4¥,¥\Yr‰à”lŸ”EEö(P•fÛ¥Cs±¨Ğ¢_²[¥Î$Of¼Šs3ĞÊ¢©©–İ¬b6TY¶zCuv–qÙéÊ©(fÜ=I‹NG;1—¨™Äã	^Y	 ^tÍğÖôĞ	Fx„•‡(Q{\üşúß}Êº]]ÎXjv‡­áÅ× ê‡¿³ZÖ ëâ/‰9  ‹ 0©&V µWksâ¸ıŒ~E×Şº»¤.2¶x“Ù@&Ô a1óØš¢„-@ÛòX2	ûëo“!ÍLíõüPwëôé‡šËLÆ0x”ÓHL—"Ó4W<SgiÄnÍcó+³9Œs××çĞkØ^£ÏNƒŒxÀÅ’‡ÌŒ-‘hß95b&"+Ídh^¬tqçZL[ŒI©üjYøìØVÃrË=ür@JÓDBie;VšOc¡‚B•ß=V-Y¸ÃQµ¸À­Ğèøıñ”Dúøİ;©ÅGÛ©×œ&Ìd'™0;!V®ÂÅİñ7¿’S1¬ä8-=Ô®Ûö>?èït9@GğaËÁÒ=	¶å66,¼ACCİªW‹Û34èÈvíããcŒÍ]29÷ü¥SõıŞ²H<;m_uèÈoÑVÇw‡ôíEŸúW­ÚQ¦B«SüFJ¨.f«ÓÁ5â|‚Ó]
+á;ÜÏÌòş‡ÏG¶uŒ©â[µOû¬¥Ò3q·KƒHƒ]ë´š­ÆQëò`»övşcãå÷ã‹ƒ}ğ&™ íc^ãˆdÀ"(wîDuëğ±—y²ä‘L9]«Ÿ<UªñÖÎ›ã…ó§³Œ"ˆÆ¢N‡£Â—ç\yÊ×xR?BOÜÇ™fÔuêÔ¤b0gš++ÒPşüôÂ}˜Höæ*Ö)”ßÆÜ¸l[”Û|*Xrp°ÎJ§%ùïÆ‘æb‰·	JáJóiWLÓ¯¹2yÆ«İÀlqb`îÂÿç'ÚM¾ò@ó~Œ¾5¼y°Ğ:õªÕÿ±X%cé=Xr‰.z0ØøxÎ"‘'LÁÉÆë³µ‚¥dÏ¹•pı†´Ñwï¹ô®ÛÒ»'®<¨ÕIŸ+ÅæœvÛz.el-½»n­é¸Ô©5ÎR,¼tÅxÌxÆ“ÀÙÕrêc§f7l‡ºÇZ¥=Q×®¹.mÔêDû"æôCÑÌ<p,›\ÈDsì›ãUŠnjlµU¬F‘ü
+Á‚eŠëÓ\Q¦!¶¢K¥$¡Hæ4±×a”.d¼VÖŠšP £HáÙœg[(µÆCj: Wx÷@q¶#øãA[sÜÑƒ:X­a³†ò£¨ I³N»CHƒ…yk(÷å_"ŠXµaáË'ÇÁ
+C”ßÁİÑáäû~+M#ş‘Oß	]mÔšVíÊï®Æı^óè†Ã[ÜH¬¾‹&¯Ö-´^?¶­¦>›±LlÔˆ¯˜¦~Êbê2C>±8l |Şú£ãOv®:­vg4¹]÷'íîåegÔŒ'íë~«;ğ+¤4ºøĞt“öÀÿØ›ô®?V`4œô[ã‹+´`V+à/'WŞõdØòıâuıDJïÃÖÈï´Î{É¨Ókıq ;íÿQŸİY#¥ıÅ¿í®è²°$Áª<_yĞïö;m>cÉ\ëğdÛ9å%ÙfcGÖç(Œ¾PË~>5ıÀƒ’üùØ˜áÑÏñ—Š¥ÔğUN×“L(Ô,Ã ÍŸsŒñôæ/ìñ‰öÑz»-×r,Ç%ÃûfhêÔƒ¯yrƒu¯4íbı©ÓW®Œ´Zï¹¶Šaa,”Ê˜–™‚Ÿaæ‰€i”„§.¬¬^ğ{Xæ±lõ“©ò]¤»sW±ÿûDåSdbŠ°NL™(¬“ÛÛÛÑj\¸T•©ÙYUØ|ƒ@OŒ„–Şƒšño9Wz‡ßT‚Ó|»íH+xª<‚û»ÚÃu+xÆÙ#Ÿ¯x”>#üæªm,ø¯çÌL+"™É€´Ê°y÷G1}ñ¼YOx‚G²BˆĞ°À\ÂFÉÃ‰ù“Á‡¾„üZ€JXªRÓ ã¸vt 4”fŒ)†ù‚%¢R¬V™aV—,3ß{]1lªj´(jYßyënt©L¢ÁLóXøHsÍÌ<±E3ÅâùˆızwÜÍ()Àœ—§R™§u“s#…‚gşşØğï/<Ëdæı]µ3²‘›nl¤+À0F»y…à/(ù u€ü„«µ…ÂŞŠë-pdlİ¬ÇVƒ›ŒÎ	Ìå¯B¿ó"ÆõÍõ:ª	éÎ0¸`!¨<8ö¤°øåVæQSİz¯İáŞú@ŞÂsLøl—0µBØ;Ë8ÜfBã`€!¨‘‡Q6á¸1i.Âyñ0œ„œçt¶ÂyÀDó‡2’€ClÎŞï‰;‹Š¨c1l,Z+ù%tqfÇ‰`‡Ó¦M¾ßë ©ß08¦çÃ7çôfS¾¤®U³lŠ‡,ş­š!ãKnğTØÌ¢„ÿ]½íy  ‹ ”3'V ­XisâHıÜúµŞˆm»Bg·=lØ˜Ã`ÏNlè(!©JV•8üaûfIv·»§wv‰™ÀHYy¾|™Õí˜†(\˜¿˜äkŒÏä²Ï¦ØA·6GšŠ­f¨5Í@š¢¥!¶±¿ÄN¹â¬Ox>\+UşM?£˜:â‡ykM>h”>ÿ²,ú]Uä¢¬ª²¦ıq"}°6(ğgŠ*G‰úÌÎâõ÷G+²ªË•Böu‚V>÷PkÔ¤¾ƒxµWroKŠf”«eäÒ}	|kéÇ<Ÿ0³¯ÂRh9áÂCoıJùùgé$&'²’&rHO^1åÛü¬<lò oä€ÚfàPˆ› cŸnÈªV•Ë•m„¿¢!…ìëıû=¬hÅRE‡¼/!,Ÿ’³qo´T£Qo©#Û<ŸÕ[#Ê®êÈò9;ƒÄ}wsvs{ò“põïÂ…Şv@wıu.KˆH28©*Šr’º[T‹ºQn)ŠVúŒ¾7WIÍ©èTÑ_´Fã©ir\û3a©öj¨oÆÜèfw0üÀŸKcZCG]LPóc=´b
+);B_˜|}¢œÉ4ŸK}Ì˜9ÇùN³†¾“ª¢©JÉPŒ’|ÙTµŠb|İ%árãâ3¶Í²e*E½ˆ]MWË%\tuE×MEÑËšjá¯+l¥e?Xû°3¡(U]W«òeËĞ×>|qŒ²Z±ª–]Ô+®¡T”¢[ÅEGU‹–ªÛ¶ñÚ~§ßÊßg˜¨!UV¤J8ø7¤5LîGµóç;ŸQèC9çgÑ<Ê3ÏŒ 0 œÚ48;2£( ê
+©œ2yã£ÏÈ¢	qÌxsv4ô&WÚ[•Ìf1áuãhoµé³²ÍSw|øK’â(ØäEUşJ€Y¾>ı€€„ó‚
+„¢é²Š!©F^Ñóªv"Íò#Û$d¾±AÈL»&™#M.U%è@D PÕĞ[ºxÅpöO^ë	ÛàÍRüû±?Ğ‘ŞãrŠl
+î  áOîaäAIâ¥Ïh|40&cè[üC³|”ƒj¬É*p4ˆ¡YÈzJÈBêÕå;Ğ»GP;aBš¥œ˜jÍIL'ô	HÅ&§1Cÿ@¯Š¼ÄÿXFAÂß­[â;†ºDßxúšM3ûÂ‹Ù±o[_<Î#V+V«Õ+ÑB˜…T ‘°Ì
+otƒ£_„§µ7/ò1~N0ã¯ÒóËêp–Ìn©Ç¶Töc'ÌLà[ëÙiÁrpô=7¾~ó¢ÿÌgm5Œ~=gb ùÄ¥ÿ‡¤½JÙ,Ÿú±ãÿü(¹´Ÿğ‘$)Ÿÿ–	¾¡S½0:>#Û3c†¡X,o2Û÷?p†&?sºÂÎO)Dº%hœàÜÖ—\æÉ‘ªÖŠÕš¢×ûÙË¡·¬V@m¸&ƒq&¯*yMAJ±¦ë¹wÆÉN\È÷)ÉªÕƒAE¯Ë5½:ø3ƒççW~™A #4±Âä¬àç8è1/Ì1GP/æ¡â¡h?qüª˜˜Aƒ®eYFàÄ ğ
+hã#t*ÔyĞÆ˜°Ô¤ø?¦”u)µèºöï¿o•çm´
+…Ã)7¤[˜ÇqLãúÖz%«‰ íï„˜V€Å î›ÿ‚Ñ!äÄ ¬Õ­›ğßTx¿İgußˆS´¡0s‰A!ãFìü†ĞX°ÏE p4€¢­rŸ!B9ÓÎ·“ÀŒX5i f"x½¢ä#Ä…ƒ U&¶‡Bc¡ˆ€"®kŠĞ…kâ×>šŒ%ŸÆ·™‚*t8Ô „¢" $`:1a·e[GÁZŒØ†Aå0ò>6ÈÁ«}ö¡Ê$è&Á7JROBJ0ŒµÈMvVäÌpÌcœı8.ÊŠ\:I74À}lÚÁ«$‚ÛMÌ"Ÿc$<y‡]ßåäâtÖ³ê|ÓdBc:Ğ›ç¢°€]ßó+2M'ƒ*dÖAn Ğ?Á&˜±‹ü°}"¥s˜W41H9€°¨@Ø†dCàPÙÛ´~\ÌCtH!@¬#ä,ÿi‘¦P¾œ8»Õ"ò`‰À³#«TÖÂÈtRYE†˜˜„>À¥Òn°€“nú˜!Ë´+3v(#¨· ôafÉİU*Eg²½zŸìÆeNÈ¡”yÂ9áN
+’ ‡ÜÔÕEY	G)­&(£
+ã ¼†–óÅp?8 Úw×Fcå6ÆäÆ8ESªËØÓÚBØ¦N,‡ âBWYÔ*üŠ!c)‰2sûü‹nÑ‡MÂ}8İÙJG~¥^ ­²ÏË1£’€¨z‡ps.œÛ2˜´zà¾œ…ORÇ˜x-€•6a¡²$¡%,íÑ¿‰nÈÏŠoÁù¿ôÙäˆ?m[ ‘ğÈ¡6ÛĞ@2aËå?ŞáÄùWk\#°Í˜p‹øŒ“Ñ'ìğ§ÔÊA§P²U{ísÙ!3Î2*cy.ç^±+jµp–1²^Û8N§i„M.>Ò5’ŒÈ>f¼˜bÁd`M4¼¯CêWƒGÉËK€™ÀGJˆş6|DD©wEèÉŠ%ôA®"°ò)Cú'¡)…^à/°85à{'àj2ñœ™›Ì Â#QhûXDSî'›Z5”–é¸˜CG7Ø*êãpLÜj(ûèº¢ª¥Š‚’ƒL@˜jÒáÎS,©Ú7ïá’áìTÀÇ0J
+Ü^ÉÔª–™Šb¹j¼y×!föö  \VôÒ÷çMBÉIªE+—*ïjÙÊlUŒw´¸P“L‹wmå]-™LêK©Z|ï„à¥osª, ×oÅƒßaçøc—÷ÿ­İ€A sJçbyì'ú&ßÎ}è¦ü}Íú=$\Î'v'í”×l$ ½ßŞçRşğ ’âA†#‚á‚#VW‡b& + —¶\€Í”·Ò¦ö¶^@Wf1±}Ã´#W¸}œx)¨Wöx ,* öt`‚ø! &&h:ºrÍ‘”6Äò+ŸÆàa¬¥KÁ°Òì’´e;1¤LkïÜƒuX8˜í*âw:GvLàº@:!Îí«”dö÷¿ş»OÚ·¯ï(ÌVÍı’øÃªàÃ¿re“üO¯?ü×ˆÏˆ˜!>;Ú?áJq$4Â§ÑºìÜ Áå :—7õñdØÊ ¹¿C_’dp‰–š$ùw»Qo5.êõËÆİõôúå&©×éu«>wWQeÑ6,ÇÒûƒ‚6N/İj{dmúmE]­ö`ÜJÓ9½kh3{Ïjg1!+uÚZ9O°GŠßk<V7ƒ§¥j©ÃB!uGwaWcÁ4v¼õã¤1.IÊ°w«u+ãâğªø<ëœ–KCÕS£y¼´ª`‰íI•E§-e:Ñ†¡åî›¶r‰“nÓsØDjß¹óÇğš6ÛööŠå‹êÃÔ5—jYN›ãÛÒ¥^ŸÊÄ%k‹®İ‡a/TJ¥ä¾<¾èîªÓRM/b³¤(ƒÛöSß ­{Y×gw[dSTµ+edó’W×f³ùtnÄåBE3}"=ªõº9/>›ıÆÍûë»õø¥Q6Öw*«/AÀ.ûÎ}÷‘¯®æÁ «İÍƒm]kŞXé>jW%é¥ì—n
+EmÙÖbµÜ‹§×õe²èıùÍÄÜ8‡ë—À»i?^ßLÏÏvWU7§†DÕ¡…õÑÇ½gd–´ÕŒ”°0nÜO6×eX¶J0àº/İÓe«ëÜ?6ƒÎãKA_iÄl<'d µ;IL®hëÔjVG½KzWˆŸØ²7Wá©ÿ|á-Ø°·‰zËz\1[Ä™¦±2XÜuõ»©ïÏÇëêP/tîpaÕsúÏÖ¤úÔĞªÓ™´‡1Ó¯ŸŒÖšz¸o…ó%¿;qŸSŞ}µ’ÆÃ{öÜ.•«‚¦u¼»†;ºîâVtÙa/nûôñ
+Ÿ.qµà5fsÃ™­5wêV€œÎÔVÁ0[×’¿$öÌè—‡zƒ+scÑgÒY.²¶hİ4ßkŠwºP<ı­ÉĞÛM  ‹ šƒ'V ­WkSâHşL~E×|Øš)MÈP|H” ’ èÖ’†Dr£ÓÜüõ{ŒÂ¨³¾SCY„tŸës®6H¢ĞNıibÏ‹ü÷YhûçÀá»¨ëP$
+ˆ—Ê¥,IHä…ÓÇöWØ-£iÆìG”7‚ÌÁsBb7{áo#r»M3‰Lîë§iÑßÏ8AàDõŸoLn²EŸÒ”¸d9	ıÔÙ³âÍ[Ö¯EN¸b~ÿø†Ö>õnVÉù.¢¥¶ºµ{¼ÀK|Mc‚.²ò	e—)&é÷LShGÜ’fz›#áWL€9ÏPÙ€¼ÂÃò2ÏÿŒø{b˜ğRfû+ï8Âä~€À¿¢ğy3dNÎïÁàğ‚PˆÍ
+\÷ã¨bµÍ•7ÍöJBŸx˜T´¦ÎöÍ*[ÕM± °×uƒ5›U©(£‰OÓ
+œ19`÷§ÛJ§v¾ƒé1„èÿEüd·s
+j›Åñ,À{?ºèD¾Ä<…çàî€ŞÏ±èÅ)ú›cpLà4$]jHRA©Š¿ãºóFDg<|Ğ×UÿväØ±»DÚ+Ítf*‰”Æ² –Jj©×œğ;Šùƒb–W3Å=ÍúÆh·-—?‹lº$¸ŒVáÙ’ÚlêÙ»äTìvó‡çr+/àAˆyş	Òß«„~ˆÙCº”]›ârˆÓÔaÖwËérò„ZÎ"W¦qÙ‰#Š!ié6ÁÀ=ñ*ƒQk©‰D¬Ñ|!êáb¡›Åi²ØÌ§„Ö‡Dn+İP‡×óJÆQy~ÌÏÛ´ûOµéàÇF]Ÿõ2Q­øF'÷Bå¾b—ŒŞ­Š£[ju\«3¹·ZiÅ“xq¦ôµt£Ïã~ÛQïj[ntåÎŞÌœ0ÙÜOlaØ$'yİ|077¾W½©7İçáYiµ\åÏ˜œÈO+O§÷±CïîÉ°
+º ‡z×èÖM<¯ç;ÚÆ«7¢ÚóJiû¸0JÎsM%ëŞ§İUzLß9ËgE½Æ£VÍ.U<qãéâ,uç‹¥öÜ1Jú6–õ‰î†õ³UzF\gô\lJ›'ãñ,mœæVË [äF^ØĞûÆ$•‡–†=±.o'ƒîb¥$Y«İLcü@D5İREé7ífé®¤J85Wécœ‚GÏ|W©0FËĞÙûCH‘ÀñÌˆ=ÉXèAœœ,CS-fn*HbH
+µÈ+Âvr¯@Ï‘² %QRåô^×|/Yßè”8QÈ¤ö:›–Õûtâg™ù–V_ª³ ½Æ8¤nK+£ËzU‹Wi­²™]ŸÛ[Ø4o»ã™+ÎVÚVÔôÊhI×”
+†£ZæÌh$wßweòR,WL#K|d,=;mUa´¢Ë÷&ìcÅeôQ}3õCáXP8e.ê'6¡y; ˜@1Lh/#×&Û
+Ï¶ xã‚b«®*cÌD±Tœ¨JiK·iSÖLì58ë n¡¯µêƒnü9Òêõq_ï¬± …@ç›­ë®^î«í–vÎä^_ÆÕÁ9jôuİ¨¶Úc½sßèwxjc­uİ²î²`mZF{lè¦Y½ÖÏQ¿~¯[±Ö1‡íq»;|=2Ì^ëV7E`2{q¯jšßĞi[ÿx4œÒ1¹	?Í`²£»lmÑ„òĞğÔfHä”"Š#ôºŸüŠVUhù=qÇÉ/â>b°ö¶šÀp‡b`«ô<æ‹eQ,Ë¥ÃÌ4}ı}"ùÔŞ¿îGi/‰ƒÈ8ÓUÃ8²`ÆãOYôÒ!DN€~ÀôÔ«‹#ØŸ–ÑœiÃêÄ¶ |¿h°£-ÓŒ:İíX;©JÛı¨ˆMc’¢¿$ï@>P.^á N€r_îÔÃ?ÌÊ2ı“;‰ÇÛÙ^ÿ ‚!”:ÄŸ€Y—¥IZÎç×ëõi>Ü»”“Lsš?‘y†^f0ÀN.X‚KœÒ#xşw˜x•å«Úƒ!UâxP¦aï	~Ö¾çÎ–“2z×Œïo|nâ ù€øW6{Àv`~³lAö£iü@;‚lÄîìø1Øú÷a»ÊvEø0Ëş²÷¶Q
+{v>	l?‚­Ç³IŠie`5Ø"Ã4}tñr”z8B-ØµSjÁKUĞy–š#?EQüƒÀå¯ôä#`%”Ä'x÷óEŠ‹í08d@†ê&È§hƒä*øï&+„	‰	‡† GK¼“<ÁÃXÍÓßñİ£ağÆõK×_!×'•/%_®^ÈÎ¯.'äê2¿û•}ı1lĞÂ`sdéO†ï1;ì¾ÿ?–e˜3Ú6ˆ   ‹ ¾‡'V ­Vk“Ú¸ıŒE×~¸;S‹…mŞÎ0L†ZÈäbO2[©-JØ+c,V’yä×ß–“yTîÖR.lË­îÓG§[º’b	jÍ2¢¢dÃbªŞj*Õğ™Åpiğ\pZ~Íñ½6x[·&,b|Íbæf2Ï´½ÜºU‚KÊS²’"6/d•l="YœPM"±´Jg?m_\‡Ô‰ë¯ñ×¹Uší åJ+Ç%«|¶ä*ÚOeÛ§SÏZ#´*ûÛ9l¸N`ŒÃV‰Ç Û££±ã6ÛÍÌ…„‹”ÏÖ\j;WLª·&Ò’f$×a²=q~ùÆ*!1eÃJAr¤Çvjó#?˜ï#t9p<ƒıÈÁ3‰X¥	Î‘…ŸgĞĞP#µÊşöÉĞqÛ®SÇµYcê\dp¬İJŒÖUˆø*a²Ó¿Ø“ kwWoØï{c;¸îV[5˜q­:8f•p:Ÿï:nç3œRÿ/ƒ&Ï…¤ßÈƒ4ÏŒ|i»˜f•´Äm=Põ#ñ…Òs¾=eˆö Ölö»Ş?€ízl~sğg·aïü¼ÁğúŠò>51àŸ«2¸ªÜ^³î4W+Â9Î3ázƒ <·îì^J—>ÜüŸ¸Ì•nğ9XÑ¥İKXtÏ¤ıi¿º>˜Ñ®RT)A•T‰gèİµ^ç 2«d Ûº­Ø’ĞøüÁçˆ­YêÃá5ĞTAET$$ëØ.Ê»’ısd°S#MĞË·Ó¦áä6ıò»îŸƒ`ê8e«N'§ãnØ»Æ‘IïS¿|&Óá‡éçëa8ƒh®EÊ¨Ì:	]ÂA­EO‹{zgéÂvš'_Ü¶GÜÖF“¸^ó ˜—VëT3A×¨¦yåUb¡ş‰n]ÈPøğ’ÌpÎ$Ë"†D_ôº}±Vï:ÛÅûßÆ»­]ß^ÿq3]ÄŞbİßyıAç.×õ÷Z»ã¨‹ñÕê¿o÷¹ÿ•u…D¡°óCğĞùáâ¹àÒº‘šñoT
+»7ˆ¹ŞPÉ¬1C)-˜=ì#¬zÃk¶šİ+ÒvNËi}wĞ§šù/Ñ€Ö-ælw,Ó>ŒÅ7¦´R'HÏë¾Ïò-l[i£öäÚ¯¶ˆsïQŞ¢‚î¼\TR’g1“3.ã
+ZT‰c‡ãÁQÿ.3{ÂVéÎ6”ÿ+löD¦¸îV˜©Æn^Y¥”go J¨TLw6<‹ÅFÙ®W÷æ’f
+Öd‘ˆy¶ğ¡‰-+kÂâkª
+Ì•¶Kjí6ÀÙ¾pêNL©˜*é>¦c,*«ôC%Ãik|"q«ôêç—$¥Ñ,c±ın‡«…÷ÙœfğH£…=Û÷k¶Íú‰­³7N…X½RA>ûÊ"”È)ùòÈì/IñºïJä2b€ä,eKôü±,ÄıŒ½âşÎ#¸ûƒ{„õQb“‰M	úğ5Ïî­ì!öœ_úxÉ•±VÅy¢ğŠKAã%ÏĞJR-¤‚ÿ ]­R…±é¢b…–ûæ¢v€eî’Êİ/Véq_9=‰ìãßf*Ÿ©HòÂºH´^)¿RÙl6'¦•å>¥ŠX™ÈªòÈç%½0Zø>Ø¦c×>¡çwµg¿“Ã> éÊ(Áü2º7ø1ú~¶é³8õ9oŸä|ÍÒÕÆ¯aNpÚƒ‡àç93‡AÍÅ¿@Ú	ewvã°oÙ/uHïû¹–u“ã¸¿ÚæXŞöë2ŒsÜqËƒ®âsØH®¬K¸æØÙ=êğğúœ`§âùQiš¦ß•vR)e#AÉ€+ÈÄÁ &ˆ`G/8'¡Ä%Û?üÄŒ.EF°qK&ps®a©¡ï%Ö “xf7LJ!IÛæ¬ğ>cÄ²Æ4ÛáíÂ„f÷Ê²şù¯iÃR$ÒXüIÏY°  ‹ A‹'V ­WkSÛJıŒ~Å[µËzøÀ_ØÛ`È­ûa$XÒÍÈ²ø°¿}{$cCn’›­Zª#¹§ûôéÓİÃUL¬}Â_qø5&–‹¹lÂ»±ĞÔäHS‘ÒhU«-­4E­JsboC¬²ÅY/ä¥`«4eø%À/G1µÄƒ¹[M>x”N~Ûı©*rUVUYÓş:•ŒùãLQå(1™ÅQ²ıûÑ“†¬êr£\|œ¢Ôã.ê/&Ë™täYˆ7Ç]¾xTM­(udÓ}ñ=cãÅ¼”0³¯"R€C9á¡»}çüò³tÄœVrr€=%¥¢(ßó“ºsŸd²OMì[òÑ‰ÈO¯ÈªÖ”ë]†¿ÏH±"WÊÅÇSœ÷LEkè èèdiy4¼Xµ¼XŒ7:2½È%ñE»¿ĞªµÒbØF†ÇÙ< 0÷ììâvzú?¥)ü8ÙeÜö¶ç!‚d ©*ŠršÃíêmåªŞ‡ŠÔ>£¿…S+y¸:S4EA'İşby*õ0'­2–® ^MpÌÆM¡q‹@Á øKiI[èø†„¨÷©1ÊÑ—5	¿>SÎd;—Ò„0†RõZè‹©‚T­ZÕjò ¯j¥òõ„KàÆ&1	MÂÀÚÄu+U½JlMWë5RµuE×±¢èuM5È×”yÙÑŞB(JS×Õ&„¨è•÷¾X•ºÚ0š†YÕvEi(U»Iª–ªVU7ÍÊ¯ÜªJ­¢T yï{ä“Ñ¤_z(dÓBª¬H]r
+]f0$>÷" ¶Ì<'$ÖgxPqç"r¢s1È´æÔ¤şÅ1"8¸+ç&p
+ó$&ÇŸ‘A“ĞÂqvqÜfÛÇö„ûwÕë!µ_'Çû¨=EPÃñBß‰4
+KsùYIîŸSºİ•ÚxI$œ—U˜0š.«èÎVJŠ^RµSé±´0q)•:=bãĞAš\k ¢Ãd[ŸÒ¨…>Îw#¯kşâËEb<ĞÌĞ??˜ı…m¨Œ`N‘I(~å.A. ŞxŒÆÇ  CH¸„F&¿ôXš€3i‡Šj²
+ÃGšÅĞ½–Ph='áZÃì+ ™q3aÂšåC2÷z.a+ğB°Š1§1CÿFïJ‹,²!>|¬˜Iï–øŒ¡ÊÇ ¿Hß×"ş}Èƒ™±g ¬/.çk•Ëiš¾3-EJe‰È¬üÁç% ı",8m}ø¢“—„0ş?XQ‡‹äv¤›.Ì¶ŸƒÀ…Á÷Ñ‹ÓbìÁÑÁøú·œ‡Ä~bü+Ì.ÛyXü>gbÃy¡Mÿ¤½£ì±”ãx[¥ŸÍhm¿?àG’¤Réû¾ÿnØpXóåÈ‡]ò™.b±f¦ç}â0¿°}šë—Cš†œâ^s^àÁ\¬´ŠÚÒ”ö¤Xç?Ø)Ì2Ò’.ÁÇ2!;ÊÁ‡ª¶ªÍ–¢ƒ|1£«dï@x‡JªRÒ¤T[ºş«€ù	‹jól½U­·ôæìC^^½s„}_FèŞHB Ô	¯8'tÌ7/áÊÎ\”Òx-^Š.ÎÏ?€ìwèV–e‘P`‡0~>AÇƒ6ã€„¬šÿSÊ¿Ú”tÛúÏ¿vşK&Úˆår™‘|Êä¼ü ‰c·ĞoÀ÷æpO"qˆ}´{NBløDœqÅ=ì{¯²@V"Q{6ÚCÿV"‰İ}	QûÃ	Š2
+ÄáŸŒÄú¡¥rÔq_PB„§] ¡r$v¥g&>}¸ËÒTÈD:ğuJÃOñıÜ˜.
+hL„§PxIÛX À‰§}JÅØ}Nßñåq(F åE°`!N„Œp}f;¬/F,c 3~Ÿ°’tÏÃ>[YÊYz¢É'ÀGÃL@C«r$*NB ùŠ“âá¤*+rí4¿Š>ˆ±é¿£ ÷‹<N +Ø‡)
+=›gÈ&ùu£Ñ§ gºİ‚†z Ä eÏ ièÄØ*”|Â­hÊÏò¤Kˆ ‰íÙ°i0³@m	L(‡ì¡ÂÓ¼Œ\¬Ytà‘ø`6ö¾¡ÿÈ¹‘.WPÈsq|çH°aˆô‹Sinn„­'K¢ˆÂz;ÖãBÆTº|Û™§€ÔÎß3d`sâØbà9ˆ òBß‡5[püV²B….fû ^ø¶ŠÏÅPxe®@#ä' åzñI ç`×çÈH8	?PVp-ş @"[hBOÜDG¿õÕ!}Eˆ/]Ú1É••;ÃĞtvz6©Er­ÀøCPúuHÓ¢ÒŠ¥şÅ„¬¡VITÜ×As'D‚CîÁñÑÎ<òü‚!¼Æ›¹ŠÄßôoŸËì¾?†L˜eä4‡ÆÄ×B2PrW
+Í I
+Ï)l„á¦	]½kâ$5 –g{ğğVe¨xÂŞ¿1‰¤8CPB¨ö¡‹¬Â&îb¨"ërE Z“
+­å……@™èƒLGEÑY$°æı•S%ª djùPg»¥`{ğHAyò!! @x‚]:bŸ
+•xà ‰áŞœÛî}íÆÁ,ËQöt.v&¸’"”p€…·ò»‘&[€GbA¡Îß Àds\.åRv(¶-‚?Ä£"ˆ@â@h‡E™€%Ó%lß›R.õ”øBr¢â{pµ…~”¤a!ß´,œKÅêş{ÌOÿúŒB¨öÅñş…w›cá~:ıÁèÍ3´nÛËûy?/í/óƒ0™ĞF“$ïndvÚıN·İtî®W×vÖnÓë~Û±Ó¨±¾ªÖÔ6ïÚãy:r²ÖWñ\]*·‹Ô:{’èzÙÜ°¨ßxëöüá¬ÍÛÚ|ÜÔëuƒÅãQ­jucuèİš÷­Ywb%ª¼<ÄW«§az#İ¸×÷›)dm÷eéZC»’ÖçµF7&İ©>µk|>Õmå™´ç½K*ÖÓ ñ:9û¶dñHI½›n¦èãz3&“PéÚã®ú€¯üYµ{W/â¬ôÙÃ*ûöØ5ôë~¼Ü¹»	×’Šÿhézåq¼é¤µ„dWÎ}o3¾F7Ï\Ó*¾“n–›M)åræ<>•WWË¶Ş»ºKo‚×ª9[&óiÖ|Í^—ä¶;/»u*ñh«“§Y¹Óö™fÌç56Ôk'¡K¿¥nm*yÙà¬á;«ySµñ°ÆÒ;<Ú¸KŠÃt¹©¨×=o9}ò¿5êdno½føèu·Ï=}âÕ¦Ãõk]Šè6~Ñ6¶iÔ'Ïä>Yô÷÷a½’ÙÏ%S&ú¶ÖíOCÅœ±Zß4Ôo³PÏªƒ ¹f³‰ôjvª¤ÑèÍ&J#ŞÎ5ö K•:Kf?¤YuÆû.[?$éËzí^zÄkv;åe‡q}Ô«]3)2›i3Ì^İÇ‡òövyEõÑÙvl¶7Û‘gwı!í5¬êª“hƒô¬®¦å‰º!ƒEÖ¿‹GşÓµôJVQÊ¦k:ÁMïîlÊëŠê¬g/OOcG'CøFw|Ö^–k¶f¥×ec4·7}ûAãVzH`f{S)ã±á-R7~.&7İ›¢-ú·½5ÅºP¼ı/Ï¾ú¹ç  ‹ b¢'V ­Wiw¢Êı,¿¢Vx¯{%   ˜¶o; Å	T´×]®JAÆ0j~ı+2t'}Óy}ß»ñCÎ°k×®sƒ$
+@ŒüLï¿^ E”Q¹6È3+,ºÕàZ´Xšá‰%²[ »•¯fdp¦%
+ßĞõ©8‰ìêŠ3K%Èv`†cDíãoÛ‚oMñÃP,ûç'¢f^€ï¦YJ3Tœ››Z®èüW×"Å4(±şxùJ7s€¬©úœ¨¹6È¤‰¼•T›f8‰—À!JÀgß57ÉÈ<EIúµÊÀÊ³
+¡s~üËQÃÄ\W¬<ƒ	ùAIs4ı3?Á™y…C®8à*ì?8xc!Dí™šbÅ'~ŸÁŠâê—_Ğ hš›Ş›/İÂ¶>Ñ
+¦®i“¢,7vPÒîdr©uÈ¬±¼@{*©:‘¦›¥mü¨aw÷piOgçœ¾¤üMÃ€m’E Rfîû(£Öí&,õ,×JZÿİ|c–YJjR¼ôÄçÏ»3Òìà_Ò¥Lveº,Ëÿ/‹ã×W4şWzïÑ+˜D÷Â,OPmæÀv’B2u fôXíùğŒìúÓõØí'ô¤í”ÅÛ‡5™µã¹†HsØÓtÚÛY|ÛŸö%IºK»ëÅ3ú2İAy½™yİÃ¸nlëC7¤G®ı¶µ˜ì––›'de­>ÌĞ«7ØÊl{²-:ºöO‚«-
+©[—”á•³¾»;¬ô«+ë²QÕ vS{iFfÓš+ÖEzoÑÖåÄí9gHÉä˜”_×ùzg=œHƒ’g¶_nïÙf1Ã˜§+z+qçéœo»`Ù¿5j2E—…vYÊÒ|qôkËú¼\³3'ˆ˜MúÔ”ù-ì$y7ÕŠá®aˆãSó²‰İ£y˜/rÖ§k¶Ta–¥œ¹‰SÜZ:Ã+sUÜ1	×3–£]á5¶}%İÜ²cÃX!'šzÖûÖLåÑvĞßºGº¢‡ÆÎ.¯J6®RåŞHÇd›eÿÄm¹ÒÌwe>±OŸXÂn~Õ¸¯ÄTŠëZ:“®8”™»c»ı³ä¿KU¤øæŸ µÒ÷;Ú~ët:PçxŸŞPŸ€ı×£õp…©†D5ód.7ÿ|£§ñyH’YÌà²ô$0ÈmåCNQ‰k5©àL<>ŸM\1%Óf_ågïyÅ(É.-p©ŒÉFe Vw3mØ˜¤Õ”>®UÆWÍ£â&$[£y.2Jpà¦Ñç»£{Y8¨³óa9&jšÍ‡“4ß™»ÕŠ•tœ¹sCô}<ó°¼…YÚa°v¼…×_n«d-îÅ jÓÆ®;ŒÙÙ)t_ßˆ2.øŞ-œ•‰—ËAÈïš–`øguô©¼+ÖºïÙ´ä8]XµT"Á.V¨A¤@Úáb¡èãÔ]	#qçGyF#PÌİaÙK©ÎqpëŞ­~¤µ$™¨ÒR@Ë©t¾•‚Ÿ©æ°¡š·¤úË¡?fz—Õê²pÅ¸»ÈJå¥®ï‰R:¦ÄYûù}&å†ß_ŸØI}Ô9ôó“p>l™î{§#»›R2çrçƒÊ)eè½æ…¨)«Í¢“MØ¦ºóİ±	7ÔQ:İ^ç®™làUóåÂYGt›á˜oN³µ”ºyÏµ¥8š	[ÓÜİN—µQ¼cC¹õ³:±†2ê*³¥²F3áÏ}D{üÄ(³eÔw‘¾Çœw(š¢ê)nc6µÔrß°ÌÌ‰Yİ×›±‘~»Â3“M§{”mzFSDÍNkuI²9|á÷'vå^Â`C™áNK¿®j(-	S56iÙí©—\°ÆöÀ¬2IàJ~Õ_ˆ‡Š|„+ò=òÀç7&·/„ŠÒ©ô[à3/°ÍËË”Hãî@‹¯MÊü=‹:lW4ƒÛ
+Ã ;Gf- F÷®ïÃ:Oá^f0¸mMÜ0?ƒ³(ìî$E«!Rô'0D–ÕÙ* C3DMwòĞF‰é&v[4(šPU&×ƒG0øM/
+3œ†Ô/1Æ•á±¨ûĞq;t`’¢¬gR¼©æ¶ fíƒ•Èşá–À0=`°rhE¶[ ‰gLÿÙ#˜‘ZR³¢ªç’4Åğ±ÛÙÊÚ§¯A¿×Û/åùJßÓôañÜ¥÷š2œÊı§‡ug¢ô¯‰Ú‡}guKYV;Êd?XÎÔk°ì­û{eºïOµÍd?™m°Çó;U›+cy?b?—óÈoM9Ûám}˜†È&»¸äU›ĞGK	"ˆBğcø~Ï¶É¿°­fTlìGQü|Ÿ§ğí•ÉŸ Äpã‚ÃVá‚¾Oá.aRí!ÛE(Ôñ(ŠŞ‰mUÅ®ÊùwE±C1,1Op7²Qha÷SzÄOø-ãCJäie>|
+<DÅ»íÀ±U³(IÁ¿ Œcßµ`†-
+äW#}lW™ƒaU×&—˜ûWH_~D<æ_…in¦VâšÖg'Ëâ´U¯—eùÂ´<.©ÅUæ´ş*æôse‘E­Wÿ t—£4{AÏé#õíüGÚ' Ärp¯ş5øhğsöGïjbÆ®oÁøú—5ÿÂø=Ìv{Š ı>gÕwœ¢€´”äç‡üUå¾ÒTã
+á¸ «&¹˜‘}!åß6VŠ‡@˜zÀ‰ÊgÙøïàç•ZS@¼w.®Aå¾.Q¼0*ÿÀaÂ(s±Ü±*aÜP*Qãiöï˜‰kÑu%ÙU‚¸n•*ŸŸ‚ƒ ²Q|ÁP@p©g%^eâÃ{˜>€c„q›Ğòªµáæ¨¤ØÇw«
+mc\
+†]5‚?À$Š¼ô‘‡çãc#Ëµq ·KTû”ÆXú®éún†ÁD%Ex/Õ
+C/%ˆÿ ¿PÍÄ  ‹ ¨'V ­WmOãHşÿŠR>œ@¿Æ!!$¹	Y ÂìrPÛn'½ØnOw;$ûë·ÚvHÂËˆ;BØî®®zê©·æ«à)T(A²ÈÊ8M¾„TdV¸€?i7¡Ï×é·{}§ãvŒ;R¶¤Qb}šeÊLW®oáKJXbå‚GúÃÊ+Ï4Ze…<5Ÿ–…ï®cu,×µ¼îC£¬!aRIÇµò"H™«£tõöèAÏrÛVÏ®‡ğÌÔ&³éı­Ñ`¨ã«IØ¢+Ç^b.`°`É„2I…ü¢-¥$³
+¥.V;ÊG'F‰iiVJrPË–Óñç5?èï:„Œ8¾Æ¾åàGŒÆ†Çòz5ŸgPÓà[¾]=> AÇó}÷c³D×Ï†÷W³¥kÏfWË6„,_P1<¿˜˜w³±9Ì¼Î‘ùûÙÔœ]ŒÛ=¦ä×Œgñzx}ƒ8ßát—Bø/<›Ü]O\ÏÚ¤æ~A¶+ßİúÙó­ö‘åo¸zÍü-—*f«]*f€T8ãóÎ¤×éøşÿİ/¡wà7ààÛıÙák4Ê˜:;ìÂí‚­\š?'¿Ã ì¹UŸ²PpÉcÚ˜QÜÃÆíP{ƒÑn[nÏ½›«G%\ázo™şîz:]°ê´Ùˆs÷»Ä)S•¿ëGÇCÖ?°ëÿ [¼çı_ÄÃøŠ¨ûpZ70¸¾™\Áàİ~62¦TJ2§æå9ªìyİqÛ?¶zÎ±Óq:[±s¢hÿ8ïãú†PÌñœfªSş7Kbw,ŒÿƒëÀËŠ¬zGGş	ˆ%µœCø†OÜFuşºFã~Qd‘mË1¦—Ó‰ùGUŠ}pqåŒg
+Í˜÷ëq)lv–@¸ BR5l*6{ÍİËR¢†qÂŸi´=ˆ\ÈáN²G,›÷¡‹uk<˜7‚ÍYF®™—·ı×áG‰;]eÎr’š³D`ºVààtüŸÉì±ã´àîìóÇËëÇóëÙŸWÓÉ9.İ>NÇ÷g(¡w[Fcvûõñv<ÃØKixSÉ{ÛFãÍşGÑ}@|$Ëhd®1$Hã9I6Ï:êÏ`;P~%ÛíìÈê¾‹Â	çy>JB˜b#ÆasìÆXMæX½—AnßÁ>çÖMnVÑ¿ïişÉS}^=œµ1Šm, 9U U>‹)È¶}	ŠsHd&ás‰óÔ‚êS’'±Ršİc§Ÿòà%ó<Ëµ\Ï¸Ø "š…xü¯"{2®p6š—Ø/šç8„©¥e9DK­i¥,C)Aş$Ïb–!±]Ò„ç(Yõ2µ†¥Ÿ‚ˆuÓhìüîø­ìËdÈP° aJå²oÛÏÏÏ;¢vZ¹dó\[–öÎh	Åû{¦ ?*Õ=ÿ–U¤†ÅÖld,Â¶ÏAJàµõê´Gxô=_Şø|A“üá_a^à±ZÃìóœéËbş m‡²³Ä±™9æGÖ¹àa\°–q	Ç¨ e¯ÚÖ„Ä¬Ó4É*´`ºÆÒàABñnŠå€€è•û?øp®Š\×“¬
+%O)ä\ß¤´ô+$’j·ESÕ‚ Pp	Ø8ÀT_»ŠVYL@·]{‘¥2®.S¶1RdxŸÔ8¶tVq0vjx¼)İºàĞ'¹ 3ôƒe¿ˆ²èĞ¬êH¬PÒˆ°+µš­-x&¬\,T,¥²U
+lÙ¡Á s´\j†›ı/T^”ıf_¿şøY°ğ	q »F@1ü´Vi8ÁqhIU" ²d\´`ü¯ Dh%<$ÉaK³Xó‰T"©€²ºE”Z.]Æ°½ Õ¤x)©6ËX…HR
+uVj(<—ª^x°ŒƒKPÏ”<a 6 @®¥¢iTªÄjw+Ïõ[íô!&%Ö.è+Ç6\	;Ã{3ƒ®åu‡%«gœbß{ÖÉ®7éj­ÒÄ0ÇšÂ¶ó}ØÄH7G Š‚E£ã8 íÈo›Ô|ÓÇ»ºÙ‹H`¾w|Ü!A×wÚ»-e$¥#–IE°e—õãxñÑÀ.×K‰”bd×#¼óûmÇØõw¹·óbäìòY®pY>ñMÃÑØå[½¦Q‚Îjb†J­Øù˜9{#SÁá F¶Xfë×Aù·²f×æ!Æâ	"®¯7aÓ®6p~`P^@Å,¡UÀjúRUÖ¬·Q@òB`#&†M[`¾•bYë«<#BÖJæec`o•o¡cÅDgEi-,šÓs)	D‘Àz6¯¯/=õ¿õÉ®ÑX¥aØÄt„³cüÅÔÓuéW–sµŞPb¿p‚¯e*ã®ôz‘Ø  ‹ >©'V ­Wis»ıìù*xIÊ•Å€M^À,Æ	˜Åvpn¥n‰1(ÌHcIÃâ_[3`ì,÷æ½º”í¹ÕËéîÓMGğ‘Y„—äƒ Á+Ë‡“Ï$@7¾B‹\·æj^	y[2ÆÄ'tE‚šë›”)3Ş¸obL#+<Ğ¬d±ñ¬ƒFãèíoË¢?@¨d¹®å¾¾3f[Q©¤ãZI:‹©ôó«dóãÕ·Ë-X;¼Ckª¨=éß# UıÔ);ç–JE4ç]Dt¶¢B™©$B~Ğ–bÌ¬Ti›ÊßŸG Ì©F% 9Àc:EÇùI"ß³òWô–¯fÂG>ş4ìƒpøïƒ¦#/ZE;ü<ò›pé¸S¬œ£
+ä–×P?]à8ÆjH:G1†G‚—çC˜ù¢19E¯ñ{‘ò1™A˜Od]\6Z|%›õMØ=éo7fisõñæÏ0ğÂUkëµÚõiªJ]¥Ü¾v;	ûdô!3r0et Òjê£¦®XtñCå¾7nÂ’0©¡TDõ…RIÍ¶Â“ˆ¼@ËÎ/îV˜„Æ1£OXQÎjhp…Õ)ê1ß2úDJ³×‚HJeï¬Q-T¬ªã8§üÊz+Rû\§šë ¸e ÷ 2!a
+@æO4Š°]²ôvêºçèeém*å?ËÅs$V5°å¼C]â/¹íéºkİ.R1£"°A¢`9F¿×o›÷†,NzÌ“$Úš:ŸÿJ.9Sà¸y»M Ò8M°P¶¤!#Á9Š©£°)0å{¥2t­â>êÇ8I"Ğ Û™ÜÂ*äÄf"Âb[?ÄÑ²_dÕÕ¦ù-™tÆ|Ôß«›»©(4æj¸`ÇÆÔœø˜I³¹!ò™c"Ï*Wgè@" q%ñËR¤³oÄW:ï5ôÇ+±¯ìcŞÑ’§Â'"šE$ÍMBØí
+ıoÔOÍ>à´rHg¹–ëC„è&©¡o)[Ÿ€ÌğÇqˆ.•ZZfD•i=5pSR+.$úz)
+ÈŠD<Éœ Ô‚ìİÒOèG¯9ï%Ååöï˜LgÒtn]è&’ĞEëõúeÅyH6O´ei¿Òù½ĞŠ×^ıÃä1%R½€ç¿2G¿Ìîitúk'p.ğ½õüöKHéOİøğCÌW$J~!üw>/àÚNÃä÷1ÓS†²9ÿ@{ÙÔÌüØÏ ódä–™^†q» ÁfH“ç°;´u;¡¼£Qœ“z;î\¢b¥â€`€
+n©üÎ0ÍìÔïCÁÔ¶“Svü’@ŞÕÜ¬äf&‡Ùf>(kè1å
+âI>}g7º¿mÏµszuk¥2jôO¿YkàR3Ş£+
+ôI–Ğ>ïëŸ„¡ŒW©p=·È‹?Õ½#ˆ†ñ½@`¡_# D\­B6èNéÁy“eš‚cÎ, wAøŠD
+!+ =ú öİÛˆÁ…aU7@§$³0#–aô¡†Aé’DÛS´å)
+hÀŞ¨gÏA­âY›K¬GØ	Ëüd+pÔŞ÷S°©`Âƒ/ØZÆXùĞ‡Ö
+or– ê¢ŸH€!‰î3¨…•´vbœí$È&2$øÚ›gêõ)Õ¹ÔÉË¨N’$š›³”FöXÜÕƒŸh•sã©AÕ	–eZ¬½„	¢Xe,å!dËö9›ÓP‹ì¸(5r«¹îûK(âŒE%ìauHÀ6gXB\¹”<Eo,{Æ¹Òìš@uçço€Kjœ*`iG¨ÜÇuª¿kù:¿{¿µ¤#À}ÍÅRO¥™Q˜¯Ì¾;`pÈÚgç50ûœÃE Şd%Êt	€?iVuÌÚx^‹¢ “8»š¾›ë¬¶µôA)UàG3UÙäàğL¸f©a_¥8Ê+uOr×odæpœBMÄ<ƒ@¯€šµPlšºó^,oh÷½å¤†ô¯×¬ºU³à¸fÁ+—ıôÕÀ‹İ†¶fh·áíjÜâ"4Œÿƒ–~¹—œ#EV?~>°°ôŸo·ˆ&ß$_wì	-RÀ=ß9ˆS	 Ò\+…ıEççhN#òSC¼šíno€´îI¯;hÜŞÛÙ¹ñ¼OtY:ì¢•¦â8[,‡éBBK²Õåò?lÂÏî¤Î~®9Û&^¬œÈÜ«Ô#0š¯ˆŒ(Û0è¨í7íæe£Ñm®?_——ÅFƒ_·?’vxtí—CçÊ¦ŸïÙÇpøqzvS¼<+VÏ¾µdZ6fõøàÏ½R£µlG´wç±ë{u7«î`âõÅ]£ß)Ü·:•éÕå$^Vº“»Òdø¤WxP¸dÆÃæ¡z¾SÁŸNîÂÎªX ÷Õåo$·Ş@ÈåSû²8º…/Waºv}ªÄ†ô‡İj7úÔ9sŒÉæÉ»W/W…G”ô‹ë¥ß\M¶îÉêáì†nŸ®F“Qu`7–=·êÚ…¸ä|.ŞÜ®l2NšÂùã{ÎVcÿêdxı"zVTéI0ÎÎG—Ëñtpw?ÚË/ÁS¥Úëûn9Z4Îæ_AlØ£øşŒ\OÓù[]?´Ô½7Vì¬Ó/„]¡¾¸‘ğÙÕÇí¬±WŞ“,öp#„pzR©õG{}’×O{ĞúYõüN£h±¿  Ô,ç&  ‹ M(V ­VÛrÚH}F_Ñ•‡Å®µîâ"H0àØY³qâÍ–+•¤ÁLŒ4ÊÌC~fdßòcÛ#aÛåM-Ò¨çôt÷éËp$xKş…¼Ñ+¦ğ'á}¤ÀsÁm´Ü°å4ÁsÜšqN#Ê–4nÁL+±T™ÉÊõ-\$„-¬LğXXÙ|åY‚Æs¢¬ˆ'FeïÅX¸t«f¹®åÕ?í•éL*é¸V–O&£R•®~TİkZh¡i—¯}¸ajÃñhrfTX*<=}×çÛpê!Ì¸€ö‚M—L(3—TÈ7ÚRBR+WÚÃùjëğîoF‰9Ğ¬ä !÷ô˜Nà8ùÁxw¼C—‘§¦}¿çà‘@ŒÊ-	å…^Î ¦!°»|=AC¼p×s<ÌÍCg<íLNÇK×O—>D,›SÑÍóqÏìÇ^­n¾íÌñqÏo0eJvPfTPÍÖ?Ş£ŸpºM!üGo+rïvqé6šVİ·ÜZh¹^°¡æ!Ñg\ª[mG¸ß‡¾ö›áOxê¹…§øÕÁì}˜ô÷ú{é†åÖ›V€/ßû{YíĞñ|¿nÅ,s,e²,âiJ#U„b™[^à[µÛXîB~$ˆqO‡Q;7ì‡MÿgÂğ[Óò=ÃÓaô‡ãÉ¾Ñç©¢X`“uF[ °&ílAXŠEÍ‰Tur53›Æ†Ù‚¾¸¦Ş‘ôM¡½==ºÆˆ%Ô¼(kª®…Fğ±oŒ¨”äŠš'ÈV»õÁĞ÷ÌA¯Ö0ƒ°>4ÃĞë›nè|Çoö½û#D¡[Å¢SR+c1&¼OQa|4Ïi|L”9ÎHb#.ğDÇj:.ÀŞaï¯áøsÍ90*çgŸG½Iÿ¿Ïûƒ}Ø­¸»üìŠ±6òd|DSó›‡ëŒNFÃ‘ô
+<«ŞÂı´{ÛØÆê¡pŸ1AR9£Â¦YzÕ‚&ö&¦0{¹âXpØ£ê®J¿æ?ÌLàğ ÓÅ˜®Ê‹‡íM.8ÏÉÁ8Ÿ~ÁÊoÁåäğŒ¦Ëoì%çRšNpşĞg:Â)ˆÓú¾Ö°é0Æ™À®Œi¡ú—<½6N1¦¢ì^0¤\j´,æq*fÄ	K%ˆâBÂ/@²lÁ"¢	1]ÒºˆE/ª9½uK¿ëWFe··oÒş‡TæS	6E·Ús¥2Ù²í›››-¨”!Ù<Ó–¥½sfmk„â­SĞ¯9•j‹×²äº“ß›İ8ÒÑy~Ú	RZ/µõXBÕÇÜxóCÌÇt‘=~Îç9ªmN¿œ3]¹,ñÿ´-Ê>š…·ƒŞ|j¹w÷şã˜ÆIuI@aF’ WDè-Jh§è-8”+†…‹›DtVÎ!Î“l•,€ç*ËÄœJlk…#º@&4áb8§‘‚+iÁĞº²Z†ÑyR`p®wª¥Åj× h§$¡]×	Úv±Ò¢<gq—ÄcgjÆ^à™AÓ#f³8fÍu<àÎ,œ¶íªu6†ó”©NõwvXí:m»ûQ.©Ñc°½½Œ²ğâ‰h‚ªTØQµëµm½U`¸Ô/\è˜ºtEÛv±*…ØÅªkË)Km½lÏBÏ.ÛÑ‚G×Àg3}©UsUíòÜôsÆo¨ÀnŒ	|:[ÂHĞ)çj²m ‘ r¾³_Jô6Lqéˆ}÷Ë"M]Ãè“$O(O)ĞUqÃÍ|Ifb¢à³Ä4¿†N1"€H¬ë”ßµP‰e!Ø
+Êp5cW¹(çÚŒ-¨<ÀãY4¿• ÛI$Ú2ü·£ëWL—Ph\0ŠwÈ[ñıŸïÓİ½[„\  ‹ Ùö(V ­VkOÛHıŒÅİ®´5~…$@
+´´Ğ‚–´ˆĞªRUUc{±gÜ™qBúë÷ŒJ€¶ê‡EñØ÷qî¹ç^çV%••sõ]¾Ô<Ë™RÜ»ÊkzŸZêv)†½>Ôâ¾wÉS.æ<ÒÄù
+iıò&ŞpQ2Q•V™;U~Óî"z›lKŸã(èqt_¶¼dI…0ÖDqPÕI)LÚºò›Ç®›»2ì†í×-„Íéd<ººğ6DFvot2›m_Gq·»ÑDiÚ/D2ÚúµáÚ¼t™J&ƒÚ:„ùÍZğÃçŞˆé8Vr@È=~Ô‹¢‡ü¸J¶{AÜİâ~ü…6³<­pòq
+ıíaÕk¶máNš«¼ôÂöëç•_ß\Fñ^¼£sT+”<¸:Ïãp<>ŸoS*ªœëƒ£“q·?ğÇ§G”kp ˜‹Éòàİû­?`áJéXLEÉ~Ñ»—¬°œÏy²Ã­('GùÃ¬ñ6'\s™r3¤ış >Ùé÷ƒ~Eq­‡ôŞ€í!Dš³‚.ZA‹íÿDÜ‡ŞˆÃ¦Ü?;nÂvwß{Ûv¢øå1³|HË4åöèYÔE¹ Ü?šriA}EÁÂ~Ñæ§8~NçBÖ7t³;ø:è='=nïÑ½åéL…]WIÅ§2ã::a±DŞèltâlû4¤wÎ¤É«bé;†ÏÈk%-ùWË
+%XKXLÈç´áö ¶÷ÎN3i@·"S•	9Òºï}òÇ)“’gş«%Ê¤c>arJİ`°KJÒİ°Â¶PªÒ¯:êëäš§ é˜>ß3ûBR}|÷ºÕí7^Ö¤ 92&GØWœË+H“ÿ&ö'„ÁìŞQÖbÌ“w¡1•™ÓÑ®k9óÎ!IÿCúäÛ¤6ÎÚ4Û ‰Úñ6XV
+	+Í¬Ò†ş!VU…H™…%eà¸P,[´6ç?$oÍôò‰·q_×ë{¤ÍÿAš:1©	`íçÖVf†‹ÅbÍ4,Û’BU¹Ì&¼ó@÷…UÃ{|Í¿ÕÜØ5z^˜–úƒú.í
+È‘Nsì¬_ƒ`­ÁÃì­÷…2èçOa¼|Tó)/ª_ÿs·U„ñŸsæõ?¶FÙ'¿Áq»èı_­ˆ^³"v°ñçyï1(XîQĞ>İv÷:?väB+ñéT+Š®ğ!:£œÍ91¨ÊÚ‚Ó‚'@êÆo ®',åjQ-›bdéãÈ®¥t×*£ËÓ“s„PÂÏ=-j_Ê•cgJÿ~…Í¸Á7 ³§’Í8Yåfa5“V!Ş<s‘MŠ}lœÓ½ƒÀpîPR[@f%¼,M„t[„Ê:ÍÉµA—Íô åjá"d.ˆ0´‰"0j˜ğ"`ß<m°ğmŒé)ğÔeğjâÂ4§yÁ‚
+@ÌVpKİ)3ÄäRI$ø×¤A–TÕEFF•Üİ­ˆ¤’ß&Ñbš[ÊÆ
+k251¿ +½tâö¤)¿õ¼¥HÔxÒP<¦i3¬!C©æ2ıºj©ïã@…JYáHö÷¢ˆüC4L¤3úpéúˆ#w§Š³P:ë@!rÚÀ{2¶L7y\Ëp;39›ñ'wœ\áæÌüÕ/ÆäÓ"•å:$*Ë’‚;æÀ/š7Ó P÷ '‘’ìmémuZ	ÈNd"…£­+ºl\2Ï¹4š`¥((hÖf£­V5Í%°¼UúúÊPh~$Ï)_¥3n¡ÑóÕªÍÑbSW•Âµ›‹©%#°æİ»2=Ïm,ˆÕœJOÃVˆ™Â
+AnËâo^ğ¬š·šU¹HçFuÚ—+e“ÌñºjVRc8ÕøMÚ§xäK‡veï5v­KÆ,sr@¹¶>k¿€#wÁ–ª†.åDLkÍ·+Z1æÜisFµ2ÜÇ ¬£á/ôp	.üº¸<ˆß5`ÍÇµ¸ÖëÚu®`IâZÊ…~¸8½€v¼öG•çıFšîÊ-  ‹ uù(V ­WïSÛ:ıŒÿ
+M·³mg±c›$“Ph¡3¥ešômgŞ0;²-Ç*¶åJrBŞ_¿G’ùYÚÇ‡e'WWç{Ï‘ø EMêVò•ø«9”,/©2|¶(;ò9Ó$I&£İd4"q¼/,c|Åò„f-o´__GQ€75åUĞJ‘›‡ -¯ãà.£·õúÙ±äÏ(F"ãáåo+İŠ+­Â(h»´æ*sKÙõÏK_O‚h'˜ÜË²æº$'óóÅ…·Ås¢÷ÎOVz5G)a<$…dZñtÅ¥ö;Å¤:4;Õ´	:m–×÷’ì{[ fÛ°bÉA–;züp†ù1•ìƒ(Ş¢QtI^çeÖâÉÇSÊ«¾ë
+>i¦òa0¸—§+—YFÑh¸‡v¬P-Ílñq¾ŠóùÇÕÉx[29;:™Ç£±??=")×j†‚p^lfŸ>¿ùÃ……HÈ¿™KF’^QÍ@+™êÛ÷‡K[Œ!u›<lÀ½™ùÂ
+&Y“1•ih~¢<
+wwÇ/÷vieqø2Û÷ÆÃqøòĞäò>€ô„œó¬¤¹psÍ¯Èô‰?ğ¾ù'·@ücIíÏ5ÕöúEQè3¥è’ùgÇØ}4'öv£`'Ü{ä%ägBÆ–ò¯0!_Qš´d:ñ¯*:!yı-ŠöÉGŞt×äz2şïx¸Oä*Ù™á0˜]‰Ò¡î0²¬79“)—ù ;0Ÿø¸N&$Â'gÿ…µÕÆ7=xiïE£Ì_lZ”¢!«A[QŞìĞ(Ó³5or±V~â»pI…ÅLä¼Y&dãZçm–ûï6¨YA›%‰ƒñ„ˆ†Ü©±•mòë˜wéw–µ/€öçƒ°Kr*Ö[‘3D—ŒĞsª¹b9YÑªcDä|ñÕİ#XšÊĞHŠÉ‚fì-¶ÇX³ÀÌ³ß`øæŸcF`
+wLÇA¡zrÏÍ„&ä{×\yáşÔÿâ6Õ)­¬ÍØ¬ÛŞÍkŞ JR-¤"ÿ$´m+QH’³«D‹H'_SRË¼J*7/¼­‡uß Üş_Õ¥*“<¬i©u«’Á`½^ßÔ®¤hÍÎjğ ç€NM„Éƒ/|É~tLé{ô¼U®E³înÛÈ‘ÌJ˜á¯APğxw·úB(ôıI‡?Õ|ÊªöÁ¿Ã\bYŸaş|ÎÌÁ›BüH»GÙ7ßâ¸9Aü_9ËğöÀÁç}†  §0°ßÆaïl?a¾k)Î; §œĞªÚ&xk~ÏÈš6ø[!ØòcESòåBRG¤DÛLºhˆã kğ–f(¹9 Øx£40¸™Gö†­ÉçN'šn—¤íd+SÉ±0°ğ-«a<XhvÔùnYëÎ®{é¹7¶Àu‰“€°kkgÊîİ0,6QR‰5Ã†%5†¡)2¸£¥šCÜä‚3T
+¯àF«W¤¥I{ÂjtßÉh6mº:eò`ûÅÔrwğÂíÕÜñe¥Àkd`µEíSI•Ù•¤ğ$Âë¶²åÂ†i ónsÔÍ›Äó:]
+™óó'™¶öƒÃ²ÿÀ‰Å­¸-ô-5M‹w’a˜D»fÄÌ™…#>_×\»äÁ#sİÕ-.LæáĞş0f}¤KúAr—7Ç½d8J¢=—ÔGf\M¶£<'ªk[[³W0Çf….Qz¤×B^‘L4_Ú%öÏ¢DášçêAj§è&“¿p™LÇ§¦A ¼˜QØLwPÛ$¥fŞí(I¢³˜K³ºàŒ·.L#î¸’Y.lÇG¿Q¾\c$¿uBµ}úfµ9òcÿ“X13KƒZ-ÑÑ0(u]Àf˜ !g7jpeãĞ¨*"™ê*m`Ñ¿™M›RÔvĞn
+Á-…átBÖ¼Q5U?z–:é[ğŠwMyßIÜÑ´QÜñéû‹Š²sÊˆjYÆl Î! ÍÕšÈÍvv \O„Ñ«u+ë hjZAÕ·ÏÅM™.ºæô­JÑU¹Í>¥4EöÔøXÎò{@ç|i.%¢(ü“çéå‰…¿×‚ç½ƒ¶ÏH.šWÆOyse´m;£Dµbd#:iBß9;ûúŞ|tkÃğI\´­ã¢âŞm-|ï0X·æZĞj±,µñ¸Àó3©ô‹Qsÿ˜öbd¨™›{E/…·ä¬ Àm@§5ÌVRŞ÷ç•²­¡xîÚúméÆùåŒyü™i`lw2€ìh’é­ñğ/ÎåMß1’çK0í˜ïãKç†–.ıqÑgpR;Ğ´’Œæk™÷] Âµ³hî8qÇÄMCûçÀó¢Äj’ì™0ı,¹¼mg7áqŸÎ`é~13G“Ü%ËJVSjtàJ	®ëj¿œáü'»ŒÆ¬±:ùn8)Šá0Œi–F£ñ$¤¸é—éìôäèØóâ'¡ ~MuOÿ?Ø55Ç‚ò¼‹`$èUm‡B•´f¹n—º§õ3XR…cä"ëŒĞ{ã½×œmt_Êú´´¼V  ‹ Ôû(V ­VmSÛ8şŒÅN?\`Ë/y!1IJ áJ\B;t:b+±Š-¹’œ~ı­í 	…Noæ2XÒ>’v=»ò¹’)¤™ây/N‹bjHˆc7qB¾¸íÀ­ƒïzMëš…Œ/XÀ¬˜Ë…±Ó•Û!ØH)OH¦dTtH¯|ò´¢µ·ÿÛXøâ¹¤I<øş×koº†„k£]dù4å:¬¦²ÕÏS÷ÛÄ«“¶S½`ÉM£ÉøæÊÚã˜Îø¼]¹Ş‘ßnÃL*è&|ºàÊØ¹fJŸ;¥TÜÆ«­ÅûÇÖsX°R’ƒ„<Ñc»×}ÎOI½A<¿C¼¦÷ö£8Ì°gcLÕçQoa«ÀŸ´"òi8ÕëåÈ½eË­{ş‘‡Ç±Àh¹½›ËÉÂs&“ËEBÅLõ£‰ßlÙ“w˜r£{Ø„óÙº÷Ï‡ƒ_°àoX¸‘|’ÉSğŠ{& »ßéIñG"Ö?„]Ò·trÍfL12@wĞh´†£ºoÍ#»ÑiìNÇ?³½{>¬»õöÙÑàqQë`ÌÃ˜&pU‰šßA÷÷­1ÓšÎ™}1Ä}š-¿}~:ôÈ‘Ût;nc9¤†ğsÈGeÈüéúòGÄÌ™0è‚¼çIB&qaÿÖóá’‹|«vë[«qjÔÛÄ=€¿Xx'\ÎÅÇ+ySS®"uâZã‹ñÈşTU \ûšeÉÚ.XşIaĞEûfaL3ÈÉÊÅ1 iJ3ÓËÍÌn?áÄ‰PF\Ì8BIX·ö$¤B°È>]c¼èãÍ¨˜ƒOZm2±‰”Yğú‘Oòéw"o×èÓ—ØW‹{ˆğ™ÂµN7(Rö‹oí1¦
+fñq>ñ0³¬+…ùò
+à{.î¬KLwûÓõÍëJ®´.ëB¹ê¡µG£”D)j¤ÒğĞ,KxH"!b– ‹h(óÍÄìÁ­â­¨Z¿±övKÌvE©öÿ(t>Õ¡âSt«“éÀq–ËåÔI«™;kggÍ>:Ú-F;[±9Óf‹·ºâ»—?m»qd Ây~İ	Zï^Í¾’ñE7N~ŠùK²WÀ¿ò9Æi›&¿ÏYQÔ¹˜Éÿ´-ÊníÒ‡’o¿V(š7ş,ëƒ Åè’Òê×¯sø¬Z.•Ä¥¬>¼ã‡øÏEmÁ€BéV!<ÅæT	YJn'I\€†£ĞÑHM‰ÀàtQf«4™›,7I¦(„˜îXJdÊR©Ö€µ )›k#2'AåE7’i‰ÃòÑ«U»Öúh è
+š²¾ç6ºNÙªóœG}ù¬¹S;ò¾İhûÔn·®İô\Ÿ5Ğ2ëL»N	­fm\È7½Úßü´Öw»N5¸A„¹ÂKÂŒ_îØ6øE˜å€•.d)šz5m0ÃZßï:…iƒ’ºj`³ˆ°ÏV¬ë”­‡a¬¦ïè)NÑì–ÿ›ÙÎÃôn˜ÈğälVÔZnÂšó°ƒø–É%ShëGx”J®qŞÖà#L±©”f´z„„ŠêxQT ,M(—œ­.vÊcìW‡zFh™2)°UyÀ2^£¸†ˆ
+øÆ¯.rx¬TÕ¨²;!—¥f*á¡(i¤Ë p[3>ÏUU/g<aú—ÇKúTÍØl Ešª´DË²>ğÒ|(Ló9Á^DÉ"¥ç8–QÆoá³ÌkI‚²—Ò$±PõÃ2T¼&l#‰<2N“ıÀ*ÿ"âFšÒ^~Â¡sV(QR˜Ï¥‚Ğ­êÃ²ş*‚Î@  ‹ 6H)V ­WmSâÊşL~ÅÔ~¸êÕ¼\<‹¼(+ˆ|Ù=uŠš$Œ$™˜L€øëoO€<«gÏÖ¥´€IOÏÓOw?Ótb §4á		½ S?d|FÃ)ñòe*,F³\éåšiÖJ24½$‰Kè‚x54hÈå`¥ë
+|È7G1óÄ%š­%&ŞsáQ*ş²-úS×”’–Fñ¯#©àdÈ§€XÓ•(uš¸ë­dõ÷­‡E7•Šº~;BKÊg¨m÷G7RzˆWûWé3Õ CG£Ï>u4ærš8ù"N
+p¨¤\ œ­vœŸJ æD°’“N¶ô”‘¬5í-?ï:€h–ÀşÊÁO‘
+[4ÅÔ7,ü:ƒ‚†¢RT×oïĞĞìj¦Q,Z›„NYXõì…®Úvoa"—F3×[—myh7äFÛ6Jeù¢Ù—íË†Y)"‡ò¤kR¶ÓIV¿ ÎŸpºK!ú·Bœr„5yRÒ”)cSŸ¬#|çghU¥RRÔ6Ô½MÄKø„®v™±0S=/·ô¦ÖèX•ÆoÄbhy,%t¬ÁŞšG;;±«›ësÅ±âT±’°j©\²*z	Líwˆ47‡Ëš%¿i¤ÖUF§!æiLjhQ×O®Ç	–“†ì"·¯ˆ§nŞO‘Wÿ¡§’¬éğ§›Ğ ³ºP×’Ôy".¯qV‹É„Ä$tIR9«¹n- I‚§D¦^ÍÃœÔ~B.jˆ¼)¹å˜D~&ƒ#—…LdEäõKŒÃáæV
+gV¿Ó¿iÅJãš~màJ©<8~6qË¹»;“§GûE»n›ÕªšÆ•J]ì¨7‡ç‰µ<¶¾ö¼{q‡Fî¹m+ıáêù¦IoŸ‚g§¡?^jßÜ´g·^ïØM¼›NWíGE&|3mš/î=ï>ÙYûáë•«OXå¾§áP3|û©M›\×qĞ¿,Ôe<,^f—56¼ïÅ^ÿ©yíö½EojcyŞh,n^fÖh¨÷†·øØ¿(y÷·Z—eóx0Ÿ«£¥5±üQëñ¶Õét›YJ0±²Æª'¾®Â 3o;ìÙºªf×Şõâ¹ã,ù¬oQo€'ËÁæÕ×sÃZ&_½ç¥Ÿú¥ÁÂôV-Ë?¿L¯FÁ…TØw£Ü]¸OOôÛƒ[$/ÃÑ·ÌñŠÓÕpP'wß#õÛ¤ÒVÇ]Ó©Ä•óK«ã_Ü;—‡>²çÕêB*L{ßnëuéQŞ«uĞ®rY1LrÍØ¯xNu-ˆu­T1«vøRU,•ŠeÍ,V«åŸjíºÀ‹{şF/>Ó(,¢CYš¬—uø7d½¤Ìbñç²•® ?-M§ğo(zi#IÀ#åõ2Ü‘ˆ`—
+$Ó­$ĞK¦aX¢]]Å€0!„²#®ÓTJæ¾°êcc«©íæªêFe«ªĞkU…5ş~™{İ”h{­£ÏÿxÉŸI#VCï	ğú£©ÑçRÙ° ][©hPéÊ—Ï;%ŸIÑô¨'HG6OƒtK|ùò#gR#İÖÚ]µX15pW4v[B.Ş½%ŒÍ-q'ô¤!ô¤†úì…ú>VK
+°ñ¨ƒ¾õh˜®ĞªR—‹§(^ÔÌŠ¢¡âÎ™
+îàú×ôœZÁšCcOT·ßí·åû4!Vº!µĞ'ÁÖ?ÑÜHÖHèâp¯«‘4v†ã„ğzÊ'råTæõ‰Ï–Ä{İ¶UºöFéjÈ‚rÈÛÊ»Ä\¶#È¶Ë„Ëš¢é„ÏßÚö¸¤ V³9¶oîFcİëUX ñÛİ‹ëvëD*äßî½nëu†ív¿Ñí;ƒáE»5îıÖ V®wŸÁ"ì»l7ZíaşmÜêv:íaûz4^[Û'hØ¼o»×ãÖµıĞ÷°e»Ö·oºWíñ¥ùj¶Yzè™}Óß4lûíİÙï^ú{V ]ï˜ıJí?8‰'ŸgPBö™àpŠ¥\A,D¯3èG¶Ö®­ÕÀØg,ú ±ìÍÅ‰†Å?÷ÌşBB”h´(‚e8Q°ï+P*K‹j ×ç„„#PòÿG¹QÂûZÇ IŠnH71h¥'zº¿Â¹ÔƒaWî‚t~jÁT&Â:É§âÜ+d{Á*ÆœÅ	úÂQäSs°DYŸE`¹ÖH>#[Xâ=ÆqöI*ìÏ0»óôúü»F‰Ä©°>Ï8’šª.—ËS5X‡¤²Hœœ¨{>Ï èga#ÄŞ˜,S’ğzşØÌ-õôõØFìÎà&y^¼=}½[L”°õg0¾ü-æKâGï„yÛ6ì_çLü¤¡á„ıHÛ¡ìQÎql¯_ùİŞLÄè¼$i ºE5tu­êğ´ˆıä8à…ÌÑ2fàH:C3Š ¾âÌa^&ÁB÷Àƒ²šÄÂÉÍØr[nü6šøi~]}ØC'-Yê{(c)š‡lùGîzA(…ş€2ÆÑ	êŠ.€S~ '¦Ş”œˆ‡q:$ÿ€(Ç„ÏÏ›3PÀ<RGg ™À²dñ\X‡èÓGÈ>	/SøìÎEŒš"%°N¡âŠğ ]à‹[ëÔcl¬ÙvG\ê* ‹l
+§1I"èêPŸr€Ä–Š$5ÂŒÃşcgÂqÌ„w3œ¼‰ì ~H¨gŞ<‰YÊ	<;ãaá;™ Ñxk[G::ì‚g/<àyB$ÁG°
+;)‡…‚#²mº‡pè2Á…½F&}Ä¥H†ù…û•d!³ —6é'¨”D„¢èÖğsâybÇÏ‹Nƒ–Ng@ßƒÀ t 5 ¿Â0É6x¡7øÆÜe	'Pé4gUÚ¡Ä'ÀTè§7KêsÄ&nt´8ªÓ£‰ÀDø¾x*m $Û”%Ûœ5F{¹¤©yzNPÂĞR£8LÔ6’6à °Ã ÷<Èß+6¨‹,Ù‚[`è1Á¨n±°—tC–C\,úfË§’-Ú$$¢»ØÚŸõ# ³;É›q‰Ãíº³>>é@‚Aƒ?˜.áX•pW…s]îç©G‡"§KÑ"q9íÅpÙqã—Kò´ÏI›NÑPëÔxâvc§HÚuì©ÿÍ7‘"ŸI¹ ˜f‚ãpäßÇÿî;ö„6sD©~ûp÷F-ü…ŒÒÿ ‘ğ…
+ğ  ‹ üp)V ­XksÚÌşÿŠ=™Îi3ÁÆ6¶¹4ä-áÒĞBB0„´Nf±×xƒo±×\òëÖ6	¤MOÏÌahÁ¶¤•IDzqè#ã%fÄ£É§…©'Ypsâ¦èÚbHU‘Ro¨Õ†®#UVtaL,BWÄn ‡+Ó€‰şFÑ$ø’)Gqhó)r7ªÛÅŒ[>üµ,ú¡È’.)Š¤VGó-ïX"+R”Î}šX¹*Ùüªú¡&)©VÎ?NĞš2uÍád$Q±úğjÌ¾¯e^*rÂyt¾¢1Ó„ÄÉ'~’)eÜCw³güü£pÀ”8*8 È<¢¬Éòk| ŞïÀeÀ@®rß_0øM ÂÑYª(
+ ‡A“´rşñÓ@–«ZE…Ü¬ tÍÉÀ\)eÓ¬*È¢‘Kâfç²+Í–ØêšªnˆŸÛCÑ¼lUjšS–4ápêÔÙ6¯®O>¢ÿ!ˆC\SYt”ª.-Âpá‘<„· 4ª\—jº¤*ªÏ
+t^c=
+æĞÍ~ğ&‚àkõMnË­^µÕı]FÕJæ¯†Nex¡ÓIûdÏk8iM-gcäv¹Ynn$a½R«é†Ï%å·Åbd¦+ E•›u&'Bçk ¥‹ ³4&´j*nÆ	¾‘ÕŒ‰‡7Ä.Ÿ‘İ|îÖÒ +ğV*pªÛäÀ6XØ°¬FL“À"IƒbL"o+Â“$?‹5lèü†O’/ˆHmá¨áSŸˆE94¬0`Šm#òrã «"˜m,Ì	¶EØd&v‚)Ÿæns=ŒRº›á—Ÿ~Ã›è.ê^ZÃ—W¬zº^HÊ1ñ²É5šdÍnÛ66¿<]•ûı›‹õ·ëÅ&2ıî¯µ™Bjµš¢»ø©ïÎÕ…®Òš£L–]¸Ôgt+S#jGA7Ë›«Nybê®K¯{£ßreW}\ÏfÛï§ËÁÅ]u1ıò0{\¯>‡Ó>Û¬úli9l;6Ëuğ
+G_ZóujØáxo¿?Ít? +|1XöÂÊİ5.]ßKı%}ª-¹kÒ»ê%öÇåõ¹oÏnWh²jN¯!¯Wuez»¹"ÆİõÙ¤íÅÄŒÌøú3@`”“ö£nxäÑœšÛ¤¼ÒNOW‹ËÑ£eáèû|¬²È™;fíQ·Õ¶;®ö6‹J×™+©ód8·¦{ÊÍS?¨Ìº95µ›Z%ıêÅıº1ô¯§kÈÑ×»o7Í¦p'Ô5pR“%U6 ­´Ãúö"Eóãº.×+*¯o¸IÓt]7´ªZWk(wõ Ü_õÿeè“Q}ĞQ©ˆŠ^‘°@Yo–±„~hàŒ\át‹VO|I/Ój¯Á[ˆW±§$¾R×jUCÓ×®ÌC’
+”aÀ`‘tå÷”{uGyİöé)jmGzĞ‹9éÁ½2ü;ùë {¼#ÑñgÆ‚&Ï#÷ınş“°ñz2í¢:~?¤–‹=4Šé*|
+èò=Øò£üj_ ¦ tÆ)MVlE®Vwõ*¶-K•ßYU¹nh†üî×@gº¡Özõª"Uäú­~ Ã9$óïM±§Ô‹)@SyFV94Z˜µ“`XğN¿³ï˜­*ï4Í©Õ±R·ˆU8&ûÃ®x[R$Yh\3á…LÒräa@f 8!¬yœ&"N,J_¤wÖİQªBb…INd}NdÔ²»CuñĞ{p)ı6½º™¬ğéªwáãÍ0Z´®—“tñlrP]/ë+û3ÑŒ°/šVÈyÆyMAèÃEë[×¼7äê´Û÷ãîh:¹W*÷JnÀ(¸7ûŸ¯ºââ¶5èwJÂÑËÅ}kZB½q·;lõ÷½ñõ°„ÆíÛÎ}ÿê¾seÎ÷ƒëhìîÍQÿk÷ş²ò"VÜšJÈõîG-Ó…é¸1¸¿\·¿v;'èpÆ¾=§å„£7ß¨ô;À±Å‹mñwˆ`"U2j(ĞË2ø'Ùê¾,ß™@ØÃ¨Şê"¡mÁC¨ò)û_‚ŞÌb0¢1dìÇêOàª5‚óQA]!æ„m`Fb£öR‚B'S¾XÂVDãy,ó­Ä¶È?àÒ!Á8†üÁ¯;qèÀúRê€­¤¨Â(ò´y/7ĞC,…l«b¸ô¸kqšpé$[k3«Ulû4 ©³0NĞ¿"Z˜$²ÉŠxa’9‡ò
+·øgŒãí±ptÈCûq~ş4€u"±b:·Î\Æ¢¤Q.¯×ë=Ñ²Ÿ‡T#~rR>°yq	XMÀÆò˜’„íÁóO±»4Ó—cGZ±åÂhyÛ	œ¼>=×æû"¨şÎO¿Ä|I¼èá?ùì‚ZaÁü{Ìøo8áÿ´=ÈîÄÌİ<sÒ~kæë;¼!Ÿ;%$ [â`‰¶aš|Æ(&IÙ%y'Ğ –E"†ü-²<?ŠÊKĞ
+o-	Â9º†¶ÍGsvœÜPª~™”h‡àÈŸ£KŠ°ç•ø÷ìºÖ8€†ÿ¦/Ñë¶ä¼3;=b‡1Fª‚\¨nOÑàw |B¡ï‡|]ÎìÓ aàBŞE`; kt;Ì:/³ÄÏØEi…	I¤ìî„{"Ä‡‰šà]vD¬r‘ÀdØZ‚%8¥pÀ¶„Ö. È&kInì´y8$†›˜	+*ía„Œk %1ø°ä=Š0Ëj¶kEbŞœÍ³ õç$>/Ÿeèg¦²Ó‚àJh‚óô‰Ÿp²+'üLÈ0a?ò²pÁ-ap O7L=¯d•2˜Ÿè7ÎãÊœ:AÇ¿µ–qWnéX‚
+ìĞÅ‚Ãì¤1èÆ%ˆ¸GŸ@fßÀ2w:J=%<|‘*‚£™ÇÎ“
+¦^ª` €Ÿ«lÑ€C&Kı!÷îe‘·p
+¼ÜÊ~²€uÇ0$—ùï‚É.v^4à…ïVÊÜ0n şz•?te7>¹Åœv:ÏİU=ç%}¬É¥Ê»º˜Í|ÚPÖ”åìÇuöj0?Ë>ïv¹áìDšŞPê¹aQÖ3Ãğæ¯–m£$¢&Jö×–¼Ä †ñÂ„2fë0^"øÍèĞÅ‹ŞÄr<°m'6pÖn;Kâ$·Ä‹çŒWñ9š{!tQè¶ÏH l1'Şöˆó!T?d›ë;Ô)Å!4-ìÖ»\vrdŠ£8ñòÒã‰EöóğE˜	çÂßŸç¢PÅ«pExÙeu¡Èº–Õ…ô‚ÇI’~æ—P¿}d‡Á{Îu(ª|M=%¡-•1Ä0‡Æ“P¿?mg½£H`1êlÁçCˆ;§ÃRÖd)óÌ@²P_€—M;ô9AÏĞ/G‚ó:§ù9KõÑ<¦Äñ¶°YäcÆFÇĞvñ	LèxÙ>Õ¨F)ãXHëŞmÒl‘ç‡œT^á˜ã¶›e;H|œ<–mØ S8à"I²ô°˜ZKNç¨“ßƒz*˜RAòŸ\²ĞŞ{Šjù4û@ÊIûÀÛ1æ9ã»Û{NI èè{hD, 5c^¢çº•1Fàx!qx=shùıP~rdÖ¡½ àÎ
+O¸ˆú3ç³,Í0ä‹!Táu2(ÜÇÿ	³Ího¿i Ê³‰.æb>yv&’Ìo^Ùxš~'±x›û/Ô+è™QÀnNÀR†KA©ñ%¿¦wİ”µ/ÏA1Ìá?âˆ¾q  ‹ ¢T-V µWûsÚÆşıgrçŞâ©w‘¬Ú±Á†	Ø\Dm&Ã,ÒKZ¢]ùÑ¿¾g%¨?’vÚŒ'ìy|ç;¯å"•1Ìe$Ó[‘j’)ªÓeÄNç±ù_¦sğ³®nœ¦çx¶®íÔ­¸¸å¡3cK$šÄ÷Mñ%f"¢ËT†æ].î]šòpÁ4dl•Ê?,ŸQ¨N‡ºÕ/{Viú ‘PZÙ]fÓX¨ På÷OUËMêTi³R<öàNètüÁxh•Dúp8¸´¿õíª]s›0“)m3a<!4Óáâ~ÃøÉ/V	‰Ù7¬ää !kzl vÍ¶wùÁx·Ğ!däÀnì<ˆUZ“`Óª³báÇ44Ôh­R<^ ½³İºí617·ºÉñ¸ïß:ßïßV!ËOÛİù-Òêønı€\ˆßmU›5˜
+­ñ;«„êböp|u8Ÿát“Bø‹îVfy÷‹ÏM›b©¸‡t]-»¬¥Ò3q¿IƒHƒsX½8;·[æÅß îºS÷êMøÙÆP~?>ßÛ…oÊ	Ò.êI$A¹s/b¨ÑƒCD_æÉ-ä’“\ıè¹fíœìåqüömüÛïATU‡ttËK¡<I5¤‘8OS2ÍˆëÔˆ)Æ`Î4W4ÒPşüüÁ:	L$»së%”/cnB¶©å6Ÿ
+–ìíåué´¢$û¿	¤±¸ÅÇßIÊ«¡$X¨_3e2òBT›‰yÄ‰‰Y…ç'ÒK¾ò@ó|Œ\Ş<Xh½ô*•?Y¬Xcé½˜XëCôàjã‹D–0G«¨Osªd–Ï9M¸>±Ú»÷Ry×ê[åİ	W¸‡Ö€+ÅæœôÚF.eL–ƒ#eìºÕª}@Nãt‰­·Q®˜Oy#›ZNmìTíºí·^¢UÚuíjÓuI½Z{]Ôµ–†ã§úÔê@Äœ|(&Ÿµ­s™hCvü°DF4Îå
+6®H~`ÁRÅõq¦S¢)KÆD:I C‘Ì=hà`Ä„Ë8WÖŠ˜¬!ùÈöéœ§P*Ï4¹º‰Sh€tñéâlCğ=¦´æèÑƒ>X©âd‡ò“ÙC“æœô†Ô‘Š%n¶”òwE¬R§øá“ãà6Ãlf÷pß<˜à’h-—ÿÈ§ï„®Ô«Z=€ò»îxĞßÇ’»ápÉƒ‰z¾À:ã•ÚEëµC›6mğÙŒ¥b¥f@ŒxØešøK?)ò‰›¬Ö(Ÿµ~íø“º½İN«İM.F×ƒI»wqÑu®Æ“öõ Õ»ò÷­ÒèüC{Ò»š´¯üıIÿúã>Œ†“Ak|ŞEætüáÅ¤Ûé_O†-ß/>æoVéıÕ°5ò;­³~g2êô[¿îÁÆ®x2’7Î¬Òîáw1†ì,I°Ï<ô6Ÿ±d.=h‚LàñRóšlcSÖì~ÆŠ^¾Òö~65£Ãƒ’üyKìÌğÀqãKXŠ[©á«œæ×P¨¸4Æy2ÆUÏ_ññ‰ĞFûØ0.u¨ãZÃGlhZÚƒ¯Yrƒ#BiÒÃ‰û¦WµLi•ûÌ­bbX‹¥R¦eªàÀ°òDÀ4JBÈ‹ˆù,Ö¾†e)KŞ˜.ßDºyI+ü¿OT6UA*¦ëÈ´‰Â>¹»»Û­ÄEH¹4UeËæ	=2Zz[$åß2®ô=oU‘‚ãìÑí
+H+¸€^Á
+]ï…ö0ÏÂ8}s—GË„_Ã¼@µ•ÿÇ93‘Ìä?@Úe8¼õÖ&¯¬¦ü7‰YÁ¶e½¼ò(¥'p—
+ÜîeÀY¦A§8fMK >µ€)®û)SÛ‚!,Ğˆ_ğv;•Ê¼-$±ÖÁŠÍLC‹<MeêF Ë@b¢
+u¯h´ŸĞäOÀ¢”³ĞÜãW§+-ìI4„]y¡„^pŞ,ô[ ïÜ¼	d=¬õĞÜ[Ëz³ßôõ&ø©LõÈ*WßŒ’%¡ù.AO8‡!`!["s\]õøk[äÇi´ÎVŒÏüæ³á¿_Vl~gj1ë/° ~Á»±PØ{àÜÔb%W¹Ê‚€ó"+:èŞ¤yB†\4ŞµÖUsœ:R§<jĞbƒZVo†ºj‘éPŞ%ğa l¦9Î½$7­Ô,‹¶h2ÌÅş*!¸ÆÒR	[ª"š!ûÀC½£<mhTif’zın¦&„-§…Ç?ÓeåIztd*Mäô…È‚ˆ£çÂ†±kNÍÜ•hyÅğÁ¬(ô<ë!ŸòËÅæ¤@Í»	àåZ¼á±ã6ê‡®ÕCÃœÇÊpŠ¼e	ş@Cî-¼!ÎYâšX5µeY ‚Ñ„'·  ‹ Xà-V ­YkSÛÈıŒ~ÅTjë*–,Éo³1~€Œm ›­-j,m^è1¿şÉ`Ècs«.À÷ôãt÷ééGÇnÓ8‰…o{Üqı Y9şR¸±ø´¤Í‚Ä0ğÙÈJ˜Yez¹i˜M½ÊLİ¨(a	çAØM¶ MŸ¨Ş£¡kx!/‡Q`Ó-\=šZ$ìOH£²÷ş·eÙßªh†¡™¥”½ù†¹<Ö-Lç[ÙUñøıÕ÷uÍ(iõböë€­dÅzÓál¬ì96KõNõsU7ôFMg‹ b‡®3p¢DMcÅŸÈ’Ç}-MÈÃÕãò£Ê€)* òª—uı->ˆ÷•wp ¼xÁà({[tÍ¬ä(ü>‚CY+³_?áö^×¦Ñ@nºø­ÙÙôÁ(N§g%f9áJD­îiOLÛj»75+Uõ¤3T§§íR½ÌæN·p¦ìáº³Ø´ÎGÙÿŠâPï—ºº(Wµe,]‘Eğ“ Œ©7´: i˜Z¹šCóèq'çq7ò)CäÇ½úñq½W3ê?Lf]ºj²:¾ØûËYç`ÇaØ¹_Š TÏ´’RÒ‰ƒ80ŒRİ0¥*$4ı‡Ê\¹ª×Hù¸;;Pº_ÀÓYú<I#Ñd-ã#ã­(æj¼â ÷#³Z‘pù£°‹ùïÌn=·êG†èş%X]µ¨±EÔŒÓù­°’f4#±‘ğ-7-«I¨7=Ç|)TÇnÚ<Mª}~¢ì5=Çj^MÇW#ºŠ¬ÀO ¢&›P¼¼‰¸Ã€
+*srcÓãıS®_\MûÛúr:7N†¦>¯/ÄÅìkïD/_ô:U×jÑV¼¼=_Ï–7¼±°J£«YmtÚ?[ëËJPI×_/ú®=ëÏN;3Q¾~×Æô‹ñâüóS4šW:Ê^í/Øí¨Æ½[ıd|}>ªÖÅ´=\¤£ÊğËçÊÓ—ap|‰&‡›^ÇíŞ¥'¦u;›v/£•²÷­œ\&ºå×~9ş<w•Û;×»÷¾Şÿ\zj[ßVŠ×êŒ‚õİ}Ú?&£Æ¤ó—9G÷ƒd²Ğ‘‰/Wé°t¾¶şúğíØº~(Î½åuc–'í¤,§OßÑ‹—ƒ¶ùÙõjİÔ‰/îçÅóYeäè	wÌeï²V1Š'µ İ¸}&ë«Ş·ôäË²œzæıÕg‘ÌGşòúºsW9KÖzÇê^İ~YŸ^Ş>/Õ«‹‡«r-s^uÛ­–òU}UË £LôRF/•^×ô“Q/{Q¥šl”îW–V%*)Wêåšašºi~d¿[âoşÁå¡ærÇZ-Ù{'¬éªQ5ğmªFE[EôÏ
+5_$û»/«¾MÍØaì%¡ö2­vz¼ç•½°Ôˆ=Ã¬VË¥²yjåšFjÄ¦Uük˜¸èñiæ–ôzÚ3Ìú–öĞíá¬ˆïƒ_4ºş
+…iÖ–l;wÙá¿Ná#e4Ùëñ´3!&/mÍ‰¯tÃ6ôZ­úG£ÆmË2õ?¬šŞ¨–«úŸH;¬TÍz¿Q3´’ŞØQu¤ô‰Øe…M“Ô1éÍ§çD)Ãœ3İ¦ÔÔíé]ƒDiî
+v‰Q~:ô|\å´‰rHöÉq]^¬h€ë«
+<süô‘=Ö«7ÕòG=4KuM?`'ÂºŠP‡`uCÙ›­R‚uîDvHª2{êUÎ^ÌÀÉÀGİ…œ?Ç “ÚŒØ%ÊÅ¢¯x‹¤•&µş‘¶'­…¬…ırmËƒ½œ›¬†R‘MgŸòD†ÜS§V@424ÊŒ½?nÿÕ›ŞTôëv:7“Şørvc”nŒ0n¦ƒ“ó^7sÕ>tÊ^ÒëÛƒ³›şhrÒëŞô'£aw„“ó{ù‡=íµ»½‰|wÓôû½Iï|v“IOlÒ¹êŞÎoºçÓë³›³Ñ5®lÏ†ÓñàKïæÔ,°é¸3nO§øôr28>»9>u¾ôºìÕ,şé0%¥ìıLìwZâ+ ä¾/lõxƒÂA²»bÁı%3AQkëËîø+ÙZeG–8Ân„¿è·jÁeãÈy|çzaöz·” Ó‰@+†¢¸C7`©d‡Éóëİx¦ùœf”Åß¯ŒÿÃNƒ5Cl ÚHX²ŒÛ`¬Ä‰…Í¸›
+,ØpvI5©0\G:­‰"ZpKü‰ …ğg 4ñ‹È¾ªCøƒ­÷¥o@¶àHe¼m"™&ü;åë±: —¿ëbOc’å-µ"rn{©ˆ'A³ÿ0†®cñ’ÌÂBHf¤M!ånÑïˆG›wÊŞë•|wÏì_úØnb+ræpëp•$aÜ,×ëõhÑËB*!Y‹¯tRŠI[Í«°ìÜ§"Nvàù3_¥Zé‹ÙÜ‘vd­0Ú~îÏŞZÏnÓŠ«?rãÓw1Ÿ
+7ü‰ğ¯|^áZ®aúû˜ÑCã/‚ÿh;}U¥Û}@ıÙœ¨??/àKQFÔ§EÓ,ÊO½Y©±ö°ğ}/®£ 
+•#F7²YO7L½i–
+ìûÜÊ±S‡q×-ĞKÆèç€­¹ş­ñH˜ªÿmë»pÖvqfl…\“:£\)Ó¼äpòÚ¿¥Çx‘5
+´ûbÍ®†Ys%‚²da…A,btÌÈ-|*<Ì\‚kÒBgŒBáOnİA	l%)todˆëcâQN·XÚö.“!ÎhªÁàŠˆ˜ÖRÛ¼ì€ØØˆ—ı$Şg!O 6ƒŒDí•ªY÷µıÔ›‹è¨ğîP¢wô.³æ¿ &]›§p?á‘c\¾[ñ˜¬²9¨Œ9^èÊ€áÂ¢’áGäŒâ°&« û}½q•†òàÓ*?ÈÚl{'+KlHßœrg–še½iÔ¨<Kx4Äòá’ç$™_/N[ÙLq?r2Å&3Ír¥i42Å*Ö)]ú.¿Ú¶Íâ4P£ü;E%J‡/%R–¬ƒèá9lá,¥³Mî?Hc)*dğ­]$¨t×\Pµ¤tL§¤ˆCÀ<SÚ‹D:‰CåBÜTyNR@ò#Á]ç	ª¤rªœE$„JQ¾Qå*ôAænÖ,±4hGWfAªºç.e^H])=P¹e-ıì
+î²4ÌÆg‚ëXX¼ñşÈŞc?¥Fo‡
+6l*Ğpçcš’t§GXrUp”Í®«†ÁµÚv -$Ô¨"”í‡%9ÈaÀe'6jcPBD]KÒªuäMQ¶Yİş­P«YÑrÛ_ešËÖßæ[eù&¥‡¤]âhë`±Uöºâ›sâ)IAÄ¿BfE"ì, p‹€;ñ(%Kw«(«àÜ1=…EÃ€ÙÏÓñd+ş{CO%DŞ¦z<â¢/ÑFxğ\%«=—¼G»Øbáå‰Yãá ¥§n’ì¯©e«tšHªØF„‡ìB±íÇïsÄÒ(#İ…ƒEôm¦:i„§¬ÜÉº§qîS,÷²9ê –³p¨»6,sÀSëÈ"Ôoñs¢"_9}d=!Ùsıü~±9Ó„Tfd¯‚Ôµ·j¨oø6æ4—Pßß9MQÂ„uÕ÷w	ğGwÿ…Û$aƒ¶èoŸHÁñï$ÇPÖâÀ#˜¢m·kl0¸ìĞÑóŒÅt¹Ç|”ãgí·¼˜ÑpH“ ®ÙGL“.tA]•ß—„!ÿâ Û‹?•Ï/È–ù“ğ‘¨{¦wò¬íÇ2[|ƒ™º–SM&Zz©±kb'
+Á¢¼À“ÍòIV.;|kÅ#ö·ñÏ¶P2‘c/Ãaî}nş““5!†*_r”Ü³Ümî‚9í‰»”—ç²…![¶*€‘2H${»ÔbZˆ!€Q©N %c¥dI%
+?cÀ‡•‚ñø‚|¤I¯‚êL:2¢A6krï²cS	l=ÛzEáPÎdïn3 ĞO,%ÛTh¬Z„$9t/×û¸ù:¢¼s)q
+Mˆ¬R\äËO§^v‰,Ï¹$KæmLìçµ‚FRÖ ˜’»A×
+¶A¹ŒørJæS—(ê8ÈCªË¨4“$[Â€4uƒÄ07\W‚ôÙ®çÈ‘Q §NDC,CÇ’lÇóÕGÉ¼ó(4b*h¤0¶š	k›’ôÊ,ì¨ZxË%‰ÆN{[vï¡4÷í¶Ä‰–„²F¤hÒ2a ©È—±š%QÉ
+ f›jQÖ’ÇïĞp¸±Lš'^V‚Ã¬Æ˜È6µœ½P´ N³à
+¦X(H óÎKÒwì½¬/Ú^A®P»–árFAyez$ÉD²J½¢ˆGl·(k2so[”Ç7]P`NÜäŞ ‚ÓL`Ê!œ€À“híƒ”WûÅ ‚çªÉi?¥öÉv­í6¡<Û:ĞØ4i’¡»Ap'(ÿ¦¸²›šŠ"97‡Œùğ¿µŸ1Ø>ƒC­ı‚ö1ËÂÖ>øãòMk_‡{ÈÃâ¹OB¸q¦øyEÎzÏÉË)ó¾/iûÒˆùÀ±8Meƒ|{Ùÿ³É¼{ ¾%ö†İuûÙ²ùæí3ÿ/¹eæI  ‹ Í.V ­WmsÚHşŒ~E_>\áZ$Ä›Œí½`À6·ûNr•JQƒ4˜Yv4“Ú¿=¯6Ä¾­£\Kİ=O?ıª+)fğ(’'S=QiÍ>†<JŸ­yÄ”ÅÇ3ËG‰¾ˆàÖWàÖ€ÔåÓñÀ%NÕ¸g>ãs4`¢-ñH™³g§báå¡Kè¬xúìZ’Sª´E£P|·,|sˆUµÇrëßOŒÂx	!OTB+NÇ3ø¹*{~­Zô,§lyv~9WSèúÃ;£ÀP§ÿi^kHœJİ«ÀDH8ùxÎ¥2Ó„Éä£>iF#+UáôyÇø¯gF‰)iV2r-=&©ò’ôwBFHMcßrpÀ£°&Xe²báıj*VÅÎ/Ghø·$nÅsk›9ºÎEt1ìæ=ôæeğy<eò¢}Ó1ïM³Ù¸Õšyİê›ƒ›fÙs•\à=£€ê|²¼øt‹8pºK!ü2×Kf*&ú¹IÏâÁ»ß×µĞ#Ë©¹–·âìeîD¢&üy—’ %åÖ©CÊ—uâü’¹P…_~ ø0l¼tÄNb!B;>3d}ÈPu/û92È¾®©bºl@3US!ùÀCÂŒÂm.ÿŸ¹©2Aå0„1L‹„ù©bÁ[¾äĞÎßlSß©5z]F¯«åW\/cRŞ‹Û©åxËu‰å¸ŞÉqŠÎ©‹aÄPb¯Ëø-FaŸx›–38î³rç«yÃBÑ8ä>ëcù]¡›·›)Jßû±¢­Y,ù\üˆvBp€6ÉBº$Õ=>ßş¶å³æ®ş ï²^'}ÓóÜ¶ãV=R«‹°×¨®"Åî`ø*¯ñ<:'•—h_ŞÛ…ZÛB=äkÖ´NíÕåSëæØÉğFAw1ÿ¦ªõJ½êÔİC…™;àMÑWĞ³úœ"]ºÔ-<×r¶p_‰ïõÙ-Vh~©:Œ8v«Äuª.9×9ŒWsèV,§êa›ûE*~LéK–·6£Í¢®TÊÇQ“ê>KúÈÌn»çÕšÛ!îeÓrIxÄ9Ô\Œ6–rãM»¯ëí=ËÀ– Íæ#‹”>â6jWÑ×âWÇ9ƒÖ ^ójX rŞ(;:Ó®™ÿ$lAğÏá4&Ç\6
+”-t²Ûï˜Ÿó±Ù T2tk´FKD
+˜ÃeŒ*œøvR?¥2aê"UÓ;Ó+ÉŒª‹I(Ø¾7j’FÉıèD¾xôØ€:_l-Ã¾Ù˜ı~;Oè8dxs­6ğiéô¹âÃÍ¾â°ë7»½Î½ñlúcœªCÜšCLBÜSSÏ¯íñZWÕv­¢[n(ZŒéÍ
+‰^˜uê/›ÿíFUR‚v«5ºïÜ=G„Œ·÷­ÏíQ÷Ó¨ıiğ¥7êwÚ%£°¾×ÜuëŒnÊ[±Õ­/=¼u7ê7‡­´¬Ÿ¢ŞÃ}÷²7ºìİ¶~ë´O`oØ"{"Fá Ì{2èëšHó§°|›Mhô®Uó Wåí¾ú3Ùú®¬^ëP8"şYÚø‡‡Æ ÿÎ|Lèo{ªß!t
+€:pÚ©µm±1õŸ˜J M0…ŒÂ‚K†Ë'ˆÃô‘Gˆç’±hˆkû	¨|úá’¼ÍWj×¸“Ø°ù¨ş{==Ü¦Í.fÙ‡6®íi¢¥“líÎ¬bTi0ãJÉ|Vÿh‡Ü§
+%!`sœÁ1Ë†8ö$5eğ*©\~0
+ûëÍîÂŸÿ%é8ñ%#¬ó©RqÒ°íÅb±#jÏr—lë“{Ïæ¯ô\K(ÑØ{`JöGÊµCÏ¿’<6éöØ¦ô§ØÎƒ ¹ÀËÓsm=ÃQõŒ¯|Æİ%>"ü3ÌST[Y¼Ÿ3ıÎÄ£‰ø?¶CÙW3Ã±æ±!A6¯ø1ã†—Œ.Ğ(¹Ä4ß$LãøÛ¼ß©“û»ÖÇ24Ğ2ÃÖ]	Æ©2&<Òw-‡©‹˜A$°¤Ã%,„|B	Ë0ú¸ÎFsÀF{Å!)èF	®Åg¯6ªá‹´õD¡"n«ºqR&@QŒêÂ±ï7ôgÓÔÅeÕğ2ñ]ÇÊmå2kbwe]ëÔ*›î°at¨9“%,L\nèD1¹F’[	ºÚ)¼¶j%è#˜õk5jvšHéZÅŞœjçä&v†´jƒ_6$û"ƒŒ°ŒÜu<Œ\Ç2BŸí‹˜ãÑt,æôÉø^+ ÷Ü†lşBBglÇŒ¬@û““¦C„qñâTš›‘á$c!•æ^
+%|Z+¶U®f^o$ğ'<J¯õs¹ŞÊØ–üŸ˜}8·ç¶/Šk„–5¯Dhğ>±™M¹?…)âY›ĞÙ‡‹'‰*ÅÊ@™7¥tæJFä®[yæf½¤}ìBÂt'Éúì‡•Ôcí–În¿¡È5–"bÀ±Ïrİ»ì³˜Âc6ÑÙ‹6ø–"E¼¹4ÄcƒáPX½Yäi#sVÛeEPÊŸ.²(àËr²İ^&©¦Ü4·ÛG*×»+]ß0şl¢T,¥  ‹ «Š0V µXkSòHşl~E—[;õºšŒór	Ê%€Pœš¢é@07râÔş÷=ŞPğgV­iúôyÎÓçÖV|×FA»“™¦OµÅÏX›º.3†Ù;¬£Ö8D¼ˆØT.•ÌñâY.Muğ›¬çA¤M'¤í—bàƒ­™ãù®N^oºâÃ¾!Ù‘:ùqğZôÇ2i†ã>óçu2Š‘eaÀrŒl3oDñê³è‘á’Œ˜Ø<ÎĞÒ§HV•n›:1ufUqÚh´Y.)°Id¸>º´ÌÑÂôC:
+°ü$šlÍa¢ œ®Şm~•§N€˜ÂÊš äšM±ìG~ÀŞ-t 8`“û;¡N^H`ßX8œABCŠI%6=4d9–ãx6	g³ ÓM×‘ºuÁ%Tµ±H¢±éM±/•odº£è‚¬òi¾.)´zSHŠ)42Ã@‚9êÄM#–š-À¹ƒÓ÷¢#tl>I/l‘E–…Cfmw0I2¯Î
+ğ½ˆø”À ™\šc2Ü3¡§í¡a®Şó¥"à«Åt!É&ÙïØ'û¸,:gáıèuKgT¹^Í‰£…‘sh!qy¤I~ ÑÁTRóh,ùØÒVXO<?óH—^Ê£@
+x6%‚S†—J	,Ïe²™<M%ÖÂ)£²J»Ù~0H$üÛóGUÌàó’Û*¥]£·,ğZíîœ÷\	ä§RYq®|ç:Ø³bºëæàOF3<aÎÀ>vÆ8Ø¬yÉ‘Ôê•õÅ\©-µY‹¯%”F¸Ä×3œ×½İ/åreÅÍÓwªQ’¥Ì@[Öyqs/ß¶¸yPR
+­…š{ã¾=¸/zUËârÂ]ß÷âs}7O„P«Ø%öFxŠoµs}¡L®ÕYMÈ:Óİ«·£X­òO%s–nëSó¡Âµfie®Ÿ×t÷F¨.ú¡ W«ƒó9ğ»ä—%Õˆº™óò $¨‚†UvÕÙvıq9SŸJV·ì-Kùt*7e!;-Tq¼œßŠé©ß¬Ä(]èdñÖ…î½Å]ÓÔõAê¡Û7Ù‡8X&nq”pâôu­¿Ê¯çÉ‡¶˜½5Zb‚j,ÆO®<zçÊ¬W™×Ò©bë¼ĞŞJÒÇ8xõ_A`şOŞK¼ş_ûp³YQÚpP;2Ç~¸÷Â§¹µ¦Ğæ²ÿM|†aáw£Äµ=åù¿£àº‰—Ãé¶ïzØãŠÉ¦tòã‚*@I)Nd1#ğifdÿÜƒH+dŸ–zC#Ç^µ‡l_á,õ>–Óº2a„ê]<±]¹›ÉÚ$k/—ŞMfÕo&§ÊhQ¿c›ugÔIot—¶»–×wú·\yPu;L/×SkAS®ÍøÀ-lQ¬{Ù23˜yª^ª˜îˆ­óQ7Û˜+™»wG,Û
+#Ï‡ı¸É»î¬aµ&Ê|–ŠŠrspÉ¬}qQÂÌGzÖOíÖ0n”ã^¹“™.‹ÍvÜ,Ì5‡Ç˜:i¤nx»™*ò\b«:’ÙÖ³f#)7õA#Ò”šwçŠ–Qc9©Æ™Y×ëõ¦®èJ¹ÿĞ¬>=•¦Ô‰¯¶+Ùëjl•õ^p_”¦)ªÓX™”&Ê"™½iÇ†?O-Jínr&ø‘ü$7ú¬eÆ©Q­„-sÈ=<·N]{€¬Ù°Å=ªÙãİÜõ†ÙhÔ6æş¡­ÔŒ@vq½µ0nSõçgC³=·Fúd4°#Æ˜õ´ú|<ë&Ww5»N¤'j†U{B1bNoy[wå²’æºo4Yñ8U²+˜«e~Pp¡Ú6Ÿ®…UíÚ_u-§ìU
+z¥q‹·ÔÉu§'ó…lqr~çïàŞ/a•˜lr™`ŸËµNÉû–±ÛÕd•7­ÚôrèrgcwEAZG§ûÊ×é•RphLWË9t) !ÃòY&™¡ød™—$f³9jÚB#±²‰ŸöëÇç½ªŠL÷7MGqK•€XıM7öÀl;²BÓÓü0¡Y!ö¡JyÇ]ócé”†iØ†5ÃqÈ%¹,ŸL‰ ÿšTö”zWÁş6ö{ºƒõ-¤UO³iuì’úÍ1ÉúúQ,du(°¨\*;r»×XC.Pò‡jõº)—Ÿ_ú…Fµ|A¼½½TéÈ²R¨6†•NK¹@7]¥1TdU-\Ë¨Sê—‡Õæ°ÜTïÃFëä_æÔV§¨ïä",k•B·t`È·°bpØ.¨êÚê„j°—Øç~÷@˜æ8X§‹–‰”±¡9Ä3‚ˆ\½µş_­ÍïÖ²›Å–ëz9´Ï©—fı±µäOtã.Qè"ÃttdcÛõcDšó	œ”@ƒc"×@M"„¿ƒº"ÆNdü…Î{šø©4¯¾Î3àœ<Õö!7èÄ#sh9ÔkßuX7àš²._§e¸EÙ<XßgÖ à¼5İ6Xåk¡ëè7¤ye7Féx-RƒMm§øÅ
+òô!ÂNá·{Úèï9A4
+Æ¾9+.§aè¹Db¹\¾[š°7$\h[{^ĞK²"ts[_Ğ>¦ß±ù{°9A)zSû¤à§ öƒĞ6>jßH“®DwÁøùÉæly{…y
+bÏ;¨‡sF.£¦c¸ÿ iï(»§×8^ªıe¥YßËHoEÑô)÷C>áŠ›ğ,Ítà^3Õü ‡R¯[¡Å·u¾æ¤iÙ»ºéLrh¹!Àó|¸áj#ST#òxhÅÄÏÁß-Ë]ÂbâÜ¾«§h…î¥È ~àŠ¢*$°mõÜx-´«%•x©À2¢…>1;8DR²Œ€û²Gá\ã°
+õCwm‰j‡ş"çÎòÇì»n¨YëÍŸw ¯6Àó/¶<s°•¥vu¸^‰gY½ış3ÌW”5L5Ô$
+€P±&ĞÃ\\ ~µ3,· ´5¡)­Î`¨vİa³sØ3tQ›‘¤»æ›G&ºD|:?—¨³ïõ×Ñ;Ñ4Ğb4Ğ fÿaşÉ„Ú„ $@3gÿ€Š·‘ÚáA½ ëkR^˜'@ÌÑšÿKQwS¢ÊÖ%6‰0©„§{²£ª;!¦ïÂš9—¦ ˆ:"[³Æ‘©hí×HÖ$[/QqFQEï-$/öâÕc=ØúbJĞ{¶fÁ–64!òq@ºKG¢&bëˆBhFi>i0¡³àĞ¿’pà2k¨Ád9uŸƒá„¤LÄ¦
+	B5ŸÖH^Ï—(ÚÏ ù‘ã%³ú:n@EšİJ¯4/¡¾£/ÙDüK{ŒÑR‹ÿ’ô4´­¿•£/ÉW—S¬éW—‰ÍcäêñÕ¥n.PÆ8»–ëçş•%FÚøq²&~6# ´šmZq
+ï‡ĞÀ4q„¡+~yEŞ/PÁ75ë5¢±©kè@ë°@¢T@O«ä_•yƒlÀùÀ…Ë[n°é¦OY¡ŠL|Œ#sÍ»0d‡ÜpM—I‰™$+Q4ùîôêø’t9òÑØÒ‚€hXk¢¾Ôš8^ ŒŸävIIÔ–œx¨Ü{©${zµ®4õuİ<jk‚ŒlÎRêôê7gxùÍ(Qïß>¿¬Òïk4‹ü7 	ÛG‰ÚigqÿmæŸëûw#yğo;FŠıÎ)¤øWÇ8°	9D‡D}Ğ’ÚIì>Z·UHÔA†ì>»£DmÍ}ÑòĞğ@0}jy¾qâ¹DHÏfüØ)ıf…ù­f	$Íçÿ›ñ¯ïäŒ4ŒGì‰k<·f;³o!;ÊW÷#Ûëİ_õs»KÔ—§v˜ç8Íÿ~Ã=>g&‰:@N ·:¤é|NĞ}í Tí˜Íœ~'Ï
+W­í<+¤¾“g…—r/QÇÉçûÛi‰úÔP-óLT€ãä€ˆ½Í»Dß¾ïmŞ!Ì7íû7Œûä³‡•‘%à/¯
+uèeaïUáu°Uâ/}|v—Ü·|W”(ğŞæ>s	uÎ‡[tç¯ãæ.±¾§\wİ¡iŠúUnŠÿô"  ‹ ²÷1V í\{WâHÿÛú5Ìİ1!	 ÓˆØÚ£¶+ôØ3}úxBRHºóê<@f{¾ûŞ›H |ô<zÕ#!•ª[÷şî³R‰ÇcÑ®gô˜Ód/Õ»‘:æ5hïBúF¨Ô Â\äjƒJ‚X#WLcÆé2íãxÃ8ëN¬òğÅR“w=GÇŞÜI¼Çô E²±¹v_ú^ø/Š¼´ûa‹lôÆÔ4üÀDŞ{–ákñPv·8t³Î‹¾^[tdÚîœw/É†¡Ó Ñm2ûZÄİF] }Ç£û¦Ñ^À…>óü—8“¥Ú| ‡ƒ»ñƒ=²Àl#*8 ÈN¨
+Â<> o†;`0jÈûƒAÈÆ—	
+ë#ˆ0Tùj9>Àpâ¢Pİ­n† ºáØJ÷¬3ËÎÙ°B5Ã0O9:isW&×lw¤Ú÷ªuÎuNš•z•öŒÀW lÀp£?V.Ş Ÿ9˜¦!¤÷Eù>³o™Ç¹Á[¨Íºé[ËûasÚ€1ŸEíï`6üÕj¼”à6¯…KÇúÆ]
+¨4ê•V»º#í>@
+Qˆ¤Ø¥?
+ğC7ßv[[äwİép§G2.®k\üÆI"W{ıš$¸vÎw^Ét^âëËî»V³Æ>TL7Cû“íŒìÈ;D	4»Ë×D”p3ôû–Fº‹EŠUGAeĞÕE7áKş"¥má ‡j¦Á€²Æ¼Àèš0ê±Ï!ó¦'È¡Ÿa1”wÄv­µ+
+QŒ@ÜE±ÕînåÁsŞ<=[Àç½,¸ÎGdNºD<[ªk Çà B…¤j©˜©jÌ9&dúš©6wi0ÏcôjBé~AD= ]G¦¥"0JKp"İÇTë:®¡ÉôÄÑÀEÁ†ŒšìVÕÆT»õœĞõ©é€Á•éO“q§¶ÎîdÚÔÛ‹¯¤ÏÇw¿²~÷·®ö³÷Êº\~”ÄàVQÈè_.4ìjlØä,B½e‘Qï‹BMlV*MqW¨îÔ…V¥Şj5›­Z½²s$ÕÛ­]ñX:|Y ´ÒÔ4æÜ™jß†@V¦ÌæŞvHË±0ÍT{ßã¯Ği:Ü‰êsÍ Pµ8OÔÒ½hs-”aªãAóçxÆ­aö-g¸òÌm$^¦StÇ.·B30\ÕÊª0ÇÄûÚºê•ÒH³®ÀSyA\ö¦DÎOÏÛÜ/q˜•©ÈÀùÓOÔ€ë¸ªÅu4Ç>^¨K”n6mwnjÂ6=éŸİœ·;æ«ö6½jırtszqstÑ¹>»9{s½M6&mçËÓŸÛ7'ÕY·¤éúº½½:=<»9<{Óú¹}´EÓq’Ót²QĞ©ØäßTªm3;Ë8b}Ğ(•ø:åùe}wÓ}1BgÓq@§E>C:aï#ÓĞz¦Ë‡{xÏ;î1»q”-™Ì13İJ¼FF.=ˆ[:³5şb79ƒÊ‚;…0V:‚&ô±·• UĞª[†½<4bŸ¾ ªëšFÂ‘ìš=ãøØ„-<z`¤%²‘#éâ%ÿ­í‡=_C…ÿ‚Àõåry4¥º–­X¤²ãâÌ~9Có İÇ#g.pIîHÁó“ëA	gÓ&Œ4=m .VÌ„w˜Ÿ=é†æ±ñrAæfº—ñ<€a	…Îú˜aıhØ}ç	@KAö‹ø˜¤Bny¬ÆR
+c5á¸GE­¹@ZvMÕ°÷¨6P=ŸJÉğ®^¯58±4ëî©¶ß‡¢¡mkX¦ŸCŠ
+"…¨=“rblÒôÁM*[ZÂÑcÒW±+^1ß	=ÑsÕ†`áÒÔà]h¡29›ó^uì„xN^>éÑ–¯mG“íJ5ÈÀ–qç‘êSİèû0£Bâ¢# İ€ÆêĞ©Ús†l›ª¶]uj;UMBzsÆ‹)8zàXÆïàÄ
+ql%ó€ú…"ŠéÛ´Â™èßt %Zş”Ÿò?3+Ü6ï´?Êÿúåü¢yŞ¦£¡)d±ê9,öP<×ÁRĞÄ“­F±	E@;ğ™Ù†G)DçiÇ¡FÖ	¯‚²µ˜xÙCUhM¬ZçÁx‡h‹/é1À·ˆ‰#r4Åş¡jBÁm3Z¦h¬*Ô‘‚ö{,ácq*…¤&+cÂÓS×(V‚îƒáÇı§}ş–êø¾B/Àâ˜©s˜1Ûº|£°pŠÔ‹`®¨¬HÚ7ı-\O!ÀçhÂ ÈÚ‘±@‚úò˜Æ'FN òÆX¤§s²81D™]½yÓ%”~¿¹Uø?_’#´Ïk ¹’é6×7İºĞ-éŠˆ.ôËëû%î?´ÄÜîEC’a,—tjn(¬¸?w!«Ò?‡ÕJŞZ4„®f•®`5u]$–!ŠYê˜Bdû#Gâát0‹	Ó8ñ!§Ì¦Êl(Ò°dSéÕIûlË=¾"qÕŠÈ3s‡¿«ïÜìTa®îà.ò<Ì´<!¯ùK>½˜‚—2ı±Rá7…-(ªª»¸æ•¾Ú <¹èxG+´`6¨Qz‚†H”¤“\X±brOrûlP^cù€ {ô’Ù>û*mš?0 p ˆÅdEÕ¡
+Ÿú†³YÌãqÄ×HÉƒÀ2Ÿ"#ï#!zg™¶/•ÊQ)ôlÙ‡Jß‚—ehã;ı€éå¡e–’N^OÈÓ¾N¿a*9LF–ÓOÆŒO/Q…Äc,“(#ÆO‡EJ‰‡•%A¨–E©ìXS6§CkrTáï¶Ü½*_µ[J^J€Dt8X,€8¨ÏŒ4ò¥(‡a r”P9šjA!biBĞV-†#^1H~è°:çYè5ÈMÅ*İì¸w³˜n„ÖRòƒ±Éö¿ã8Rş7=†ñ–JPrDÅ:ıw™¼ìC#×?%ÿM¾[†9–[*®X×ºªíøŒe‰BİX£Rô[o‚Ï½?ŠI\³ÚŸ¦Qƒa"PƒîĞ]ZÀ\YçÎåÏ}çÂñ,ÕÜ† ‘>Óáì&¶TÖğ² Y0]|Âõœ 
+*™/§ØÃ»LÀoüÎdXI
+³¦„áR"ti»äƒp>Ş«,!=ĞP_…ˆ…µ9¹ÏĞ¾àŞv€ùˆÓCmôÇ3‚±ÜHÆÍ&¬…åR× FŠ´¥z¥Ÿ,P¥jÂPÒæ·ƒ WœL›Éúù½fBcÌõ€ùOœÚ‘Õ¡cèY4ªùhX †ŠhL€ĞÓñäï+;µã†¸˜„ØˆE‚ô tG¬¤ûb%M±‚Ë3¼8Õd5œÄfc<rú§ K!QÏC¢AÙ§lD¯X¹¥ÉR•Q€mêƒÕ£@ğ°©@öÆØâ$ŒœÎ4Ç‹Öórhë¾àB`ş±ƒ+¦¯œÇ=×\5“»„ÌŸ¤é^Êøƒ@ÂbK¸ÎZ7,¡GB8Ôõ–œ·ÍKOi7ú{øİxËúôúHÈu½,s‘¦ÛX‘DaRÜÍ°`~Ç»=­š˜]ˆµë†¶Ø FPÀ9#´†Él‘÷I Sf*ÌJ¹¹¾?—îá\¹áåø*ßífl‹ËØÄ¶¸ÀöÑ±ˆÉK/64›|V—Ù×ÃMtQ†´™ÃıÁ0Ó¸xŸ54ƒEëcw®ãœc›ã'É©/£»6XÛt˜†‘	slä/;qP »)“0å]¯×ğBşˆbÉ0G§‘ÓmĞãöË³Êé½Ñ§·£À/m|8Ø‡*+GöªËôŸ‚¨2ƒâ+(Ah6tK½ÃQvJûeºÿİ{fëFÿN³Š|²âÏ.#yw~V]ÔhÊd¾•ƒÅù¡KRÃö}LQ8üø
+ïÙŸğ;f¤NNãÄ, ˜T3U?*—ÓâEwviZ£(ˆ)¶eœD¡äbé`VÇ·âÏ"¹à:Õ”ûÈ„æ&KìL!i³.œÛû=Å‡ÔıÅß×%IØ+ Â€›š;ÅAá]H…LïCF¤Ä½ÌİÈı"ß;'¬Ë–{°˜s^İ¯o£ET:¼€5¤B‚½¹`ÍÁŞv|ˆBCüu¯PêÉ}\…dnÏNåï=„Q¼İšaõ1Œg1«d¢¡´~z_UGëÊ-å*¤VÈc”º¥®ÇŞTÿËî©“µ|s¡Œ[DR¬B&IvvÅ7­§ì(ä±*N)X!Rq´«ŞS ÜTHo)($gSá¯QGÑNFŠ…<™2,$ö e,n« ‡‘‡ïª,bMöÖà†÷C{ÉVÎ¾BîiË¡G>¬³±´æ¶’BÖÙXZs[I!,7æ¡üzç‹qw¯`‡*ŞåJö¨`ºˆÄ»ç»{"´Êb²Òf4mÃe%ÂóßˆÅ?ú%Å¥Bşv@&\¾ø¾ZÙK¶3!5=Ş†¾6Ç™OˆŞ³³âÿ<îM,$¾°LË?ÿÙúZ![V›9‚Bı6D]­Ş5WËß†Ô‰â?c4¿]/ÖúäV¢ß¸“¯AbCK|cvşl¹ˆ$Æ2Y}<ã“OôÄÔ38Åà<Çšçè’I>Ò3ÏÉç9ù"“ÏsòyN>O|*Ï`÷ûÿÃ&»¹ø¸ı-…2ÿe-=¥“B˜öî'ƒB£€¹O…<Æ8ç>’Îƒ3Şÿ.Oìlçíé­xÕwn^6ú;±âµ'…ä¿øôwáÉe^åZ”·'‘bô¦QÕ.¶—hÏñtæá¡D5fš0X3â‰’÷â'O/Doìøœ#ñ¡?°‘¡j·6^7•·’‘ø7­òø)~ƒ¿Â‡ïóÔYcq ¾gcNÓ3T3ûäÁô™Ù$%Ï×£Ÿt@š¸±X_KA» u„æ«2ÿ®ß½Ÿª»¿< B&Ïnç2)ë(%(zôé¥ÌtÁ.%^B£ŒMsj KŒ³(û¥%“ XKbéK”WWKX˜g Ÿ«]ôtzÆü8÷r¨B¢×CŸ†=(îk9Oò&¶€b>¬˜yu®dC63OPzıÜâ«¿@,ıòoR3MŞ ~¢:òÏYUÈ½“pxÏÌÜ(d•gï«tà±>_ş¦t	3zf~|¿`:ùìÅ·ÒAÑ«Ø©çğË
+INÂ™`Ë$Y*‡BP’è€òŒìãh^)$ƒNî+á†4¥Z:ÈPHßÅ¦³]yR•£Òo]tÃ‡Ò,ÛÍ
+–§İ?£Ú\Hãéüı˜,ó¾ÅäİkX)Zs‘ru&THşRùAÕŞ*\I§ÿWBòÔiîLH®ÁNşsÂj)VÊ {×¬Åù|ú„òSÙûòY‡Y×‹n1ªÃè-¥„EüŸş—GÈÿ ØJ£MV  ‹ ·ú1V ÕWisâHıÜú‰m;°.$N7t——Á˜˜R
+t!•8¼½ÿ}³ï¶{z6æËÊ@¥ÌÊÌ—™/KÍ(ğ·v1½7ıo¶“
+¬][eKHÊ—sJYÍ¢¬$ç¸!¶0Ùb»ŒL—ø”÷ö²,ÀÏ$®FÍn„ĞÙg…ç¹O§¿,‹~—%!'€dVıãŒû4? —Ä4–d!Læ‰­TïT=-
+²"Åôëíu>êî±-µhy7”²²¬Ğ"ˆĞ—Ì·$¢|ã(şÆ,y¦/$”yèì_l^½à>0ç•#8 È3<¼¤JÒ[|v6©‹‚X¦k·NY|Š*ÈÙ’P(>Døëè°UAÓ¯÷CÄv"I9%+î[‹~e|5ÚÊâhtµUEBGMesy~ÔÖĞœĞ¸7ÄÉâPé_Ÿı­p!„÷ƒ5‚˜.Èş<„NÊ’$İ-Õ$½QĞ%)›¿@?˜“å£9	e$PA§u}|Æ5LŠË%Ë5Á\õÌˆ‚—i‰ÛòıN½W¹qPF]lú¼Apa4$sl&[âº}Y…Ñóí7s¿3©VÇ±¹Ä|§QF_˜²”-É ¼*	­Z!«(ßA©VaßÂ1ƒ¬7kjCÑä‚¤æ‹R])ÖëšVÏ•|#[Ôë¹™­}›ãYOë\AíÓ½Ú†ª ÛÎß¤¹-#Y¸zàSe4>„€—¸”„¾“¥íäHË².C>vLÈ5$ªŒVàVNÌ0tA€ÂvâQ´LšDøäÍƒÄ·ÍèP9i©¤ljŞ(^Ş¯&u|òdµAâ0ˆ	=ºC|—ø˜ëøü‡îgğş1O zxm	æ ³	¥¢<‘Uú*/)¼œ=ãfüÈ2}ˆ™¯@€jà…é/QVÈQà£g~Y7Â2zÍ/ˆ«n•ÑÉGOOŞÒÇËš%ó¶ÀÕ!¤ã÷Wr v°C4@¦Á[Œ\¼4­²–Q„1b-Ä D_ÁÃÆşúÿÄÍßÖ æz®‰¬ ÇpFMj³Â+£Uâ¯¹+ 8¾={9³’˜IÇG.<îzÎ}2mø ™4ˆbô/ô¢8îºA’)õP?ºÅ¾#¨“îÓk\^²hjâÇÉ<¶XcAi8”†qYw»İQÑKCƒYÅW{VÁÑ/L‚åWøoÓğ|Ó\T’g³h‘å …}ì„™
+¼µj3vÕ÷ÜøöCÌmì†ÿÌgÔvı:flü ½€lÆıxä}ş#.–Æ\Çñü[æxCW¦¹º02.å˜QŒi…Ä_,æJ¼|ÁÊÓ3ieá;lÿ”töL?Êåuß
+lâ/Ëh“œ:÷©9w1Ç]û©óéaç<õŞ¤, şU­ã®ó§Ã—¹j›œsU®ªÅĞÖ®Î æI¸¨•öôÇAY†’SÃ'O:'„Û\½áó$”«şÂx”ÂrçÇæ{-‹¬&¶ÑñØ”
+ïÌÙdqœ?¦£˜Bš¡™ÓÌÚÈœ[|`H‚¨ü€"Ó´ÄğŠp<rùà y]=ØJ‚Œ{lŸ#…wU @cMôäøïö’swoıGüí¦××z:H…³œ£«QÀÒÄÒÀÂÈÃ“İ<ïµc„ø¸#àMcì.êGî¬pØĞ(@dñ,ÄBYéæb|ˆ)öÄ ¶òÈ¥ìàe…KfP`¼dò‰é"n æˆ,È5/0vAùŸãÔMf/Œ‰c" ÈÛÇòf¹§‰Szo‚ìˆÀfŒ‡I«‡€éå[gëÆ´ ,ìczÙ`Ë=æ2]?Ï4®p` &‘i³"†D>£},˜”kˆÇ%kèœ“˜¢xM<³MÁê2G"ŸÏÑêñˆ‡ÿ™"fÚû,Â©Ã;‰<gçLLù3b%Æ@KÅX¬ÆÃc@–Ã>³õ•ãªÏPÈÑ¶}5Mé1´Ê¬-^_¹*BßÙG†H0»a×÷Çğäm9<>z-øFúÕò‚Â,Å?J¾+ı=ÕØzòû
+*=(>&øg2[+L¤¿øÀşÇgÿßVŞ}„>TB¿à0ú+‡_È¬@a€ ×zæu€?¡KS~{à!ä<3×›}eZFºOD/	p´Í²#®‰†mı*Ï¼‚’åUE°›öÅüŸy558vöG’`ç-tCx9ÛR1£Œ2Š"œJgpT‚\²’ –¸*(	é=RNÙË!Tƒw3AG#¼9=@>|±ª²ÃÍÃÙæYë½E±Ê=üÈÀ~ŒïQE—ûû€H olÎ"skÂ§ı™x`ÒÃ‘ğ ÅUÿü{W}ulB,Æ>ì¸õæÙËãyõ:­ıÂ¹éÃ×¶ä›®œ<-fl°áªé­N-:­¾6õã:÷ôòĞò£…¶Y#ƒUÓô¼¨µjƒî´·ØHštum¹Ø…ÅuSÛDQS×—;qĞxj± 4úÖ\ôW]®”¹Õf¥¼¯•î-{8[é0<¬´•¯K¹uÃğÉpuôAÓíMŠ$×v¹æşkn-z§´û›<·ŸÕöƒı•Gû‚¯Ç;yµÆãÌÄr‡–8¹íŞ7C¥L§ÄÀnC<ôgš³M8›s¡O.{f;#zq«¯æœøÖ¹5I)µ“º¢ØêİÌ³®‡;w2ĞÚµ·İŞc»5ŞÍïŠş>	ÜÖ&xG¥ÅÁí`Ù5JãÛÈš®ÇvILDwo{›‚<3»9QÌ]K­Ú¼t³%C+Âˆö´$âp1¯Ô½N÷†Ñ˜kÍ¢Z:Ãl–‰f£ÁzšÛL¨·W“U¦x/Õò–4lêØ¬,œËöé”kv³»fŸfŠ	Iâ½Eº…µ!Y+b²iOf7i+óëÎÄÑ2öµ7œ8´·=ŒnÅË"×¿w³¹¼Éâx¤ìœqØlj’#Nñ¬¾ÈÉM¿1XNoŒe–Ş¸_XêÊè6lGí°Oå‰Ÿá‹p4[w‹sq(mî3·ñGŠèÖÒML§kI9…5Ù×"×w³İkÂùF[÷ÖM¼(Y\FÅ7tÔ’•Z±SÔœØŞ“Ëù|÷†[778£MoèÜ7ÆMnCjMƒEÏKR/9º²»-=*hWmM]İ­¦Ns%İ­!öd3]rşªcyáíĞ¿¼»Ü&«œ–77/‹-;§â§aÏ(]ë½[ƒÜDÓ-¹òš®Ò©Ù^Úz¿ñ^S¼Ó…lõ¿î®{>  ‹ ñ	2V ´[iw¢Ì¶şœú¬şpîÛ7­‡tçÜ×YŒDœßuVS€È§_w4˜ädµmÀ¢jÏ~ö®Ú¦>u,â5ğ|ÓfÆÔÿ[³DÃLËp·«Äƒìt‘ ó·Lá6S$h’bPG•Uc¦*·Ä~Ú°ı”µ È4ü>ìN_¤]}A§§ª¢‹>]ı•x,ñbÒ•¦3ÿù‰®¤%aï‘TÚ$ËğäèQuññÑ¿
+i*“.ÜDo?‰¹áëDMàºèÊP¿Ø-Ï•J@’Y¦ûõü…•uıŞµM‘Y’ÜWÄßY$ •È,å]¥r¡«Ndš.¬•Jn¬U6½‰ŞhÕåHš¡³E0õLz†cßuÛÂŒº„ö,CÈ†««Ó»j³–ê¥T©&ĞL.Õ¨p)¡YÊ²„døŞÜCWğ¸ñ²¼ã~^n!Ğ#åŠdê%—Kk£™j¤Á‘À04YL˜4M“é\nmš}C?:ÿb,âšh^+‘eºP+e3¿ÑÕQ)*•!®Iø!şêu+?cÃ:®¨½¢IñœxÊ·‚çdé"Irğiš>41™]Oœ"óxâÇj÷'ªŞ³`KC³E?˜ª·ÄìúMˆwSOLyº†ıMÈwSÕªr³~ÿM(wÛ¨ûM€ıI
+şQXıN}õ›õÖwn½@zUeÿvª¾¨SÕ–UïÖ2,5µöõ­¥z¨©)CAW·²cû*ÀË_ºêoBÒïïÍ›*Õ–Mú‰fjJûm’·H¶à´=ë-ÈóƒÙâ!×»ƒµ¥»·Rˆ}‹{£FC;GM_nzY¾=óàÆ—dÉgêd¥µ}Ÿk×b¹ÙÉ—çîû‚œ)–
+èªşøä7óùB•WÙëå\ÏÄV÷…¶†Lïe¥9î+gåiiyãß3Ùš·
+hå±4äj½ëºú–[Ìéë¡®*åÌK.ß¯;³±>l-&ıªX u¦¼\]6)Æâ<~ÉüZëfv-(Ùòâ­ÃåjU¶Pm¼TÕe]½¸EWzxYÉykV˜4ó÷†ÌßØ~kò0ÏOtjBk•}_¸·;úk¾:
+*4ÅĞ…¾gê›~u\Rë”Ğ•Ú·{¢sÓg¥‘Ÿªı¾W`çêõS§9¿¾áªK—œæãÌÒõº0·š®ˆÓqã5?$‹ùFµƒ<ÈR—çwwh˜ÚÁ"…ñQLv19™­)•ÉÑ™<€RJç²@ÙEåŠ²@e`”,Ü2äF÷¢Uôøëš¦€.™˜¼3ëô,ßM¿§„Xä•B™Ï¢ò²˜¥]é-Ïb±á`šb(‘,¤³ù}.JÓªUbLDÑ…AœDL÷nàõó¸nÙânüáhùÈWTñ–dn™,@øªÃ‰øq0íı ş¼ÿoÔuà™{ÑÓ—¢KTtÑ§¾¾„ñ9ºøû­şı]­§H)êL57]§p#şÄ.<x`´ÍÀõå‘¡-ºîl—nLq¢¢÷øcàş-w°u(’ÊPd¦Èä²L†Ş‰)ı‹@Wïƒ2ù·Q¢9&û·¯z¦˜K\¤ŠEgÈY(’ÙbÜÃÔãÔp¦†¿¼%2pÕ½TÉ÷EY¿%lq˜ĞúkB#¨4‰¸5«±Õ­Ä4ÌO2éÈ\.Òñé+kÚëíİV`ú†Î¹M_Õô1¹9­ˆÓåİüÜ=“$õÌCÒ~„¡4•Ëæ
+™É‘¹ç;üù0N•¦è§W´R‚ì`v(Sñ¿Ä_åÒ¨&<È_N ÏÛàkÕõE¿Ôfw~.õÀwõN­Æ•Øös½óÀı"š]®ıÌÕ¡Ô¨ı":•~õ™åŸ«¼0h?·ğÀæ'<²÷µç&ı‹ëÏ%AøEtŸïKÜs8IıïÂ¸hYtÕë°åös¹ıP¹¯U;‰öh¦Ş…®;)C0hÛª’*ƒ9–«UÕÑÖ:+M¼×v§Ææ™ØX\3Á`ÓqÜ[âXP a ‰¸çŸaÿ!àwO'`µÿñ	/p]gê}p^^LÃV	Étä	Lb>,TVU»$¥Xm˜â@gK´ßñJ§Fiô8’Up”İBumOP=Åçş¨Bíxx´G¼8S"œ%*–aÃ¨©è;øÿ"D×5 FØ¶q°¯«±ğûü‚oGÒxhFë÷l( <yjH Öİ÷]ïöæf>ŸÇ†ŞX‘J7‹WönvæÄ¬ó€bdçƒÔT}Ô2û¿uµr¼/»¤4•uˆÃãBˆÑ€ıÕ£§q!ãï:7UÓ=2ø”Ì:<¶AHn3Lç†ıâ|ƒÑb&¦B96y;u,ÉQÛ¢~êê†GÀ?1"ÁfAb]!Â¾#Œ5Œ@VF(•JB„{ìêÃÀ×(²àÔSı»½n=Uøñ>t*ÚäœTÍ–Å°5¨tDOÍeM ë+±iêr¥\u4l‘bs’«>¹$\â²ÌH™¦Xı¥*”}eÀ;lc<“².Ù|f<d5i8Ñ<ì›r¦ãJtvøJ dµ‡ë‚e”½ñ >a›[óğ°+5ú+uÈ“ã©¬ş«DS®dÉšlõõq…š!ÉZ00É"Ÿ_Šğ Lü¤@Òñy/Ÿ4¶±0Gƒ'Mi´ş„ÔÆ–é‡<˜’P6Æ~&Ì`¼,/^½=(RsôWJ¥ü:ò&Û¨¯°*Rc1S2\$µ­˜lSÕ¢ÉešÑå&ïH ÀØ*.Q¨Be~(Ñ-r«Dj™Á(Ó2¥A?Pumtt¥ÑœÍØ….Y0^°9veÛ¯åI4?E#ºèƒ˜$¨ÉÉƒ¾¯`‡¬»ö1BÉ+eRZ–Wb£¸¶Éh4oı,U[#ï;>–Ğ“—e]¶zÚhÈiï*?‚tzFÄ„Z•—Ê€	Äc#˜‘;&– ì¢—MÙ·[$¨®›ÛIèĞÈ3¹Ñ_Âxğ>³‚gZ°8ØÓá€xĞe0"ÒQúˆÖÁİ=¬f 4[3©Rt…2	$w´8l­ÄJy%Yõ¹Lë3¥B½bh(°
+`›,Öy4,-Ø
+éæJÌğóñ€ vôvˆ±^±éør¥ ƒ´Å™\¡|q¨ùû¢ö°e,À•PWã„p Ø€²·/©Æ#¾1®^ñï x$~Å˜T,s‰dZ‹ãÅÇpÀ6l0Î(W]«Ä%¿=è¸2í¯Àn¯ ‹ÉHXXâ`a>
+ER– †}¯M/fR¦„EÍ¶CDS.Øb9´t™îÍÂÅªlô¹eúãåfbÏGxª€¯ë$Âñ5Âë”8è¯Ft¾chÇ:°L^'Ç¥d°)"ªœÖ¨‰8ĞÊ™²9Z–éq£æ…q×%gJƒš·¡“*E@vqŞ`u)Ø0É“¿n;:m}Î¸£z3ó&Fá\]ôÅA¸êB˜¦Lóæ¥Ğ ¿|å‹ĞY‹Ùˆö76YKŠ]½zT;'
+,ØmÎV"%:ˆ¡!äCŒO‡-â1PT{€Ç”·Z´#M†‰•«¡$â“~oLÛk›ÄV¸xe´ ŠìC—Ø&n’Q^À"»H.Enİøq£Y¨cî{è]Ê„œ0ˆè æR‚{c;Ò}Á^¢ø“1Ğ„C<–™ à¬Tƒàoù`K6JGc	Şå&x!v³Èg½m°…EĞZ*&É§YíÓÈ‹Ğ—°:çAŞHÎ"hŸF’&~ù1Á ı“<ÁÈÚÏ0_I0khhß
+ì¡a€7_‘Hol‰Š]z)ôèñĞ99(÷ÖR‘`ü‹9Cíp>]	±ñÇP£µÀkØøuSöüpLc£ĞÎ;m¥G—fí(ğc479Z!á™ó.K(±°¢l³ş*edà=j¾ñ*Ú«å*)Q¢Ëíu(`·:‚â8Vk…‰×‡D¢urÁ«îö`¼L’½Ğnğ>½ï<yÖâ×YK[Vˆ%á#EÜ!gĞ§œ.Ä}Êètñ;¹ˆšĞI˜K¨	%-~÷·E\å[s@m¾/5ú’}#5ÚŠ-œß“ÅÄ^|µD@‰Œ`G‡¥F	½L"5:—¾.É^Iø,“4{¡“5l·tÑfÛm\LCËXŞÜßm|f³ññô [ÛQmtA
+hÄŒÛ‹I1,L»¹#tØì“ÉãPá‡.M•ã[‹·ˆ•ã[t"y0—nyPBÊNä´aÍÏl¼Õ´Àé§·')ê½tÿ<³Æ(jµ¶Ù×6_q©Ñ!±ùi,‰ÔèˆØägòºÔØü‰,†>aì£]ôÉw#5â¦±$R#›şMÎbè»6a¡š_=3‹C)™ğW8¡Õ_¬bØ­8t¬	à}‡ryy°øooÄü‰(}Ç¹ÙæØìÃAùÁs³n-Ñ6è“6;LáècB­}êìÛ2,gœ¥ğCÙ@»<}xINE\—ûÔ¶ë~Ü›¢Ï×;lÌW‚‡Òà¿ïzŸÌĞI=Ê˜¯¼ošƒÍâ€¡ÆÂ„¯häı}•uî¹áÁ¸İ¸nIòËÖÍ­AW˜ã¶$V[S2-{0´‘P€lc["ÀFÈí@Á˜2g’ıøª±l¸„MÓ°†ZÎô=‡­›’	±–t©²Â}I¶QÓÜVkôœ‡
+nµõáÜÇ5Hp…Û´Vã^K ’ò ¼â6c+‘”›¸¯™uÛ1uOuWcÍUÀ¤³
+;¶u7W—ø\#ÀSPa	¿‡ÊÍÖld-L	°ÃVJ~ÁC,§^Œ¡âŒA%¼¨l÷ÉÂ‹Ì±fø(B7Al7lßÂ ‘Õ»ªã¨êKtÇÛ“8ˆmØÇ£?Å=ÍP^Êt öwFt= ›…Ù)6¹F§AíÙØ{0î‰¾Üw¨J¶*GT¸¾.¼6áş À;™h±–É6û«ñº“ã…	"ÂTŒ`'¶uAÈÚ#¬æÄrßàu6:M†ÉÑfv$R N%zlIŒm/íÙ¬Uà+Fäx…øcÚo\äÅ“[şh0w`‹è¹[ä¿6áag§Ÿ¾±Ùl&[ì0ì@¾	ŠÁu‡&Û‚pŒÕ=¶Y^JtË‡`ìp
+lÂ¢“å2…7djÚïa³ÈvGD|^~uX=ji‹{¡´îVÃàn¹ÕásP_ˆ‚\¶Š^ØúŞhê£ó'í ^K!ÅÏ™b/´S<ÛĞ&UÙæ…ö`3éñj	}ºÈkôƒq¦ãÄ»AèLK#¤Ÿ˜	f±ôq¼é¼çt¬óü™¾ ‚ 80¶ÒøØ}>z —ÁìÄLP;Ömën&ıT#%…D’]:	2	$6ˆ@	Ï¶v=XD¯mˆö6ü`»xÑ|J“uÛãƒ*‹åÓu„ÓÇ¸;Y1Ş¡ì ø|%´øÆ» è3ì‡ÑF€òç‹B`Ú“p‰L°;:ˆög¶‡ ‚bh§.Aû!°ïwwNàÙ–.:ï¹Ñ®İNğúDctÿŞÍqüÛ7G0vúù!†Ñ¥xŠÿvbó!cìW!q¨›ˆ Oñº” £ƒóÃü‡.%ÀIæ=øÑåôót4øQ"	20:.AïbŞÁo|9Œ¾”øå—s€œ,œª7Î00J R&i¸ê;%eàm{òäqô¹¢™«ìrúLQwÌÆèC²N¤¾X†vk‰Ç±¼’'èôê‹©·#¿‹KQtŠ/aâ÷Šğ1şÍéïkìZ;{XyN²ıtw®Ï´'Àä|ãïBàÑeœnv¡$EJØNÀÆèhAœàÔxßè­ìAä~Cûı¶¯ğúMëÆnèì9Ft¸›ˆßm7“\Ìoèó…qÚç7tùYFíèæ}Ë÷[ö¡‘¤Ív¼ñuhlÎÔĞö+éÛ,}ğkéGíøñ,V–+g«ê5dz!³şRÚûVÈé~É~a|¹@şú%á£¤xş…'RİÚ>ÉöèN<P¸œÿFáÙ¼ÉW‘âQgà½úJ©¾§7ğ‘3îÎ|µ9ƒâİ™O5gğ)óúÕ>÷g«ì|Ó\‘ñùe§s3á¦Â+ÔÂâí îR¬ÿ¶	›2° ’&jÆùc¼È¡t¢“7î(i§4¦)]ÌÜÀ¦ÂĞ­¢ÿ`”ßPAj˜Æ’R+Û€9Wª0¯Mò•	k/jñ‰3×hğÊñ] ±Ù™!˜¤=ò:¨ÏÙîN EÛG‰H.Çn%éš3¶j¾2MW{ËO‚¼d­ÇuO´ F¬@’•Rõ´­DBqv­öŞŒ’®Z•i äı`Àš×†ş¶øÉÇMÙæòñÅĞ,7³uñÅtï_lcì›@tºˆŒÉS#Ë5G™ÿïîÚŸÛÆ‘ôïø+8«qR%’l9–f×oËçé8‰¯®¶(‰–K¢"QV”»ıß¯à› ‰çêîf7‰MI@£ÑèĞı}ú°×;¿šÀ>İİø£/í|ƒo‡XL“*C˜î·­Áåñ#¼‰ÚYœKù”ÛÛ‚9ˆ•DZ)BVh¥YIt •"d%ÑVŠ•DZ)BP
+!—eĞJ²’è@+EÈJ¢­!+‰´R„¬$:ø9t‰˜îc9×ÑjĞJQ}ÑVŠÎéDZ)ÚuheıYD²²Óˆ•Ú¦ÁCVh¥kGôËÄŠÈJ¢­IOt •¢bg5,â&["–W1)+9ğËC+E£!:ĞJ²’ÔQá!+‰´R„¬$ íBÁé_‚öP‚VŠì‘è@+E†è@+E¦tˆ •¢ Cô±ûEd¥‰i•ª¦QŠM!šU½\d¥2Ø oBé‹a¢­IOt •¢Ô±;_ÔJ%´Rä(‰´R4¢­!+‰9:&AVhe-„ o5	J¡•ª„ ¥ĞÊ
+Ô·´²
+!£­Ô%àB+b@Z©Zå% Êåˆ‰! (ƒ¬$uq¸ Ô$#¶!&…è@+ËŠŒ”¡•2şLZ)rDZYËÛø°QKˆ¬$:ĞJ²’è@+E—èD›Sƒ;ˆ´RùˆX­yˆ´²ŒCZ)J6ƒƒWYIt •¥Õ7ªĞJ‘‹"u¡ı°|ŒÔ…öC,©#øFRh¥Hj¢­IM´”-ˆbDSÙ\d¥J¶º2Šh¥Y©ºò(İL±8ÑVÊn¤ •&±´R$%×hUïÍR9auh¥¦Î¤]8Ã¡ÔtwF‘•Dãï§¨ˆè@+EÈJA=m9´R4)2‡Š´R%©¹T€VŠ’÷DZ)JŞh¥YIt •"d%ÑVŠ•DZ)BVh¥YIt •"d%ÑVŠ•DZ)BVh¥YIt •"d%ÑVŠ•DZ)Jåh¥¨R®PÎi#©>p •¢Œ‘+sêIPêrúr‘•D§¦]„¬ük«ğe •UÅlJĞJÑšè@+EåìDZ)BVh¥Y©	já#+å¸
+`#Z)_4)­	@t •"deå½ÂDrE“µóm+B+Ez#:ĞÊ2‰:ÄÕ7ĞJ‘ÿ#:ĞJ²’hšYišÆÍø?¢­ù?¢­ù?9`cõ5k°Q­”6šƒÛÕ¡•"d¥fà#+¥cÀ[sp;Z©n¯‚VÊ€Û¥¡•u€Û+Ó“2`Ğ´RäÓˆ.\œ‡¬4Û†æ•5'I5´R"ÔÉC+UR’Ú[Q¢ËòÁƒÍh¥Yil, +Õ‰?Uhe´R4«DZ)òÆDZ)2¢­¥Û¸…•’öl¤.:Ôq²—»ZĞñiŸ:´Räßx„ç•ĞJ‘+Ù‰¡•õçAf^¦!BV*™F¡$=‡¬$:ĞJ²²+†VŠ•iÂsih¥ÆY­ye¢­-)¢­!+M¢SY)b.…VVñm«A ÈJbÊ{™NÎh¥YIt •"d%áA+¡¡rÄ¤wôöäán?ïõÎXÛãLÎˆ|hÇğÆ£œaxçm®Qé7gkøó†ôóİ÷Ï-xısÿ—?á8	rÎO?À›"I`ææ ›2Š¼…Íáù]Óç[Ï™Ş~ú£ÏÓÏ{¤w„øË«æ›¯·¿`V~}ıtÙ¦‚f Ï_Ã¯ÇëşÎU“A»Ó»éOöõ})‡ wÕ;ÿØº“¸iÃ,b-Ë	jL3fï¾_w`¨»>7Gş:Ú½>=Zö.æ-X§±0äÃÅ0@lİ›)ìi?ï¦`À70ßwG­„a¡ïê@Ø›à$õär‰F‹WÁÍî·TÔÓŞ]tWWhC]4–2kŸ˜•›û…k²wÑjõ/!€ÀB›oqûá‡˜!vÈïhôéË7p5¸Û¾}D=€ıüb Q4ZL}œÜQ ãxâ~b~nâ„ù©o0³.¨†`´çí;¦äUçãü[û±œ¾óõ–X{‹ktÅ†åÿ-Êˆ}Š84ÿÂfÀ´ûh½ƒ6,«ïşèúÓîæÍwXÀ`İw'Ç?~nİşyy‡ØVŠ$›[]{»?ÿütÜìƒß{åª.)ıC˜Ë¤€¦¸]~…aşb“A?p”úğÙÃhxy5§i·èÆ%Ãl+âãÄ˜	 ÇŸr­ŞMÏçúğ.LÙ‚)lP¡8[ü–Pp=˜‡ù8„•¾N!¿!˜³$Vî¨Ò£!°ìêpzÒ}ØöH»w<‡†Yæ5N¢Sœ'Á±CËãÅ·ÂP`¹ä‡•Å¼Zz—ÃÇÁt‰9á¹ûtVŞêô.Ï[èØ.!Ò0ÍãMoqqœˆÖ(¯R¦øİİ“ˆJ;8DÌ¾†Kè‡	³½¡H^™Óî<7ë¹jggæjsìûú–.-‚qïbø8¼¤ÙÃ¸“t:cÌHª¼sG3‰ÔuÓäqq›Æ¿g‰Ñxø0Äp×İËn\ çQb”l™¼í|kÿ¤¨Ûo_:ğÌVË¡ ¢_Í²‰â0
+QêûÅUk˜²z^¼—†È8‹˜ïe¶¥àüîÀ·ÿz|ì­Áuƒ;˜it×Qãgwmª sËd:Kòài>ßï­q”Úå–F!Jüğ£Ğå”b/o7ñO2Ùü(ğª “ñ˜8´và†¥\
+lÙ—l™½DĞ6l}İåÑ3eôı¬:¦ô³•2‰]ÿäÛ ÕxÜaO&_©SFL£:˜F·ÉÊ$°\bø‹ÍÌÑŒ§'0èõ 6ƒà²çÃ)õ²ã!Öp0,ûˆ¸_º-T&ôø4fcqUüéïà½ÇOœZ-Áë q0lö]E£p/¶Š}uç1±i|¸ñGøFxß**\~û^ÄA¯?ßÌXÁé®ƒ7`„ ìw®½+±ùt	1qupw±vÊÊ®R3ùŞx7½HŠpÇúj£ÇFÍÊ~~Nqx	‡´ö7˜€b0ì0$Ò~
+¥¥5Ø8F®5¾ï™5¶Ù»ÚáÕæ{À—îƒóå®®¿¸L…ñ#|FWO'tÍ¾j<-Á<‚G½ê]àß(ö2Ü1&~,SXtÌ¡da ø9ü‚›8x#Œ€kñq¡L€.ZÈÎ9u,àWcğé°ÿÒCm8›¿`¢&t7DÙ®šéİ9%Òaìëth”¥ü”3‚VíÌØ.'eòËÓogÕ,é-õıÔ…_Äüğw,ECş:÷¡³øÜË~Ø%ë˜~£6ÌÎ`g‚Xaƒë‘&\!!»ã¸Ù§ûdÏÁâUÏ—Ÿ„dm°0v—á¤ãèûİåàZ]6gOwCáÃê!zİòš$6‡¶É×³ƒéDíÛÙ¬üÀ6æo8ı‰KÈ+läõ«±ë_¿šºcƒ`Şp¬¼G{çtk6@·[Vø¾H`1l‚Ï™¯_-ƒÍÄ}İ÷‡ë?­‰7sc×ƒ«õ¼shı«?ñTx}ê,FŞ¬øó«9ÿyhÙ$|Ô÷ƒÀŸ†OÃg÷ši>ï¸ShhÎû|úÓĞVøô_Cïñù½ÿşi7[V³İmÓoïu›­½ı&4ô¯Pà{gcéıM· £ypÈÙäŞ™z“Íµ}íşÒ¿¬oÎ¥ëYŸ{Û 	â/¬Å¨ÿ¤ùÌÂÿ?=äşÕ‹e`ÔĞ«LõØñk»yô
+„íÍ¼ÄşÁ'—Ş³şr~H_±¨rq¨P ’M˜PÛ‡<Ñ‹ôÁÃhá¯fÃF(òÚƒĞ¿>Üzı§MœåxãÌY‡'c”Œ7‘8/¨„øW0vfÖÆ_YîbcMWƒ1t¿°ÀìÖîÂšn`¬Üeàù³ƒÔç^õéfğ¯ÜBù»0k`Kı×öÙ®Mìã}{¿iŸÛÇ'v÷Èš€â¬À·n¯­{oâ.7ËÀZ}wàOÁØ­¼Üğg“Í«ıTwØ“MJúj%= »5p–n±‰¸0û¨‰=Ú„XLu‰|Ü¹ãÌ
+¨^8/¥CL$µœ%ÌÁdf¿^ræ,§ûµk­Y€b.gÎ|9ö:… ÓgøĞïcÄŞl°p§°ü‰5t'ÔÓş‰3Z+èúÑ[,Ç]Ù àÔâwüp§«†7ÁåÈ}eáöQ|¦*gì/À×$b—ñfÏS²Ÿ¢Ëq¼ÉÒrtÜì³tôëeÔÃ>LézÁØ«Ùµ·œÀ±	N2{heî.@S+»LŸküˆ4ç¸ù.Ï°m?xı¤õ445öa¦Î`“O½éÂŸ d8Y#cNÀÂ¥:4š-kã€Í°WŞöÖ!û1±dö{kl‘ıÈ‰şóÈ\{%ş÷iøÖ‚[`á3Nü!ÚÓD h¸ìÙ4åL2¢ •g_Å€Ñ‚é2Æ/ÎÜC›l³ß
+-rk[¯©q1EF&Ñ {„)l8Kö|êıül5zK‹=m4†Şòa9wì÷Ç¡ótó"˜Î_LW“ßŸ7àãf·fŒ/lBÛÁWƒ¦Û£Ë.zà@ŒòÑo:İåÀEcH	ÍÚŠ	İ–Ú&¥bÓvd…¶I©ØRBï„mÚD_×´”Ğ /m]ç…ÆÆ{WÇ@lR{W×@l’;å9sÒ‚HÑ‡±WösV8ğ«\¬vI¼Ï§?m“CZ;‘xÄı¾¿¤êWùröj8È¾îÙÓİ®êŸ#=vñäJ÷ÀŞ÷‡^ûĞVÁæ°¾œp™İŸºoÌ©CXæĞ¸Ë1J›Ä~·ãh±Å4çB^{ĞVZJr´sRÀÒ–£“Ö¶Š{é”­Óp/'#F§jÂ<ê¸®Ğ6Ù3?ØÎ<·‰yü‰„†1–‰ıREhğ…"±_ªúD›èëz?'´Môt½ÏÚ&êº9rˆÛ2®¼:82Ÿ#ãÊ³†$päØ–„+—r´ĞV…üÔ•K9r›(„Š¼Åå¹M¤\¹”#§{“jm‹J¹MÔf¿Ì‘Ãyˆ'Ç®Œy)àÜÁ“cWF¼0ÆŒ7	l0_®Øö)ğüh`÷)r{9)¿Õ8[›¨ù­n‰³eç!½}s^èp[Í"ì' ¡ZVàWe´İ’:Jœ­Z²'B›Ô°‘hµ#İî$Zñ6,‘KKß™ğÆìKå¤"vß¹}RxËÛÆ4Å£Š0¾ŸPˆ?åñäÒ<
+å­®­”Î*¢ gõ³J¼YÌ9ôøÌ§àJ3êãß›åØÈ‘—ÎÈò{À
+m„cäûsÅ ûU±OWœæWëˆ´/˜_M––÷ªën¨•ÚÿF1­Ë!<óq×¸Â³UQp½ë!›èEŞa™îWUõ-8-ƒM˜]Æ¥ÄâíÏğ¸c/t”Í„Ù—Ñu\,æ‡J÷
+Q®í‚9éE¹H÷ÚQ(ælRÇ\|g•·<+9æ¨İ›_ÉÑcxm|'‡
+Ä³•ÖÙ¥•¿•s^­êJ’¿–//IÕá6²/5ßÎ×®!±$jÇ[ñ=@ÖYsR§,!—JÇÙÄ0!—JÇA[f	¹T:Î&†	¹T:â?!GÓò;˜‘ßoËş@ÔŞş¿¿¥'˜ÔlS¸`§4©ëÍVîS–Î­6"	¡=(‘À„À?«‘È„ˆ†	LÈ&,c^,Rxı¤N›Ç¹{NÜ›Ñ$½Mn¯ŸE•°À­õÂ\Z¨`a{…yö4Ì§3lÖ&¼2•¾¸H%[bÓŞ§… m¬ éR’…»\Møy~~YHØ­_€ÓËØÛYÍX¡µÃÖèÉ¾5öW´šñíäÇğG¦ÔD3ßògOŸ¡îØãh²â+…ã´IXû’ÓÂ.•=®~á6ŸV$6aµj¥²ª›l~ãÙ–â4î¤§ñ‹K‹Mf~`-WğZŞ|á÷'î4?­¢~l"ê‰)*œ¥EíÆïÆ„Bø©¸Ş¥—¦T«|71¯[›\[aiÌ³Xm}ód@+ …å„ê&«‚h	ÔÔz÷›¸–g{IçzÂù³ú+W„` Mà¦L"j	–úãÔòïïQŠ¨LëœzÚ¿g­Œ¿¼Hù,Ş?±^Û±^Q_¬$*ÔW\D”ÖAFek UÅäÙ¦…Z^JŸƒ±3¹KXØim²÷¦µ)£Ëğ7¿×°~";åj·Üæ½mÙ²ªE—¸²RcÀúÃã#¬‹k?‚f1ğ‰ÿğÔÂ‹„b	—ª®Z‰ê…Õ‡eJâ4l“ı¨²‘7©i¨r´Ğ_Á¾aI»¼-è­¹5Á3‰<á2Y®•œ»ã™ ÿ@ìw¨X¸
+û]œnn¢¸·ëh=…1&ûõr½ÌÆÚªét°»¦ÓAß‡3¬ål^B¹³wáUí}Áš¨(­ b¨¢”‚h…¯‰ŠR
+‚=‰|=ãÄ‚Ô{rù+8™	îÈĞ<£F_xSgS±9wc6©çR; }¥Ş%UĞ(Ù&m±Ğue	ózŞ©™e„Bï¨‰ŒÁQGÏi‘£;Ê[vÈ»‘ñdš,Ú„øî”#ZQ¨ +LÊ?$šŞ=)½=«º‚®Ãì…SœUÍ\9I¬EÎœc…\…Å«@Áµf´R´Ë¥(Ê >G°Vª/ßò2Ø„3Yšöo“Ò"ÁJûï¤D0ÌgDÆŠ¡Ğ’Hdf)¡÷ô]£Ğî+ôÌ+äf—z~Y!rxËn‚‚L•V¾<PÍ4öQd°ÕBsayQÁ®Ñ&âT’ÂP×#RI$U×˜ŠCê‹ğÃ6Q•B\hÆìKFŠN¥SÊg%„Ë[BàW¹Rì©:èÂşKT£!7¬úâ¥¹ƒîf³öÊ«°›µÚ¿Rô’…n‰Ì°¶3Q¾i°{•¬(,Í+sSñÑ­’sB]…‘Ğ)´–ÙA¡Õn  –“B+Û‹{X]7]ˆRnš;k°Un²_ÕCîÿ¡Ñ.ŒñIG
+~½”MT¤è–ú&ØûVoç%«¥JÏ|™•^­<ó‰®Ú”ØDd6ê¾:ªğ•8—)c§¾=SâW+ŸdÅîÉùbóNÁåBÃ>Çìàª×²‰–®;<¡i[Æ‘‘	ÍµUÅ³KáÌ×28¼ä«U¸7jŞ:^CÜ	oš…¸JXš%ï'Q÷Ùè¨í®[Ù»4¸ğÑÚräûêû{qÉO¸7‘’#ÎÈKöU%‡4¢¥ä&m:•|x…ç4¥ü|I>eË&aV(êY±’IÈ`s6ÿ¦\Ä—p@2-âˆµkÛ°ˆ#)á@Í" ]½Ñn6-´¯Õ"I–Yñ;ü‡èaœÌoeM#ß3&KúäcæÖ`â,—ø)1ôfÎbÓğWç«À
+œÅÈàwü-ŸÌÈ00â¦ÆĞuc‚ı7`9‚Î&^èã¹OßØü¯Öş–…t>™'˜ˆûk9°Êeƒ¥+w9
+¬W)Îü–)µšgtSê$ëh¼°°R+ÎÚcPT‹RÅ¶c‰&|ÓïıÎ`wxCÁzxĞÚ²âŒUjá¶òì=¢˜ë£½·¸°—ówooçG×½7ßpCgæ°§°ŸøÔ»;£o„&i{ßWË`âõÁ=ÿMoòb]ÆÒ3‹R0r%›Pz¥X†R–¤%ö±§(òàôiZø€&¿ØÏ´›¥?ñ†ÖïÇ“İÓsğ0¦Cô_CÊFµƒ¿[ÍÁ4ú³•kõıÑéiïíEãcïâòæÀBS¶¢goÎÎñ+¦¡úõÖ†iıÎØŸ:‡'ïŞ¼ûxğ{“şwhüyññİç·§Öïî=şk¢ÖßİÜ¼»Îuyóî=}²§‹Ï ·„6æ•cî=³	œ¨À?àNŞ–hN\>úvaifä­jÀY£ZİƒN+û™Ÿ/öÑÆéô…;;èOFúdÅ|OEaNN²ƒÿJ7í°ÁÒ_fÛjŸu¨+kâûçvœ[‹)ÎlB+,íã=úâ¾İ}iŸíÛG-ûh?Õ,
+uhåõ4VKÉø½C§öñ¹}öÒîîB»ØŒN"FNRƒõ±	âö'ÎƒËéÙÑpüçöÑ1J ½½Ä'G»ôxÒµ»ÇìóEİZõ¿»ƒ€M@xQû<0şù÷Œdÿ–@œÙ6©Íçş"ÀØ–ú¤k# º°‹A×aìĞÏıŸ§|Ê´¬Ó¹"_TÁWVÍVfY¾²j¶2„¶Éñ•U³•…mIğ•U³•!‰_™[YYÅPYìæ°•Eù¯j¾²êºLÁ9|eÕleÈª%ÇWVÍV†h!9¾2şó4[ìU%ùÊ*ÙÊˆ<_N±UBTš—¡*“"*Ã}IíSb#[Ü*²hÁÿ| ­-™úw™
+ "Yÿ.Q„É¹ú÷ê ğƒI:‚/s³]ÀdW÷¥Ÿ/H¾gâ²ŠK!)]—_s2è‹7Gh›ÔÆ,´›-PĞFÔî2ÈjMYmhìË))¢®â_Ä)ğß…‰ZØ ĞîÕ‰Ëøl a2:×ƒØ—6Jr™ÇHÚD%É½$sT´K]†ª—ñïä`ŒÄeüu
+~Bƒ¸LB^I\Æ_§â¤\™{áßìCØÖ .ãø/sŸù(—•Ğ(—™PÒÈU&­j—ñ…’÷jÄe|G®J]UæÈK¨äJˆËø|q¿wğ9Äeüö”ZÄebúJ)^	G^ØË)uæDRuâ2>mYâ'ŒQ÷»Œ–NKB’‡ùU-9
+´e
+ûÊz2I: Ìši|Äe|gö%£Œ¸Œïlaiiå«¹ti"y´e‡ê:Z¡_-òOhÆ¶ÌÙJš¸Œ/¶"mkiE~c:q_lJfÂË™
+oH¦N\Æor{Ì¢5	
+FÄœBJIâ2~û:ty¢ WØû8Z0¤L\Æwèå”!"â2¾CÇ= gÿ§à@_Äe|o^½zôÆOıÉ)ÄÃ"X=v›"mYšnJ¸Ìôn¨Uy9T/í´qŸ	‡RÊÿ…|Y}Ë–+(|”NË4v˜°s¦Ë¸Ğ×wö˜Ó}Ö@>øíë¸Ø‡§ŠÛÔè99´eÉ}¡9ı4Øªq?Ì…ûhUf4.m™Ì}¡l˜Ê‰Ëø~„QR ÿ®C…¸LŸ¢³H\Æ×Häï~])ÖALÓ .+¥ÃV$.+ÿ‹â2éô~[—Ô“C
+2YzªªôœMè©*Òs”²-Ó¡1c?ÈÇş—´”¥1c$fÈJ#¢1SÊøâÖ”ñİaÄhu}‹Œ±¶o±‚U›”)©™M
+±ºõ°„S«Y>°X«Y³Òš™“š±;mÔGŠÔÌÒã3‹ÈÒğ™q˜¾´ùÌÀŸÂ>°>3’Ì )Ÿ™M*˜ŸäùÌ¬(\›S™]C[zTf‡Ák…ŒYÌBŞ-›˜³˜E¢# !‹YÌa[8S³X›61f1‹u‰©3³„ÃÌSjxDĞg1Ky›²˜É®G³T$ŠÊ&µYÌR‰ÈfnÂb–æ0£G—œ•K˜èË¨I`VèlÂè›wÓôeàîu	Ì
+E|ø­²Òfåû¸ÿßFšeïRçî"¥»8-Å:"æZŠtDjĞR¨#z2ÕRXÛÖÆ,¹/C5¤1««Ş.+2Òî›±$ÀË¤6Áœ½œª!Y"2ÑŒÆ,Yş«+Dô1‰Èa 5 1KD	n´iÌP1èKp“*Kc–|ó„f4f‰è	¡†.Yrı”®'Ğ£1Kd ›àK¡l.aàšÃ»8³dªBr4–S2 .@İµ	†4f‰ÈáWù™3í^ƒÆlÉËíiÒ˜%"Ç5&¦û†Jûõ(å]cÎ&Œ‹_kªJc–¸FĞ—!™Ô×¬HÒ˜%2„>Ç€Æ,‘!Î/iÓ˜%20û2¡1Kd€ƒ•!YvÿeFc–’£™Ñ˜%k×Y²Ùı^úyîMiÌ™£¯€«ƒZ+ûµ¹:4f*>ºŠÆ,µõ8éV[›#¦1«ˆ”ó5õ¸é0vĞ˜%~ü½!YâğÌgFc–Èî}¥¤¨úÚGÂâr³D†ä+uiÌJÏ|Š4f\"?M³D
+ˆi†4fI¦?µÏÑ¤1û'”¬ß“NªÓ˜™“NJí¤Ù_N:©}v‰j¶şŸ‘Nòf¡6ÒI,ŠæQŸ>,{—fFc&Sg*Kc¦¾¿—) ¢kÈˆÆ¬X¥OcVr£Lc–Ü¢ÛÄ”Æ,!1ƒØaHc–ôoS³¤hö«†4fÉ¯ˆ?2£1KŠ60ÉgFc“˜s³”EÓ˜E$fH9iJc“˜EŒ4f‰™MähÌ²Àç3KÑ¿ó™¡îëâ3³ÉMm|f¬:±>3ö‘Ó0ã3ƒèXŸû²®zøÌ 
+ÕÆg6\é’‡Q&³4{UÌdãvë ÓQ`2£ÔjpÒ'WËñ™Ù„Ï*&â3+#$³I†’ŒKH&K$f“ø“Rì`t8^0ŒÚ²Ì`"^°×ïfÖÍÊ}úz7¬ÖÎ3çÒràçæÁN÷ ³tmı­¹ßl>³¸SÑ§Ö;4F/8‚Ğ‡Y.úEX¿eı^zÍFÏ.½g…¶8o;‡Q€Şw>q‘¼iè£æX#AËœ©kMİåv4à'7Ç[&+ğà!9ÖÂ_?Åëİg_úS¤µÆÎ[…ø:÷gCwHk7Û$Qr=ZVÕ_-AˆcçÑÅ7ÏüÀ`ÕØ[f[Åy×ÛEç‚ú˜p¢¿­MÑÁ†sò„Ş’/1¹î¬ı6:¸?ùpvı_b/Àãç­§VàW÷—|iØ#İ`)WŠ®Îd+ĞÏAEs¡ŸÒk°ğ@©!ò+ó•€Qé[høÏ"aÇN°BÇàW+º¾;w‡´=w±€™¦óÈÈÎúîÄ_°çX®õÑ¥¤s i¼´òf 1ÜŞ¸[Ä¡ã!D›¡…uiÄA´MÍ<ì—(ô\H”[kñ`İƒb‹0in=+ŞŒ®]kæF“¹$ñØ™Ù—ËŸÜx?=ö× ˜¸*Y5«Ë(Ğu8m=ëaæ¯ŸYÛ©®¶£Õn“X#Øw@×‘7GSX»+—ê+3¸µ+^L	{^²Á•ëİ‚„mÄŸôïåmíL•Ò<z‘ö7œ¯İœº‹‘›«YKXîNú«’y.ô_˜Óˆ2Ó9¼/ı\{“	]‡É[C­b]0‡£*}ê&&+eêl¨w-Ô­R®ÂUŸçJÄõ®aÜ¨-õí¾4çª’™¦£Êä|— /q§wBıOÜO—çÚM-º²"j'ÖŞ‡Øgm\pİ}'†_[œ”R's&µDñ5Ã“FWw‚õgÛ9Çmk¾ğà_ïß	»‡®úñ|l‹«“q%ã –7ÄÅ	Ì5Ê`r½ ÁAô2$Ö™á¨=íİÓnqp-"há9ıYL‚ÃF#ê©Å{
+§ÍK¨h»õ8ô‹òQ/Ák&3Cÿ–ÿVéH¾¬¤L’^°Ë2Uú©îôçßçš³ğú	=3Jp¦l´°õ»v;Û?‡4]š¿ªçÇw„ÖG©Y1nÂ³l³´ê|êc6˜a4 ©ŸÑ£}äò“[Y¯ŸÙää]®E£x*n2?˜[Øà;ÔJ-·R$Œ1ÚÑföVäÁÃÊ-pæW-t\wJ.”,{õÅU^l_7c5ÃLD»è€í¢p-À¬p¯¿o`?²šÍt­!ŸlÔšwƒrı¿åŠÅWBÃAİ(nF"<hzòÈçÌfûï9cpfËßÂßèA©ÚÀÀYä79/ØI=yğc<Ş¯¤Ÿf^Ã,Søjßnà…q0¼&úŸıÏf³õÏ·îÏà=˜K»µ·»·ßiîì5÷şi³wòßC¨à¦’4 ‹ ª2V ÕXërÚJşíyŠ.Wjm*èÊÅX‰9Á€mNŒÍ¹WŠÒ`&’"¸ädß%²²÷-¶[ƒmp|öìŸu
+fzzz¾şú29‹‚	|	#1äv2Ç_Ùó™½Pï¸v$˜Ç W¬¢néÇ`êF‰u¹ÃÅ”»Œh½ğ¥2™†Š[xj.½¨áxnªwÇ¶$lïğÉ²ğÉĞÕ’Š’fñsíà‰XÆº¡†Ép"b'[Êç—VT£ V´ì'3!ÇĞìµû¶'\Çı:?FºQ6õŒ‚^zb8‘T’˜Gñ+Úibûj"ÉÂñ|CyõÛC`ò„J
+²†GÑ‹º~<ïëĞdÄ@7Éö5[ÂöV èªY^¢ğt	†¢ZÔ²Ÿ0\$º®—+EôÍ.ÿ¤Ù›Z¯w9-€#Â1NM¥Û«)µfÏ,••óz[é]Ô
+•"…ŒOpŒíár1Zœ\]ç^ÀŸEˆÇ1÷oxd*¡œ«}.áp×BsŒÔ0ñS*©…Ï9@hîİ	b9óÍ“¼ WN•fáÈØæKÃL--ÃsF‡Ã7ız½WŞõzJ«a~õîãYù£bšÊñ‡†¢›8×VÚ½sîŸê]§ÿ¾^ë!ao-G7Áaâõƒ™Ÿ2Ü0Ñ;GjÉ ï&±ğo Å?³9ƒv$Èá4ü¤ÀçhÑU '8jvx$ÅH8¶äño	%w3ÖìFxH=BÉ¬•*e½yt¼¥¡dˆ’A(Õ›ıÜ¶ó·k­Ë |²,#óØvˆğPK‘Ô¦‰
+²Y¬Tİ,VT]7·,3J/fF±34Â‚ß¹í+Á£ˆCwçàå´WeıÀ‚¶PúğÚãò»í»èƒ—“¯ÙË«dÀúãˆÛ®ÒBáXğéNùÁd€¾‘àS¿±87Q„1xº
+#~[éiáVsjn³wõåÜüv6ÿÀGı}çut>é;_LCN5­2Õkš¦õŞ{µÖ@w[[ÀÈx\ÈxÌÚH û†§~iè%£yvZljÆ‘^,Wôz¡R¯×jõR¥Pn˜•fıÈ8+Ö^ípa]=â÷?Yyº[İŞK²ÙĞÍcÔU(êêùé‘Y(¼š¹-=¾¨²–¯tyè-òÎ/¥kÃC©\ÚşM‚§¶€ûÊ›«¾Ä@ÙEÊY—B¸§\Ø±R“ÒvÆÊéHÿªy¦ÔdgË Âá¹DâFøè6ÿF¡µbS5õãÏ·[ô!ª—˜ÕµĞ³…ÿœ±Å\ì‹8P*•Ò±bì³v«İTŞf‰×CÕqç.w/l©ôB{¢ôœ B=¸‡n Ö>4{ƒ’‡nımcĞº4®zï.—×ïòlïM·uz98½¼®¿n6r°™ w& ¶÷$±GÂå=iû>w•Ó¨ÁG0˜j¹Èîu!Lö¨´!Kõnedû1ÒMiúNà"ğT0û‘½Z"'ğ±üÈÛÔó-	ğEA“}i1Ú1
+iæ¶÷ä>âA¯€[zA€^¿Û.lTì:fı]³û÷ûŒÍLÒK†_¸#-èò¿’HŞ+§œû}¬ü3:l°ÅYsÏT$1ëD˜Ä]Šl¾`¥b—ˆ–ÒB`÷V“tœ6M©V¤íN„RI;=±´ÈEs½ DÉ,™Ë1_™E¿‘-ö1üïXºÙneû¿ñãd;Ä@Œş±”aliÚl6ÛÕ&Ù‘´ ¤cíÎ*ú’$d`İ™P–•rßâÌ'ÉzÛ¥!µÈc‰Ûm„	Üß=[Mµ—n3ãÕƒ3_p/Ü!ü˜Íc\¶ÔĞ{:fÂÿĞ6 {¯¤v¬úåñREÍ!•*v!òŒ9¨ÅĞ‚™#õ¥íyHüU0„ïÆs%(&Ü,<†A a² ´óÊ˜‰ZPYççeGA‚¯¨,%b,“Ñ(‹
+a€WÇKÜì?G¹dèŠ(c=àœNçÀbÌ‹AËQsÂd öO–«¾`’’QàÁ2l)ï81¾…‰êŒâÆˆÜA²1DiÌ¾‰ä}‰_Š	¿Š±ÊğÕ³´%€`S¸ş ë·c íø+Ê¼m®QŸ¯ÏföÜm]_)ïL]¯tMÅ`;”9âù»ÚÁo…ş–¸YMäé(kğŸÛÚ§OKmé¢>kúÓ`ño\ø…'® r†èŒ †U*²şÜÙÍaŞıùHº»FfÊŸ5µ²k?ãnv)Îg¶!Ä†Nü-kí¬ÙÊïl:gÖ%‹U‰áUV­µ=$²ûõ%;Î³}»<’Èá¥(O@û·‰3$ÜQÍå=[íEHVí ##:ÔJû
+µ”O©{Wl;‰ûéõ:¦€cUWŒÒOfU"”˜Ë³ÀÆ St-¸X%‘bSˆ$E«Ş©€ECñ=ÅQ…Ëå>ˆ?*ÂHs7Å£JcrèÕ¬BéŠ¥¼7wş¡={Û¾ªµ›0gœšTêÉt¼0 âI/¬ºÖ6Kƒ{©‘RGÌ½Qª`ş*ô£µÍaë†ÕN$A‹xŸš¬ÜU)Éôb—M¹ÄK„	
+İ$tb{¨e‚¯( åì
+10fA‚òÛ4„[±ê®Í´İ˜¨ĞòÁv]‘Ò½Ïªr,âÌ¦¿7ÛoÀİña”D”ë°#¸õsë7iŞ³İÔÁ¤†î–6ÁË™Ã8§b0„ßˆÆèÊ5Ú)]°UúŠçñÄWÎX»‰XBüUL&inÅ]o²v ­$hs†ÈÈÿ@mC×á¥öì0n°öOn™t€(FşÉÄè¤ƒN«±œ&d¹O{a W[HåhAj7c^¦É"Â¢À|Ö½¾î³*Àúz®,L/ô÷cõ€3÷=´šº+xOúÎğCÁ¥pZBHn•ş‘­˜NŒív.Z.\¹÷1™)ÖıW;ößm°ùÿfpaëì\O0~eğ†€AÅ‚Ùvb/¨§¡^(ËoË<ãuîºÍg¿Ñª¥İÛTO×JÕ¤{—İ‹æe™îljÁTŠCå^YWÊƒr1Û€4IPƒ©Ò õwŠp*Ö±ày¡ ê9¼Pè·L]-³*.ê$¥çØ@5%Õ°Ài‚@ºÉ;æªİy­Rw»ln×«¶jU¶ü×÷cşşŞ÷ /¦TgÁÚøíˆ	n8¡>2[Ãªƒ?÷w[Â²fè”{¨Û¾7·Ù®Tÿ«f±ÿ 6<VÎ  ‹ ­2V ­VÛRÛH}F_ÑÅÃj­ÑÅŒl¸%¡
+
+“„­Tjk$­‰¥efdãÔ~üöh|ƒ@Š‡5.lY=}9}N·Ş*YBY)>•?ÅÅ²œ’âo·ySñ>„ıAßˆÃ¨ëİ°”ñ)Ë0²g¹0~yE¿””¤R2³¤Êïc²öèmí¼Ø¾F!é´Œ;ßv½­d×F‡©ê¤ä:uGÙı¯Gwú$j“~à>vaÆMçÃ«Ûko‹g`öoOKşyFıö~#©à°àÉ”+ã×š)ıÆF*© µ±æ÷Î_x[LË¢Ò€ƒ€¬áñÃN>ÆÇVÒî(Ş'Q7ú;YVxåãIÔÇUoØºÂ_š­¼C:ûxºòq6	Ã½8nc;¦X-—âèör8‚áğrÚ†”W9SGÇçÃ¸Ûó‡ï!áFá 9Í>|Üı
+í
+·r c9S\çTL(‚¼yEJDYÔ÷d*˜!<)p[ğ°Ü¹a#¦˜H™Àa·Ÿ‡ñÉ1‰Ã½°FOùòŞ"ø¸âiN¸vüæ8|‚ë¯½;ÿ\ğ±E×?Stdü¡¡¦ÆX¢(
+½+¦53ÿâ¬‰Ş£îñ1é†müÛ{àèŒ6€_À‰Ú81üFÎ',Ï?3a0Cù“º$„»(:€K[Ü÷{ÿô: ¦ƒvŸ„»ğ¥ÄÖAFMDÆTÂU E›`Wçşg×ÕDøË…ğoXUÌ}Û—w*…ÁÌüÛy…¥”XP”‹@(•fæ¨6#¿¿¶SThìB˜ÊŒ‹ñ ö3ˆé0¥B°Ì?™c™˜ÚQ1†˜ôú ¬%¶…”Õàùşëä;K®Ìéë³oPšŒ„ŒkfK? ª*šN˜ÑPkÌÍÛšqÅ…jUQ¹ÀØ'Œ‰[d=ûMwş²ÇÂß˜D(UïZ¡à3ËÍ|¯ÅÄ»Äùá_ ş·ÏpPÕÚZëfĞ4^[ŞÍJ.ĞJQ#•†?€VUÁSjĞ26e…¬ĞÒ	ØälU~*ªæÛŞÖÃ™µ9¢\üOB×‰NO0­ÃÜ˜J‚`6›m˜¥+)•¬ƒ>_c¢‡ÖÂÈÁƒ¾b?j¦Í<i×Ÿ£zv‘È±Js‡Ï'AÁãèîôµÔØô'ÓxóKÍïYQ=cü»œs<¶ğ0|9fvKp1’ÿhİùMËâ?7OâÕÊÁ—ç}÷
+Êİpd´ß™’èÉ{ø~Ï[øÿh	FÍQ+~9IàÊµL6dus}Šrš’fÖæöôºImĞÙˆ+ı¥%rg!QƒŒÅfRMĞ‚¸®æÀÄ¸†·,“Š¢¹bG°ãæŞ.Pachƒ‡YÖˆ'°ŠfÔª©(älQ}­òõ­(I?Fiçna´ìÈ¦qLöIÛY»÷9Ugª…ºÖp/0µÌ©ÑjAÄ9êé›h	tŠhF’…]àè*¨µ²Téu‚UôÀÁ­ƒ&ån ¾¬`Oe]d€Ü÷èÉ"÷7Ó-œˆ¡};À„Áx‰’&ƒrĞ™ÔNjàâÕ”¹Zğ¢’R<ïe²ô-ßíöéúÈB™0”z†ınLrSf6”TVñ ‰Ä`|T‘àº@³³@Ó’-
+iz™Y]O-‹¸­sö
+›ÀŠ¨H]W•TÆ’¹-SY5Œ;é¿[İÔğ/Œ«6´¯Ë…Ã5;6¾.ä"g8’1AÎi[Ø¦ØŒf-m)­pTçø¤9æµtcÅ’"S4º@S#¸èbQYk£¾L"±›No–èÄÖì®–­÷4³M±›l/ì¶-%5ZQÚt_l¿‘v{`;K+§¹¬_¡|œæÿ‚–RœMÀG®kóÆx1°y
+¥ï¹óJYùg\5ÚFJL†•Ú‡„-µİì¸’oEP1—‚»Ç…Æí’Ìe6²ŠÇCèœ5T	cƒ7ŒuÍ·Zäme3:Zîş¬¡¦€éÎÁNòQíxà¹G?ÏûÇW‡7â  ‹ ŸP2V ­WïsÚFıÌıÛ|haj	éÈv0$f
+ÇÔ­'ãÒa.‘tªtÓ¿¾{‡NÆS-áÓŞé½·{ow©ˆ õ"ÇoCçú"fRçÓH÷ñÉdÃ_mƒi¸´á †i“æ3¾`3µ¥=š¦"‡z’Š@ı£'óGª§,˜{R­H*Õ…;ÓĞm#©õ¹F*Ó„<“™aêI>xæSÙãó©Õ–n6ôV½¸Õ`ÉåúãÑäšTx ²=é_5Ø†i¶©3‘ÂYÈ§J-ÏXš½UoŠ¼XÏ¥B8ÜYü·SRAaN”*kqP­<šaÆ¡>ÈwBFŒ¦Â¾Õ „©<‰`èc£Â+¨d°t«^ÜÊe Kn˜CMÌÍ©sŸO†ã…Y‡‹ø<™³ô¼wÙ×nÆ­ÓS»©½¿iãËN£eÁ”ËìÇH§óÙêüêâ,ÑtWB8¦ -WQ+‹db4ôiú­<«¥£wª›†¥›­má&àZdrÆw*Ò·,ÛAVFã5¬5~5ğª'µCõ,"¬‡Â÷Â5²R
+kTƒî¨@ëË{O²¥·r¡“Ë¹Hù¿,€#•q¸ú	>qzR¤NC˜2ÀªÈ˜ŸK|Kíì¨”W<u)uí6æ‹>ÏW@­ Lp«î¦«]äÿ«vœ}‹İt¨×F»ö¢¤²¯|_ŒS8NÆÙ¹Õ.Y(Ü2øl„{î’t;'Fİø‰œàÇT/Q,e¡·:Ğ¢|ø®­ŒÍlY:µ7%^ªxI«2ÇíA†Tö+·ªéZN±U¡ÚïM:Âñ†}Èåpì®¨	Ü²–µ%R&ÄÚÃÚõÍíêâ,°NŒj¤¢LmØj]4©MM»Õ|?ªøÇKû³õ~£ØØ´¨ƒ•‹µ»¥ó,|Ï–·\ óIä²”Ñ(—7uĞW^™/¬îf¹µb
+Zº¥7ÍÏPİ~~xÁşwdĞfÛyU.ö±X–yLô\8³›J»İ¾ŞÄga–Yé¡U¸å9Æu­M‹ı|£ö3ŒXÀ8úÅKHĞlR­óÀbéÂHü‹6ãÕmT¡zkš§0T3à±Õ¼oZhéÂm˜ªVß3ÿ«¨# M…*X:åiPÇ ,2ŒúÚ§¢»€“È‹&r!b‰´É*A–õ$ôx|
+şÜK3&Ïs9ÓZ§êŒyò|Š%6„oÓR/ÎfÈ¤û"àñƒös´¯ÉHëŒµÑhˆ.È3o2|š6ö½8VôJp‹ísÔû7äQó§™¶iĞ¶ii†AmMuÄíÅ°Íw}»E•M²àÒÃ/ÂeEŠ,4t5ªİÎ_ıñ½mœÀÍÅ§Şıàê¾w5şsx98!•›ëûQgrq‰êivÛ~ic!•ï†¼˜òÛ'ŞZÛ°JTÍ¼ø¨ŞlÎö¼úR¬³«u
+‘¼å¢çàyTë$ØÉpïjYVÔxü0\ÓÚl–q>ıÂ|¼Û[ù³ªøuÙ«5…&Ya¡s=Àwu‹'xæc?„è[­¢¶ºIÉuŠö°ØÇé_òø+âQZ`E¼éá™=ÏTt¶>s¯WÅTzAÄcŒJ‹ı3xIrß“	[`/NØº™£·È9{‚¥î©—®ŞÊ¾§ìÖ‹÷Œ³|šù)Ÿ"¬³¹”IæÖëËår'´”ê"QoÎê{kş†@ÏT„îŞ-eÿä,“;òüÊŸçÛ×n€tRæ{„W¾½˜­ú9N-ƒñög<Ã$G‚_Â<Çi›Æ?®™úÂÄã™øDÛ‘ìV[ãxêXÚ13·¾}ûR’\òBĞ–öë|)Ò¯hqÛzÿ°ô2éJK¡*r]`3¢QªA1\\oçà£9¨¯Z,y>
+ñ5Oº«+/bÕ71^ßÔ0NW®>ã1«Ö@æ-qQOÀ	Ë 8,¢ˆ?=ÍN`šKà€öñ‹\âR'DÓ€¢?]å1Î|êRäaÅ@ïiŸ¢ùL˜?E(VpÁ`è¦ö)¢ÒãU&Y¤¶ÚNØûTä	¹Fa¸ğ«º¶š
+NËi‘3îø)ùNKqÙ?  ‹ XN3V ­U[sÚ8~F¿âL¶ĞÅò…K'¤Mºa&4™@w2Óéì[`[r%‡şú=ÂÉiÒÉÃ2Fò9Ÿ¾ó‹>)™C^(¾’?ÅÅ’424Æ½OŠÃul ã÷.ô‚°Û‡Àó{ä–ÅŒ¯XÂÜúraœüŞïPü“G<£…’‰]Ğ"½è‘4š¯¶…¯¾G{Ô÷iĞÿÖ"Ù2®ö|Z”³œë¸ve÷¿º6)pèÖTÜ¤p1OoHƒ'`¾ƒååĞúGıÌ¥‚“ŒÏV\§ÔLéö¤<´4–az¿~zL(LÛªbÅ±‚låq¼®ç=ÕÇFÒéR?8¢~ÏÿÍ$\9¸¢3õãiÔ;¶uà¯ÍFŞ¥]·~<9ÿl<ßïô0+Œ–K1˜^MV¾;™\­:ó"ejpv1	z}gry3nô €æ|¾|¾nıF…Şƒ
+SÂm”Kc–0®¤†e×õå=]	f(ŸåYÛ°Ÿ‚ª¹es¦˜ˆ™á¤×ïÁpxAûxÈ;Ï‹|BÙCó82¸©+›/áä™*?%c¦u´`Îè¼†ït/zz„ğ¾×Û³<á—¸ı`wşD|AşÎÙ‚	ƒäOe‘Û£4ï|ÿ®,]¸?ìÿÓïƒZ…Cêµà//¥X ßóIcš–"ajÆUâ¢E‡zd<_8×	ÁÇ‘pnY‘­+õë”ù(…AfÎt]`(»Ç-²ˆ‹c@­”ffPq‘ÈJ;~Ğ¶æ*³à\ˆX&\,Bx‡UAîœI	Ág¸Æh‘á9›Gbí¦~ÛÄh›IY„/çyRÎ¾³U»Ej_÷Ì¾YzbÁ†lÁE³e‘‹µIñqv3Bä!cbŠUË~çŒ±w°­·"ÔÇV#7
+6±Â÷R,Éö¿3Âş=8ÇASjk­7ƒbƒÚ&(É¹@+©4üQQd<ZBÂV,“ZÖhRöHË>U¤Ö¤±?svGL}ş¡Ë™Ÿ!­“Ô˜B‡®[UÕ©›×!¹²°'kwó‰X#Ã½b?J¦Í<ïu­ş Üû@äLÅ)³—IDµÁÓÓkï©1¥ÏÒøğKÌ—,+^0şçİ&¯×ÌNy.æòmG²;gÃãñp^şW~¹`g¾Gë·½0ÚOÇg¥$b‘S¸ämüÅ/×O£’j‰í¹m÷0‚*Ò`ÔÚîiKxS‘s™e»}89CÛ$| Ã bœÓöŠajÅìJÊeY×Ÿ£œ5ş´6–Ô©9¬ÙªG £
+ñ#ó„Y"™!q[æ9|«Û0+pÀ1òÆl¸qC-™¦İ¶Ëa&y¦¦6
+ÌËè‘İÇ½ƒ,¬Ë8E¬7šğ¼ÈXcŒ%ØŞÚl§b<‡Y/™H(L¤{-Ë7ŠYñ"HlwK¨ìT[š ä—àu¬‹’öFEË¬ÂŠ™R¡£ ¦”T”\ãkUqÍ¬!úêT–Y²ÉPHÈkEF‰÷t$ûš÷-NqŒ	ñ,‹ˆÉWÜ¬­Lv/ÅÜÔ€U?³‹·.ÙÜäÃb‘úÆ$ä_¹Š ”
+  ‹ ùl3V µVÙrâH}F_q£&p´3QjaQÛnc¢3WUOE!¤²¬m”¶çëç¦°Œ—®é˜ñƒäÍ«sÎ]¯ó4†uÀ£’Db¹yAJÉsy™E~Âé:VÿÓ|×¹€›  S½ã0Ó1Z`èÌÖf<àbËCVÊ—H
+?0FñCì‹ˆfyª/4Û<4çáÆ/hÆZ­şÃ¶ğéÔ¦hiXœhµå#DBRg4+—±Áî*x}µŞ¦Ì¤íÆîq÷¢Ø€ëçS­&B(:·ışŒÛºÑn6¬ÒÎ^*¡Ş„2Ğ²P7Î/~Ñj(Ì©RE‰£ÙËCtK×õA¾/Ğ!dÔ@·ö½oÑjÏ"èÔè<©ğã
+*,j5vwd¹Î¬fËÀØl‘ºH“óùÈÛ²†ç¶&"Ûğü¼?pÉÌë’®ëv“|ê‰7èšm–¢çø›VÃëbõx>¹Aœohz(!ü—
+gfıø‡omv0UŒ5Ÿt:V}šÊb%eğ e°ZÆ•Å:½+·ÿp#h…»	?ëøõÛyïä½Ê&@DÇ + QøÔİƒE›_çÉ–GiÆIuıì­Z÷~.NöÙ¹İ…"‰ÛÜqyÊ[L¬Š‰‰LØë„~áƒYDåb°ö.iT@ıÛÛÏ1ğErL˜Ë¸È ş)æŠ²NÔû|)üää¤JKÖ’òïŠHk³ÅÇ_	Ê‡TÌÓï¥Ty‡Õa`ö810Ï@áÿ‚ó+&ßyPğ|>ù¤ts`S™ÓhüGÅ†6Ow«]#E&O¯üH”‰/áì‰õeuÊ´Ì€×œ&¼¸ĞúÈİy/½YëEzDÂ¥Œic.¥¿ædØwyšÆTİbº©Ï™Å˜a‘Ñ¹Ì°òÒã±â9Oåäğ³æÌÔmÃ¶_İª™ºÙ6b›ÖÇ¦†>7³ÅÂÌ?ñjØÊÔÔ›¤ÅZ¯LÇ"æäó®G"{ªk½4)8¶ãùc†âØÁXã"ù‚ŸK^œ—’ø2bošû‰DúÄM‚4ÉÚ¶PŒ}/«Ë…$*À'Ìåšç{hU%™LæS¢: |: ¹`x‹Q&İ5¾Ñl˜8 ş*—NĞ¥:'Ã©6Ê@±Ô¼ú8ı—ˆ"¿aSüò•1œ{øòÚÍEÇI7Ë"ş…/EÃ6[ÔlBı·Á|<:Åì¼ãğ‰w)Ötoƒ)ÉV“¢w«£Ó¶¿òsñtM˜ñpàÄËü˜xAš£D§M›Ô¯º¿»ŞÂÖOaàvûîlq=»/úÃëkwæNæ‹şÍ¸;œx§ZmÖûÜ_'‹şÄû2ZŒn¾œÂlºwç½zP§§àM¯wt³˜v=o÷µú¤Õn'ÓîÌs»W#w1sGİßOà`¬¼jßgZíøğO›6rö?I°Ø¯ÇnŸ¯üdm¶!M`¿ÿ|dÛ:´UkcJg´¯\ª6ãÀUşöÂìXáJÁq9H!Û´€ïé²ÚB!ï`èşŠód[ÿà_É!Û}Å”QfhÓÛq¨Êßïer‡íDdˆİù§>nu¥TÖ²zgåã‡±HĞ*÷‹4—ğ7ğ1õDàh	!ßK<¨úv±áÏ°Ô3÷óÇŸT™"=Üçvï¿Md¹”A.–ëLÕ‰ÄB¹¿¿?0mÄ;J4So–>/è™²(RçÅÉù?K.‹y~•»œ—û×>éæÁ‡Õû üÁñÛw·§U/xÆå+Îeï„yƒ×<x?®™Z‚D²Jÿ¢H†İKáxğäÃ1f´¡Ú4íıñH)½€û\à&àhÚ1Ë$¬²jY®À3OüV5ÈC²r“Ş/ğ w	ñ«Ïë´ì¡üØ¡y,A $ Qe‚)©¦-qÛ¸C1jp ²pHÊUE¸÷¯Î•dÍAéTâvReÏ\œ†¼Úo´N£|+¤*Zì%.4XÍIŠGÃÙ»öó‹êIMÓşüfº´  ‹ ß‚3V ­XûSâÊşÙù+¦¼Uëni^„G@Â]ä!¬ ¬EO¢†dB¢y9	/ÿúÓ@Á#ìŞsµ›d’~|İ_O—MúØ!Ì1vHœ°å÷‰O\O4áC“¹øÆL°*cE.eó¥\gd%‡n©IİµJØæ
+Ü ü…\á!İ±Ğâ1r‘QË!	×ˆ¾ş¶,şC‘Åœ¨(b&óç7t4^bÏ“XVÄh:öİØ\m¥‹¿oıª‰Š*jÒêöÏİÄÁ£Ûï¡#×ÂIqĞx/»²R,(El‡—=w<sY"LcÊâïÜ’OqšpÅ–òÊ9:`Î8*È;<‚œ•åøøeÇ;p™c qßß1ø$t´AÕ
+¿ ‡!+f¥Õmö½¬¨Z^…ÜÌ t7ô~Ç˜)’atf*6İÈ¡L¯·Â­Qª#“Ë—µ®`´ªª–Åc7‰ux‡`»k/õëğóL·!Äÿ+‚§àNdÁV4Yœ„áÄ£«÷}è2€‘–3PğmŞÇ\ôÂ8±İÅ68pòÙ\&_“/4µ¡ü“p²i8*>•á‡¿úµo[Añ4NÆÎ,¿2Ë­r£ğ" SËdå`Z.¤¦3€d›îÕûßPıªs'I¦Œ–ğLWÎ1ÑYLà=X<Ç¦Î¨GÔ’Ö÷sléoÍàC–eş)*0ÀÑ}×§ÂºbJ<I%‹$´äÓ8&*¸V)Ÿ¨™”’°d†AB¡n“eDa÷ØÑ[ãàÑ¹“Ğ`óZñTj/§AwğSû¡öŒ§ŸEûérpõDª»û¶ÎwèWùhX?âàâÉ˜ôœl4pÌáì¡q™»:!(n¨N?ŠÃNÁ~ôëA=(¾ÄÏ‹üã¤CfO^¯6„¢OOTyÍ=Jşİòu¢åç¾–ïÍ^¦Á¼èÇÓùüşu~ß:í·loö$'Õ±yÙl_«·Ã†3{yu/£üOtÔÎœ6_Œ«Rù³W;mZ¦=]Yı6Q[®Bh¸è\Ó§|Uôòzeœ.¬(y¸ªWÚ“iÖ ‡ÜÔ½ ´ÔëËşDz6nX¸±Š±+Âpñüü «O»éLú‹èZ‡ËŞ¢wscç¦ã¼{5Â×şS ©ÃDU,Ùf²¡ÑnÜŠŠËúâÇì‚iqó¹‹YïáUQ‡Ú³¥Ü]Äƒ¢zÚ•wÃEn`N_*µ|«ªëh(ìT(o=²¨ÈøŸıP¨cÍgª*kŠ–çuª@‡Éæ3J>«d
+Jş³ùiYvÛİ†p·."¬ˆ2úèš•´ñâÊV¿ßÛ[óªº£¼É‹·ÒÓßÁeN ü\ŞwàUP—ğßÕgä’’ª?•sªŒºëo×K¸\«Ö3óûÌãø~´¼Ğë®©ø›EVPTs&Xã»æO2ÓnæƒQ'œf¬—ê÷Ôà–Ù~XÂ;?ÀxT[s©%_ÂşÔKÜˆ°D"^Bèãq8,Â–ºœ-X…±"›$[ĞL’³m9—QsjÁ.ØiÂ­I#"¾`˜!o‚,ÊŠ†ñ×‹êCÃåä3Ì»ÇÈh_^7êëÅ]µÓŞyUgõÛF£[mwFÍÛ›îd«Ûu†Q½lœáÛÚ]}Ô¾Õ¯ûÎ¨ss6ïºF¯}ÕµÔw±õ«ûÎ6zÍQ¯j°apÛ¾èŒ.:7µ«FıŞíñûÏ‰]9t´Wğ@q!Ô.–%ÌK·NmLpFÌk8ğûÀrH¶°-ËÏuöÂ0úP[9GÆº“â?vDşÄ5F!á 6 É<dÏ|8 Ì&&W|‰#jº¶kâ€ø¾¢£Î°/(úp°ÓV‡Bb‡1è¡Îôê1`©E¶?MƒgÔyIhië0˜Mc.§ƒUªòF,ß@Š‘$„úş‚Iy®	ŞQ/Œxá§^'İ¸Åï
+ùírb{$[ÙpâÄ&sÇàVÙI’(.IÒ|>ß•üUHRqË±´£³–¹Y;F_¦4N¶àùïúxÓ§ïf×T™é ÷;AV­¯vó‰¶~æÆ÷¿ÅÜ¢^´GøÏl[k0~3>»ş mA6R?6_ØÓƒ×á‡ lm»]2áZŠ<â0ç Ãcšèƒ~SĞ½¡6&>Âs2%!69±èG:¹&a>Ğ€6Êvi†8ÍDœ*›Æ©.(e;s¾v;%„0üÊoª1Šô“5ƒOR¦ê'c8'•T„ãpÊ@r-£ŸXÑ˜‚‘|"­DÊÒ›º
+B}Ç±Ò88IpL©Ï#âÏ±›`âÍÉ2Æ4°b<V‘rßŞJCân ãcš8ò±È²ù¡‚ã:	]?ò –´‡ ^8P7ëô‹!›H“©kQÉI|Oª¾S}T_Qİ‡ÜŒ.¹ˆp½
+jÔ~ÃZ ˜FÍùP4\ˆ$¼•Äx6¼v>šCr¬M*@4myÄ‹Ã3Ü¶!'VˆĞ+<¡	ó™§“2}jî¸Åq'é&mï9æVxw‰¢%ÔB›n›ºğf0‚H¡5º¼t–2Ìy¯oé„0Úàjù'ÅËqøX»obŒ±M™ĞÌĞ÷Køe‚£BÄ /2ö(BeËaËeºZ?öv\IŸ¿­”Ç¬R–Ò'~ù%tô[dÀ¿A†²¤£7ÃüH/z-£We¼¾}ñ’óÄQë_ş£ÏW)ÑÑsºZ‘hı‰S)}ø2IÎ·ôïªŞ²°f›¾ÉóFÑ†uéB:¨«yç$ˆêh[øC¤ï„MUÿ’´::H[^¯_xœsî®Ä½ÖuT9@íU<e‚Fm^;‡©®£ÿ—ìÇ•7:úÛ‰Şm”%R9”ıÍf«Ö¤_­Ùxğ¡Æ££Ã­gec«ÿàOûÏJLGû3]ù´=í/§ÜÄ¦Gâ˜§>…Gñæ¯Ç•M_ãûV­m½;½¢Å/z  ôî“†0  ‹ u†3V ­VÙrâJ}n}E…ÆíÀhcÇÓìÆ€Ùsã†£
+T ©„,ıdIxíez&®"¦”•yòdæ©j{…¬ƒIØ3¶¿{D705Xk{5†22R”²¬–•Re%'LˆFè‰èe´å{©ÍÒÖ“\áSSt=Gç?D×xRÅ7Â—¯l‹şRd1'*Š¨ª_	_62©Ï|Yİ`cQ_K¶’§·~-ŠJF,JÉ×
+)3Pk:˜„/TG¬4o«Íb]V3ù|	m}3éæD=–|âùßy$ÛbÀ8Bãéóêğˆ¹æ¬pr8!oô¤å¬,æ'4f&‰DÓÑ°©;·¾òü2YQQKb¡xÎğÏÙá)fÅ¬”|ı<ÅzıAV³E%¼Ÿ -êØ•YzR¤é´Ê ºñ*µÖTÍåÓÓÛÚPæWàsº*÷Ã«ß¤«ş.¤ğódGÏ¶ôé:!„“ Y–¯b¸j^•…–,«ùôc¸|NA)¶ ¯ÖìJhbFÊÿÍVhC¸2`Š^Òâ:zÿ¤ß«ÂÌ)£[ìQß@ø±ÕoF¼$úö™}ßÅ•‰7ˆïãIw›eôÇWä|Ê*´m§™+”rß_ø¨M[â[#>7j©¦.ÕõfùÕ+Mª)ÖnëMK^AÉh§´¾Y´ÇøT†óÇ¾¨ú±ö=û>zwĞJ/’Â–‘"ÊBÃ±šE.c&£.ä.ùtgıYj²«¸;7Ù@¡¡ºĞbÌÑ³r]×î¤ØvaxäâmœÀÖ±U.ÚEİ|ŞÕT[³óµİèâ5j“ú®ãSÃ¡¶Im"tíô„¸f”æÜş#YÏ¡yÒµ„ÂŒI
+È„šô*MË™´¢^	«ôTÃ6d®G`T5ÉÛ;¤Šù"rlô&/`k:[FEàn5´O/?Æû.š›=Ñ İjğ×»¿QÃƒv  Ã&,t¼yâm1tE2Ã¾K4º¥²±Exú« ¬bÏ`\Éo`®Ò 	„ë­+TQ‰FÌ¨Î›¯Œö}ú pé.ŒìTM|níÇR{½¾`İ¢6Xy˜9ğ¿Ğ»ö@:9Óq91jfXüÛƒN¹¾|$é½ˆ&ñç¶l|Í£€õÍ`ÌõË’†á;SÉJR’—Gö¥>« ô·`NùÃ‹´GñÙ;zşí'…©oaÏ@jf€‚ıN>GOvsqƒ­?ƒñı‡œo‰éşÂøw˜Øvö0ısÎø9Fí­óö²U:Æñ"ûé_IqîõP„G„tú³v|,‡¹äšpbÜ T×'P,?}ÒŞœf•­é„Dÿ­èC;“Ü^®<˜!¹X†"“à|Èñ7?Ê}zHÊB
+e:BU¨v¶?ŸZæ O0ù<·0§8U¤0È ™ó,Tù@‹(öø±3š­QBşk5è—y8Ï·Wïˆ3•Ë³Z\ÆªP¹Ü˜Ø¸<Û‚µï˜*—º»ñíGùRzñ'½:„A˜AuÏ®.õ‘í0är¾õkD
+û’¡aÈÇ§óšîŸ¯ZÛ¶#rÌÇ¹ƒD„f¸âçÕ{œ‰-İŞY2Î|ÁÉ¤×Â†hú.IñE¹aÓŒéàjÉ9†•üÅ—x-¼lzI@L	A/SñÍñvRÒ=É}D4˜eÆbq'ÎÆG‘ 85^‘ó2¿+†T…"ëpÅÁ	ˆ`Í@‰0	¸(Õ˜…×d	±8Iå§›!`£­û(p“fâD¾<îšXü«ØG„ò…˜ôá–ÂÈw,‚È¶\ ÄG‚På)ÊxPH<U©ö&İÍDº-Ç7Iß',>v_[:ÍøØ‹¹âáãrùècs¢3JâA5.b‚Î=¦<ÈÙw®Qw½¯ÃD1p?ãjn°vàƒC<ªÔ„š³øº–ÌÇÛ4ñ0üÀp]Çc  Õ—âÇ ^ÄTA¾pàQ>§PRqõŒ_LÈ{:oÕdğ¡^ÿÛ#T?^¸r°\j?½{4Wÿ/¥şÍüå¥í&ğ‹×tô‚{„§ŞêtïÑ¨3BÓnç¾6›OZñºğzqèØÁ¨ƒNª ĞqW«×ZõF­Ö©ï–ƒìú¹VsîZµİ6t‹‡vv£KÎa$©Ñ!ï²`ïŸÔ‰/û™mg¡œ!ìo:¥pÚhMÙ¡5ÔöÇn¨óv;p¢æÌZ*îJéŞ¯—CmUVë-ãyæ¯ÖfaZƒİ¸%ı†Ño˜uÃ+Î:“§F~Ÿ­GO­û;FGğm´sØš·Š<ÆZßhÜ:ÑX›Ö¾âz®à.Nm#;_JİY«]¨O÷Ú±9j=İMµ}ğÄ6soDÂõspœ¨5#¿Åİ±óŠÏ4«8£’JÙ©lw5ê·{}KÎœ¼åNUñ­ôD‡õ‡•13³ãI/ÊtV-LÙ~n>,ü”=Ñ
+Ëİ³°µù¸á˜hk1£³íIîÕn{·d²wFÙŞXî®vÃå¢(åîŒãîsc»ÏüM¯ùì×l²/
+½İ=q‚NÛíØëE¸x0¢(ğf¹ÅñÖÚÇŒ¹=ô5ÙnOõVfÑ`ùçaK­Iw:mô©—jìİûB£²¹Tš7¢ÍØYGÛÜªsÂuúl’ú°w·8ÖS‹‚1ÇáIéésšØfAˆNÅÃĞ(-CâîÛ…MfV·V»"nEVgç/S­å0Ëœ;ÿp?ÚDl ­¶#}2¬¯×§IÇŸÉºpùaŸ´Z%/wl»ífxHËcc¶Î¶NfÏ|¸+ìÕºQÊÎfÌ\Ò^ñVéuÛrÆèÖ<k|èıTé8ÛìN)iä©ke¬ÓTKƒÁŠ{›µÇ¹·œ³u1b£B&ê®'‡n·Ö¦†šrw<k;èİlh†·¸˜TäUq–ŒEë¾ù³¡øÉòÕÿ í@åC9  ‹ p‹3V íùWÛFúgæ¯˜ºoh‘¬Ã§@nc]LXÛiÒÍæñÆÒ+ÑUw_ÿ÷ı>I>‘m¤eû0s|÷5Òè8ğúÙ¬gñØ²mşŠİ\³‰h@ûq`Ñ·FDU‰Ê²¦¨šR¥Š$—I—ÜsS£Cœo¹‘àÜÈª³lÑ<oDt£ˆ7G,Bˆdg÷ÎcéGYË¢,‹JåÓÙL¨m…Q(É¢+4Ò©üæöÔİšjÅô´G¯­hDÛ½Nÿ‚ìX&êïÏ»IRêjU¥C/ ‡¶5[A$Ä!ÂWˆÉa®GHáèfxã€ì€`öQ*(È\<‚T’¤Uù ¿KÔÉ IEÚç2Èa„ìL… ‰J5“Âİ%ˆb(‰¥bzZ#†NG’ªJ­ºë–çêı³ŞX.özgc•–?â~tÒº½¦Ğl÷”rExÓê½“¦Z+Ñ…:´‘˜n'úù[ 3G¦‹"¤÷• Cî^ñ@üèFLMÔåİÈ/-4|¬ƒÁ(ğ_.‹j&±Uù_xa4´nBAR»¦ªõJ[ùòË	ùeú£?ºû®ßÚ#„÷½pz¤Qéüƒ|r¬Š"HUUèëŞ®²úş¢ÿ¡Õì•ÏİÒİØıâz×nâ²*­ŠeÜCË½¢‰ÒRRQĞD=Ñ]¸(Â¢­=œtîQÃ¶8@6xYCË`§ÿ-æaÄÍLpkÅ#ÂÊP©ÔëE*Ë_#ÄÊLˆ2
+±Õîïå‰§Ó<=»%Ÿšâ @u¾çlHB²Ã|	Ï G””RM„x°(%%Šı™3W¸°xpÚÇNz¸&”6HßÓha0
+äDú£€3Sè{¾ehôÍ»v¯O;Üñ‚	#A¤²Œ†Ü@1sfs“Š¢8yêšüF£M³İÿ9Œ‘NÍúç/Ãıv4ú÷kçªwñ»s¥ëä,@[kÚrjÚ¤6Á®xbÖ‡²T–ÛÇ¯KGjS®J¥JMj©µV«Ùl•kjåH©µ[UE–j¯Ö¨­Aš†ÁıH8cîU`5Ê]á]´<7ã\hÂqİ¦'œ°PhF3Fà>IKÿ¼},´<P‡Í"/€æÁ¬+Ë¹W‚åksÇQDEªš¡èO| ïÄvdù,ˆŠÌx€óÆBıÀ‹]“½p	Ü_Ş•á¿À.p{Y ÓN[ø%°•E	(ïró„EBÏgĞ3¼€c‡*)ôºûºùk»wY“öéI¿svÙi÷zÍ7í}Úmırtyz~ytŞ{vyööı>Ùy×=}}vùúìmëŸí£=ºéj€\ì$;«½ëøPÈ\—›Âë‰F‘›#>íPE¬Ô¨çÒyºŞ4¶ZY‹YÛúYç¤>s#.ùt/_ø ¼æÜíC\äP1AF…Ì?×”"Ê`2ä"€8dr×€éŸ!“3@&œBX*A-‡8:Lj‰*h…™åÂ¨ M2¤/(ó}ã,Œ¤&g{>ŒLãQ4âS²ğ€ÉÈÎrXX¬BRüïÜ0„ª¼qE~¨‹×××C‹NÊRÑósX\‚Ù BqDäiKB–ÄóS˜jBçh3Bš1‡YOK¬bOgc6©yd¼ºÅó	·ı5ƒ7Ñ<‚i„Şİe†… å½GÚ‚È>	ÓÔ&l¼Xaä%‚ğ ´ñ"(8‹¾Í,÷€#„<ÒVè	µZ¹.È…ùğ€¹áBÛ5<Â©F‹=(ˆnÄ6'äÄÚ'äô¥C¯=H7V$#ïšFå7	pÛö®±ÃáQ€~zJ¯¼(Më™÷IÀ¯X`¦£f~úºHtí¥nß£Aìº8œÉ™ ²0	üä=šü Ü‘:rßğèCçìˆ‡Æ.t…@Uˆ BNÇÌeQÀå°(“  ‹RòÛCŒ²Š­vÍ¦@±S[œ".ÌYéCòˆ’Ñ×§ø!VÅK¬]fT§Q­‡Ìïîíg¢Z%û—ÓîåÑ[Ğñ9ä‡ÎÛî¯—½~³Ùlõß5!4ÏÎŞ¾=×30™]( ¤u‹•Õş[d¯ÁÓíõ4„á®,×KrŠ¬”q¶)’Z‡jP,'È¹šqşzBÓ’Õ¸
+¼Ø§¤Øa!U¹cqi¹—ƒIÄÃB¢üAòúVÒĞI®<`~2Xª&ÿ’
+×åTaY§Bkj‰–%•Ö¥JÚINÀX­Zõ=ˆå`Óh»#6æ”Ñ©dBëwNÁÃ™sEÓŸÈ{p÷µ€»fjÄ»Vô2±?¨@o,'vRò©7LíJ6ğU‰ÊÔô÷ !Ç¿R´ˆ;@!¤]±F§nĞ1÷K]Î®òùY¼«U r¡ÑUUÜ•ö Ë•ª¸¨P$±T'"¹ˆ#xCUÚPjeP\õdLK„¬©¦1qmÑ6¶óIyÅZÌ½ànÈ§z[¢öKîsÔÊœÍ—–Ø$Şÿ-bä(rìÇ‘‡ˆŞ8¶jc]=*€×k¡1âÔ³e^è#¸×Æ]ÈFzy#u2ëañÆ³ÓtÖõføÙœk/0T'éçdÊÈ¦‰³i‰RÒiEE’J°š,zÎŒÌÙT¤š¼VE/¸*ö»Ån»% ç%©Ğ ÀŠN`ßŒâÜÉJ¤±(ù…ä;r” Í´ ¹0è2‡ãŒ7ÜåIÕµ§3å…¾¾aåGw‡ûznZ±³‡ÂhbóÆáw‚@Š?Ğc˜O¡z…J.©èEòjÂœìü7»v,{¢µ–n,|æz!dM,¾£$%ğ&8ü±Ä{>@û	a”a1ø/Ó:­Ğ*U×CRW©óÅNè{Ãì}‹w¦5ßb‡°DÒ$Ãté 6ÁàNq€Ëx #ŸÅ½4oÊ.dLö!8âS ÂD¨tìé2®}«; Aİä~Ù§!0‰$€ÒlBª`b¢tXÅE­^€†gÃÒn ÑnĞ(“Ã¢)©§µ« Ààc+´Àûrà'U7·âñãÀ··aJdµÜ Ì24ùJc&ù¥Ö|ÔÒ\¬‹–”KÚQ”«¯¥6›#M­dÚúS›¼y 1N¹ºÄe„Q=ËlŒDlù]ñ¦z
+Òô®Q)€eÚù¸º„õûmTP{zP›{®=yî^ù˜
+1|ô ¤kg"ÂŠ¬ iµ®,‰]«Jb­Œùg Š¶±Ñh‹m©¿£ùÜ
+F¸D¡¶”1w‚ejõj­T®UjjÆRÒÈd4¶Í¥fî@‰q˜j‚\¯A`•¡£•j­õ›š](òôbÚ"§-:ÙĞ¹Ô…2ÌÖl\ËSºñF@µj…ÈÿÙ›ª"kgP+xƒë¹|©Çä]°£D$šşÔiÁR ôGµD%«¨•%Ô !ÆÆHc¶?bFŠàÛ¢n GÌ}!IÌX¥¤KHiYß‚×òSzå©½úí…^{*B¯ÿuB÷æÏbÎüƒÄë:¡qXœWƒ­!½Š`iz´ş©qu/T‹˜ÏÍ4ÁšrNRmBAÁÊÏ·LXèa¬º+
+›Ã"N=üî#wMkø	Ñlo³‰G+À“nï¯b5YÄ”¾%(ÛøaHV—<sB1íáôãnbÍ„×Xvèxz›VGHd/jØ,L– ‹);ıy×¬î,4±H˜aIrk¡qbí;~©Å#“?(	ˆî ôhË£,ÜáaÖ#ğ³åq˜N6?{J½ ¥:ŸŸ€N—‚«1fZÆh¶D1.€jdj=0@°qğªïÂØÇ2†ŸÖ—4ÎğÌ`êäôÊõ°tyoeV“Z5)ú^àbÿ o9<¤çüšv1”¥…Œe<ê$=/ÉLK§©{æÓ›ûtó…«„˜ûó)™Â–Ç­:Éyàúôoyd«“¼‡¶OInÏ¾˜ú¢ò¤|qÍ“|ÜçYşS2³-¯t’½XÈ“ßÃÙØò¶B'ô6Ş¯=¦ñò‘àéä± =SöLÙ3e)»gÈ÷_yÔÉ£1ùLÙíã·H"+E$‘ÿƒ„‹ï×ÿ®&òJÎÙz°ãä3eÏ”=Sö¤({Àâåï˜şN”=VJ[Ş9·T'q¥ò-u·Z’éäÿç‰”ú¤H­Ùa	Ö““»O1íÊÙmùÔŸWmÚö	H@°p¼vëè£ xnµ]YcrËÛä•ÚÆM¶@C²M÷Å÷5E‘òœ@'àØ+ÜsÓnÎ–]Xd.mÚ}J.óh€r¶!gf—¼ÕIğ´ŞBfû¢ŸIÓÚëhJ¶ç€ëc{bu`Bl‡©@nÛ0Õ°RY‹ÏL|‡¬“´aâ‹~<x0Ñ­+7I¢¿R³™¸#‚–DÜ·†Wğ¿áíş —ÍåÔ˜î;L÷fÀ½NfóÒ,Ô,f§—ûéi¾K/½?H·~_K~Ûöt2ß¸wÜİ¤¨Áfeİ‘Šæ›3²º?Ï`¶°t_~€È_ÅOUÅ¿E~€ÈdwQrPŒÌä,˜é-»TD25Í™nÛz²…ã~A wâ8àæ
+·¼^h³Jî+HX% søİ…¾@Æ‹ïKêÁÊ:I¾ùxòtro›Xµˆ{—*ßF[‰¿®ôû‹¨Åïy Øâ=Y¢~Öó59ñ/bIÕÉ½³o|ÏÌÔèd›g2
+õß0Ynüü©ĞĞÉ2~Ü`7C>ÿ¼¡ĞX÷}Õ”G¶ø, 3¶‰“|è9`˜-ÎÁ>fW'KÒÉıÎë–!Í Kt’#„¿Å.f»â´:+&¥ß]2­Ğ·Ù$İ'» asÚı3ªÍ[i|1?$‹g}ò>¨ÒÉúBk%RnÏ„:YEó€jO'ù©:ÑĞâ¸2•«¹ŸAf}`°ÓÏ!·s±•Ü»f]ŸÏuòÈö¾kfà€õ®áá¶[$„šÖOSñCÄÆƒ¿3Bş•ïÎ|K  ‹ ş‹3V İY{SâÈÿÛş½ÙªYİ5!	 ;8:+jİ™š¢š¤‘ìäµI@Ø[÷»ßs’ğ”‡Î85[W>ï×¯ÃYè»ô¯ ´{œG¶ãğ·lüÈ&’	ëg¡M¯Í˜æeª(šZÔ
+ªÊJ‘´¹Éí·4ÚGzÛ‹Ew¬È|p™íHAè[øE
+cU
+¹5`1r${ûÏŞK?Á¦¢¤(’šÿ|@özêØQÉŠ{®™))?%İ/KJ^*çÒË}´ãm­ÎÙ³-WnÏn¼/±œ—åb…öı8vod‡±8Œx½EI.ó¤aŒÆÌ«Çdsˆ^Aç Cæîå‚,¯úì]ÒTÈ%Ô}îƒ5†½©d)¯d^x¾Ñ©K/ëİàşñQÎ+Å’
+±é¶ïéKc¤äãr”§¦x¨7Î›bÛ¨‰µ¦¡Äwõ–hœ×òåíÙq¤ÃÙr»?Ñ¯®AÏ5>]t!}©yqï‡ªÄc)MQÇt?rã °°ğ©	£Â«X”¦y³êÿ?ŠûöxÑ!üqZ¬Ÿêr­¨–J_cA1± D“áîßvêä^¼3ñ¢¡Qùê^9¯ˆª*Ê¥¢¬Â½–Ø2ŞitÕÚ»›Î}½f¨ÒÜV/İ„ï&‹V×1G‚\’Š*š¼?Œlï&aLmL£H!z°#G÷áC^IüèÊ§¦cs`hò0¶û¶ÉbNCş÷G1·2WnÄ§èUµ"^•¯ñéQ–¿É
+ú´Şì¬óV«vq©¬ºë“¦AÍPĞz½CÁælK¢²Ë†Z‘ó’¬Ê’,«›•*¦J‘3PB£ï9óÄ›‡!§íy7¥'šk•t|
+›œ!lñéBÎ,±ã¶©QØÔğ¡x-îúáÄˆYQèI˜şĞ‹J’4¥»ğ,>ÖhÍjvŞÿSÉß·ËWæ8ÿ¥ı·m}¼½ë|w¡òš®“Ä_Û˜çÅ4ÏI2‚=ğ$ÇOˆsóì´ĞÈ×”’\8*Ëõ|¹^¯ÕêÅrş¨¡–›õ’ª(Å·‚V%5ÓäA,^2ïal5Ê=ñÖ uÌğ×û¡xÖÆ2Äs‰µ8fæ j)Yé\5ÏÄºÁpXì‡°<ıĞ~°=ƒ[D;Ğæe£Jª\ù<Ñ™ÀŞ:±°0Î1ˆt#­¿µX8Ñ….Xß}®Á3{Á\°¶+ÖE«)~H;®FIÍÛÜ:g±hÌÓAĞQV)İ?­ıÙ4ºEùwZ—İVÓ0jïš‡´]ÿĞè^\uWÆİe÷òúîìİ¶/N/»§—×õ?šºØéj¿\¼IöVïnÎŞ{Py·ÄÓ‰FÑ˜ïCp¨*•©ïÑùôŞ¶·´¸‡lv|Â³)ı‰1ìıÅÍ¸´åó
+á^<åÜë@Kä[A&Áx0“*)/ä&„dqÏò¿†Şr	xA¼€$4 ˜#Ü%À"á
+1a–k{°+Ä|ŒèÊ‚ÀÁ;©ÅGÜñT/iEñ€OÕÂkù&½å°IRù·^4ìE&JqÇA¤år[snjRÎPr”[âYEOpGìkK7Äl,¸ç÷(ƒ>œ‹Í©…æ ªe³,İ°*=¥ÆA¤ëÔxûÄæsî6oÓy dãù>CTh{}ÿœ¶à²{1Ñc:ÕÄím¶]"ŠßÔ€VÚ]è38P<ÇÔ°0â±.Ø‘/–ËÅŠ¨óí!ó¢>Å¦gúT–Fÿú€Dè^Ìz'äÜ>$äÂ£ÛÌ29ƒ—”Áˆ„øÚŠİ?˜×ê€y–Ã-ª“ß	!.ÚİÆ5qí¯uİş³ktj®qW»é^ßv6İoÕŞ_·»gµÛËÍ[.®vm¹½º5šMwkÀµµÓË&¨Ù­¿DœòÀBŠŸ÷Ò´`éF£¿åóÒ¾| =¥PBô¦ÊR¡B$r3Œaã˜æi3†YG‹”atiyš6æv–Ús¢u‹¹*Aõè÷"şÕ›2u~áÄÊ‡î"@d#ïÖ/¶Ò\JHñ=2r»Îk$ä	2¢c×ñ"m¤çÂ0ô´Èp ƒk›¡ùıXëµ‘ëÙNİNÌ÷ú}@É<»L©·óÏhıĞ ±Si²`ddÒŒ,	JJ–Se¹ °=ç»35g¤:I#ù˜—üğ!×içÚÍºˆ–d¡
+> ğ—ÇŒ"íÉN¼±èyÊ/ù†7Ö!ß˜EA'Š0eè1—#Å;îñdÆ-ñiMm¡w`7@lºß·WAq»Ü²‡îrŠâ‰Ã«'?‰"ÉıJÏ€R€¹™Ì*úk¼íÃ¢Øg&'{ÿÉ>»¶3Ñê¥-`qÎ“Ğ3¡vÔä¿ ÕïÇÿİÂdø‹Vx(ôˆVËã÷0—xLB”© ³Í0Ğ@sW-¤Vä_ù¡ËœCh‹ß,{4ÿ
+‚]¢ÕdÓqé±çÇ1d]d(¬c<sv‘ı× ŒÉó¥La!sœp(DPHb„‡xùA”ûĞªÌ&gŠº›W ÆAy“ÎûrH#0U:‡Ä	q	µÂ$X€ ºã‰V© CÓw ‰÷œ!ÂhL,Ñâ€q¤¨Nğ„ùÈl¨à5üÏ|Çñ¹µSN0g—¤„};g
+¥´Ä6Æ>„ Ì÷˜ƒµ@<Ÿë¾T‹GÛ³üGT¤¡!õA€ØOEñqàvğ=gò*AzàğÀ‚3 r€í
+ÈL2áÎ<
+´TQ³”ÈR©$Kå"ŞX¦˜ƒ+,QŒ¶¸ÛD±z’›—ó'»ObNA_Zù\=ÆåîkÑ€ ¤‡Dt.HÚt„X€àÛ–ËÆ¸ g #Âd:É!éÉOŸ¸gÙıÏ(f{‡Müa¼Â<¹ìƒU©‹Y"2“·Ä¥úT>lÉkÏ·&£€ägmbÂâgÌy¦_ÓÔDÀ™Ô„“ôğEâÍ`~kVôBõsv&%	µP¼æUÔßq\‚—qIX¼ñzQpü\F4	ñtRˆlû@ãÍó=¾AÌ…Nv"C2½†Á\æ¼µU$ÌÎuÍ\¨êd=ÌÜ&£:ƒ Û6Máéï'0z_M_`öCbùí@ï:y…ŞqĞ	 üï(&;E|…˜­‡%V¯£êô¼¢“fÛ×x×É×Ğ½FÜÿ}ÙÿM¶M£ß]§äÌµ†Y×Úƒ9ÇC¼#Ã;N;åŸ­ÌB­“tyâpÅkˆo zğ’Áã-6£DLLØd)~‚×–‰Ú{AÛ–Ó¶­“Yã~ƒ§ÍãZh3'ıx˜^æ@-ı~œ"ÂŸËÉßñrÓÉ»lØâİŞöP=ßòtş|WCVŸz¬Ë¼&½Ô°F'_gO)ÿÇË°Êsƒäb+yÒôI^ª’ŠI™¦æ,AwÁ½¯Øx–Åpø>^{€@[o´e|ô2V •^àô5Şü\È¯<&ÓIò ìuÔÓÉ‹sb5#æ¹€f>#Ÿ¿O8w*‹ÓH'/îı?H[|
+Ìƒ¦¥7{ú5ƒìƒªêäÅc|øÂÉÚÀáaGeŸ0:yé·?3Æ£Ó²|<ÔÎ„ÏŸçÕM¥§62xé$û2œ¶Í’­vè-éa›ÍÍÙ~Ï¶N–¼³öáø“Dšq…óà"NÖ8áÿ'c§]nŠÎr	ô{®A–›$Ï
+6*:üx´ùdŒ/Îïo™âJyŠ(Ÿ<AÖÉf µÒ)wOB¬Šù´§“õ£:‰Ğâ¯Fo~.«JéxíoGÙ=HØéoH»­ØiƒN^ŒY7ÏóÙ3×Ê÷íR³©ÏmOË"QÔ²Gx™ªˆ¿ŞT¿ùÇ9Q$ä3†-,*  ‹ 3V ½YksÚÈıìùSlUœ”-¡/c‹6Øf˜XøomQƒ4€b½2òëoÏH€À8Ù­ë$<¤QO÷éîÓgœKxxB˜MähB¢˜->=â¸²7.™ƒo¬ë
+VµjA©j'XSÔ"º¥u^¨]Å#nÀñcÉ›«ŠÄÃ!lşE'sMfÔ˜[Dïß¼ÿ‹Š²ªÊšşÏt0\`×‰âHQåp:ôœÈJ¥ó×¾¯Èª.WòÉÛ<sâ	nš~86Oî®h_*j©T¬àQÀğ™ë_KÓˆ²è#ßÉ#¾<¹‡“yÆxí 0Çd¤eˆwÃ;p0P4îûƒ ƒ%Š¬•RŞ ‡¡ òÉÛîfŠV)N 7/ºøF¿m¾¨yÓl¿èØrÂ	eFãº)İšu©Ş4µbIººèHæu]¯ğĞ‰#®¡xÜ-ŒîÍ‡Sü«A’3V¤‘Z.Ëã »4	aß€FSNäJQÖ Çp/Egë^Å#gŞÄ¼ª7Ekj­°3¡%î®ªá#~ğû»şÅ‡ŒÓ<ãpVN¬r£Üæ¬ª^.*%]…Û²ºË²r",« D™[î5úPãS uÆ>‰§ŒVñ‹¡bb°ˆHĞ–€î)¶F]2§v>}?Å¶±êÕSIPTø«ê°ëÄğJiB«/1º)ªŒ(£¾E£*‡¾j“˜V=EdL%Ç®FÓáWjÅÕ8@UËªZS(¹xR°<œ½ë§È½¹ì™T/__½¸·Öâ¶4şTç·ãÒç¯OÃËà¥¿µIÓàO¤ñé~6ê\~µof_gCZ|T.o‹/ú­lúÈŸXtÓˆh>4ô†5¾»~¸ÎßİŠ]7¿üUø‚šWV³w©×ÍÛ“æ"Ş|{ïÃŞÅ¬<Wî+WßãE¡ã5Ó{3îï-ûº;j6º½¸û}2ëÅç]÷¹`>£ƒ»¶İ8o:l4Ÿ^<­t®{¤Qé«Ú(~Y‚îQy¡ÃÀı:_,·f¾Rxê¶]/né]X­ëïè ğ¨|êT/>Õgê-†4(EßûG×]êúŸínãy(;ıÈ¥1Sfm÷‹9ËÿuyQ°OÈısƒ½ ƒ#§i™æQÿH«8ÎcôÔwİ¦Õ+X¥nxçZ…†®^Îå•j}ts¤µÉIéüªı•‘Äqÿ³a Gi£89k(²®Éº¾Y¢#ÕcE-º3và6PC¡¤iº¦ªZ¹4.:øiÁvZ¦tŸ–Vemï¯—dUş=I¸î÷{;hŒë'Õâ¦ñ–ÑğríU|Æ×©Š¯
+8)_5Šå“âÇÙ„’Ø¥‹l¼*h|vQ?jh³íiø0XœÇR½ñˆ™'¬¬êÖ‹dï/?“—ÊÍìnĞ¦šı­şQôĞª“jèà§[^òÆÁ×bnâ{x™èÜ	>Û7Jk¨ÁÛìuüšVUDüGJQWP'íÃV#y”Â«E4R¼Ø\t‹å®5Œâë‡f÷JyèÓØ2:ığsä_ÅÂì;>şÕøø6…iç='_>fæºH;½^ÅŞÔÍ7¦âƒìâa0õmÂ†R(Ûå¡ªXT·­`¥*EM/Õ‚^åh_“X2CâI¦pRSäREÃøıyıKÓ””cÌio`¶®ºÍFúå¾Şnm|Ôï /o›ÍN½Õ\ŞŞt¡˜:íA§išõ«æ1¾½¸oZİA£k>´í›x`y­cöZŸšƒk}½,½ôĞ>ÆfïrĞ«›&<pwÛ:oÎÛ7Ÿšxs¶ìŸO›ëĞÁŞ…?(G ˆø>µ¥ód:«AGÄc Ã×BèGkËÅÌZ®`±aoj›Œ¼¸°¶nnë ly˜é`À·Ë¿7Öıƒ/ô†~ø4ì™«ÊFº2éÿ(¤–3r,ì‚üğqûñ<<§ÔïƒÂ ?póQê X ÇÖŒÌô‚zXÇæÍ_Å_§ş3jƒp“Z@B¹(ÄiÄWGBá	«hb{«‰ø&aè:xèÙô…ºAÈ‘^Çºt‹¿3(üğÃ†§Ym˜ìçÃ,æÁ­³I‡Q5ŸŸÍf™¥y/	)„|ç(¿a³ñ0°7nÀÿ6¥QœçÏtbÓõ¶©#ufM k÷;A’Û»'Oséîrãã«˜¯©îYü#Ÿ'ğXjÁ|;f\;ş(ø@Ë@ö(	?–ƒLÚCÙ‰4J~’¤Rá&«Æ òó¡KPBDcã®)UêOˆÿ¥l-ãğ·ğ,˜º6ÔŞ3Åq€	¤J; î|Q¡«^KšËâ½HmQÁN²‚‹8Ø“²cpL{‹ÊVÁ1]lg$æiŒˆ%*“³Êêb¶¯ßGSk‚I„i<2‡W^,ùøƒŒ ¥"‡vç¶ ÊpD©ñ8³Æ6ÍÀ˜âş1‚©+b`ø—Œ%—â³uÔù×˜fÒxí êÀÇsÏ•ñu0ÑµPZ‚æ³Í±¦.a[ ş‰PGd–àf¢À£8	ËtN<Ø^ì´¬Ò´Øä€ó`Û#q²¿<‰=÷EÁ”m #‡sKŠäŸk<“)5R[†|ó0 v6å;æà¹"1ÜNcáHj0&ãc×°CÄ4ò¥‚à9-á}„‡”[
+y­ÙXñÁGêpT!U  Æ„Ù@‰¢AèÆOÊ>9ü'uÖ*U]Ã=Ào•3@!TÃûL*•*4”®÷:‰:Ş!«R+5T«aà7€üs [¤vUÚD›ulN$n‰§]NìM£%ğ£ ¶šñov5İ~2•ÇEÆašĞCaÆ8ºdr¸\ËÓl-Ó~h‡C6ğÊa~e1¿2YKöÄú<‰ÅCG?ˆÓ,ó„Ïî1¡T_ÒkË"ğ(ñÁñ<~Î²F1Øc™âXFÎxÊÒ	˜šˆœ¥¡¿ÁÎZˆ4‰v9àùĞ¶®+°J–CW„WğOœíá6ØX>¶1)}[%ëº`†ï%bŠğ"˜Š¾^úÏ3ŸÉM¾&XdÆQäAa
+ä‰“i†¸û2Jp<VaCq¸¸¯§RâÎÈöíOÃ¤Æ8¤ëÅ$ˆ’	4–ã<–“W5:âŠ9áyÁ“®àl!0:6ÍóĞóõ5G‰:ñ€ìW|‰ÔMP´V5/A­.‚»tQLÃoïÒa%4Î%¼›ÒQ$‚ ¢à·F‰ÍOğ
+\Ië™·eR4›8@ÌQ,Èa¼9xÄF\…aÀ`:‰®KkB8²rb‰DêÎá-©f˜K…å½cqFHH‹ß€l~í‡ØTÀ\@pï¹Æxu7«JÓÔı²LI<ıÙÀÓ¹­VËt#Œh©é[şWñ·)°¦-…2N†.EèÌv^`”3CoäÜ˜åj¿/9´93ñ¿ÊÈü/dĞ@µ³!«åás_¨¥RäİúÉé/Ê½$xŸ yçÆ§MònŸnÊæ.a‚ß*L2Ah+Ê7IãB3êÊÁFG¼’
+6ĞO8W{QŸåIíØ@ŠŒèÑïx1âôm9	·®Ä¶ô{­ˆ’å`9}üMÚÒo “Ó·($¼©2 g0Ì–—±å’(âpŠSı š•‘_w(ıã+—ÚØñ„¢å/sµ%¹ñÍrK·¯IŞwØı«ıŠv3ĞR½E!ñ7¨§0S'é±j‡ÈËÔlÌmñu?şs®¶c!/â³<ß¬–ª:ÍĞ¬gáÚR²piâ	;~UÁü\¡óÓaÀ É¥£¸ª†sü‡eYP®cŸ†Ä¶9UÓ»tI±®ÀÛØ.ij İâ”‡^ÇñÛQèU›Q !„Ómáå¿ÑÂÂÔÄğzß„Qpò¶IB.BsŞM[^|NDmzƒ‹eñáİØ@P¯lfLo	éÔÂRQŠ/‚vw;¶ÖØ«5ÉK~¶´»’
+Ekn•¸¿S‹‹[;õ¸¸±	É)vÜ¥ËSwß ÎÓn èÂè†H×¿#Ó“ìoõÔ3®Ö_Ï¹9˜m._ïâ?e+ÂÈĞÅ¬(™/ËÃ€pögÇ‚LFò¾C’äˆƒÁ+È”Ëÿ³É×g“eÖû|ø%	i“ÌM.p’Or–GöW’E›%ğo.úñÑåj§š‡qüß ´á/»5B?:J­€G™¥<Ù{¨2Pr¬JkùwÏUÉ>™ÃU"ÑÎóÕ«Œï<g­ogÕHú¢=´‰RŞü/:¨cÏ8ßê_<ï	?÷ø¶Kü'¿ûŞUk´%€võĞ/Ÿ 3zä´úFëJì¯İÌqö[*IWzøgZIBèØÙlÁn$  
