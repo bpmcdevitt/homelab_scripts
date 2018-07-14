@@ -1,0 +1,42 @@
+* BUILD A HOMELAB TO PREP FOR OSCP/SECURITY RESEARCH
+** Design Ideas
+When I started my search on the internet on creating a penetration testing lab environment, I was often frustrated. Many of the articles that I found were using Windows as the host operating system and/or VMware as the hypervisor. 
+I like linux and qemu/kvm personally, and libvirt has a great community behind it and offers bindings in many different programming languages (https://libvirt.org/bindings.html). We can use automation to build efficient methods for spawning purposelly vulnerable systems to hack away at til our heads fall off. 
+
+In my efforts to build a lab that will withstand the test of time, I purchased a very expensive CPU for my home system. I stacked it with RAM and lots of spinning space, and some SSD space as well. 
+** Lab Specs
+**** Main server
+***** OS: Archlinux
+***** Motherboard - Asus X99 WS/USB 3.1
+***** CPU - Intel E5-2687W v3 3.1GHZ
+***** Heatsink - Noctua 
+***** RAM - 128GB total - 8 32GB DDR4 ECC 2300 MHZ Kingston  
+***** HDD - 12 HGST DeskStar NAS 7200 RPM 64MB Cache 4TB 
+***** SSD - 4 Intel 256GB 
+***** PCI-E Cards - LSI 9211-8i
+***** Chassis - Rosewill 4U
+**** Router
+***** I have an EdgeRouter lite, but honestly any modern day router will do. If you want more control over the configuration, buy a linux based router, or look into DDWRT and tomato based router firmwares and comptabile routers.
+**** Storage Chassis #1
+***** Chassis - Supermicro 12 Bay
+***** PSU - Not sure at the moment
+***** Fans - 3 Noctua
+***** Fan Controller - Random one on eBay or Amazon cant remember
+**** Storage Chassis #2
+***** Chassis - Supermicro 12 Bay
+***** PSU - Not sure at the moment
+***** Fans - 3 Noctua
+***** Fan Controller - Random one on eBay or Amazon cant remember
+** VMs
+*** To Create:
+**** Kanban board (investigate opensource JIRA alternatives)
+****** Atlassian offers confluence, bitbucket, and jira all for $10 per year per 10 users. I like these tools, so I am more than happy to pay them for them.
+**** Issue tracking (bugzilla maybe?)
+**** Wiki - (as close to confluence as we can find)
+**** Pentest System (Kali linux and/or pentoo)
+**** Vulnerable system with multiple web apps (multidae, dvwa)
+****** OWASP Broken Web Application Project - https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main 
+** Research
+*** OWASP Testing Guide - https://www.owasp.org/images/1/19/OTGv4.pdf
+*** Make a script in ruby that will convert vmdk files to qcow2 files
+*** Make a script in ruby that will download the .ova files from https://downloads.vulnhub.com/cheksum.txt
