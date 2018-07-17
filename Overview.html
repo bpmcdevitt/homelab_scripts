@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-07-17 Tue 03:46 -->
+<!-- 2018-07-17 Tue 03:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>BUILD A HOMELAB TO PREP FOR OSCP / SECURITY RESEARCH</title>
@@ -234,33 +234,30 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf731b30">1. Introduction</a>
+<li><a href="#orgb09f06c">1. Introduction</a>
 <ul>
-<li><a href="#orgb8e614b">1.1. Design Ideas</a></li>
-<li><a href="#org90af02e">1.2. My Lab Specs</a></li>
-<li><a href="#org9bab254">1.3. VMs</a>
+<li><a href="#org770e011">1.1. Design Ideas</a></li>
+<li><a href="#org8d6fa8c">1.2. My Lab Specs</a></li>
+<li><a href="#org6c75d42">1.3. VMs To Create:</a></li>
+<li><a href="#org490a8dd">1.4. Research</a>
 <ul>
-<li><a href="#org88168d0">1.3.1. VMs To Create:</a></li>
+<li><a href="#orgb3e765c">1.4.1. Filesystem specific(I used ZFS as my main FS)</a></li>
+<li><a href="#org4e98043">1.4.2. Web Application Testing:</a></li>
 </ul>
 </li>
-<li><a href="#org7612340">1.4. Research</a>
-<ul>
-<li><a href="#org18907e1">1.4.1. Material to use to study:</a></li>
-<li><a href="#org6c00ae9">1.4.2. <span class="todo TODO">TODO</span> Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images</a></li>
-<li><a href="#orge055f0a">1.4.3. <span class="todo TODO">TODO</span> Make a script in ruby that will download the .ova files from https://download.vulnhub.com/checksum.txt</a></li>
-</ul>
-</li>
+<li><a href="#orgc620d88">1.5. <span class="todo TODO">TODO</span> Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images</a></li>
+<li><a href="#org10368e6">1.6. <span class="todo TODO">TODO</span> Make a script in ruby that will download the .ova files from https://download.vulnhub.com/checksum.txt</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf731b30" class="outline-2">
-<h2 id="orgf731b30"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-orgb09f06c" class="outline-2">
+<h2 id="orgb09f06c"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgb8e614b" class="outline-3">
-<h3 id="orgb8e614b"><span class="section-number-3">1.1</span> Design Ideas</h3>
+<div id="outline-container-org770e011" class="outline-3">
+<h3 id="org770e011"><span class="section-number-3">1.1</span> Design Ideas</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 When I started my search on the internet on creating a lab environment for security research and learning the skills of penetration test, I was often frustrated. Many of the articles and how-to guides that I found were using Windows as the host operating system and/or VMware as the hypervisor. 
@@ -277,107 +274,98 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orgc83336d"></a><span class="todo TODO">TODO</span> RESEARCH - add in the methods to check to make sure the system is ready to deploy kvm/qemu (cpu flags for vt-d/grub options/bios options&#x2026;.etc, attach or link images if neccessary)<br /></li>
+<li><a id="orge934f3a"></a><span class="todo TODO">TODO</span> RESEARCH - add in the methods to check to make sure the system is ready to deploy kvm/qemu (cpu flags for vt-d/grub options/bios options&#x2026;.etc, attach or link images if neccessary)<br /></li>
 </ol>
 </div>
-<div id="outline-container-org90af02e" class="outline-3">
-<h3 id="org90af02e"><span class="section-number-3">1.2</span> My Lab Specs</h3>
+<div id="outline-container-org8d6fa8c" class="outline-3">
+<h3 id="org8d6fa8c"><span class="section-number-3">1.2</span> My Lab Specs</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
 <ol class="org-ol">
-<li><a id="orgb88ac53"></a>Main server<br />
+<li><a id="orga312efa"></a>Main server<br />
 <ol class="org-ol">
-<li><a id="org4db0022"></a>OS: Archlinux<br /></li>
-<li><a id="orgcc742bf"></a>Motherboard - Asus X99 WS/USB 3.1<br /></li>
-<li><a id="org70656aa"></a>CPU - Intel E5-2687W v3 3.1GHZ<br /></li>
-<li><a id="org2699bbe"></a>Heatsink - Noctua<br /></li>
-<li><a id="org79f4f4f"></a>RAM - 128GB total - 8 32GB DDR4 ECC 2300 MHZ Kingston<br /></li>
-<li><a id="orgd0916b1"></a>HDD - 12 HGST DeskStar NAS 7200 RPM 64MB Cache 4TB<br /></li>
-<li><a id="org2542754"></a>SSD - 4 Intel 256GB<br /></li>
-<li><a id="org271aa0d"></a>PCI-E Cards - LSI 9211-8i<br /></li>
-<li><a id="org767792b"></a>Chassis - Rosewill 4U<br /></li>
+<li><a id="org7ad5239"></a>OS: Archlinux<br /></li>
+<li><a id="org313131d"></a>Motherboard - Asus X99 WS/USB 3.1<br /></li>
+<li><a id="org3b07103"></a>CPU - Intel E5-2687W v3 3.1GHZ<br /></li>
+<li><a id="org8ac3963"></a>Heatsink - Noctua<br /></li>
+<li><a id="org39fa2dc"></a>RAM - 128GB total - 8 32GB DDR4 ECC 2300 MHZ Kingston<br /></li>
+<li><a id="org7b1b944"></a>HDD - 12 HGST DeskStar NAS 7200 RPM 64MB Cache 4TB<br /></li>
+<li><a id="org2050bae"></a>SSD - 4 Intel 256GB<br /></li>
+<li><a id="orgf9cb9a5"></a>PCI-E Cards - LSI 9211-8i<br /></li>
+<li><a id="org755f137"></a>Chassis - Rosewill 4U<br /></li>
 </ol>
 </li>
-<li><a id="orgeb7c0db"></a>Router<br />
+<li><a id="org5554862"></a>Router<br />
 <ol class="org-ol">
-<li><a id="org5282e21"></a>I have an EdgeRouter lite, but honestly any modern day router will do. If you want more control over the configuration, buy a linux based router, or look into DDWRT and tomato based router firmwares and comptabile routers.<br /></li>
+<li><a id="org25fe6ee"></a>I have an EdgeRouter lite, but honestly any modern day router will do. If you want more control over the configuration, buy a linux based router, or look into DDWRT and tomato based router firmwares and comptabile routers.<br /></li>
 </ol>
 </li>
-<li><a id="orga613280"></a>Storage Chassis #1<br />
+<li><a id="orgac24ac7"></a>Storage Chassis #1<br />
 <ol class="org-ol">
-<li><a id="org71138bf"></a>Chassis - Supermicro 12 Bay<br /></li>
-<li><a id="org127e614"></a>PSU - Not sure at the moment<br /></li>
-<li><a id="orga787137"></a>Fans - 3 Noctua<br /></li>
-<li><a id="orga8efab2"></a>Fan Controller - Random one on eBay or Amazon cant remember<br /></li>
+<li><a id="org7651b6b"></a>Chassis - Supermicro 12 Bay<br /></li>
+<li><a id="org96ba1a0"></a>PSU - Not sure at the moment<br /></li>
+<li><a id="org7c3e2ce"></a>Fans - 3 Noctua<br /></li>
+<li><a id="org4b565f4"></a>Fan Controller - Random one on eBay or Amazon cant remember<br /></li>
 </ol>
 </li>
-<li><a id="orgd20c172"></a>Storage Chassis #2<br />
+<li><a id="org31f7dd3"></a>Storage Chassis #2<br />
 <ol class="org-ol">
-<li><a id="orgd332bfa"></a>Chassis - Supermicro 12 Bay<br /></li>
-<li><a id="org3c9b331"></a>PSU - Not sure at the moment<br /></li>
-<li><a id="org167077a"></a>Fans - 3 Noctua<br /></li>
-<li><a id="org776655a"></a>Fan Controller - Random one on eBay or Amazon cant remember<br /></li>
+<li><a id="orgafeefc1"></a>Chassis - Supermicro 12 Bay<br /></li>
+<li><a id="orge6eefe6"></a>PSU - Not sure at the moment<br /></li>
+<li><a id="org3942399"></a>Fans - 3 Noctua<br /></li>
+<li><a id="orgb92c914"></a>Fan Controller - Random one on eBay or Amazon cant remember<br /></li>
 </ol>
 </li>
 </ol>
 </div>
-<div id="outline-container-org9bab254" class="outline-3">
-<h3 id="org9bab254"><span class="section-number-3">1.3</span> VMs</h3>
+<div id="outline-container-org6c75d42" class="outline-3">
+<h3 id="org6c75d42"><span class="section-number-3">1.3</span> VMs To Create:</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-org88168d0" class="outline-4">
-<h4 id="org88168d0"><span class="section-number-4">1.3.1</span> VMs To Create:</h4>
-<div class="outline-text-4" id="text-1-3-1">
-</div>
 <ol class="org-ol">
-<li><a id="orgf3a12a0"></a><span class="todo TODO">TODO</span> Kanban board (investigate opensource JIRA alternatives)<br />
+<li><a id="org9e5d2c5"></a><span class="todo TODO">TODO</span> Kanban board (investigate opensource JIRA alternatives)<br />
 <ol class="org-ol">
-<li><a id="org7f3bbbb"></a>Atlassian offers confluence, bitbucket, and jira all for $10 per year per 10 users. I like these tools, so I am more than happy to pay them for them.<br /></li>
+<li><a id="orgdf40f0c"></a>Atlassian offers confluence, bitbucket, and jira all for $10 per year per 10 users. I like these tools, so I am more than happy to pay them for them.<br /></li>
 </ol>
 </li>
-<li><a id="org81e7e07"></a><span class="todo TODO">TODO</span> Issue tracking (bugzilla maybe?)<br /></li>
-<li><a id="org0f0d17f"></a><span class="todo TODO">TODO</span> Wiki - (as close to confluence as we can find)<br /></li>
-<li><a id="orgcc2d6b2"></a><span class="done DONE">DONE</span> Pentest System (Kali linux and/or pentoo)<br />
-<div class="outline-text-5" id="text-1-3-1-4">
+<li><a id="orgfbda04d"></a><span class="todo TODO">TODO</span> Issue tracking (bugzilla maybe?)<br /></li>
+<li><a id="org478325e"></a><span class="todo TODO">TODO</span> Wiki - (as close to confluence as we can find)<br /></li>
+<li><a id="org36a95b1"></a><span class="done DONE">DONE</span> Pentest System (Kali linux and/or pentoo)<br />
+<div class="outline-text-5" id="text-1-3-0-4">
 </div>
 </li>
-<li><a id="orge16ac4d"></a><span class="todo TODO">TODO</span> Vulnerable system with multiple web apps (multidae, dvwa)<br />
+<li><a id="org2914aee"></a><span class="todo TODO">TODO</span> Vulnerable system with multiple web apps (multidae, dvwa)<br />
 <ol class="org-ol">
-<li><a id="org31c948d"></a>OWASP Broken Web Application Project - <a href="https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main">https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main</a><br /></li>
+<li><a id="orgc0c2378"></a>OWASP Broken Web Application Project - <a href="https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main">https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main</a><br /></li>
 </ol>
 </li>
 </ol>
 </div>
-</div>
-<div id="outline-container-org7612340" class="outline-3">
-<h3 id="org7612340"><span class="section-number-3">1.4</span> Research</h3>
+<div id="outline-container-org490a8dd" class="outline-3">
+<h3 id="org490a8dd"><span class="section-number-3">1.4</span> Research</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
-<div id="outline-container-org18907e1" class="outline-4">
-<h4 id="org18907e1"><span class="section-number-4">1.4.1</span> Material to use to study:</h4>
+<div id="outline-container-orgb3e765c" class="outline-4">
+<h4 id="orgb3e765c"><span class="section-number-4">1.4.1</span> Filesystem specific(I used ZFS as my main FS)</h4>
 <div class="outline-text-4" id="text-1-4-1">
+<ul class="org-ul">
+<li><a href="https://superuser.com/questions/1159116/zfs-vs-raw-disk-for-storing-virtual-machines-trade-offs">ZFS Volumes vs Raw Disk Storage Trade Offs</a></li>
+<li><a href="https://www.ilsistemista.net/index.php/virtualization/47-zfs-btrfs-xfs-ext4-and-lvm-with-kvm-a-storage-performance-comparison.html">ZFS, BTRFS, XFS, EXT4, and LVM with KVM - a storage comparison</a></li>
+</ul>
 </div>
-<ol class="org-ol">
-<li><a id="org6fbebc7"></a>Filesystem specific(I used ZFS as my main FS)<br />
-<div class="outline-text-5" id="text-1-4-1-1">
-<p>
--<a href="https://superuser.com/questions/1159116/zfs-vs-raw-disk-for-storing-virtual-machines-trade-offs">ZFS Volumes vs Raw Disk Storage Trade Offs</a> 
--<a href="https://www.ilsistemista.net/index.php/virtualization/47-zfs-btrfs-xfs-ext4-and-lvm-with-kvm-a-storage-performance-comparison.html">ZFS, BTRFS, XFS, EXT4, and LVM with KVM - a storage comparison</a>  
-</p>
 </div>
-</li>
-<li><a id="org9c4dace"></a>Web Application Testing:<br />
-<div class="outline-text-5" id="text-1-4-1-2">
-<p>
--<a href="https://www.owasp.org/images/1/19/OTGv4.pdf">OWASP Testing Guide</a>  
-</p>
-</div>
-</li>
-</ol>
-</div>
-<div id="outline-container-org6c00ae9" class="outline-4">
-<h4 id="org6c00ae9"><span class="section-number-4">1.4.2</span> <span class="todo TODO">TODO</span> Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images</h4>
+<div id="outline-container-org4e98043" class="outline-4">
+<h4 id="org4e98043"><span class="section-number-4">1.4.2</span> Web Application Testing:</h4>
 <div class="outline-text-4" id="text-1-4-2">
+<ul class="org-ul">
+<li><a href="https://www.owasp.org/images/1/19/OTGv4.pdf">OWASP Testing Guide</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc620d88" class="outline-3">
+<h3 id="orgc620d88"><span class="section-number-3">1.5</span> <span class="todo TODO">TODO</span> Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images</h3>
+<div class="outline-text-3" id="text-1-5">
 <div class="org-src-container">
 <pre class="src src-ruby"><span style="color: #268bd2; font-weight: bold;">def</span> <span style="color: #d75fd7; font-weight: bold;">file_exists</span><span style="color: #268bd2;">(</span>filename<span style="color: #268bd2;">)</span>
   <span style="color: #df005f; font-weight: bold;">File</span>.file?<span style="color: #268bd2;">(</span>filename<span style="color: #268bd2;">)</span> <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">return true if filename exists</span>
@@ -400,9 +388,9 @@ test_convert<span style="color: #268bd2;">(</span><span style="color: #2aa198;">
 </div>
 </div>
 
-<div id="outline-container-orge055f0a" class="outline-4">
-<h4 id="orge055f0a"><span class="section-number-4">1.4.3</span> <span class="todo TODO">TODO</span> Make a script in ruby that will download the .ova files from <a href="https://download.vulnhub.com/checksum.txt">https://download.vulnhub.com/checksum.txt</a></h4>
-<div class="outline-text-4" id="text-1-4-3">
+<div id="outline-container-org10368e6" class="outline-3">
+<h3 id="org10368e6"><span class="section-number-3">1.6</span> <span class="todo TODO">TODO</span> Make a script in ruby that will download the .ova files from <a href="https://download.vulnhub.com/checksum.txt">https://download.vulnhub.com/checksum.txt</a></h3>
+<div class="outline-text-3" id="text-1-6">
 <div class="org-src-container">
 <pre class="src src-ruby"><span style="color: #268bd2; font-weight: bold;">class</span> <span style="color: #df005f; font-weight: bold;">DownloadVulnHubTorrents</span>
   <span style="color: #268bd2;">require</span> <span style="color: #2aa198;">'csv'</span>
@@ -433,10 +421,9 @@ vulnhubber.gather_urls<span style="color: #268bd2;">(</span><span style="color: 
 </div>
 </div>
 </div>
-</div>
 <div id="postamble" class="status">
 <p class="author">Author: booboy</p>
-<p class="date">Created: 2018-07-17 Tue 03:46</p>
+<p class="date">Created: 2018-07-17 Tue 03:53</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

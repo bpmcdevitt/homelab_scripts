@@ -1,12 +1,12 @@
 - [Introduction](#sec-1)
   - [Design Ideas](#sec-1-1)
   - [My Lab Specs](#sec-1-2)
-  - [VMs](#sec-1-3)
-    - [VMs To Create:](#sec-1-3-1)
+  - [VMs To Create:](#sec-1-3)
   - [Research](#sec-1-4)
-    - [Material to use to study:](#sec-1-4-1)
-    - [Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images](#sec-1-4-2)
-    - [Make a script in ruby that will download the .ova files from <https://download.vulnhub.com/checksum.txt>](#sec-1-4-3)
+    - [Filesystem specific(I used ZFS as my main FS)](#sec-1-4-1)
+    - [Web Application Testing:](#sec-1-4-2)
+  - [Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images](#sec-1-5)
+  - [Make a script in ruby that will download the .ova files from <https://download.vulnhub.com/checksum.txt>](#sec-1-6)
 
 
 # Introduction<a id="sec-1"></a>
@@ -67,9 +67,7 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
     
     4.  Fan Controller - Random one on eBay or Amazon cant remember
 
-## VMs<a id="sec-1-3"></a>
-
-### VMs To Create:<a id="sec-1-3-1"></a>
+## VMs To Create:<a id="sec-1-3"></a>
 
 1.  TODO Kanban board (investigate opensource JIRA alternatives)
 
@@ -87,17 +85,16 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
 
 ## Research<a id="sec-1-4"></a>
 
-### Material to use to study:<a id="sec-1-4-1"></a>
+### Filesystem specific(I used ZFS as my main FS)<a id="sec-1-4-1"></a>
 
-1.  Filesystem specific(I used ZFS as my main FS)
+-   [ZFS Volumes vs Raw Disk Storage Trade Offs](https://superuser.com/questions/1159116/zfs-vs-raw-disk-for-storing-virtual-machines-trade-offs)
+-   [ZFS, BTRFS, XFS, EXT4, and LVM with KVM - a storage comparison](https://www.ilsistemista.net/index.php/virtualization/47-zfs-btrfs-xfs-ext4-and-lvm-with-kvm-a-storage-performance-comparison.html)
 
-    -[ZFS Volumes vs Raw Disk Storage Trade Offs](https://superuser.com/questions/1159116/zfs-vs-raw-disk-for-storing-virtual-machines-trade-offs) -[ZFS, BTRFS, XFS, EXT4, and LVM with KVM - a storage comparison](https://www.ilsistemista.net/index.php/virtualization/47-zfs-btrfs-xfs-ext4-and-lvm-with-kvm-a-storage-performance-comparison.html)
+### Web Application Testing:<a id="sec-1-4-2"></a>
 
-2.  Web Application Testing:
+-   [OWASP Testing Guide](https://www.owasp.org/images/1/19/OTGv4.pdf)
 
-    -[OWASP Testing Guide](https://www.owasp.org/images/1/19/OTGv4.pdf)
-
-### TODO Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images<a id="sec-1-4-2"></a>
+## TODO Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images<a id="sec-1-5"></a>
 
 ```ruby
 def file_exists(filename)
@@ -118,7 +115,7 @@ test_convert('vmdk', '/storage/virtual_machines/DSL-4.4.10-disk1.vmdk')
 
 ```
 
-### TODO Make a script in ruby that will download the .ova files from <https://download.vulnhub.com/checksum.txt><a id="sec-1-4-3"></a>
+## TODO Make a script in ruby that will download the .ova files from <https://download.vulnhub.com/checksum.txt><a id="sec-1-6"></a>
 
 ```ruby
 class DownloadVulnHubTorrents

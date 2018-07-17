@@ -32,8 +32,7 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
 ***** PSU - Not sure at the moment
 ***** Fans - 3 Noctua
 ***** Fan Controller - Random one on eBay or Amazon cant remember
-** VMs
-*** VMs To Create:
+** VMs To Create:
 **** TODO Kanban board (investigate opensource JIRA alternatives)
 ****** Atlassian offers confluence, bitbucket, and jira all for $10 per year per 10 users. I like these tools, so I am more than happy to pay them for them.
 **** TODO Issue tracking (bugzilla maybe?)
@@ -43,13 +42,12 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
 **** TODO Vulnerable system with multiple web apps (multidae, dvwa)
 ****** OWASP Broken Web Application Project - https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main 
 ** Research 
-*** Material to use to study: 
-**** Filesystem specific(I used ZFS as my main FS)
-     -[[https://superuser.com/questions/1159116/zfs-vs-raw-disk-for-storing-virtual-machines-trade-offs][ZFS Volumes vs Raw Disk Storage Trade Offs]] 
-     -[[https://www.ilsistemista.net/index.php/virtualization/47-zfs-btrfs-xfs-ext4-and-lvm-with-kvm-a-storage-performance-comparison.html][ZFS, BTRFS, XFS, EXT4, and LVM with KVM - a storage comparison]]  
-**** Web Application Testing: 
-      -[[https://www.owasp.org/images/1/19/OTGv4.pdf][OWASP Testing Guide]]  
-*** TODO Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images
+*** Filesystem specific(I used ZFS as my main FS)
+     - [[https://superuser.com/questions/1159116/zfs-vs-raw-disk-for-storing-virtual-machines-trade-offs][ZFS Volumes vs Raw Disk Storage Trade Offs]] 
+     - [[https://www.ilsistemista.net/index.php/virtualization/47-zfs-btrfs-xfs-ext4-and-lvm-with-kvm-a-storage-performance-comparison.html][ZFS, BTRFS, XFS, EXT4, and LVM with KVM - a storage comparison]]  
+*** Web Application Testing: 
+     - [[https://www.owasp.org/images/1/19/OTGv4.pdf][OWASP Testing Guide]]  
+** TODO Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images
 #+BEGIN_SRC ruby :results replace
   def file_exists(filename)
     File.file?(filename) # return true if filename exists
@@ -71,7 +69,7 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
 
 #+RESULTS:
 
-*** TODO Make a script in ruby that will download the .ova files from https://download.vulnhub.com/checksum.txt
+** TODO Make a script in ruby that will download the .ova files from https://download.vulnhub.com/checksum.txt
 #+BEGIN_SRC ruby :results raw
   class DownloadVulnHubTorrents
     require 'csv'
