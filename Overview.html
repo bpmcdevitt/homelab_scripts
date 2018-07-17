@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-07-17 Tue 02:28 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BUILD A HOMELAB TO PREP FOR OSCP / SECURITY RESEARCH</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="booboy" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">BUILD A HOMELAB TO PREP FOR OSCP / SECURITY RESEARCH</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgee9ca8f">1. Introduction</a>
+<ul>
+<li><a href="#orgf1a0534">1.1. Design Ideas</a></li>
+<li><a href="#orgab18efa">1.2. My Lab Specs</a></li>
+<li><a href="#orgb26393e">1.3. VMs</a>
+<ul>
+<li><a href="#orgc87bf11">1.3.1. VMs To Create:</a></li>
+</ul>
+</li>
+<li><a href="#org08f2c59">1.4. Research</a>
+<ul>
+<li><a href="#org6a1dcad">1.4.1. OWASP Testing Guide - https://www.owasp.org/images/1/19/OTGv4.pdf</a></li>
+<li><a href="#org967cfc2">1.4.2. ZFS and vms? (lets not use qcow2 since we are using zfs yea?)</a></li>
+<li><a href="#orgcf6cc43">1.4.3. <span class="todo TODO">TODO</span> Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images</a></li>
+<li><a href="#orgd8be38b">1.4.4. <span class="todo TODO">TODO</span> Make a script in ruby that will download the .ova files from https://download.vulnhub.com/checksum.txt</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgee9ca8f" class="outline-2">
+<h2 id="orgee9ca8f"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgf1a0534" class="outline-3">
+<h3 id="orgf1a0534"><span class="section-number-3">1.1</span> Design Ideas</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+When I started my search on the internet on creating a lab environment for security research and learning the skills of penetration test, I was often frustrated. Many of the articles and how-to guides that I found were using Windows as the host operating system and/or VMware as the hypervisor. 
+I like linux very much and I have grown to really enjoy using qemu/kvm. libvirt has a great community behind it that offers bindings in many different programming languages (<a href="https://libvirt.org/bindings.html">https://libvirt.org/bindings.html</a>). We can use automation to build efficient methods for spawning purposelly vulnerable systems to hack away at til our heads fall off. 
+</p>
+
+<p>
+In my efforts to build a lab that will withstand the test of time, I purchased a very expensive CPU for my home system. I stacked it with RAM and lots of spinning space, and some SSD space as well. 
+You do not need to go crazy like I did and buy a bunch of hardware. This will work on a laptop with a decent amount of RAM to allocate to the VMs and a modern CPU. It also needs to support VT-D. 
+</p>
+
+<p>
+I am going to be primarily using ruby and bash scripting to glue everything together. I am sure it will not be the prettiest code, but it will solve the problem.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org0e8d769"></a><span class="todo TODO">TODO</span> RESEARCH - add in the methods to check to make sure the system is ready to deploy kvm/qemu (cpu flags for vt-d/grub options/bios options&#x2026;.etc, attach or link images if neccessary)<br /></li>
+</ol>
+</div>
+<div id="outline-container-orgab18efa" class="outline-3">
+<h3 id="orgab18efa"><span class="section-number-3">1.2</span> My Lab Specs</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<ol class="org-ol">
+<li><a id="org80f46b7"></a>Main server<br />
+<ol class="org-ol">
+<li><a id="orgbe1b225"></a>OS: Archlinux<br /></li>
+<li><a id="orgd7214ac"></a>Motherboard - Asus X99 WS/USB 3.1<br /></li>
+<li><a id="org68f9d59"></a>CPU - Intel E5-2687W v3 3.1GHZ<br /></li>
+<li><a id="org73a7668"></a>Heatsink - Noctua<br /></li>
+<li><a id="org486db2c"></a>RAM - 128GB total - 8 32GB DDR4 ECC 2300 MHZ Kingston<br /></li>
+<li><a id="orgcc4a5c9"></a>HDD - 12 HGST DeskStar NAS 7200 RPM 64MB Cache 4TB<br /></li>
+<li><a id="org06fb938"></a>SSD - 4 Intel 256GB<br /></li>
+<li><a id="org03bc6ec"></a>PCI-E Cards - LSI 9211-8i<br /></li>
+<li><a id="orgb9b9d5b"></a>Chassis - Rosewill 4U<br /></li>
+</ol>
+</li>
+<li><a id="org0400abd"></a>Router<br />
+<ol class="org-ol">
+<li><a id="org8f66bc3"></a>I have an EdgeRouter lite, but honestly any modern day router will do. If you want more control over the configuration, buy a linux based router, or look into DDWRT and tomato based router firmwares and comptabile routers.<br /></li>
+</ol>
+</li>
+<li><a id="org7bfd65a"></a>Storage Chassis #1<br />
+<ol class="org-ol">
+<li><a id="orgef66086"></a>Chassis - Supermicro 12 Bay<br /></li>
+<li><a id="org8af135d"></a>PSU - Not sure at the moment<br /></li>
+<li><a id="org8af65a3"></a>Fans - 3 Noctua<br /></li>
+<li><a id="orgb2b012c"></a>Fan Controller - Random one on eBay or Amazon cant remember<br /></li>
+</ol>
+</li>
+<li><a id="org097af61"></a>Storage Chassis #2<br />
+<ol class="org-ol">
+<li><a id="org741b45c"></a>Chassis - Supermicro 12 Bay<br /></li>
+<li><a id="orgb531aa8"></a>PSU - Not sure at the moment<br /></li>
+<li><a id="orga31a928"></a>Fans - 3 Noctua<br /></li>
+<li><a id="org1397170"></a>Fan Controller - Random one on eBay or Amazon cant remember<br /></li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgb26393e" class="outline-3">
+<h3 id="orgb26393e"><span class="section-number-3">1.3</span> VMs</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-orgc87bf11" class="outline-4">
+<h4 id="orgc87bf11"><span class="section-number-4">1.3.1</span> VMs To Create:</h4>
+<div class="outline-text-4" id="text-1-3-1">
+</div>
+<ol class="org-ol">
+<li><a id="orgad5798b"></a><span class="todo TODO">TODO</span> Kanban board (investigate opensource JIRA alternatives)<br />
+<ol class="org-ol">
+<li><a id="org689ad9b"></a>Atlassian offers confluence, bitbucket, and jira all for $10 per year per 10 users. I like these tools, so I am more than happy to pay them for them.<br /></li>
+</ol>
+</li>
+<li><a id="orgbcad332"></a><span class="todo TODO">TODO</span> Issue tracking (bugzilla maybe?)<br /></li>
+<li><a id="org192c190"></a><span class="todo TODO">TODO</span> Wiki - (as close to confluence as we can find)<br /></li>
+<li><a id="orgaeb745e"></a><span class="done DONE">DONE</span> Pentest System (Kali linux and/or pentoo)<br />
+<div class="outline-text-5" id="text-1-3-1-4">
+</div>
+</li>
+<li><a id="org942d642"></a><span class="todo TODO">TODO</span> Vulnerable system with multiple web apps (multidae, dvwa)<br />
+<ol class="org-ol">
+<li><a id="org1b0263b"></a>OWASP Broken Web Application Project - <a href="https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main">https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main</a><br /></li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org08f2c59" class="outline-3">
+<h3 id="org08f2c59"><span class="section-number-3">1.4</span> Research</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-org6a1dcad" class="outline-4">
+<h4 id="org6a1dcad"><span class="section-number-4">1.4.1</span> OWASP Testing Guide - <a href="https://www.owasp.org/images/1/19/OTGv4.pdf">https://www.owasp.org/images/1/19/OTGv4.pdf</a></h4>
+</div>
+<div id="outline-container-org967cfc2" class="outline-4">
+<h4 id="org967cfc2"><span class="section-number-4">1.4.2</span> ZFS and vms? (lets not use qcow2 since we are using zfs yea?)</h4>
+</div>
+<div id="outline-container-orgcf6cc43" class="outline-4">
+<h4 id="orgcf6cc43"><span class="section-number-4">1.4.3</span> <span class="todo TODO">TODO</span> Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images</h4>
+<div class="outline-text-4" id="text-1-4-3">
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #268bd2; font-weight: bold;">def</span> <span style="color: #d75fd7; font-weight: bold;">file_exists</span><span style="color: #268bd2;">(</span>filename<span style="color: #268bd2;">)</span>
+  <span style="color: #df005f; font-weight: bold;">File</span>.file?<span style="color: #268bd2;">(</span>filename<span style="color: #268bd2;">)</span> <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">return true if filename exists</span>
+<span style="color: #268bd2; font-weight: bold;">end</span>
+
+<span style="color: #268bd2; font-weight: bold;">def</span> <span style="color: #d75fd7; font-weight: bold;">convert_file</span><span style="color: #268bd2;">(</span>format, filename<span style="color: #268bd2;">)</span> <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">needs qemu-img binary installed on the system, returns a new raw image file</span>
+  <span style="color: #2aa198;">`qemu-img convert -f </span><span style="color: #8787d7;">#{format}</span><span style="color: #2aa198;"> -O raw "</span><span style="color: #8787d7;">#{filename}</span><span style="color: #2aa198;">" "</span><span style="color: #8787d7;">#{filename}</span><span style="color: #2aa198;">.img"`</span> 
+<span style="color: #268bd2; font-weight: bold;">end</span> 
+
+<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">I am using a 56MB vmdk file to test the conversion process</span>
+<span style="color: #268bd2; font-weight: bold;">def</span> <span style="color: #d75fd7; font-weight: bold;">test_convert</span><span style="color: #268bd2;">(</span>format, filename<span style="color: #268bd2;">)</span>
+  file_exists<span style="color: #268bd2;">(</span>filename<span style="color: #268bd2;">)</span>
+  convert_file<span style="color: #268bd2;">(</span>format, filename<span style="color: #268bd2;">)</span>
+<span style="color: #268bd2; font-weight: bold;">end</span>
+
+test_convert<span style="color: #268bd2;">(</span><span style="color: #2aa198;">'vmdk'</span>, <span style="color: #2aa198;">'/storage/virtual_machines/DSL-4.4.10-disk1.vmdk'</span><span style="color: #268bd2;">)</span>
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd8be38b" class="outline-4">
+<h4 id="orgd8be38b"><span class="section-number-4">1.4.4</span> <span class="todo TODO">TODO</span> Make a script in ruby that will download the .ova files from <a href="https://download.vulnhub.com/checksum.txt">https://download.vulnhub.com/checksum.txt</a></h4>
+<div class="outline-text-4" id="text-1-4-4">
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #268bd2; font-weight: bold;">class</span> <span style="color: #df005f; font-weight: bold;">DownloadVulnHubTorrents</span>
+  <span style="color: #268bd2;">require</span> <span style="color: #2aa198;">'csv'</span>
+
+  <span style="color: #268bd2; font-weight: bold;">def</span> <span style="color: #d75fd7; font-weight: bold;">initialize</span>
+    <span style="color: #8787d7;">@base_url</span> = <span style="color: #2aa198;">'https://download.vulnhub.com'</span>
+  <span style="color: #268bd2; font-weight: bold;">end</span>
+
+  <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">get the checksum file which has checksums + urls. we can automate the check of the files and compare with the checksums to make sure everything downloaded matches</span>
+  <span style="color: #268bd2; font-weight: bold;">def</span> <span style="color: #d75fd7; font-weight: bold;">download_checksum</span>
+    checksum_url = <span style="color: #2aa198;">"</span><span style="color: #8787d7;">#{@base_url}</span><span style="color: #2aa198;">/checksum.txt"</span>
+    <span style="color: #2aa198;">`wget </span><span style="color: #8787d7;">#{checksum_url}</span><span style="color: #2aa198;">`</span> <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">download the checksum file</span>
+  <span style="color: #268bd2; font-weight: bold;">end</span>
+
+  <span style="color: #268bd2; font-weight: bold;">def</span> <span style="color: #d75fd7; font-weight: bold;">gather_urls</span><span style="color: #268bd2;">(</span>filename<span style="color: #268bd2;">)</span>
+    urls = <span style="color: #2aa198;">`awk ' { print $2 } ' </span><span style="color: #8787d7;">#{filename}</span><span style="color: #2aa198;"> | sed 's/^\./''/g' | grep -E 'ova|torrent|zip|tar|txt|gz|gzip|iso|7z|exe|text|img|png|jpg|jpeg|md|LICENSE|README'`</span>
+    <span style="color: #df005f; font-weight: bold;">CSV</span>.parse<span style="color: #268bd2;">(</span>urls<span style="color: #268bd2;">)</span>.flatten
+  <span style="color: #268bd2; font-weight: bold;">end</span>
+<span style="color: #268bd2; font-weight: bold;">end</span>
+
+vulnhubber = <span style="color: #df005f; font-weight: bold;">DownloadVulnHubTorrents</span>.new
+vulnhubber.download_checksums
+vulnhubber.gather_urls<span style="color: #268bd2;">(</span><span style="color: #2aa198;">'/home/booboy/bin/mygit/homelab_scripts/checksum.txt'</span><span style="color: #268bd2;">)</span>
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: booboy</p>
+<p class="date">Created: 2018-07-17 Tue 02:28</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

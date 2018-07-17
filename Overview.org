@@ -1,4 +1,5 @@
-* BUILD A HOMELAB TO PREP FOR OSCP/SECURITY RESEARCH
+#+TITLE: BUILD A HOMELAB TO PREP FOR OSCP / SECURITY RESEARCH
+* Introduction 
 ** Design Ideas
 When I started my search on the internet on creating a lab environment for security research and learning the skills of penetration test, I was often frustrated. Many of the articles and how-to guides that I found were using Windows as the host operating system and/or VMware as the hypervisor. 
 I like linux very much and I have grown to really enjoy using qemu/kvm. libvirt has a great community behind it that offers bindings in many different programming languages (https://libvirt.org/bindings.html). We can use automation to build efficient methods for spawning purposelly vulnerable systems to hack away at til our heads fall off. 
