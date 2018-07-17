@@ -68,20 +68,20 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
 
 *** TODO Make a script in ruby that will download the .ova files from https://download.vulnhub.com/checksum.txt
 #+BEGIN_SRC ruby :results pp
-  require 'csv'
-      # get the checksum file which has checksums + urls. we can automate the check of the files and compare with the checksums to make sure everything downloaded matches
-       def download_checksum()
-         # the most basic way to download the checksum file
-         url = "https://download.vulnhub.com/checksum.txt"
-         download_checksum = `wget #{url}` 
-       end 
+ require 'csv'
+ # get the checksum file which has checksums + urls. we can automate the check of the files and compare with the checksums to make sure everything downloaded matches
+ def download_checksum()
+   # the most basic way to download the checksum file
+   url = "https://download.vulnhub.com/checksum.txt"
+   download_checksum = `wget #{url}` 
+ end 
 
-       def gather_urls(filename)
-         urls = `awk ' { print $2 } ' #{filename} | sed 's/^\./''/g' | grep -E 'ova|torrent|zip|tar|txt|gz|gzip|iso|7z|exe|text|img|png|jpg|jpeg|md|LICENSE|README'`
-       end
+ def gather_urls(filename)
+   urls = `awk ' { print $2 } ' #{filename} | sed 's/^\./''/g' | grep -E 'ova|torrent|zip|tar|txt|gz|gzip|iso|7z|exe|text|img|png|jpg|jpeg|md|LICENSE|README'`
+ end
 
-    download_checksum
-    relative_urls = CSV.parse(gather_urls('/home/booboy/bin/mygit/homelab_scripts/checksum.txt')).flatten
+ download_checksum
+ relative_urls = CSV.parse(gather_urls('/home/booboy/bin/mygit/homelab_scripts/checksum.txt')).flatten
 
 #+END_SRC
 
