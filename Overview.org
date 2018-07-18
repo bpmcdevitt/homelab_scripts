@@ -38,15 +38,18 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
 **** TODO Issue tracking (bugzilla maybe?)
 **** TODO Wiki - (as close to confluence as we can find)
 **** DONE Pentest System (Kali linux and/or pentoo)
+     - [[https://docs.kali.org/development/live-build-a-custom-kali-iso][Build your own custom Kali iso]]  
      CLOSED: [2018-07-16 Mon 16:25]
 **** TODO Vulnerable system with multiple web apps (multidae, dvwa)
 ****** OWASP Broken Web Application Project - https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main 
-** Research 
+** Research Material (links) 
 *** Filesystem specific(I used ZFS as my main FS)
      - [[https://superuser.com/questions/1159116/zfs-vs-raw-disk-for-storing-virtual-machines-trade-offs][ZFS Volumes vs Raw Disk Storage Trade Offs]] 
      - [[https://www.ilsistemista.net/index.php/virtualization/47-zfs-btrfs-xfs-ext4-and-lvm-with-kvm-a-storage-performance-comparison.html][ZFS, BTRFS, XFS, EXT4, and LVM with KVM - a storage comparison]]  
 *** Web Application Testing: 
-     - [[https://www.owasp.org/images/1/19/OTGv4.pdf][OWASP Testing Guide]]  
+     - [[https://www.owasp.org/images/1/19/OTGv4.pdf][OWASP Testing Guide]]
+*** Pentest Specific:
+    -[[https://github.com/enaqx/awesome-pentest][ awesome-pentest GitHub]] 
 ** TODO Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images
 #+BEGIN_SRC ruby :results replace
   def file_exists(filename)

@@ -2,9 +2,10 @@
   - [Design Ideas](#sec-1-1)
   - [My Lab Specs](#sec-1-2)
   - [VMs To Create:](#sec-1-3)
-  - [Research](#sec-1-4)
+  - [Research Material (links)](#sec-1-4)
     - [Filesystem specific(I used ZFS as my main FS)](#sec-1-4-1)
     - [Web Application Testing:](#sec-1-4-2)
+    - [Pentest Specific:](#sec-1-4-3)
   - [Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images](#sec-1-5)
   - [Make a script in ruby that will download the .ova files from <https://download.vulnhub.com/checksum.txt>](#sec-1-6)
 
@@ -79,11 +80,15 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
 
 4.  DONE Pentest System (Kali linux and/or pentoo)
 
+    -   [Build your own custom Kali iso](https://docs.kali.org/development/live-build-a-custom-kali-iso)
+    
+    CLOSED: <span class="timestamp-wrapper"><span class="timestamp">[2018-07-16 Mon 16:25]</span></span>
+
 5.  TODO Vulnerable system with multiple web apps (multidae, dvwa)
 
     1.  OWASP Broken Web Application Project - <https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main>
 
-## Research<a id="sec-1-4"></a>
+## Research Material (links)<a id="sec-1-4"></a>
 
 ### Filesystem specific(I used ZFS as my main FS)<a id="sec-1-4-1"></a>
 
@@ -93,6 +98,10 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
 ### Web Application Testing:<a id="sec-1-4-2"></a>
 
 -   [OWASP Testing Guide](https://www.owasp.org/images/1/19/OTGv4.pdf)
+
+### Pentest Specific:<a id="sec-1-4-3"></a>
+
+-[ awesome-pentest GitHub](https://github.com/enaqx/awesome-pentest)
 
 ## TODO Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images<a id="sec-1-5"></a>
 
