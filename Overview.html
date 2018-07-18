@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-07-18 Wed 01:26 -->
+<!-- 2018-07-18 Wed 01:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>BUILD A HOMELAB TO PREP FOR OSCP / SECURITY RESEARCH</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="booboy" />
+<meta name="author" content="Brendan McDevitt" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -234,31 +234,31 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5c2ea8d">1. Introduction</a>
+<li><a href="#org5ad7ccf">1. Introduction</a>
 <ul>
-<li><a href="#org0004303">1.1. Design Ideas</a></li>
-<li><a href="#org02e740c">1.2. My Lab Specs</a></li>
-<li><a href="#org284a52c">1.3. VMs To Create:</a></li>
-<li><a href="#orgafb2d05">1.4. Research Material (links)</a>
+<li><a href="#orga3755eb">1.1. Design Ideas</a></li>
+<li><a href="#org292ffa4">1.2. My Lab Specs</a></li>
+<li><a href="#orgd471f96">1.3. VMs To Create:</a></li>
+<li><a href="#org45d8b6c">1.4. Research Material (links)</a>
 <ul>
-<li><a href="#orgf4a1a35">1.4.1. Filesystem specific(I used ZFS as my main FS)</a></li>
-<li><a href="#orgd02d169">1.4.2. Web Application Testing:</a></li>
-<li><a href="#org58fda07">1.4.3. Pentest Specific:</a></li>
+<li><a href="#orge5415e3">1.4.1. Filesystem specific(I used ZFS as my main FS)</a></li>
+<li><a href="#org5271042">1.4.2. Web Application Testing:</a></li>
+<li><a href="#org318229c">1.4.3. Pentest Specific:</a></li>
 </ul>
 </li>
-<li><a href="#org73f44c4">1.5. <span class="todo TODO">TODO</span> Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images</a></li>
-<li><a href="#org1b191f7">1.6. <span class="todo TODO">TODO</span> Make a script in ruby that will download the .ova files from https://download.vulnhub.com/checksum.txt</a></li>
+<li><a href="#orgd9f39d7">1.5. <span class="todo TODO">TODO</span> Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images</a></li>
+<li><a href="#org8684c06">1.6. <span class="todo TODO">TODO</span> Make a script in ruby that will download the .ova files from https://download.vulnhub.com/checksum.txt</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5c2ea8d" class="outline-2">
-<h2 id="org5c2ea8d"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org5ad7ccf" class="outline-2">
+<h2 id="org5ad7ccf"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org0004303" class="outline-3">
-<h3 id="org0004303"><span class="section-number-3">1.1</span> Design Ideas</h3>
+<div id="outline-container-orga3755eb" class="outline-3">
+<h3 id="orga3755eb"><span class="section-number-3">1.1</span> Design Ideas</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 When I started my search on the internet on creating a lab environment for security research and learning the skills of penetration test, I was often frustrated. Many of the articles and how-to guides that I found were using Windows as the host operating system and/or VMware as the hypervisor. 
@@ -275,63 +275,63 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orge6b3064"></a><span class="todo TODO">TODO</span> RESEARCH - add in the methods to check to make sure the system is ready to deploy kvm/qemu (cpu flags for vt-d/grub options/bios options&#x2026;.etc, attach or link images if neccessary)<br /></li>
+<li><a id="org632ea63"></a><span class="todo TODO">TODO</span> RESEARCH - add in the methods to check to make sure the system is ready to deploy kvm/qemu (cpu flags for vt-d/grub options/bios options&#x2026;.etc, attach or link images if neccessary)<br /></li>
 </ol>
 </div>
-<div id="outline-container-org02e740c" class="outline-3">
-<h3 id="org02e740c"><span class="section-number-3">1.2</span> My Lab Specs</h3>
+<div id="outline-container-org292ffa4" class="outline-3">
+<h3 id="org292ffa4"><span class="section-number-3">1.2</span> My Lab Specs</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
 <ol class="org-ol">
-<li><a id="org6588be9"></a>Main server<br />
+<li><a id="orgd101149"></a>Main server<br />
 <ol class="org-ol">
-<li><a id="org832e5a6"></a>OS: Archlinux<br /></li>
-<li><a id="org84be8a2"></a>Motherboard - Asus X99 WS/USB 3.1<br /></li>
-<li><a id="org493ebbc"></a>CPU - Intel E5-2687W v3 3.1GHZ<br /></li>
-<li><a id="org9c6aed7"></a>Heatsink - Noctua<br /></li>
-<li><a id="org4ee2ec4"></a>RAM - 128GB total - 8 32GB DDR4 ECC 2300 MHZ Kingston<br /></li>
-<li><a id="org666d478"></a>HDD - 12 HGST DeskStar NAS 7200 RPM 64MB Cache 4TB<br /></li>
-<li><a id="org2344532"></a>SSD - 4 Intel 256GB<br /></li>
-<li><a id="orgec41e94"></a>PCI-E Cards - LSI 9211-8i<br /></li>
-<li><a id="orgc6bc470"></a>Chassis - Rosewill 4U<br /></li>
+<li><a id="org9aca11d"></a>OS: Archlinux<br /></li>
+<li><a id="orgc10341e"></a>Motherboard - Asus X99 WS/USB 3.1<br /></li>
+<li><a id="org41a2daa"></a>CPU - Intel E5-2687W v3 3.1GHZ<br /></li>
+<li><a id="org3bbd8f9"></a>Heatsink - Noctua<br /></li>
+<li><a id="org6cd17f3"></a>RAM - 128GB total - 8 32GB DDR4 ECC 2300 MHZ Kingston<br /></li>
+<li><a id="org7837658"></a>HDD - 12 HGST DeskStar NAS 7200 RPM 64MB Cache 4TB<br /></li>
+<li><a id="orga90a831"></a>SSD - 4 Intel 256GB<br /></li>
+<li><a id="org106b590"></a>PCI-E Cards - LSI 9211-8i<br /></li>
+<li><a id="org81c0a6b"></a>Chassis - Rosewill 4U<br /></li>
 </ol>
 </li>
-<li><a id="org146efb9"></a>Router<br />
+<li><a id="org0aaa038"></a>Router<br />
 <ol class="org-ol">
-<li><a id="org260a577"></a>I have an EdgeRouter lite, but honestly any modern day router will do. If you want more control over the configuration, buy a linux based router, or look into DDWRT and tomato based router firmwares and comptabile routers.<br /></li>
+<li><a id="orga13a087"></a>I have an EdgeRouter lite, but honestly any modern day router will do. If you want more control over the configuration, buy a linux based router, or look into DDWRT and tomato based router firmwares and comptabile routers.<br /></li>
 </ol>
 </li>
-<li><a id="org3c503f2"></a>Storage Chassis #1<br />
+<li><a id="org4f7b050"></a>Storage Chassis #1<br />
 <ol class="org-ol">
-<li><a id="org446223f"></a>Chassis - Supermicro 12 Bay<br /></li>
-<li><a id="orgb8ad9dd"></a>PSU - Not sure at the moment<br /></li>
-<li><a id="org7881e01"></a>Fans - 3 Noctua<br /></li>
-<li><a id="org22bba1c"></a>Fan Controller - Random one on eBay or Amazon cant remember<br /></li>
+<li><a id="org980c96d"></a>Chassis - Supermicro 12 Bay<br /></li>
+<li><a id="orgcaddac6"></a>PSU - Not sure at the moment<br /></li>
+<li><a id="orgc627880"></a>Fans - 3 Noctua<br /></li>
+<li><a id="orgc1d840d"></a>Fan Controller - Random one on eBay or Amazon cant remember<br /></li>
 </ol>
 </li>
-<li><a id="org34677dd"></a>Storage Chassis #2<br />
+<li><a id="orgd25e7bc"></a>Storage Chassis #2<br />
 <ol class="org-ol">
-<li><a id="org4ce4140"></a>Chassis - Supermicro 12 Bay<br /></li>
-<li><a id="org7a5f8e9"></a>PSU - Not sure at the moment<br /></li>
-<li><a id="org60b4939"></a>Fans - 3 Noctua<br /></li>
-<li><a id="org90cc156"></a>Fan Controller - Random one on eBay or Amazon cant remember<br /></li>
+<li><a id="org6bd2eb8"></a>Chassis - Supermicro 12 Bay<br /></li>
+<li><a id="org26ce2d0"></a>PSU - Not sure at the moment<br /></li>
+<li><a id="orgeb7a220"></a>Fans - 3 Noctua<br /></li>
+<li><a id="org738acaa"></a>Fan Controller - Random one on eBay or Amazon cant remember<br /></li>
 </ol>
 </li>
 </ol>
 </div>
-<div id="outline-container-org284a52c" class="outline-3">
-<h3 id="org284a52c"><span class="section-number-3">1.3</span> VMs To Create:</h3>
+<div id="outline-container-orgd471f96" class="outline-3">
+<h3 id="orgd471f96"><span class="section-number-3">1.3</span> VMs To Create:</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
 <ol class="org-ol">
-<li><a id="org98ba220"></a><span class="todo TODO">TODO</span> Kanban board (investigate opensource JIRA alternatives)<br />
+<li><a id="orga1b8afc"></a><span class="todo TODO">TODO</span> Kanban board (investigate opensource JIRA alternatives)<br />
 <ol class="org-ol">
-<li><a id="org17b8595"></a>Atlassian offers confluence, bitbucket, and jira all for $10 per year per 10 users. I like these tools, so I am more than happy to pay them for them.<br /></li>
+<li><a id="org22d748f"></a>Atlassian offers confluence, bitbucket, and jira all for $10 per year per 10 users. I like these tools, so I am more than happy to pay them for them.<br /></li>
 </ol>
 </li>
-<li><a id="orgaa88c7a"></a><span class="todo TODO">TODO</span> Issue tracking (bugzilla maybe?)<br /></li>
-<li><a id="orge977377"></a><span class="todo TODO">TODO</span> Wiki - (as close to confluence as we can find)<br /></li>
-<li><a id="org19b568a"></a><span class="done DONE">DONE</span> Pentest System (Kali linux and/or pentoo)<br />
+<li><a id="orgc7ecd34"></a><span class="todo TODO">TODO</span> Issue tracking (bugzilla maybe?)<br /></li>
+<li><a id="orga2a814f"></a><span class="todo TODO">TODO</span> Wiki - (as close to confluence as we can find)<br /></li>
+<li><a id="orge2bffd9"></a><span class="done DONE">DONE</span> Pentest System (Kali linux and/or pentoo)<br />
 <div class="outline-text-5" id="text-1-3-0-4">
 <ul class="org-ul">
 <li><a href="https://docs.kali.org/development/live-build-a-custom-kali-iso">Build your own custom Kali iso</a></li>
@@ -341,19 +341,19 @@ CLOSED: <span class="timestamp-wrapper"><span class="timestamp">[2018-07-16 Mon 
 </p>
 </div>
 </li>
-<li><a id="org39c6f73"></a><span class="todo TODO">TODO</span> Vulnerable system with multiple web apps (multidae, dvwa)<br />
+<li><a id="org71a2c47"></a><span class="todo TODO">TODO</span> Vulnerable system with multiple web apps (multidae, dvwa)<br />
 <ol class="org-ol">
-<li><a id="orgc398ff0"></a>OWASP Broken Web Application Project - <a href="https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main">https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main</a><br /></li>
+<li><a id="orgc1d833c"></a>OWASP Broken Web Application Project - <a href="https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main">https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main</a><br /></li>
 </ol>
 </li>
 </ol>
 </div>
-<div id="outline-container-orgafb2d05" class="outline-3">
-<h3 id="orgafb2d05"><span class="section-number-3">1.4</span> Research Material (links)</h3>
+<div id="outline-container-org45d8b6c" class="outline-3">
+<h3 id="org45d8b6c"><span class="section-number-3">1.4</span> Research Material (links)</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
-<div id="outline-container-orgf4a1a35" class="outline-4">
-<h4 id="orgf4a1a35"><span class="section-number-4">1.4.1</span> Filesystem specific(I used ZFS as my main FS)</h4>
+<div id="outline-container-orge5415e3" class="outline-4">
+<h4 id="orge5415e3"><span class="section-number-4">1.4.1</span> Filesystem specific(I used ZFS as my main FS)</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <ul class="org-ul">
 <li><a href="https://superuser.com/questions/1159116/zfs-vs-raw-disk-for-storing-virtual-machines-trade-offs">ZFS Volumes vs Raw Disk Storage Trade Offs</a></li>
@@ -361,16 +361,16 @@ CLOSED: <span class="timestamp-wrapper"><span class="timestamp">[2018-07-16 Mon 
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd02d169" class="outline-4">
-<h4 id="orgd02d169"><span class="section-number-4">1.4.2</span> Web Application Testing:</h4>
+<div id="outline-container-org5271042" class="outline-4">
+<h4 id="org5271042"><span class="section-number-4">1.4.2</span> Web Application Testing:</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <ul class="org-ul">
 <li><a href="https://www.owasp.org/images/1/19/OTGv4.pdf">OWASP Testing Guide</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org58fda07" class="outline-4">
-<h4 id="org58fda07"><span class="section-number-4">1.4.3</span> Pentest Specific:</h4>
+<div id="outline-container-org318229c" class="outline-4">
+<h4 id="org318229c"><span class="section-number-4">1.4.3</span> Pentest Specific:</h4>
 <div class="outline-text-4" id="text-1-4-3">
 <p>
 -<a href="https://github.com/enaqx/awesome-pentest"> awesome-pentest GitHub</a> 
@@ -378,57 +378,57 @@ CLOSED: <span class="timestamp-wrapper"><span class="timestamp">[2018-07-16 Mon 
 </div>
 </div>
 </div>
-<div id="outline-container-org73f44c4" class="outline-3">
-<h3 id="org73f44c4"><span class="section-number-3">1.5</span> <span class="todo TODO">TODO</span> Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images</h3>
+<div id="outline-container-orgd9f39d7" class="outline-3">
+<h3 id="orgd9f39d7"><span class="section-number-3">1.5</span> <span class="todo TODO">TODO</span> Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images</h3>
 <div class="outline-text-3" id="text-1-5">
 <div class="org-src-container">
-<pre class="src src-ruby"><span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">file_exists</span><span style="color: #4f97d7;">(</span>filename<span style="color: #4f97d7;">)</span>
-  <span style="color: #ce537a; font-weight: bold;">File</span>.file?<span style="color: #4f97d7;">(</span>filename<span style="color: #4f97d7;">)</span> <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">return true if filename exists</span>
-<span style="color: #4f97d7; font-weight: bold;">end</span>
+<pre class="src src-ruby"><span style="color: #268bd2; font-weight: bold;">def</span> <span style="color: #d75fd7; font-weight: bold;">file_exists</span><span style="color: #268bd2;">(</span>filename<span style="color: #268bd2;">)</span>
+  <span style="color: #df005f; font-weight: bold;">File</span>.file?<span style="color: #268bd2;">(</span>filename<span style="color: #268bd2;">)</span> <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">return true if filename exists</span>
+<span style="color: #268bd2; font-weight: bold;">end</span>
 
-<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">convert_file</span><span style="color: #4f97d7;">(</span>format, filename<span style="color: #4f97d7;">)</span> <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">needs qemu-img binary installed on the system, returns a new raw image file</span>
-  <span style="color: #2d9574;">`qemu-img convert -f </span><span style="color: #7590db;">#{format}</span><span style="color: #2d9574;"> -O raw "</span><span style="color: #7590db;">#{filename}</span><span style="color: #2d9574;">" "</span><span style="color: #7590db;">#{filename}</span><span style="color: #2d9574;">.img"`</span> 
-<span style="color: #4f97d7; font-weight: bold;">end</span> 
+<span style="color: #268bd2; font-weight: bold;">def</span> <span style="color: #d75fd7; font-weight: bold;">convert_file</span><span style="color: #268bd2;">(</span>format, filename<span style="color: #268bd2;">)</span> <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">needs qemu-img binary installed on the system, returns a new raw image file</span>
+  <span style="color: #2aa198;">`qemu-img convert -f </span><span style="color: #8787d7;">#{format}</span><span style="color: #2aa198;"> -O raw "</span><span style="color: #8787d7;">#{filename}</span><span style="color: #2aa198;">" "</span><span style="color: #8787d7;">#{filename}</span><span style="color: #2aa198;">.img"`</span> 
+<span style="color: #268bd2; font-weight: bold;">end</span> 
 
-<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">I am using a 56MB vmdk file to test the conversion process</span>
-<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">test_convert</span><span style="color: #4f97d7;">(</span>format, filename<span style="color: #4f97d7;">)</span>
-  file_exists<span style="color: #4f97d7;">(</span>filename<span style="color: #4f97d7;">)</span>
-  convert_file<span style="color: #4f97d7;">(</span>format, filename<span style="color: #4f97d7;">)</span>
-<span style="color: #4f97d7; font-weight: bold;">end</span>
+<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">I am using a 56MB vmdk file to test the conversion process</span>
+<span style="color: #268bd2; font-weight: bold;">def</span> <span style="color: #d75fd7; font-weight: bold;">test_convert</span><span style="color: #268bd2;">(</span>format, filename<span style="color: #268bd2;">)</span>
+  file_exists<span style="color: #268bd2;">(</span>filename<span style="color: #268bd2;">)</span>
+  convert_file<span style="color: #268bd2;">(</span>format, filename<span style="color: #268bd2;">)</span>
+<span style="color: #268bd2; font-weight: bold;">end</span>
 
-test_convert<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'vmdk'</span>, <span style="color: #2d9574;">'/storage/virtual_machines/DSL-4.4.10-disk1.vmdk'</span><span style="color: #4f97d7;">)</span>
+test_convert<span style="color: #268bd2;">(</span><span style="color: #2aa198;">'vmdk'</span>, <span style="color: #2aa198;">'/storage/virtual_machines/DSL-4.4.10-disk1.vmdk'</span><span style="color: #268bd2;">)</span>
 
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org1b191f7" class="outline-3">
-<h3 id="org1b191f7"><span class="section-number-3">1.6</span> <span class="todo TODO">TODO</span> Make a script in ruby that will download the .ova files from <a href="https://download.vulnhub.com/checksum.txt">https://download.vulnhub.com/checksum.txt</a></h3>
+<div id="outline-container-org8684c06" class="outline-3">
+<h3 id="org8684c06"><span class="section-number-3">1.6</span> <span class="todo TODO">TODO</span> Make a script in ruby that will download the .ova files from <a href="https://download.vulnhub.com/checksum.txt">https://download.vulnhub.com/checksum.txt</a></h3>
 <div class="outline-text-3" id="text-1-6">
 <div class="org-src-container">
-<pre class="src src-ruby"><span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">DownloadVulnHubTorrents</span>
-  <span style="color: #4f97d7;">require</span> <span style="color: #2d9574;">'csv'</span>
+<pre class="src src-ruby"><span style="color: #268bd2; font-weight: bold;">class</span> <span style="color: #df005f; font-weight: bold;">DownloadVulnHubTorrents</span>
+  <span style="color: #268bd2;">require</span> <span style="color: #2aa198;">'csv'</span>
 
-  <span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">initialize</span>
-    <span style="color: #7590db;">@base_url</span> = <span style="color: #2d9574;">'https://download.vulnhub.com'</span>
-  <span style="color: #4f97d7; font-weight: bold;">end</span>
+  <span style="color: #268bd2; font-weight: bold;">def</span> <span style="color: #d75fd7; font-weight: bold;">initialize</span>
+    <span style="color: #8787d7;">@base_url</span> = <span style="color: #2aa198;">'https://download.vulnhub.com'</span>
+  <span style="color: #268bd2; font-weight: bold;">end</span>
 
-  <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">get the checksum file which has checksums + urls. we can automate the check of the files and compare with the checksums to make sure everything downloaded matches</span>
-  <span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">download_checksum</span>
-    checksum_url = <span style="color: #2d9574;">"</span><span style="color: #7590db;">#{@base_url}</span><span style="color: #2d9574;">/checksum.txt"</span>
-    <span style="color: #2d9574;">`wget </span><span style="color: #7590db;">#{checksum_url}</span><span style="color: #2d9574;">`</span> <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">download the checksum file</span>
-  <span style="color: #4f97d7; font-weight: bold;">end</span>
+  <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">get the checksum file which has checksums + urls. we can automate the check of the files and compare with the checksums to make sure everything downloaded matches</span>
+  <span style="color: #268bd2; font-weight: bold;">def</span> <span style="color: #d75fd7; font-weight: bold;">download_checksum</span>
+    checksum_url = <span style="color: #2aa198;">"</span><span style="color: #8787d7;">#{@base_url}</span><span style="color: #2aa198;">/checksum.txt"</span>
+    <span style="color: #2aa198;">`wget </span><span style="color: #8787d7;">#{checksum_url}</span><span style="color: #2aa198;">`</span> <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">download the checksum file</span>
+  <span style="color: #268bd2; font-weight: bold;">end</span>
 
-  <span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">gather_urls</span><span style="color: #4f97d7;">(</span>filename<span style="color: #4f97d7;">)</span>
-    urls = <span style="color: #2d9574;">`awk ' { print $2 } ' </span><span style="color: #7590db;">#{filename}</span><span style="color: #2d9574;"> | sed 's/^\./''/g' | grep -E 'ova|torrent|zip|tar|txt|gz|gzip|iso|7z|exe|text|img|png|jpg|jpeg|md|LICENSE|README'`</span>
-    <span style="color: #ce537a; font-weight: bold;">CSV</span>.parse<span style="color: #4f97d7;">(</span>urls<span style="color: #4f97d7;">)</span>.flatten
-  <span style="color: #4f97d7; font-weight: bold;">end</span>
-<span style="color: #4f97d7; font-weight: bold;">end</span>
+  <span style="color: #268bd2; font-weight: bold;">def</span> <span style="color: #d75fd7; font-weight: bold;">gather_urls</span><span style="color: #268bd2;">(</span>filename<span style="color: #268bd2;">)</span>
+    urls = <span style="color: #2aa198;">`awk ' { print $2 } ' </span><span style="color: #8787d7;">#{filename}</span><span style="color: #2aa198;"> | sed 's/^\./''/g' | grep -E 'ova|torrent|zip|tar|txt|gz|gzip|iso|7z|exe|text|img|png|jpg|jpeg|md|LICENSE|README'`</span>
+    <span style="color: #df005f; font-weight: bold;">CSV</span>.parse<span style="color: #268bd2;">(</span>urls<span style="color: #268bd2;">)</span>.flatten
+  <span style="color: #268bd2; font-weight: bold;">end</span>
+<span style="color: #268bd2; font-weight: bold;">end</span>
 
-vulnhubber = <span style="color: #ce537a; font-weight: bold;">DownloadVulnHubTorrents</span>.new
+vulnhubber = <span style="color: #df005f; font-weight: bold;">DownloadVulnHubTorrents</span>.new
 vulnhubber.download_checksums
-vulnhubber.gather_urls<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'/home/booboy/bin/mygit/homelab_scripts/checksum.txt'</span><span style="color: #4f97d7;">)</span>
+vulnhubber.gather_urls<span style="color: #268bd2;">(</span><span style="color: #2aa198;">'/home/booboy/bin/mygit/homelab_scripts/checksum.txt'</span><span style="color: #268bd2;">)</span>
 
 </pre>
 </div>
@@ -437,8 +437,8 @@ vulnhubber.gather_urls<span style="color: #4f97d7;">(</span><span style="color: 
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: booboy</p>
-<p class="date">Created: 2018-07-18 Wed 01:26</p>
+<p class="author">Author: Brendan McDevitt</p>
+<p class="date">Created: 2018-07-18 Wed 01:56</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

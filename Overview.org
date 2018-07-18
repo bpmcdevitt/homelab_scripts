@@ -1,4 +1,6 @@
 #+TITLE: BUILD A HOMELAB TO PREP FOR OSCP / SECURITY RESEARCH
+#+AUTHOR: Brendan McDevitt
+#+EMAIL: bpmcdevitt@thelinuxspace.com
 * Introduction 
 ** Design Ideas
 When I started my search on the internet on creating a lab environment for security research and learning the skills of penetration test, I was often frustrated. Many of the articles and how-to guides that I found were using Windows as the host operating system and/or VMware as the hypervisor. 
