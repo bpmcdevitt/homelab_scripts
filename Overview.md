@@ -8,6 +8,7 @@
     - [Pentest Specific:](#sec-1-4-3)
   - [Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images](#sec-1-5)
   - [Make a script in ruby that will download the .ova files from <https://download.vulnhub.com/checksum.txt>](#sec-1-6)
+  - [Make a script in ruby that will generate ssh keypairs for our vms](#sec-1-7)
 
 
 # Introduction<a id="sec-1"></a>
@@ -149,5 +150,11 @@ end
 vulnhubber = DownloadVulnHubTorrents.new
 vulnhubber.download_checksums
 vulnhubber.gather_urls('/home/booboy/bin/mygit/homelab_scripts/checksum.txt')
+
+```
+
+## TODO Make a script in ruby that will generate ssh keypairs for our vms<a id="sec-1-7"></a>
+
+```ruby
 
 ```

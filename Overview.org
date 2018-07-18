@@ -102,3 +102,7 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
 #+END_SRC
 
 #+RESULTS:
+** TODO Make a script in ruby that will generate ssh keypairs for our vms
+   #+BEGIN_SRC ruby :results replace
+   
+   #+END_SRC
