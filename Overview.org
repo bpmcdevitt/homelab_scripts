@@ -52,7 +52,8 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
      - [[https://www.owasp.org/images/1/19/OTGv4.pdf][OWASP Testing Guide]]
 *** Pentest Specific:
     -[[https://github.com/enaqx/awesome-pentest][ awesome-pentest GitHub]] 
-** TODO Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images
+** Progrmas to write
+*** TODO Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images
 #+BEGIN_SRC ruby :results replace
   def file_exists(filename)
     File.file?(filename) # return true if filename exists
@@ -74,7 +75,7 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
 
 #+RESULTS:
 
-** TODO Make a script in ruby that will download the .ova files from https://download.vulnhub.com/checksum.txt
+*** TODO Make a script in ruby that will download the .ova files from https://download.vulnhub.com/checksum.txt
 #+BEGIN_SRC ruby :results raw
   class DownloadVulnHubTorrents
     require 'csv'
@@ -102,7 +103,7 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
 #+END_SRC
 
 #+RESULTS:
-** TODO Make a script in ruby that will generate ssh keypairs for our vms
+*** TODO Make a script in ruby that will generate ssh keypairs for our vms
    #+BEGIN_SRC ruby :results replace
    
    #+END_SRC
