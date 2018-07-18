@@ -2,17 +2,17 @@
 #+AUTHOR: Brendan McDevitt
 #+EMAIL: bpmcdevitt@thelinuxspace.com
 * Introduction 
-** Design Ideas
-When I started my search on the internet on creating a lab environment for security research and learning the skills of penetration test, I was often frustrated. Many of the articles and how-to guides that I found were using Windows as the host operating system and/or VMware as the hypervisor. 
-I like linux very much and I have grown to really enjoy using qemu/kvm. libvirt has a great community behind it that offers bindings in many different programming languages (https://libvirt.org/bindings.html). We can use automation to build efficient methods for spawning purposelly vulnerable systems to hack away at til our heads fall off. 
+  When I started my search on the internet on creating a lab environment for security research and learning the skills of penetration test, I was often frustrated. Many of the articles and how-to guides that I found were using Windows as the host operating system and/or VMware as the hypervisor. 
+  I like linux very much and I have grown to really enjoy using qemu/kvm. libvirt has a great community behind it that offers bindings in many different programming languages (https://libvirt.org/bindings.html). We can use automation to build efficient methods for spawning purposelly vulnerable systems to hack away at til our heads fall off. 
 
-In my efforts to build a lab that will withstand the test of time, I purchased a very expensive CPU for my home system. I stacked it with RAM and lots of spinning space, and some SSD space as well. 
-You do not need to go crazy like I did and buy a bunch of hardware. This will work on a laptop with a decent amount of RAM to allocate to the VMs and a modern CPU. It also needs to support VT-D. 
+  In my efforts to build a lab that will withstand the test of time, I purchased a very expensive CPU for my home system. I stacked it with RAM and lots of spinning space, and some SSD space as well. 
+  You do not need to go crazy like I did and buy a bunch of hardware. This will work on a laptop with a decent amount of RAM to allocate to the VMs and a modern CPU. It also needs to support VT-D. 
 
-I am going to be primarily using ruby and bash scripting to glue everything together. I am sure it will not be the prettiest code, but it will solve the problem.
-***** TODO RESEARCH - add in the methods to check to make sure the system is ready to deploy kvm/qemu (cpu flags for vt-d/grub options/bios options....etc, attach or link images if neccessary) 
+  I am going to be primarily using ruby and bash scripting to glue everything together. I am sure it will not be the prettiest code, but it will solve the problem.
+** Host Prep  
+*** TODO RESEARCH: - add in the methods to check to make sure the system is ready to deploy kvm/qemu (cpu flags for vt-d/grub options/bios options....etc, attach or link images if neccessary)
 ** My Lab Specs
-**** Main server
+**** Main server 
 ***** OS: Archlinux
 ***** Motherboard - Asus X99 WS/USB 3.1
 ***** CPU - Intel E5-2687W v3 3.1GHZ
@@ -34,17 +34,20 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
 ***** PSU - Not sure at the moment
 ***** Fans - 3 Noctua
 ***** Fan Controller - Random one on eBay or Amazon cant remember
-** VMs To Create:
+** VMs to build
+**** TODO RESEARCH: can we figure out a way to start a base template VM, and based on a set of vulns that we give the VM at deploy time, spin up the VM with those vulns?  
 **** TODO Kanban board (investigate opensource JIRA alternatives)
-****** Atlassian offers confluence, bitbucket, and jira all for $10 per year per 10 users. I like these tools, so I am more than happy to pay them for them.
+     - Atlassian offers confluence, bitbucket, and jira all for $10 per year per 10 users. I like these tools, so I am more than happy to pay them for them.
 **** TODO Issue tracking (bugzilla maybe?)
 **** TODO Wiki - (as close to confluence as we can find)
 **** DONE Pentest System (Kali linux and/or pentoo)
-     - [[https://docs.kali.org/development/live-build-a-custom-kali-iso][Build your own custom Kali iso]]  
+     - [[https://docs.kali.org/development/live-build-a-custom-kali-iso][Build your own custom Kali iso]]
+     - [[https://www.pentoo.ch/download][pentoo]]
+     - [[https://blackarch.org/downloads.html][Blackarch]]      
      CLOSED: [2018-07-16 Mon 16:25]
-**** TODO Vulnerable system with multiple web apps (multidae, dvwa)
-****** OWASP Broken Web Application Project - https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main 
-** Research Material (links) 
+**** TODO Vulnerable system with multiple web apps (multidae, dvwa) 
+     - OWASP Broken Web Application Project - https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main
+** Research Material
 *** Filesystem specific(I used ZFS as my main FS)
      - [[https://superuser.com/questions/1159116/zfs-vs-raw-disk-for-storing-virtual-machines-trade-offs][ZFS Volumes vs Raw Disk Storage Trade Offs]] 
      - [[https://www.ilsistemista.net/index.php/virtualization/47-zfs-btrfs-xfs-ext4-and-lvm-with-kvm-a-storage-performance-comparison.html][ZFS, BTRFS, XFS, EXT4, and LVM with KVM - a storage comparison]]  
@@ -52,8 +55,8 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
      - [[https://www.owasp.org/images/1/19/OTGv4.pdf][OWASP Testing Guide]]
 *** Pentest Specific:
     -[[https://github.com/enaqx/awesome-pentest][ awesome-pentest GitHub]] 
-** Progrmas to write
-*** TODO Make a script in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images
+** Programs to write
+*** TODO Make a program in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images
 #+BEGIN_SRC ruby :results replace
   def file_exists(filename)
     File.file?(filename) # return true if filename exists
@@ -75,7 +78,7 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
 
 #+RESULTS:
 
-*** TODO Make a script in ruby that will download the .ova files from https://download.vulnhub.com/checksum.txt
+*** TODO Make a program in ruby that will download the .ova files from https://download.vulnhub.com/checksum.txt
 #+BEGIN_SRC ruby :results raw
   class DownloadVulnHubTorrents
     require 'csv'
@@ -103,7 +106,8 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
 #+END_SRC
 
 #+RESULTS:
-*** TODO Make a script in ruby that will generate ssh keypairs for our vms
+*** TODO Make a program in ruby that will generate ssh keypairs for our vms
    #+BEGIN_SRC ruby :results replace
    
    #+END_SRC
+*** TODO Make a program that configures a static ip address for a host system in ruby (most of the vulnhub vms come configured with dhcp, but this will still be a nice tool to have for vm reconfiguring if ever needed)
