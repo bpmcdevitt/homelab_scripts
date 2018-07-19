@@ -10,7 +10,18 @@
 
   I am going to be primarily using ruby and bash scripting to glue everything together. I am sure it will not be the prettiest code, but it will solve the problem.
 ** Host Prep  
+   First you are going to want to ensure that your system is capable of running virtualization software. Most modern Intel and AMD based processors will support this. However, they may have the option disabled within the Bios. You will need to check with your motherboard manufacturer to see if your system supports VT-D support.
 *** TODO RESEARCH: - add in the methods to check to make sure the system is ready to deploy kvm/qemu (cpu flags for vt-d/grub options/bios options....etc, attach or link images if neccessary)
+#+BEGIN_SRC ruby :results replace
+  def get_cpu_flags
+    cpu_flags = `grep flags /proc/cpuinfo | cut -f 2 -d : | uniq`.strip
+  end
+
+  cpu_flags = get_cpu_flags
+#+END_SRC
+
+#+RESULTS:
+
 ** My Lab Specs
 **** Main server 
 ***** OS: Archlinux
@@ -50,12 +61,12 @@
      - OWASP Broken Web Application Project - https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main
 ** Research Material
 *** Filesystem specific(I used ZFS as my main FS)
-     - [[https://superuser.com/questions/1159116/zfs-vs-raw-disk-for-storing-virtual-machines-trade-offs][ZFS Volumes vs Raw Disk Storage Trade Offs]] 
-     - [[https://www.ilsistemista.net/index.php/virtualization/47-zfs-btrfs-xfs-ext4-and-lvm-with-kvm-a-storage-performance-comparison.html][ZFS, BTRFS, XFS, EXT4, and LVM with KVM - a storage comparison]]  
+    - [[https://superuser.com/questions/1159116/zfs-vs-raw-disk-for-storing-virtual-machines-trade-offs][ZFS Volumes vs Raw Disk Storage Trade Offs]] 
+    - [[https://www.ilsistemista.net/index.php/virtualization/47-zfs-btrfs-xfs-ext4-and-lvm-with-kvm-a-storage-performance-comparison.html][ZFS, BTRFS, XFS, EXT4, and LVM with KVM - a storage comparison]]  
 *** Web Application Testing: 
-     - [[https://www.owasp.org/images/1/19/OTGv4.pdf][OWASP Testing Guide]]
-*** Pentest Specific:
-    -[[https://github.com/enaqx/awesome-pentest][ awesome-pentest GitHub]] 
+    - [[https://www.owasp.org/images/1/19/OTGv4.pdf][OWASP Testing Guide]]
+*** Pentest Specific: 
+    - [[https://github.com/enaqx/awesome-pentest][awesome-pentest]]
 ** Programs to write
 *** TODO Make a program in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images
 #+BEGIN_SRC ruby :results replace

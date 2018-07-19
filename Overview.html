@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-07-19 Thu 00:27 -->
+<!-- 2018-07-19 Thu 00:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>BUILD A HOMELAB TO PREP FOR OSCP / SECURITY RESEARCH</title>
@@ -234,29 +234,29 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgded43b4">1. Introduction</a>
+<li><a href="#org8a6ec81">1. Introduction</a>
 <ul>
-<li><a href="#orgdaa331c">1.1. Host Prep</a>
+<li><a href="#orge220ab9">1.1. Host Prep</a>
 <ul>
-<li><a href="#org2595c42">1.1.1. <span class="todo TODO">TODO</span> RESEARCH: - add in the methods to check to make sure the system is ready to deploy kvm/qemu (cpu flags for vt-d/grub options/bios options&#x2026;.etc, attach or link images if neccessary)</a></li>
+<li><a href="#org4a73697">1.1.1. <span class="todo TODO">TODO</span> RESEARCH: - add in the methods to check to make sure the system is ready to deploy kvm/qemu (cpu flags for vt-d/grub options/bios options&#x2026;.etc, attach or link images if neccessary)</a></li>
 </ul>
 </li>
-<li><a href="#orgbe31431">1.2. My Lab Specs</a></li>
-<li><a href="#org63841a6">1.3. VMs to build</a></li>
-<li><a href="#org3f0979f">1.4. Research Material</a>
+<li><a href="#orga65b7e5">1.2. My Lab Specs</a></li>
+<li><a href="#orgf040c27">1.3. VMs to build</a></li>
+<li><a href="#org90dfb6a">1.4. Research Material</a>
 <ul>
-<li><a href="#orge4dfd45">1.4.1. Filesystem specific(I used ZFS as my main FS)</a></li>
-<li><a href="#org8b3abea">1.4.2. Web Application Testing:</a></li>
-<li><a href="#orgeabf575">1.4.3. Pentest Specific:</a></li>
+<li><a href="#org308c6b5">1.4.1. Filesystem specific(I used ZFS as my main FS)</a></li>
+<li><a href="#org78176d5">1.4.2. Web Application Testing:</a></li>
+<li><a href="#org335f9a1">1.4.3. Pentest Specific:</a></li>
 </ul>
 </li>
-<li><a href="#orgf99ab36">1.5. Programs to write</a>
+<li><a href="#org34d1817">1.5. Programs to write</a>
 <ul>
-<li><a href="#org2fb95eb">1.5.1. <span class="todo TODO">TODO</span> Make a program in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images</a></li>
-<li><a href="#org81ce86c">1.5.2. <span class="todo TODO">TODO</span> Make a program in ruby that will download the .ova files from https://download.vulnhub.com/checksum.txt</a></li>
-<li><a href="#orgb51f5d1">1.5.3. <span class="todo TODO">TODO</span> Make a program in ruby that will generate ssh keypairs for our vms</a></li>
-<li><a href="#org76a297b">1.5.4. <span class="todo TODO">TODO</span> Make a program that configures a static ip address for a host system in ruby (most of the vulnhub vms come configured with dhcp, but this will still be a nice tool to have for vm reconfiguring if ever needed)</a></li>
-<li><a href="#org65ba3a4">1.5.5. <span class="todo TODO">TODO</span> RESEARCH: Make a program that will allow you to export an org-mode document in emacs to a pentest report.</a></li>
+<li><a href="#orgc9656db">1.5.1. <span class="todo TODO">TODO</span> Make a program in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images</a></li>
+<li><a href="#orgb6d88f5">1.5.2. <span class="todo TODO">TODO</span> Make a program in ruby that will download the .ova files from https://download.vulnhub.com/checksum.txt</a></li>
+<li><a href="#orga4d02a5">1.5.3. <span class="todo TODO">TODO</span> Make a program in ruby that will generate ssh keypairs for our vms</a></li>
+<li><a href="#orgd3db771">1.5.4. <span class="todo TODO">TODO</span> Make a program that configures a static ip address for a host system in ruby (most of the vulnhub vms come configured with dhcp, but this will still be a nice tool to have for vm reconfiguring if ever needed)</a></li>
+<li><a href="#org870b4d7">1.5.5. <span class="todo TODO">TODO</span> RESEARCH: Make a program that will allow you to export an org-mode document in emacs to a pentest report.</a></li>
 </ul>
 </li>
 </ul>
@@ -264,8 +264,8 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgded43b4" class="outline-2">
-<h2 id="orgded43b4"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org8a6ec81" class="outline-2">
+<h2 id="org8a6ec81"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 When I started my search on the internet on creating a lab environment for security research and learning the skills of penetration test, I was often frustrated. Many of the articles and how-to guides that I found were using Windows as the host operating system and/or VMware as the hypervisor. 
@@ -281,72 +281,86 @@ You do not need to go crazy like I did and buy a bunch of hardware. This will wo
 I am going to be primarily using ruby and bash scripting to glue everything together. I am sure it will not be the prettiest code, but it will solve the problem.
 </p>
 </div>
-<div id="outline-container-orgdaa331c" class="outline-3">
-<h3 id="orgdaa331c"><span class="section-number-3">1.1</span> Host Prep</h3>
+<div id="outline-container-orge220ab9" class="outline-3">
+<h3 id="orge220ab9"><span class="section-number-3">1.1</span> Host Prep</h3>
 <div class="outline-text-3" id="text-1-1">
+<p>
+First you are going to want to ensure that your system is capable of running virtualization software. Most modern Intel and AMD based processors will support this. However, they may have the option disabled within the Bios. You will need to check with your motherboard manufacturer to see if your system supports VT-D support.
+</p>
 </div>
-<div id="outline-container-org2595c42" class="outline-4">
-<h4 id="org2595c42"><span class="section-number-4">1.1.1</span> <span class="todo TODO">TODO</span> RESEARCH: - add in the methods to check to make sure the system is ready to deploy kvm/qemu (cpu flags for vt-d/grub options/bios options&#x2026;.etc, attach or link images if neccessary)</h4>
+<div id="outline-container-org4a73697" class="outline-4">
+<h4 id="org4a73697"><span class="section-number-4">1.1.1</span> <span class="todo TODO">TODO</span> RESEARCH: - add in the methods to check to make sure the system is ready to deploy kvm/qemu (cpu flags for vt-d/grub options/bios options&#x2026;.etc, attach or link images if neccessary)</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #0087af; font-weight: bold;">def</span> <span style="color: #ffff00; font-weight: bold;">get_cpu_flags</span>
+  cpu_flags = <span style="color: #00ff00;">`grep flags /proc/cpuinfo | cut -f 2 -d : | uniq`</span>.strip
+<span style="color: #0087af; font-weight: bold;">end</span>
+
+cpu_flags = get_cpu_flags
+</pre>
 </div>
 </div>
-<div id="outline-container-orgbe31431" class="outline-3">
-<h3 id="orgbe31431"><span class="section-number-3">1.2</span> My Lab Specs</h3>
+</div>
+</div>
+
+<div id="outline-container-orga65b7e5" class="outline-3">
+<h3 id="orga65b7e5"><span class="section-number-3">1.2</span> My Lab Specs</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
 <ol class="org-ol">
-<li><a id="org7f18c80"></a>Main server<br />
+<li><a id="orge53ec6e"></a>Main server<br />
 <ol class="org-ol">
-<li><a id="org05ac103"></a>OS: Archlinux<br /></li>
-<li><a id="orgafa7939"></a>Motherboard - Asus X99 WS/USB 3.1<br /></li>
-<li><a id="org5406e36"></a>CPU - Intel E5-2687W v3 3.1GHZ<br /></li>
-<li><a id="orgf6a0122"></a>Heatsink - Noctua<br /></li>
-<li><a id="org3145aeb"></a>RAM - 128GB total - 8 32GB DDR4 ECC 2300 MHZ Kingston<br /></li>
-<li><a id="org6ba28cf"></a>HDD - 12 HGST DeskStar NAS 7200 RPM 64MB Cache 4TB<br /></li>
-<li><a id="org8ada6e3"></a>SSD - 4 Intel 256GB<br /></li>
-<li><a id="org116121a"></a>PCI-E Cards - LSI 9211-8i<br /></li>
-<li><a id="org4a4df5b"></a>Chassis - Rosewill 4U<br /></li>
+<li><a id="orgbcdaf91"></a>OS: Archlinux<br /></li>
+<li><a id="org38352ea"></a>Motherboard - Asus X99 WS/USB 3.1<br /></li>
+<li><a id="orgff4eb84"></a>CPU - Intel E5-2687W v3 3.1GHZ<br /></li>
+<li><a id="orgdff3124"></a>Heatsink - Noctua<br /></li>
+<li><a id="org2a744b4"></a>RAM - 128GB total - 8 32GB DDR4 ECC 2300 MHZ Kingston<br /></li>
+<li><a id="org17c47ae"></a>HDD - 12 HGST DeskStar NAS 7200 RPM 64MB Cache 4TB<br /></li>
+<li><a id="org245800d"></a>SSD - 4 Intel 256GB<br /></li>
+<li><a id="orgf51e7b9"></a>PCI-E Cards - LSI 9211-8i<br /></li>
+<li><a id="org09429c2"></a>Chassis - Rosewill 4U<br /></li>
 </ol>
 </li>
-<li><a id="org1c74b30"></a>Router<br />
+<li><a id="org3cb1feb"></a>Router<br />
 <ol class="org-ol">
-<li><a id="org11318c5"></a>I have an EdgeRouter lite, but honestly any modern day router will do. If you want more control over the configuration, buy a linux based router, or look into DDWRT and tomato based router firmwares and comptabile routers.<br /></li>
+<li><a id="org5e3a4f8"></a>I have an EdgeRouter lite, but honestly any modern day router will do. If you want more control over the configuration, buy a linux based router, or look into DDWRT and tomato based router firmwares and comptabile routers.<br /></li>
 </ol>
 </li>
-<li><a id="org82baa31"></a>Storage Chassis #1<br />
+<li><a id="orga6d94a2"></a>Storage Chassis #1<br />
 <ol class="org-ol">
-<li><a id="orgaaa0d07"></a>Chassis - Supermicro 12 Bay<br /></li>
-<li><a id="org03a043d"></a>PSU - Not sure at the moment<br /></li>
-<li><a id="orgea1378f"></a>Fans - 3 Noctua<br /></li>
-<li><a id="org0f87e13"></a>Fan Controller - Random one on eBay or Amazon cant remember<br /></li>
+<li><a id="org9f3a948"></a>Chassis - Supermicro 12 Bay<br /></li>
+<li><a id="org30ce003"></a>PSU - Not sure at the moment<br /></li>
+<li><a id="org694cfea"></a>Fans - 3 Noctua<br /></li>
+<li><a id="org4baf452"></a>Fan Controller - Random one on eBay or Amazon cant remember<br /></li>
 </ol>
 </li>
-<li><a id="orge6a4c25"></a>Storage Chassis #2<br />
+<li><a id="orgafee2cb"></a>Storage Chassis #2<br />
 <ol class="org-ol">
-<li><a id="org16033ae"></a>Chassis - Supermicro 12 Bay<br /></li>
-<li><a id="org4aa835d"></a>PSU - Not sure at the moment<br /></li>
-<li><a id="org407a2f5"></a>Fans - 3 Noctua<br /></li>
-<li><a id="org1536d4d"></a>Fan Controller - Random one on eBay or Amazon cant remember<br /></li>
+<li><a id="org5f22e13"></a>Chassis - Supermicro 12 Bay<br /></li>
+<li><a id="org4d73252"></a>PSU - Not sure at the moment<br /></li>
+<li><a id="org32b5e1a"></a>Fans - 3 Noctua<br /></li>
+<li><a id="orged4ed8e"></a>Fan Controller - Random one on eBay or Amazon cant remember<br /></li>
 </ol>
 </li>
 </ol>
 </div>
-<div id="outline-container-org63841a6" class="outline-3">
-<h3 id="org63841a6"><span class="section-number-3">1.3</span> VMs to build</h3>
+<div id="outline-container-orgf040c27" class="outline-3">
+<h3 id="orgf040c27"><span class="section-number-3">1.3</span> VMs to build</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
 <ol class="org-ol">
-<li><a id="org274e7d2"></a><span class="todo TODO">TODO</span> RESEARCH: can we figure out a way to start a base template VM, and based on a set of vulns that we give the VM at deploy time, spin up the VM with those vulns?<br /></li>
-<li><a id="orgf48e8ea"></a><span class="todo TODO">TODO</span> OpenVas VM<br /></li>
-<li><a id="org6a2f3e6"></a><span class="todo TODO">TODO</span> Kanban board (investigate opensource JIRA alternatives)<br />
+<li><a id="orgd3a25cc"></a><span class="todo TODO">TODO</span> RESEARCH: can we figure out a way to start a base template VM, and based on a set of vulns that we give the VM at deploy time, spin up the VM with those vulns?<br /></li>
+<li><a id="orgdda7f84"></a><span class="todo TODO">TODO</span> OpenVas VM<br /></li>
+<li><a id="orgdc0c092"></a><span class="todo TODO">TODO</span> Kanban board (investigate opensource JIRA alternatives)<br />
 <div class="outline-text-5" id="text-1-3-0-3">
 <ul class="org-ul">
 <li>Atlassian offers confluence, bitbucket, and jira all for $10 per year per 10 users. I like these tools, so I am more than happy to pay them for them.</li>
 </ul>
 </div>
 </li>
-<li><a id="orgffbe573"></a><span class="todo TODO">TODO</span> Issue tracking (bugzilla maybe?)<br /></li>
-<li><a id="org49e4b99"></a><span class="todo TODO">TODO</span> Wiki - (as close to confluence as we can find)<br /></li>
-<li><a id="orgd322f4b"></a><span class="done DONE">DONE</span> Pentest System (Kali linux and/or pentoo)<br />
+<li><a id="orgd73a0b2"></a><span class="todo TODO">TODO</span> Issue tracking (bugzilla maybe?)<br /></li>
+<li><a id="org973de64"></a><span class="todo TODO">TODO</span> Wiki - (as close to confluence as we can find)<br /></li>
+<li><a id="org4ae61b9"></a><span class="done DONE">DONE</span> Pentest System (Kali linux and/or pentoo)<br />
 <div class="outline-text-5" id="text-1-3-0-6">
 <ul class="org-ul">
 <li><a href="https://docs.kali.org/development/live-build-a-custom-kali-iso">Build your own custom Kali iso</a></li>
@@ -358,7 +372,7 @@ CLOSED: <span class="timestamp-wrapper"><span class="timestamp">[2018-07-16 Mon 
 </p>
 </div>
 </li>
-<li><a id="org6492ee3"></a><span class="todo TODO">TODO</span> Vulnerable system with multiple web apps (multidae, dvwa)<br />
+<li><a id="orgdb52cb0"></a><span class="todo TODO">TODO</span> Vulnerable system with multiple web apps (multidae, dvwa)<br />
 <div class="outline-text-5" id="text-1-3-0-7">
 <ul class="org-ul">
 <li>OWASP Broken Web Application Project - <a href="https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main">https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main</a></li>
@@ -367,12 +381,12 @@ CLOSED: <span class="timestamp-wrapper"><span class="timestamp">[2018-07-16 Mon 
 </li>
 </ol>
 </div>
-<div id="outline-container-org3f0979f" class="outline-3">
-<h3 id="org3f0979f"><span class="section-number-3">1.4</span> Research Material</h3>
+<div id="outline-container-org90dfb6a" class="outline-3">
+<h3 id="org90dfb6a"><span class="section-number-3">1.4</span> Research Material</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
-<div id="outline-container-orge4dfd45" class="outline-4">
-<h4 id="orge4dfd45"><span class="section-number-4">1.4.1</span> Filesystem specific(I used ZFS as my main FS)</h4>
+<div id="outline-container-org308c6b5" class="outline-4">
+<h4 id="org308c6b5"><span class="section-number-4">1.4.1</span> Filesystem specific(I used ZFS as my main FS)</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <ul class="org-ul">
 <li><a href="https://superuser.com/questions/1159116/zfs-vs-raw-disk-for-storing-virtual-machines-trade-offs">ZFS Volumes vs Raw Disk Storage Trade Offs</a></li>
@@ -380,16 +394,16 @@ CLOSED: <span class="timestamp-wrapper"><span class="timestamp">[2018-07-16 Mon 
 </ul>
 </div>
 </div>
-<div id="outline-container-org8b3abea" class="outline-4">
-<h4 id="org8b3abea"><span class="section-number-4">1.4.2</span> Web Application Testing:</h4>
+<div id="outline-container-org78176d5" class="outline-4">
+<h4 id="org78176d5"><span class="section-number-4">1.4.2</span> Web Application Testing:</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <ul class="org-ul">
 <li><a href="https://www.owasp.org/images/1/19/OTGv4.pdf">OWASP Testing Guide</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgeabf575" class="outline-4">
-<h4 id="orgeabf575"><span class="section-number-4">1.4.3</span> Pentest Specific:</h4>
+<div id="outline-container-org335f9a1" class="outline-4">
+<h4 id="org335f9a1"><span class="section-number-4">1.4.3</span> Pentest Specific:</h4>
 <div class="outline-text-4" id="text-1-4-3">
 <p>
 -<a href="https://github.com/enaqx/awesome-pentest"> awesome-pentest GitHub</a> 
@@ -397,12 +411,12 @@ CLOSED: <span class="timestamp-wrapper"><span class="timestamp">[2018-07-16 Mon 
 </div>
 </div>
 </div>
-<div id="outline-container-orgf99ab36" class="outline-3">
-<h3 id="orgf99ab36"><span class="section-number-3">1.5</span> Programs to write</h3>
+<div id="outline-container-org34d1817" class="outline-3">
+<h3 id="org34d1817"><span class="section-number-3">1.5</span> Programs to write</h3>
 <div class="outline-text-3" id="text-1-5">
 </div>
-<div id="outline-container-org2fb95eb" class="outline-4">
-<h4 id="org2fb95eb"><span class="section-number-4">1.5.1</span> <span class="todo TODO">TODO</span> Make a program in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images</h4>
+<div id="outline-container-orgc9656db" class="outline-4">
+<h4 id="orgc9656db"><span class="section-number-4">1.5.1</span> <span class="todo TODO">TODO</span> Make a program in ruby that will convert other image files to raw files. we will need to run this in bulk after dl of ova images</h4>
 <div class="outline-text-4" id="text-1-5-1">
 <div class="org-src-container">
 <pre class="src src-ruby"><span style="color: #0087af; font-weight: bold;">def</span> <span style="color: #ffff00; font-weight: bold;">file_exists</span><span style="color: #0087af;">(</span>filename<span style="color: #0087af;">)</span>
@@ -426,8 +440,8 @@ test_convert<span style="color: #0087af;">(</span><span style="color: #00ff00;">
 </div>
 </div>
 
-<div id="outline-container-org81ce86c" class="outline-4">
-<h4 id="org81ce86c"><span class="section-number-4">1.5.2</span> <span class="todo TODO">TODO</span> Make a program in ruby that will download the .ova files from <a href="https://download.vulnhub.com/checksum.txt">https://download.vulnhub.com/checksum.txt</a></h4>
+<div id="outline-container-orgb6d88f5" class="outline-4">
+<h4 id="orgb6d88f5"><span class="section-number-4">1.5.2</span> <span class="todo TODO">TODO</span> Make a program in ruby that will download the .ova files from <a href="https://download.vulnhub.com/checksum.txt">https://download.vulnhub.com/checksum.txt</a></h4>
 <div class="outline-text-4" id="text-1-5-2">
 <div class="org-src-container">
 <pre class="src src-ruby"><span style="color: #0087af; font-weight: bold;">class</span> <span style="color: #ff8700; font-weight: bold;">DownloadVulnHubTorrents</span>
@@ -457,8 +471,8 @@ vulnhubber.gather_urls<span style="color: #0087af;">(</span><span style="color: 
 </div>
 </div>
 </div>
-<div id="outline-container-orgb51f5d1" class="outline-4">
-<h4 id="orgb51f5d1"><span class="section-number-4">1.5.3</span> <span class="todo TODO">TODO</span> Make a program in ruby that will generate ssh keypairs for our vms</h4>
+<div id="outline-container-orga4d02a5" class="outline-4">
+<h4 id="orga4d02a5"><span class="section-number-4">1.5.3</span> <span class="todo TODO">TODO</span> Make a program in ruby that will generate ssh keypairs for our vms</h4>
 <div class="outline-text-4" id="text-1-5-3">
 <p>
 found a nice ruby gem <a href="https://github.com/bensie/sshkey">sshkey gem</a>
@@ -482,18 +496,18 @@ keypair = gen_ssh_keypair
 </div>
 </div>
 </div>
-<div id="outline-container-org76a297b" class="outline-4">
-<h4 id="org76a297b"><span class="section-number-4">1.5.4</span> <span class="todo TODO">TODO</span> Make a program that configures a static ip address for a host system in ruby (most of the vulnhub vms come configured with dhcp, but this will still be a nice tool to have for vm reconfiguring if ever needed)</h4>
+<div id="outline-container-orgd3db771" class="outline-4">
+<h4 id="orgd3db771"><span class="section-number-4">1.5.4</span> <span class="todo TODO">TODO</span> Make a program that configures a static ip address for a host system in ruby (most of the vulnhub vms come configured with dhcp, but this will still be a nice tool to have for vm reconfiguring if ever needed)</h4>
 </div>
-<div id="outline-container-org65ba3a4" class="outline-4">
-<h4 id="org65ba3a4"><span class="section-number-4">1.5.5</span> <span class="todo TODO">TODO</span> RESEARCH: Make a program that will allow you to export an org-mode document in emacs to a pentest report.</h4>
+<div id="outline-container-org870b4d7" class="outline-4">
+<h4 id="org870b4d7"><span class="section-number-4">1.5.5</span> <span class="todo TODO">TODO</span> RESEARCH: Make a program that will allow you to export an org-mode document in emacs to a pentest report.</h4>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Brendan McDevitt</p>
-<p class="date">Created: 2018-07-19 Thu 00:27</p>
+<p class="date">Created: 2018-07-19 Thu 00:52</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

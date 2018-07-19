@@ -25,7 +25,17 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
 
 ## Host Prep<a id="sec-1-1"></a>
 
+First you are going to want to ensure that your system is capable of running virtualization software. Most modern Intel and AMD based processors will support this. However, they may have the option disabled within the Bios. You will need to check with your motherboard manufacturer to see if your system supports VT-D support.
+
 ### TODO RESEARCH: - add in the methods to check to make sure the system is ready to deploy kvm/qemu (cpu flags for vt-d/grub options/bios options&#x2026;.etc, attach or link images if neccessary)<a id="sec-1-1-1"></a>
+
+```ruby
+def get_cpu_flags
+  cpu_flags = `grep flags /proc/cpuinfo | cut -f 2 -d : | uniq`.strip
+end
+
+cpu_flags = get_cpu_flags
+```
 
 ## My Lab Specs<a id="sec-1-2"></a>
 
