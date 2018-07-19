@@ -12,6 +12,7 @@
     - [Make a program in ruby that will download the .ova files from <https://download.vulnhub.com/checksum.txt>](#sec-1-5-2)
     - [Make a program in ruby that will generate ssh keypairs for our vms](#sec-1-5-3)
     - [Make a program that configures a static ip address for a host system in ruby (most of the vulnhub vms come configured with dhcp, but this will still be a nice tool to have for vm reconfiguring if ever needed)](#sec-1-5-4)
+    - [RESEARCH: Make a program that will allow you to export an org-mode document in emacs to a pentest report.](#sec-1-5-5)
 
 
 # Introduction<a id="sec-1"></a>
@@ -76,15 +77,17 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
 
 1.  TODO RESEARCH: can we figure out a way to start a base template VM, and based on a set of vulns that we give the VM at deploy time, spin up the VM with those vulns?
 
-2.  TODO Kanban board (investigate opensource JIRA alternatives)
+2.  TODO OpenVas VM
+
+3.  TODO Kanban board (investigate opensource JIRA alternatives)
 
     -   Atlassian offers confluence, bitbucket, and jira all for $10 per year per 10 users. I like these tools, so I am more than happy to pay them for them.
 
-3.  TODO Issue tracking (bugzilla maybe?)
+4.  TODO Issue tracking (bugzilla maybe?)
 
-4.  TODO Wiki - (as close to confluence as we can find)
+5.  TODO Wiki - (as close to confluence as we can find)
 
-5.  DONE Pentest System (Kali linux and/or pentoo)
+6.  DONE Pentest System (Kali linux and/or pentoo)
 
     -   [Build your own custom Kali iso](https://docs.kali.org/development/live-build-a-custom-kali-iso)
     -   [pentoo](https://www.pentoo.ch/download)
@@ -92,7 +95,7 @@ I am going to be primarily using ruby and bash scripting to glue everything toge
     
     CLOSED: <span class="timestamp-wrapper"><span class="timestamp">[2018-07-16 Mon 16:25]</span></span>
 
-6.  TODO Vulnerable system with multiple web apps (multidae, dvwa)
+7.  TODO Vulnerable system with multiple web apps (multidae, dvwa)
 
     -   OWASP Broken Web Application Project - <https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main>
 
@@ -164,8 +167,25 @@ vulnhubber.gather_urls('/home/booboy/bin/mygit/homelab_scripts/checksum.txt')
 
 ### TODO Make a program in ruby that will generate ssh keypairs for our vms<a id="sec-1-5-3"></a>
 
+found a nice ruby gem [sshkey gem](https://github.com/bensie/sshkey)
+
 ```ruby
+require 'sshkey'
+
+  def gen_ssh_keypair
+
+    k = SSHKey.generate(
+      type: "DSA",
+      bits: 1024,
+      comment: "foo@bar.com",
+      passphrase: "foobar"
+    )
+  end
+
+keypair = gen_ssh_keypair
 
 ```
 
 ### TODO Make a program that configures a static ip address for a host system in ruby (most of the vulnhub vms come configured with dhcp, but this will still be a nice tool to have for vm reconfiguring if ever needed)<a id="sec-1-5-4"></a>
+
+### TODO RESEARCH: Make a program that will allow you to export an org-mode document in emacs to a pentest report.<a id="sec-1-5-5"></a>

@@ -36,6 +36,7 @@
 ***** Fan Controller - Random one on eBay or Amazon cant remember
 ** VMs to build
 **** TODO RESEARCH: can we figure out a way to start a base template VM, and based on a set of vulns that we give the VM at deploy time, spin up the VM with those vulns?  
+**** TODO OpenVas VM 
 **** TODO Kanban board (investigate opensource JIRA alternatives)
      - Atlassian offers confluence, bitbucket, and jira all for $10 per year per 10 users. I like these tools, so I am more than happy to pay them for them.
 **** TODO Issue tracking (bugzilla maybe?)
@@ -107,7 +108,22 @@
 
 #+RESULTS:
 *** TODO Make a program in ruby that will generate ssh keypairs for our vms
-   #+BEGIN_SRC ruby :results replace
-   
+found a nice ruby gem [[https://github.com/bensie/sshkey][sshkey gem]]
+#+BEGIN_SRC ruby :results replace
+  require 'sshkey'
+
+    def gen_ssh_keypair
+
+      k = SSHKey.generate(
+        type: "DSA",
+        bits: 1024,
+        comment: "foo@bar.com",
+        passphrase: "foobar"
+      )
+    end
+
+  keypair = gen_ssh_keypair
+
    #+END_SRC
 *** TODO Make a program that configures a static ip address for a host system in ruby (most of the vulnhub vms come configured with dhcp, but this will still be a nice tool to have for vm reconfiguring if ever needed)
+*** TODO RESEARCH: Make a program that will allow you to export an org-mode document in emacs to a pentest report. 
