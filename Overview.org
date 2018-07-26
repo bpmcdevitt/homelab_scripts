@@ -52,6 +52,7 @@
      - Atlassian offers confluence, bitbucket, and jira all for $10 per year per 10 users. I like these tools, so I am more than happy to pay them for them.
 **** TODO Issue tracking (bugzilla maybe?)
 **** TODO Wiki - (as close to confluence as we can find)
+     - why dont we just use org-mode? 
 **** DONE Pentest System (Kali linux and/or pentoo)
      - [[https://docs.kali.org/development/live-build-a-custom-kali-iso][Build your own custom Kali iso]]
      - [[https://www.pentoo.ch/download][pentoo]]
@@ -59,6 +60,7 @@
      CLOSED: [2018-07-16 Mon 16:25]
 **** TODO Vulnerable system with multiple web apps (multidae, dvwa) 
      - OWASP Broken Web Application Project - https://www.owasp.org/index.php/OWASP_Broken_Web_Applications_Project#tab=Main
+     - OWASP Security Shepherd - https://www.owasp.org/index.php/OWASP_Security_Shepherd  
 ** Research Material
 *** Filesystem specific(I used ZFS as my main FS)
     - [[https://superuser.com/questions/1159116/zfs-vs-raw-disk-for-storing-virtual-machines-trade-offs][ZFS Volumes vs Raw Disk Storage Trade Offs]] 
@@ -87,8 +89,9 @@
   test_convert('vmdk', '/storage/virtual_machines/DSL-4.4.10-disk1.vmdk')
 
 #+END_SRC
-
+- there is also virt-v2v - https://www.redhat.com/en/blog/importing-vms-kvm-virt-v2v
 #+RESULTS:
+
 
 *** TODO Make a program in ruby that will download the .ova files from https://download.vulnhub.com/checksum.txt
 #+BEGIN_SRC ruby :results raw
