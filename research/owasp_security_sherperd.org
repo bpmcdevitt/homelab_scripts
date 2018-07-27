@@ -1,0 +1,13 @@
+#+Title: Import Owasp Security Shepherd into KVM Environment
+https://www.owasp.org/index.php/OWASP_Security_Shepherd
+
+*** Step 1: Download Ova
+*** Step 2: Convert Ova to qcow2 or raw format
+*** Step 3: Import into kvm using virt-v2v - https://www.redhat.com/en/blog/importing-vms-kvm-virt-v2v
+*** Step 4: Give vnc access to vm for easier console access
+    virsh edit <vmname>
+*** Step 5: Start the vm
+*** Step 6: Login to the console with the password in the README file.
+*** Step 7: Change the user password
+*** Step 8: Check the local ip address
+*** Step 9: Navigate to https://<vm_ip_address>
